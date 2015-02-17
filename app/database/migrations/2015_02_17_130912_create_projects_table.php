@@ -5,11 +5,6 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateProjectsTable extends Migration {
 
-	/**
-	 * Run the migrations.
-	 *
-	 * @return void
-	 */
 	public function up()
 	{
 		Schema::create('projects', function(Blueprint $table)
@@ -22,16 +17,10 @@ class CreateProjectsTable extends Migration {
 			$table->timestamps();
 			$table->text('project_body');
 			$table->string('project_url', 60);
-			$table->integer('stat_id')->unsigned();
-			$table->foreign('stat_id')->references('stat_id')->on('stats');
 		});
 	}
 
-	/**
-	 * Reverse the migrations.
-	 *
-	 * @return void
-	 */
+
 	public function down()
 	{
 		Schema::drop('projects');

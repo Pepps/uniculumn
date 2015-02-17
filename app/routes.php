@@ -11,9 +11,12 @@
 |
 */
 
-Route::get('/', function(){
+Route::get('users', function()
+{
 	//return View::make('hello');
-	return "Hello world!";
+	//$users = User::has('project')->get();
+	  $users = User::all();
+	return $users;
 });
 
 Route::get('/doc', function(){
