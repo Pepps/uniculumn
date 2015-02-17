@@ -65,12 +65,16 @@ class UserController extends BaseController {
         	$result = json_decode( $googleService->request( 'https://www.googleapis.com/oauth2/v1/userinfo' ), true );
 
             // Check to see if user already exists
-            $user = DB::select('select id from users where email = ?', array($result['email']));
+            $user = DB::select('select user_id from users where email = ?', array($result['email']));
 
-            $user = User::whereEmail($result['email'])->first(['id']);
+            $user = User::whereEmail($result['email'])->first(['user_id']);
 
             if (empty($user)) {
                 $user = new User;
+                $user->fname = $result['given_name'];
+                $user->email= $result['email'];
+                $user->lname = $result['family_name'];
+
                 $user->save();
     } 
 
@@ -78,7 +82,7 @@ class UserController extends BaseController {
         }
 
 
-    
+        
     	// if not ask for permission first
    		else {
         	// get googleService authorization
