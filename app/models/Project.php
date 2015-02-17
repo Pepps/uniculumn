@@ -3,6 +3,8 @@
 class Project extends Eloquent 
 {
 
+protected $primaryKey = 'project_id';
+
 protected $table = 'projects';
 
 	public function user()

@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Look! I'm CRUDding</title>
+    <title>Uniculum</title>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
 </head>
 <body>
@@ -14,8 +14,8 @@
         <a class="navbar-brand" href="{{ URL::to('Project') }}">Project Alert</a>
     </div>
     <ul class="nav navbar-nav">
-        <li><a href="{{ URL::to('Project') }}">View All Projects</a></li>
-        <li><a href="{{ URL::to('Project/create') }}">Create a Project</a>
+        <li><a href="{{ URL::to('projects') }}">View All Projects</a></li>
+        <li><a href="{{ URL::to('project/create') }}">Create a Project</a>
     </ul>
 </nav>
 
@@ -42,8 +42,8 @@
     </div>
 
     <div class="form-group">
-        {{ Form::label('user_ID', 'Användarnamn') }}
-        {{ Form::text('user_ID', Input::old('user_ID'), array('class' => 'form-control')) }}
+        {{ Form::label('user_id', 'Användarnamn') }}
+        {{ Form::text('user_id', Input::old('user_id'), array('class' => 'form-control')) }}
     </div>
 
     {{ Form::submit('Create the Project!', array('class' => 'btn btn-primary')) }}

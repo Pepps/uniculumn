@@ -12,19 +12,18 @@ class CreateProjectsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('projects', function($table)
+		Schema::create('projects', function(Blueprint $table)
 		{
 			$table->engine = 'InnoDB';
-			$table->increments('id');
+			$table->increments('project_id');
 			$table->integer('user_id')->unsigned();
-			$table->foreign('user_id')->references('id')->on('users');
+			$table->foreign('user_id')->references('user_id')->on('users');
 			$table->string('project_title', 40);
 			$table->timestamps();
 			$table->text('project_body');
 			$table->string('project_url', 60);
-			$table->integer('stats_id')->unsigned();
-			$table->foreign('stats_id')->references('id')->on('stats');
-
+			$table->unsignedInteger('stat_id')->nullable();
+			$table->foreign('stat_id')->references('stat_id')->on('stats')->onUpdate('cascade');;
 		});
 	}
 

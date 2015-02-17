@@ -38,7 +38,7 @@
     <tbody>
     @foreach($projects as $key => $value)
         <tr>
-            <td>{{ $value->id }}</td>
+            <td>{{ $value->project_id }}</td>
             <td>{{$value->user_id}}</td>
             <td>{{$value->stats_id}}</td>
             <td>{{$value->project_title}}</td>
@@ -53,7 +53,7 @@
                 <!-- we will add this later since its a little more complicated than the other two buttons -->
 
                 <!-- show the project (uses the show method found at GET /projects/{id} -->
-                <a class="btn btn-small btn-success" href="{{ URL::to('projects/' . $value->id) }}">Show this Project</a>
+                <a class="btn btn-small btn-success" href="{{ URL::to('Project/' . $value->project_id) }}">Show this Project</a>
 
                 <!-- edit this project (uses the edit method found at GET /projects/{id}/edit -->
                 <a class="btn btn-small btn-info" href="{{ URL::to('projects/' . $value->id . '/edit') }}">Edit this Project</a>

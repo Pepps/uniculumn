@@ -41,7 +41,7 @@ class ProjectController extends \BaseController {
             'name'       => 'required',
             'subname'      => 'required',
             'project_type' => 'required|numeric',
-            'user_ID' => 'required'
+            'user_id' => 'required'
         );
         $validator = Validator::make(Input::all(), $rules);
 
@@ -56,7 +56,7 @@ class ProjectController extends \BaseController {
             $project->project_title= Input::get('name');
             $project->project_body = Input::get('subname');
             $project->project_url = Input::get('project_type');
-            $project->user_id = Input::get('user_ID');
+            $project->user_id = Input::get('user_id', false);
             $project->save();
 
             // redirect
@@ -72,14 +72,14 @@ class ProjectController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
+	public function show($project_id)
 	{
-		 // get the nerd
-        $project = Project::find($id);
+		 // get the project
+        $project = Project::find($project_id);
 
-        // show the view and pass the nerd to it
-        return View::make('nerds.show')
-            ->with('nerd', $project);
+        // show the view and pass the project to it
+        return View::make('projects.show')
+            ->with('project', $project);
 	}
 
 
