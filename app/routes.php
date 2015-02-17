@@ -15,3 +15,17 @@ Route::get('/', function()
 {
 	return View::make('hello');
 });
+
+Route::get('/users', function()
+{
+	//return View::make('hello');
+	//$users = User::has('project')->get();
+	  $users = User::all();
+	return $users;
+});
+
+Route::get('/doc', function(){
+	return View::make('doc');
+});
+
+Route::get("/search/{option}/{key}/{val}", "SearchController@index");
