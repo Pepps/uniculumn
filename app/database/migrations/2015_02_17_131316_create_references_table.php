@@ -5,11 +5,6 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateReferencesTable extends Migration {
 
-	/**
-	 * Run the migrations.
-	 *
-	 * @return void
-	 */
 	public function up()
 	{
 		Schema::create('references', function(Blueprint $table)
@@ -26,11 +21,6 @@ class CreateReferencesTable extends Migration {
 		});
 	}
 
-	/**
-	 * Reverse the migrations.
-	 *
-	 * @return void
-	 */
 	public function down()
 	{
 		Schema::drop('references');

@@ -7,7 +7,7 @@ protected $table = 'projects';
 
 	public function user()
 	{
-		return $this->belongsToMany('User');
+		return $this->hasOne('User');
 	}
 
 	public function category()
@@ -17,7 +17,7 @@ protected $table = 'projects';
 
 	public function stat()
 	{
-		return $this->hasMany('Stat');
+		return $this->hasOne('Stat');
 	}
 
 

@@ -20,7 +20,7 @@ class UserTableSeeder extends Seeder {
 
     public function run()
     {
-        // add user using Eloquent
+        // add user using Eloquent :
         $user = new User;
         $user->fname = 'Kevin';
         $user->lname = 'Tatou';
@@ -31,6 +31,7 @@ class UserTableSeeder extends Seeder {
         $user->googleauth_token = '12345';
         $user->p_dir = Hash::make('12345/12345');  
         $user->save();
+
     }
 
 }
