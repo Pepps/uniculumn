@@ -7,43 +7,6 @@ class UserController extends BaseController {
 		Author : Joakim
 	*/
 
-	public function loginWithFacebook() {
-
-    	// get data from input
-   		$code = Input::get( 'code' );
-
-    	// get fb service
-    	$fb = OAuth::consumer( 'Facebook' );
-
-    	// check if code is valid
-
-    	// if code is provided get user data and sign in
-    	if ( !empty( $code ) ) {
-
-        	// This was a callback request from facebook, get the token
-        	$token = $fb->requestAccessToken( $code );
-
-        	// Send a request with it
-        	$result = json_decode( $fb->request( '/me' ), true );
-
-        	$message = 'Your unique facebook user id is: ' . $result['id'] . ' and your name is ' . $result['name'];
-        	echo $message. "<br/>";
-
-        	//Var_dump
-        	//display whole array().
-        	dd($result);
-
-    }
-    		// if not ask for permission first
-    	else {
-        	// get fb authorization
-        	$url = $fb->getAuthorizationUri();
-
-        	// return to facebook login url
-         	return Redirect::to( (string)$url );
-    	}
-
-	}
 	public function loginWithGoogle() {
         echo 1;
     	// get data from input
@@ -65,20 +28,24 @@ class UserController extends BaseController {
         	$result = json_decode( $googleService->request( 'https://www.googleapis.com/oauth2/v1/userinfo' ), true );
 
             // Check to see if user already exists
-            $user = DB::select('select id from users where email = ?', array($result['email']));
+            $user = DB::select('select user_id from users where email = ?', array($result['email']));
 
-            $user = User::whereEmail($result['email'])->first(['id']);
+            $user = User::whereEmail($result['email'])->first(['user_id']);
 
             if (empty($user)) {
-                $user = new User;
-                $user->save();
-    } 
+                $new_user = new User();
+                $new_user->email = $result['email'];
+                $new_user->fname = $result['given_name'];
+                $new_user->lname = $result['family_name'];
+                $new_user->googleauth_token = $result['id'];
+                $new_user->save();
+    }
 
             Auth::login($user);
         }
 
 
-    
+
     	// if not ask for permission first
    		else {
         	// get googleService authorization
@@ -89,4 +56,5 @@ class UserController extends BaseController {
     }
 
 }
+
 }
