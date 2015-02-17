@@ -11,10 +11,13 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('hello');
+Route::get('/', function(){
+	//return View::make('hello');
+	return "Hello world!";
+});
 
+Route::get('/doc', function(){
+	return View::make('doc');
 });
 
 Route::get("/search/{option}/{key}/{val}", "SearchController@index");
