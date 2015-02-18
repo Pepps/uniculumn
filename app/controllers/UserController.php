@@ -7,6 +7,11 @@ class UserController extends BaseController {
 		Author : Joakim
 	*/
 
+    public function register(){
+
+        
+    }
+
 	public function loginWithFacebook() {
 
     	// get data from input
@@ -79,6 +84,8 @@ class UserController extends BaseController {
     } 
 
             Auth::login($user);
+
+
         }
 
 
