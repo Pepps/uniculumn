@@ -38,7 +38,8 @@ class HomeController extends BaseController {
                             ->withErrors($validator->messages());
             }
             else{
-                    Register::saveFormData(Input::except(array('_token','cpassword')));
+                    
+                    User::saveFormData(Input::except(array('_token','cpassword')));
  
                     return Redirect::to('register')
                             ->withMessage('Data inserted');

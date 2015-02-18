@@ -20,7 +20,7 @@
 
 
       <div class="registration_box">
-        {{ Form::open(array('url' => 'register_action')) }}
+        {{ Form::open(array('url' => 'register_action','method' => 'post')) }}
       @if($errors->any())
       <div class="alert alert-error">
         <a href="#" class="close" data-dismiss="alert">&times;</a>
@@ -90,7 +90,7 @@
         -->
           <input type="text" name="password">
           <br>
-        
+       <!-- {{ Form::submit('Login') }}-->
         {{HTML::link('login')}}
         <!--<span id="signinButton">
         <span class="g-signin"
