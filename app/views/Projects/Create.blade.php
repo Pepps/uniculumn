@@ -19,7 +19,7 @@
     </ul>
 </nav>
 
-<h1>Create a Project</h1>
+<h1>Registrera Projekt</h1>
 
 <!-- if there are creation errors, they will show here -->
 {{ HTML::ul($errors->all()) }}
@@ -27,18 +27,18 @@
 {{ Form::open(array('url' => 'Project')) }}
 
     <div class="form-group">
-        {{ Form::label('name', 'Name') }}
+        {{ Form::label('name', 'Namn') }}
         {{ Form::text('name', Input::old('name'), array('class' => 'form-control')) }}
     </div>
 
     <div class="form-group">
-        {{ Form::label('subname', 'Subname') }}
-        {{ Form::text('subname', Input::old('subname'), array('class' => 'form-control')) }}
+        {{ Form::label('subname', 'Beskrivning') }}
+        {{ Form::textarea('subname', Input::old('subname'), array('class' => 'form-control')) }}
     </div>
 
     <div class="form-group">
         {{ Form::label('project_type', 'Project Type') }}
-        {{ Form::select('project_type', array('0' => 'Select a Project Type', '1' => 'Text Document', '2' => '3D-Modeling', '3' => 'Game Creation'), Input::old('project_type'), array('class' => 'form-control')) }}
+        {{ Form::select('project_type', array('0' => 'Select a Project Type', '1' => 'Mediateknik', '2' => 'Ekonomi'), Input::old('project_type'), array('class' => 'form-control')) }}
     </div>
 
     <div class="form-group">
