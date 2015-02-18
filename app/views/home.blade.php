@@ -9,7 +9,7 @@
     <div class="column_left">
 
       <div class="welcome_box">
-        &nbsp; &nbsp;<span class="dark">Logga in eller</span> <br/>
+        <span class="trigger_login">Logga in </span>eller <br/>
         <span class="trigger_registration">registrera dig</span>
 
       </div>
@@ -45,6 +45,10 @@
           <div class="register_button">Registrera dig</div>
 
         </form>-->
+      </div>
+
+      <div class="login_box">
+        <p>hej</p>
       </div>
 
 
@@ -87,7 +91,7 @@
         -->
           <input type="text" name="password">
           <br>
-        
+
         {{HTML::link('login')}}
         <!--<span id="signinButton">
         <span class="g-signin"
@@ -97,7 +101,7 @@
         data-requestvisibleactions="http://schema.org/AddAction"
         data-scope="https://www.googleapis.com/auth/plus.login">
         </span>
-        </span> 
+        </span>
 
           <a href="user.html"><div class="login_button">Logga in</div></a>
         </form><!-->
