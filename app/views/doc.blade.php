@@ -91,19 +91,19 @@
         if(!inputval == ""){
           $(this).parent().find("ul").append("<li>"+$(this).parent().find(".input").val()+"</li>");
           switch($(this).parent().find(".inputtype").val()) {
-              case "users":
+              case "user":
                   console.log("users");
                   users.push($(this).parent().find(".input").val());
                   break;
-              case "projects":
+              case "project":
                   console.log("projects");
                   projects.push($(this).parent().find(".input").val());
                   break;
-              case "experinces":
+              case "experince":
                   console.log("experinces");
                   experinces.push($(this).parent().find(".input").val());
                   break;
-              case "categorys":
+              case "category":
                   console.log("categorys");
                   categorys.push($(this).parent().find(".input").val());
                   break;
