@@ -17,6 +17,8 @@ class CreateProjectsTable extends Migration {
 			$table->timestamps();
 			$table->text('project_body');
 			$table->string('project_url', 60);
+			$table->unsignedInteger('stat_id')->nullable();
+			$table->foreign('stat_id')->references('stat_id')->on('stats')->onUpdate('cascade');;
 		});
 	}
 
