@@ -13,5 +13,13 @@
 
 Route::get('/', 'HomeController@index');
 //Route::resource('nerds','NerdController');
-Route::get('login', array('as' => 'login', 'uses' => 'UserController@loginWithGoogle'));
+Route::get('/login', array('as' => 'login', 'uses' => 'UserController@loginWithGoogle'));
 
+
+Route::post('register_action', function()
+{
+        $obj = new HomeController() ;
+        return $obj->store();
+});
+
+Route::get('/register', 'HomeController@index');

@@ -14,8 +14,10 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 *
 	 * @var string
 	 */
-	protected $table = 'users';
 
+	 	protected $guarded = array();
+        protected $table = 'users'; // table name
+        public $timestamps = 'false'; // to disable default timestamp fields
 	/**
 	 * The attributes excluded from the model's JSON form.
 	 *
@@ -42,5 +44,17 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	{
 		return $this->hasMany('Stat');
 	}
-
+	public function getAuthPassword()
+	{
+		return $this->password;
+	}
+ 
+        // model function to store form data to database
+     public static function saveFormData($data)
+     {
+            DB::table('users')->insert($data);
+     }
+ 
 }
+
+

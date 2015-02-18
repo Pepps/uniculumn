@@ -6,7 +6,6 @@ class UserController extends BaseController {
 	/*
 		Author : Joakim
 	*/
-
 	public function loginWithGoogle() {
         echo 1;
     	// get data from input
@@ -33,19 +32,17 @@ class UserController extends BaseController {
             $user = User::whereEmail($result['email'])->first(['user_id']);
 
             if (empty($user)) {
-                $new_user = new User();
-                $new_user->email = $result['email'];
-                $new_user->fname = $result['given_name'];
-                $new_user->lname = $result['family_name'];
-                $new_user->googleauth_token = $result['id'];
-                $new_user->save();
+                $user = new User;
+                $user->fname = $result['given_name'];
+                $user->email= $result['email'];
+                $user->lname = $result['family_name'];
+
+                $user->save();
     }
 
             Auth::login($user);
+
         }
-
-
-
     	// if not ask for permission first
    		else {
         	// get googleService authorization
@@ -53,8 +50,8 @@ class UserController extends BaseController {
 
         	// return to google login url
         	return Redirect::to( (string)$url );
-    }
+        }
 
-}
+    }
 
 }

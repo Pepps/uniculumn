@@ -18,17 +18,20 @@
 
 
 
+
       <div class="registration_box">
-        {{ Form::open(array('url' => 'register')) }}
+        {{ Form::open(array('url' => 'register_action','method' => 'post')) }}
       @if($errors->any())
       <div class="alert alert-error">
         <a href="#" class="close" data-dismiss="alert">&times;</a>
         {{ implode('', $errors->all('<li class="error">:message</li>')) }}
       </div>
       @endif
-      {{ Form::text('username', '', array('placeholder' => 'Username')) }}
+      {{ Form::text('fname', '', array('placeholder' => 'Förnamn')) }} <br>
+      {{ Form::text('lname', '', array('placeholder' => 'Efternamn')) }} <br>
       {{ Form::text('email', '', array('placeholder' => 'Email')) }}<br>
-      {{ Form::password('password', array('placeholder' => 'Password')) }}<br>
+      {{ Form::password('password', array('placeholder' => 'Lösenord')) }}<br>
+      {{ Form::password('cpassword', '', array('placeholder' => 'Bekräfta lösenord')) }} <br>
       {{ Form::submit('', array('class' => 'back_to_welcome')) }}
       {{ Form::submit('Register', array('class' => 'register_button')) }} <br>
       {{ Form::close() }}
@@ -91,7 +94,7 @@
         -->
           <input type="text" name="password">
           <br>
-
+       <!-- {{ Form::submit('Login') }}-->
         {{HTML::link('login')}}
         <!--<span id="signinButton">
         <span class="g-signin"
