@@ -6,6 +6,10 @@ class UserController extends BaseController {
 	/*
 		Author : Joakim
 	*/
+    public function register(){
+
+
+    }
 	public function loginWithGoogle() {
         echo 1;
     	// get data from input
@@ -31,6 +35,10 @@ class UserController extends BaseController {
 
             $user = User::whereEmail($result['email'])->first(['user_id']);
 
+            $call = new ReflectionClass('googleService');
+            $methods = $call->getMethods();
+            var_dump($methods);
+
             if (empty($user)) {
                 $user = new User;
                 $user->fname = $result['given_name'];
@@ -38,10 +46,8 @@ class UserController extends BaseController {
                 $user->lname = $result['family_name'];
 
                 $user->save();
-    }
-
+            }
             Auth::login($user);
-
         }
     	// if not ask for permission first
    		else {
