@@ -1,20 +1,13 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the Closure to execute when that URI is requested.
-|
-*/
 
-Route::get('users', function()
+
+Route::get('/', function()
 {
 	//return View::make('hello');
-	//$users = User::has('project')->get();
-	  $users = User::all();
-	return $users;
+	//$users = User::find(1);
+$project = User::find(1)->project;
+
+
+var_dump($project);
 });
