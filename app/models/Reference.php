@@ -2,8 +2,8 @@
 
 class Reference extends Eloquent 
 {
-protected $table = 'references';
 
+	// A Reference belongs to many Users.
 	public function user()
 	{
 		return $this->belongsToMany('User');

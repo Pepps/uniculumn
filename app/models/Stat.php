@@ -2,10 +2,12 @@
 
 class Stat extends Eloquent 
 {
-protected $table = 'stats';
 
+
+	// A Stat belongs to many Users.
 	public function user()
 	{
+
 		return $this->belongsToMany('User');
 	}
 
