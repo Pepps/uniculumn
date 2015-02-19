@@ -12,22 +12,21 @@
 */
 
 Route::get('/', 'HomeController@index');
-//Route::resource('nerds','NerdController');
-Route::get('/login', array('as' => 'login', 'uses' => 'UserController@loginWithGoogle'));
-
-
-Route::post('register_action', function()
-{
-        $obj = new HomeController() ;
-        return $obj->store();
-});
 
 Route::get('/users', function()
 {
 	//return View::make('hello');
 	//$users = User::has('project')->get();
-	  $users = User::all();
+	$users = User::all();
 	return $users;
+});
+
+Route::get('/login', array('as' => 'login', 'uses' => 'UserController@loginWithGoogle'));
+
+Route::post('/register_action', function()
+{
+	$obj = new HomeController() ;
+	return $obj->store();
 });
 
 Route::get('/doc', function(){
