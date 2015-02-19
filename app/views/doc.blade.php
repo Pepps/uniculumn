@@ -24,6 +24,7 @@
     </form>
 
     <script>
+    /*TODO Använd encodeURI() på URL variabeln*/
     var users = [],
         projects = [],
         experinces = [],
