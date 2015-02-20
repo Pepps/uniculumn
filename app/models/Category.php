@@ -1,7 +1,9 @@
 <?php
 
-class Category extends Eloquent 
+class Category extends Eloquent
 {
+protected $primaryKey = 'category_id';
+
 protected $table = 'categories';
 
 	public function project()

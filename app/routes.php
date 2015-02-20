@@ -31,3 +31,5 @@ Route::get('/doc', function(){
 Route::get("/search/{option}/{key}/{val}", "SearchController@index");
 
 Route::resource('Project', "ProjectController");
+
+Route::get('category/show/{id}', 'CategoryController@show');
