@@ -3,8 +3,15 @@
 	"description": "The Laravel Framework.",
 	"keywords": ["framework", "laravel"],
 	"license": "MIT",
+	"type": "project",
 	"require": {
-		"laravel/framework": "4.2.*"
+		"laravel/framework": "4.2.*",
+  	"artdarek/oauth-4-laravel": "dev-master",
+		"maxhoffmann/parsedown-laravel": "dev-master"
+	},
+	"require-dev": {
+	  	"way/generators": "~2.0",
+        	"fzaninotto/faker": "1.2.*@dev"
 	},
 	"autoload": {
 		"classmap": [
@@ -13,7 +20,8 @@
 			"app/models",
 			"app/database/migrations",
 			"app/database/seeds",
-			"app/tests/TestCase.php"
+			"app/tests/TestCase.php",
+			"app/artdarek"
 		]
 	},
 	"scripts": {
@@ -34,6 +42,7 @@
 	},
 	"minimum-stability": "stable",
 	"require-dev":{
-		"way/generators":"~2.0"
-	}
+		"way/generators":"~2.0",
+		"fzaninotto/faker": "1.2.*@dev"
+}
 }
