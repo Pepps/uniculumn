@@ -5,17 +5,13 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateUsersTable extends Migration {
 
-	/**
-	 * Run the migrations.
-	 *
-	 * @return void
-	 */
 	public function up()
 	{
+		/* This is the users table. */
 		Schema::create('users', function(Blueprint $table)
 		{
 			$table->engine = 'InnoDB';
-			$table->increments('user_id');
+			$table->increments('id');
 			$table->string('fname', 50);
 			$table->string('lname', 50);
 			$table->string('email')->unique();
@@ -29,11 +25,6 @@ class CreateUsersTable extends Migration {
 		});
 	}
 
-	/**
-	 * Reverse the migrations.
-	 *
-	 * @return void
-	 */
 	public function down()
 	{
 		Schema::drop('users');

@@ -82,10 +82,17 @@ body {
 	margin: 0.5vw;
 }
 
+/**
+* JESPERS INPUT!!!!! DEN ÄR SÅ SNYGG!
+**/
 
+.input-sub {
+	float:left;
+}
 
-
-
+/**
+* SLUT PÅ JESPERS INPUT!!!!! VISST VAR DEN SNYGG?!
+**/
 
 #ui_header {
 	background: #192626 url(../img/ui_header.PNG);

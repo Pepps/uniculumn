@@ -9,8 +9,8 @@
   		"artdarek/oauth-4-laravel": "dev-master"
 	},
 	"require-dev": {
-    	"way/generators": "~3.0",
-	  	"way/generators": "~2.0"
+	  	"way/generators": "~2.0",
+        	"fzaninotto/faker": "1.2.*@dev"
 	},
 	"autoload": {
 		"classmap": [
@@ -41,6 +41,7 @@
 	},
 	"minimum-stability": "stable",
 	"require-dev":{
-		"way/generators":"~2.0"
-	}
+		"way/generators":"~2.0",
+		"fzaninotto/faker": "1.2.*@dev"
+}
 }
