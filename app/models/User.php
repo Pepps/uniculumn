@@ -9,7 +9,6 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 
 	use UserTrait, RemindableTrait;
 
-
 	/**
 	 * The database table used by the model.
 	 *
@@ -24,23 +23,30 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 *
 	 * @var array
 	 */
+
 	protected $hidden = array('password', 'remember_token');
 
-	public function project() 
+
+	// A User has many projects.
+	public function project()
 	{
 		return $this->hasMany('Project');
 	}
 
+	// A User has many experiences.
 	public function experience()
 	{
 		return $this->hasMany('Experience');
 	}
 
+	// A User has many references.
 	public function reference()
 	{
 		return $this->hasMany('Reference');
 	}
 
+	/* A User has one Stat.
+	Once a User is created a Stat will be created. */
 	public function stat()
 	{
 		return $this->hasOne('Stat');
@@ -49,13 +55,13 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	{
 		return $this->password;
 	}
- 
+
         // model function to store form data to database
      public static function saveFormData($data)
      {
             DB::table('users')->insert($data);
      }
- 
+
 }
 
 

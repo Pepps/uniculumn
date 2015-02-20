@@ -9,10 +9,11 @@ class CreateReferencesTable extends Migration {
 	{
 		Schema::create('references', function(Blueprint $table)
 		{
+			/* This is the references table. */
 			$table->engine = 'InnoDB';
-			$table->increments('reference_id');
+			$table->increments('id');
 			$table->integer('user_id')->unsigned();
-			$table->foreign('user_id')->references('user_id')->on('users');
+			$table->foreign('user_id')->references('id')->on('users');
 			$table->string('company', 100);
 			$table->string('ref_fname', 50);
 			$table->string('ref_lname', 50);
