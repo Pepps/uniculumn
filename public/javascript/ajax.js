@@ -10,14 +10,14 @@ function show(id) {
             if (id==0) {
                 $('#project-type').html("");
                 for (var i=0; i<data.length; i++) {
-                    $('<option value="'+data[i]['category_id']+'">'+data[i]['category_title']+'</option>').appendTo($('#project-type'));
+                    $('<option value="'+data[i]['id']+'">'+data[i]['category_title']+'</option>').appendTo($('#project-type'));
                     }
                 }
                 else {
                     $('#subcategory-form').html("");
                     var x = 0;
                     for (var i=0; i<data.length; i++) {
-                            $('<div class="checkbox"><input type="checkbox" name="category-form" value="'+data[i]['category_id']+'"/>'+data[i]['category_title']+"</div>").appendTo($(' #subcategory-form') );
+                            $('<div class="checkbox"><input type="checkbox" name="category-form" value="'+data[i]['id']+'"/>'+data[i]['category_title']+"</div>").appendTo($(' #subcategory-form') );
                         }
                     }
                 }
