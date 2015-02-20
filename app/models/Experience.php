@@ -1,6 +1,6 @@
 <?php
 
-class Experience extends Eloquent 
+class Experience extends Eloquent
 {
 
 
