@@ -1,7 +1,5 @@
 <?php
 
-
-<<<<<<< Temporary merge branch 1
 Route::get('/', 'HomeController@index');
 //Route::resource('nerds','NerdController');
 Route::get('/login', array('as' => 'login', 'uses' => 'UserController@loginWithGoogle'));
@@ -14,10 +12,8 @@ Route::post('register_action', function()
 });
 
 Route::get('/users', function()
-=======
 
-Route::get('/', function()
->>>>>>> Temporary merge branch 2
+
 {
 	//return View::make('hello');
 	//$users = User::find(1);
@@ -32,6 +28,7 @@ Route::get('/doc', function(){
 });
 
 Route::get("/search/{option}/{key}/{val}", "SearchController@index");
+Route::get("/search/{option}/{key}/{val}/{pretty}", "SearchController@index");
 
 Route::resource('Project', "ProjectController");
 

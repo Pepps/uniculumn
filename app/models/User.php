@@ -9,20 +9,9 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 
 	use UserTrait, RemindableTrait;
 
-	/**
-	 * The database table used by the model.
-	 *
-	 * @var string
-	 */
 
-	 	protected $guarded = array();
-        protected $table = 'users'; // table name
-        public $timestamps = 'false'; // to disable default timestamp fields
-	/**
-	 * The attributes excluded from the model's JSON form.
-	 *
-	 * @var array
-	 */
+	protected $table = 'users';
+	protected $primaryKey = 'user_id';
 
 	protected $hidden = array('password', 'remember_token');
 
@@ -63,5 +52,3 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
      }
 
 }
-
-
