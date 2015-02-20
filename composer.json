@@ -6,10 +6,7 @@
 	"type": "project",
 	"require": {
 		"laravel/framework": "4.2.*",
-  		"artdarek/oauth-4-laravel": "dev-master"
-	},
-	"require-dev": {
-	  	"way/generators": "~2.0",
+  		"artdarek/oauth-4-laravel": "dev-master",
         	"fzaninotto/faker": "1.2.*@dev"
 	},
 	"autoload": {

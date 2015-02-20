@@ -2,6 +2,7 @@
 
 use Faker\Factory as Faker;
 
+class UserTableSeeder extends Seeder {
 
 $faker = Faker::create();
 
@@ -16,5 +17,8 @@ for ($i=0; $i < 10; $i++) {
                   'p_dir' => Hash::make('secret')
                   ]);
 }
+
+}
+
 
 
