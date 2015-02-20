@@ -1,6 +1,6 @@
 <?php
 
-class Reference extends Eloquent 
+class Reference extends Eloquent
 {
 
 	// A Reference belongs to many Users.
