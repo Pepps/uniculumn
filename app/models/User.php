@@ -10,8 +10,20 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	use UserTrait, RemindableTrait;
 
 
-	protected $table = 'users';
+	/**
+	 * The database table used by the model.
+	 *
+	 * @var string
+	 */
 
+	 	protected $guarded = array();
+        protected $table = 'users'; // table name
+        public $timestamps = 'false'; // to disable default timestamp fields
+	/**
+	 * The attributes excluded from the model's JSON form.
+	 *
+	 * @var array
+	 */
 	protected $hidden = array('password', 'remember_token');
 
 	public function project() 
@@ -33,5 +45,17 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	{
 		return $this->hasOne('Stat');
 	}
-
+	public function getAuthPassword()
+	{
+		return $this->password;
+	}
+ 
+        // model function to store form data to database
+     public static function saveFormData($data)
+     {
+            DB::table('users')->insert($data);
+     }
+ 
 }
+
+

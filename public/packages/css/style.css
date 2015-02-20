@@ -82,17 +82,10 @@ body {
 	margin: 0.5vw;
 }
 
-/**
-* JESPERS INPUT!!!!! DEN ÄR SÅ SNYGG!
-**/
 
-.input-sub {
-	float:left;
-}
 
-/**
-* SLUT PÅ JESPERS INPUT!!!!! VISST VAR DEN SNYGG?!
-**/
+
+
 
 #ui_header {
 	background: #192626 url(../img/ui_header.PNG);
@@ -177,7 +170,7 @@ body {
 	width: 100vw;
 	text-align: center;
 	padding-top: 2.8vw;
-	max-width: 100%;
+	max-width: 100%.
 }
 
 #header img {
