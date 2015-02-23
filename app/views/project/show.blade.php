@@ -21,10 +21,12 @@
 
     <div class="jumbotron text-center">
         <h2>{{ $project->project_title }}</h2>
-        <p>
-            <strong>Project Type:</strong> {{ $project->project_type }}<br>
-            <strong>Subname</strong> {{ $project->subname }}
-        </p>
+        <p>{{ $project->project_body }}</p>
+        @foreach ($categories as $value)
+        <p>{{ $value->category_title }}</p>
+        @endforeach
+        <p>{{ $project->created_at }}</p>
+        <p>{{ $project->updated_at }}</p>
     </div>
 
 </div>

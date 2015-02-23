@@ -15,7 +15,7 @@ class Project extends Eloquent
 	A Project can be either a game Project or webdevelopment Project. */
 	public function category()
 	{
-		return $this->hasMany('Category');
+		return $this->belongsToMany('Category', 'project_category', 'project_id', 'category_id');
 	}
 
 	/*A Project has only one Stat though. One Stat per Project.
