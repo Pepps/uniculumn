@@ -2,7 +2,7 @@
 
 class SearchController extends BaseController {
     //foo.com/search/project/email_category/foo@foo.com-admin@foo.com_spel+kod-game+code
-    public function index($option, $key, $val){
+    public function index($option, $key, $val, $pretty=false){
       $keys = explode('_', $key);
       $vals = explode('_', $val);
       $data = [];
@@ -28,8 +28,6 @@ class SearchController extends BaseController {
           return "not a valid formating";
         }
       }*/
-      $json = json_encode($data);
-      echo "<pre>" . $option . ": " . $json . "</pre>";
 
       // Get all rows in option table, but we are going to sort things out before calling it with ->get();
       $model = studly_case($option);
@@ -41,35 +39,44 @@ class SearchController extends BaseController {
             if(end($split) !== $explode){
               switch($key){
                 case 'email':
-                  $table->with(array('User' => function($query) use ($key, $explode){
-                    $query->where('email',"=",$explode);
-                  }));
+                  $table = $table->whereExists(function($query) use ($key, $explode){
+                    $query->from('Users')->where($key,"=",$explode);
+                  });
                       break;
                 case 'categories':
-                  $table->Category->where('typ',"=",$explode);
+                  $table = $table->Category->where('typ',"=",$explode);
                   break;
                 default:
-                  $table->where($key,"=",$explode);
+                  $table = $table->where($key,"=",$explode);
                       break;
               }
             }
           }
           switch($key){
             case 'email':
-              $table->with(array('User' => function($query) use ($explode){
-                $query->orWhere('email',"=",$explode);
-              }));
+              $table = $table->orWhereExists(function($query) use ($key, $explode, $option){
+                $query->from('Users')->orWhere($key,"=",$explode)->whereRaw($option.'s.user_id = Users.id');;
+              });
               break;
             case 'categories':
-              $table->Category->orWhere('typ',"=",$explode);
+              $table = $table->Category->orWhere('typ',"=",$explode);
               break;
             default:
-              $table->orWhere($key,"=",$explode);
+              $table = $table->orWhere($key,"=",$explode);
               break;
           }
         }
       }
-      var_dump($table->get()); // Runs the query we have build up.
-
+      if($pretty){
+        echo '<pre>' . json_encode($table->get(),JSON_PRETTY_PRINT) . '</pre>'; // Runs the query we have build up.
+      }
+      else{
+        echo '<pre>' . json_encode($table->get()) . '</pre>'; // Runs the query we have build up.
+      }
+      if(Input::get('debug') == 'true'){
+        $queries = DB::getQueryLog();
+        echo "<pre>" . json_encode($queries,JSON_PRETTY_PRINT) . "</pre>";
+        echo '<pre>"' . $option . '": ' . json_encode($data,JSON_PRETTY_PRINT) . "</pre>";
+      }
     }
 }

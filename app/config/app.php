@@ -122,6 +122,7 @@ return array(
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 		'Artdarek\OAuth\OAuthServiceProvider',
+		'MaxHoffmann\Parsedown\ParsedownServiceProvider',
 	),
 
 	/*
@@ -183,12 +184,13 @@ return array(
 		'Seeder'            => 'Illuminate\Database\Seeder',
 		'Session'           => 'Illuminate\Support\Facades\Session',
 		'SoftDeletingTrait' => 'Illuminate\Database\Eloquent\SoftDeletingTrait',
-		'SSH'             => 'Illuminate\Support\Facades\SSH',
-		'Str'             => 'Illuminate\Support\Str',
-		'URL'             => 'Illuminate\Support\Facades\URL',
-		'Validator'       => 'Illuminate\Support\Facades\Validator',
-		'View'            => 'Illuminate\Support\Facades\View',
-		'OAuth' 		  => 'Artdarek\OAuth\Facade\OAuth',
+		'SSH'             	=> 'Illuminate\Support\Facades\SSH',
+		'Str'             	=> 'Illuminate\Support\Str',
+		'URL'             	=> 'Illuminate\Support\Facades\URL',
+		'Validator'       	=> 'Illuminate\Support\Facades\Validator',
+		'View'            	=> 'Illuminate\Support\Facades\View',
+		'OAuth' 		  			=> 'Artdarek\OAuth\Facade\OAuth',
+		'Markdown'        	=> 'MaxHoffmann\Parsedown\ParsedownFacade',
 	),
 
 );
