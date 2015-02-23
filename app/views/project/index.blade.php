@@ -58,6 +58,7 @@
                 <!-- edit this project (uses the edit method found at GET /projects/{id}/edit -->
                 <a class="btn btn-small btn-info" href="{{ URL::to('Project/' . $value->id . '/edit') }}">Edit this Project</a>
 
+                <button class="btn btn-small btn-danger">Radera Projekt</button>
             </td>
         </tr>
     @endforeach
