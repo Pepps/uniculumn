@@ -8,6 +8,7 @@
     {{ HTML::script('javascript/jquery-2.1.3.min.js') }}
     {{ HTML::script('javascript/ajax.js') }}
     <style type="text/css">
+    /*Jesper Css*/
         .checkbox {
             float:left;
             width: 20%;
@@ -40,18 +41,18 @@
 {{ Form::open(array('url' => 'Project')) }}
 
     <div class="form-group">
-        {{ Form::label('name', 'Namn') }}
-        {{ Form::text('name', Input::old('name'), array('class' => 'form-control')) }}
+        {{ Form::label('project_title', 'Titel') }}
+        {{ Form::text('project_title', Input::old('name'), array('class' => 'form-control')) }}
     </div>
 
     <div class="form-group">
-        {{ Form::label('subname', 'Beskrivning') }}
-        {{ Form::textarea('subname', Input::old('subname'), array('class' => 'form-control')) }}
+        {{ Form::label('project_body', 'Beskrivning') }}
+        {{ Form::textarea('project_body', Input::old('project_body'), array('class' => 'form-control')) }}
     </div>
 
     <div class="form-group">
-        {{ Form::label('project-type', 'Project Type') }}
-        {{ Form::select('project-type', array('0' => 'Select a Project Type', '1' => 'Mediateknik', '2' => 'Ekonomi'), Input::old('project-type'), array('class' => 'form-control')) }}
+        {{ Form::label('category', 'Kategori') }}
+        {{ Form::select('category', array('0' => 'Select a Project Type', '1' => 'Hemligt bajs', '2' => 'Ekonomi'), Input::old('category'), array('class' => 'form-control')) }}
     </div>
 
     <div class="form-group" id="subcategory-form">
@@ -61,6 +62,12 @@
         {{ Form::label('user_id', 'Användarnamn') }}
         {{ Form::text('user_id', Input::old('user_id'), array('class' => 'form-control')) }}
     </div>
+
+    <!---
+    / HIDDEN FORMS
+    -->
+
+    {{ Form::text('subcategory_id', Input::old('category'), array('class' => 'hidden', 'id' => 'subcategory_id')) }}
 
     {{ Form::submit('Create the Project!', array('class' => 'btn btn-primary')) }}
 
