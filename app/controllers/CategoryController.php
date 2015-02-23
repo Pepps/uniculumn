@@ -10,7 +10,7 @@ class CategoryController extends Controller {
     public function show($id)
     {
 
-            $categories = DB::table('Categories')->where('subcategory_id', '=', $id)->get();
+            $categories = DB::table('categories')->where('subcategory_id', '=', $id)->get();
 
             return json_encode($categories);
     }

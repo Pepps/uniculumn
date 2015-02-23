@@ -12,8 +12,8 @@
         <a class="navbar-brand" href="{{ URL::to('Project') }}">Project Alert</a>
     </div>
     <ul class="nav navbar-nav">
-        <li><a href="{{ URL::to('Project') }}">View All Projects</a></li>
-        <li><a href="{{ URL::to('Project/create') }}">Create a Project</a>
+        <li><a href="{{ URL::to('project') }}">View All Projects</a></li>
+        <li><a href="{{ URL::to('project/create') }}">Create a Project</a>
     </ul>
 </nav>
 
@@ -21,10 +21,12 @@
 
     <div class="jumbotron text-center">
         <h2>{{ $project->project_title }}</h2>
-        <p>
-            <strong>Project Type:</strong> {{ $project->project_type }}<br>
-            <strong>Subname</strong> {{ $project->subname }}
-        </p>
+        <p>{{ $project->project_body }}</p>
+        @foreach ($categories as $value)
+        <p>{{ $value->category_title }}</p>
+        @endforeach
+        <p>{{ $project->created_at }}</p>
+        <p>{{ $project->updated_at }}</p>
     </div>
 
 </div>
