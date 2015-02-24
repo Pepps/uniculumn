@@ -119,7 +119,8 @@
         </span> 
 
           <a href="user.html"><div class="login_button">Logga in</div></a>
-        </form><!-->
+        <!-->
+        </form>
       </div>
 
 
