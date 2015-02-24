@@ -15,9 +15,9 @@ class CreateExperiencesTable extends Migration {
 			$table->integer('user_id')->unsigned();
 			$table->foreign('user_id')->references('id')->on('users');
 			$table->timestamps();
-			$table->string('ex_title', 100);
-			$table->text('ex_description');
-			$table->string('ex_duration', 30);
+			$table->string('title', 100);
+			$table->text('description');
+			$table->string('duration', 30);
 		});
 	}
 

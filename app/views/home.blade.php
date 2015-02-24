@@ -46,9 +46,6 @@
         </form>-->
       </div>
 
-      <div class="login_box">
-        <p>hej</p>
-      </div>
 
 
     </div>
