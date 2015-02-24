@@ -1,21 +1,30 @@
 <?php
-
 class ProjectController extends \BaseController {
-
 	/**
 	 * Display a listing of the resource.
 	 *
 	 * @return Response
 	 */
-	public function index()
-	{
 
-		$projects = Project::all();
+    function __construct() {
+    }
 
-		return View::make("project.index")->with('projects',$projects);
+    public function index()
+    {
+
+        echo Auth::check();
+/*        if (Auth::check())
+            {
+                return Redirect::to('');
+            }
+        else
+            {
+                // The user is not logged in...
+               $projects = Project::all();
+               return View::make("project.index")->with('projects',$projects);
+            }
+*/
 	}
-
-
 	/**
 	 * Show the form for creating a new resource.
 	 *
@@ -26,8 +35,6 @@ class ProjectController extends \BaseController {
 		// load the create form (app/views/projects/create.blade.php)
         return View::make('project.create');
 	}
-
-
 	/**
 	 * Store a newly created resource in storage.
 	 *
@@ -45,7 +52,6 @@ class ProjectController extends \BaseController {
             'user_id'               => 'required'
         );
         $validator = Validator::make(Input::all(), $rules);
-
         // process the login
         if ($validator->fails()) {
             return Redirect::to('Project/create')
@@ -55,27 +61,20 @@ class ProjectController extends \BaseController {
         } else {
             // store
             $categories = explode("-", Input::get('subcategory_id'));
-
             $project = new Project;
             $project->project_title= Input::get('project_title');
             $project->project_body = Input::get('project_body');
             $project->project_url = "typ";
             $project->user_id = Input::get('user_id', false);
-
         //    $project->category->add($category);
-
             $project->save();
-
             Project::find($project->id)->category()->attach($categories);
         //$project->category()->attach($categories[0]);
-
             // redirect
             Session::flash('message', 'Successfully created Project!');
             return Redirect::to('Project');
         }
 	}
-
-
 	/**
 	 * Display the specified resource.
 	 *
@@ -85,14 +84,10 @@ class ProjectController extends \BaseController {
 	public function show($project_id)
 	{
 		 // get the project
-
         // show the view and pass the project to it
         return View::make('Project.show')
             ->with('project', Project::find($project_id))->with('categories', Project::find($project_id)->category);
-
 	}
-
-
 	/**
 	 * Show the form for editing the specified resource.
 	 *
@@ -103,8 +98,6 @@ class ProjectController extends \BaseController {
 	{
 		//
 	}
-
-
 	/**
 	 * Update the specified resource in storage.
 	 *
@@ -115,8 +108,6 @@ class ProjectController extends \BaseController {
 	{
 		//
 	}
-
-
 	/**
 	 * Remove the specified resource from storage.
 	 *
@@ -132,5 +123,4 @@ class ProjectController extends \BaseController {
      *
      *
      */
-
 }
