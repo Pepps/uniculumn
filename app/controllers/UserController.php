@@ -101,7 +101,7 @@ class UserController extends BaseController {
 
 }
     public function logIn(){
-        
+        //Checking if email and password match the information in the database
         $email = Input::get('email');
         $password = Input::get('password');
         if (Auth::attempt(array('email' => $email, 'password' => $password))){

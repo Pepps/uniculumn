@@ -19,7 +19,7 @@ class HomeController extends BaseController {
 		return View::make('home');
 	}
 
-
+    //this function stores the information in the database
 	public function store(){
             $data =  Input::except(array('_token')) ;
 
