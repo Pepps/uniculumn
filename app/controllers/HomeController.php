@@ -19,32 +19,30 @@ class HomeController extends BaseController {
 		return View::make('home');
 	}
 
-
+    //this function stores the information in the database
 	public function store(){
             $data =  Input::except(array('_token')) ;
 
-            $rule  =  array(
-                    'fname'      => 'required|unique:users',
-                    'lname'		 => 'required|unique:users',
-                    'email'      => 'required|email|unique:users',
-                    'password'   => 'required|min:6|same:cpassword',
-                    'cpassword'  => 'required|min:6'
-                ) ;
+            $user = new User;
+            $user->fname = Input::get('fname');
+            $user->lname = Input::get('lname');
+            $user->email = Input::get('email');
+            $user->password = Hash::make(Input::get('password'));
+            $user->save();
  
-            $validator = Validator::make($data,$rule);
+           // $validator = Validator::make($data,$user);
  
-            if ($validator->fails()){
-                    return Redirect::to('register')
-                            ->withErrors($validator->messages());
-            }
-            else{
+           // if ($validator->fails()){
+            //        return Redirect::to('register')
+            //                ->withErrors($validator->messages());
+          //  }
+         //   else{
                     
-                    User::saveFormData(Input::except(array('_token','cpassword')));
+            //        User::saveFormData(Input::except(array('_token','cpassword')));
  
-                    return Redirect::to('register')
-                            ->withMessage('Data inserted');
-            }
-	}
-
-
+            //return Redirect::to('register')
+         //                   ->withMessage('Data inserted');
+        }
 }
+
+

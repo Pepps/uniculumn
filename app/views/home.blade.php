@@ -27,6 +27,7 @@
         {{ implode('', $errors->all('<li class="error">:message</li>')) }}
       </div>
       @endif
+     <!-- {{ Form::token('token')}}-->
       {{ Form::text('fname', '', array('placeholder' => 'Förnamn')) }} <br>
       {{ Form::text('lname', '', array('placeholder' => 'Efternamn')) }} <br>
       {{ Form::text('email', '', array('placeholder' => 'Email')) }}<br>
@@ -84,18 +85,33 @@
 
 
       <div class="login_box">
-        <form>
 
-          Email: &nbsp;<input type="text" name="username">
-          <br>
-          Lösenord: &nbsp;
+        {{ Form::open(array('url' => 'home','method' => 'post')) }}
+
+    <!-- if there are login errors, show them here -->
+    @if (Session::get('loginError'))
+    <div class="alert alert-danger">{{ Session::get('loginError') }}</div>
+    @endif
+
+    
+      {{ $errors->first('email') }}
+      {{ $errors->first('password') }}
+    
+
+    
+      {{ Form::label('email', 'Email Address') }}
+      {{ Form::text('email', Input::old('email'), array('placeholder' => 'awesome@awesome.com')) }}
+      {{ Form::label('password', 'Password') }}
+      {{ Form::password('password') }}
+      {{ Form::submit('Login') }}
+      {{ Form::close() }}
+      {{HTML::link('login')}}
           <!--
           Author: Joakim D Google loginbutton
         -->
-          <input type="text" name="password">
-          <br>
+      
        <!-- {{ Form::submit('Login') }}-->
-        {{HTML::link('login')}}
+        
         <!--<span id="signinButton">
         <span class="g-signin"
         data-callback="signinCallback"
