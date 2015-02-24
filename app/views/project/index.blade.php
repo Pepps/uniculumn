@@ -3,21 +3,15 @@
 <head>
     <title>projects</title>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 </head>
 <body>
 <div class="container">
 
-<nav class="navbar navbar-inverse">
-    <div class="navbar-header">
-        <a class="navbar-brand" href="{{ URL::to('project') }}">project Alert</a>
-    </div>
-    <ul class="nav navbar-nav">
-        <li><a href="{{ URL::to('project') }}">View All projects</a></li>
-        <li><a href="{{ URL::to('project/create') }}">Create a project</a>
-    </ul>
-</nav>
+@include('project.projectnav')
+@yield('projectnav')
 
-<h1>All the projects</h1>
+<h3>Your projects</h3>
 
 <!-- will be used to show any messages -->
 @if (Session::has('message'))
@@ -42,12 +36,14 @@
         <tr>
             <td>{{$i++}}</td>
             <td>{{$value->project_title}}</td>
-			      <td>{{$value->project_body}}</td>
+			      <td>{{str_limit($value->project_body, $limit = 200, $end = '...')}}</td>
             <td>{{$value->created_at}}</td>
-            <td><a class="btn btn-small btn-success" href="{{ URL::to('project/' . $value->id) }}">Show this project</a></td>
-            <td><a class="btn btn-small btn-info" href="{{ URL::to('project/' . $value->id . '/edit') }}">Edit this project</a></td>
-            <td><button class="btn btn-small btn-danger">Radera Projekt</button></td>
-            </td>
+            <td><a class="btn btn-small btn-success" href="{{ URL::to('project/' . $value->id) }}"><i class="fa fa-search"></i>
+</a></td>
+            <td><a class="btn btn-small btn-info" href="{{ URL::to('project/' . $value->id . '/edit') }}"><i class="fa fa-pencil-square-o"></i>
+</a></td>
+            <td><button class="btn btn-small btn-danger"><i class="fa fa-trash"></i>
+</button></td>
         </tr>
     @endforeach
     </tbody>

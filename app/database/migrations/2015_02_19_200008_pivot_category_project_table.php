@@ -9,12 +9,13 @@ class PivotCategoryProjectTable extends Migration {
 	{
 		/* Here we create a pivot table between the projects and their categories.
 		This enables us to extract projects from specified categories. */
-		Schema::create('category_project', function(Blueprint $table) {
+		Schema::create('project_category', function(Blueprint $table) {
 			$table->increments('id');
-			$table->integer('category_id')->unsigned()->index();
 			$table->integer('project_id')->unsigned()->index();
-			$table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
 			$table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
+			$table->integer('category_id')->unsigned()->index();
+			$table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+			
 		});
 	}
 
@@ -27,7 +28,7 @@ class PivotCategoryProjectTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('category_project');
+		Schema::drop('project_category');
 	}
 
 }

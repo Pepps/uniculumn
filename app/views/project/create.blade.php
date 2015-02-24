@@ -5,6 +5,7 @@
 <head>
     <title>Uniculum</title>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     {{ HTML::script('javascript/jquery-2.1.3.min.js') }}
     {{ HTML::script('javascript/ajax.js') }}
     <style type="text/css">
@@ -23,15 +24,8 @@
 <body>
 <div class="container">
 
-<nav class="navbar navbar-inverse">
-    <div class="navbar-header">
-        <a class="navbar-brand" href="{{ URL::to('project') }}">project Alert</a>
-    </div>
-    <ul class="nav navbar-nav">
-        <li><a href="{{ URL::to('projects') }}">View All projects</a></li>
-        <li><a href="{{ URL::to('project/create') }}">Create a project</a>
-    </ul>
-</nav>
+@include('project.projectnav')
+@yield('projectnav')
 
 <h1>Registrera Projekt</h1>
 
@@ -57,12 +51,6 @@
 
     <div class="form-group" id="subcategory-form">
     </div>
-
-    <div class="form-group">
-        {{ Form::label('user_id', 'Användarnamn') }}
-        {{ Form::text('user_id', Input::old('user_id'), array('class' => 'form-control')) }}
-    </div>
-
     <!---
     / HIDDEN FORMS
     -->

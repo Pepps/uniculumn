@@ -1,4 +1,3 @@
-
 var subcategories = [];
 show(0);
 
