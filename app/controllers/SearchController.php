@@ -7,8 +7,11 @@ class SearchController extends BaseController {
       $vals = explode('_', $val);
       $data = [];
 
+
+
       for($i = 0; $i < sizeof($keys); $i++){
-        $data[$keys[$i]] = explode('-', $vals[$i]);
+        $key = explode('-',$keys[$i]);
+        $data[$key[0]][$key[1]] = explode('-', $vals[$i]);
       }
 
       /*for($i = 0; $i < sizeof($data["status"]); $i++){
@@ -32,41 +35,26 @@ class SearchController extends BaseController {
       // Get all rows in option table, but we are going to sort things out before calling it with ->get();
       $model = studly_case($option);
       $table = new $model;
-      foreach($data as $key => $value){
-        foreach($value as $string){
-          $split = explode('+', $string);
-          foreach ($split as $explode){
-            if(end($split) !== $explode){
-              switch($key){
-                case 'email':
-                  $table = $table->whereExists(function($query) use ($key, $explode){
-                    $query->from('Users')->where($key,"=",$explode);
-                  });
-                      break;
-                case 'categories':
-                  $table = $table->Category->where('typ',"=",$explode);
-                  break;
-                default:
-                  $table = $table->where($key,"=",$explode);
-                      break;
+      foreach($data as $main_key => $sub_key) {
+        foreach ($sub_key as $sub_key => $value){
+          foreach ($value as $string) {
+            $split = explode('+', $string);
+            foreach ($split as $explode) {
+              if (end($value) !== $string) {
+                $table = $table->whereExists(function ($query) use ($option,$main_key, $sub_key, $explode) {
+                  $query->from($main_key.'s')->where($main_key.'s.'.$sub_key, "=", $explode)->whereRaw($option.'s.'.$main_key.'_id' ."=". $main_key.'s.id');
+                });
+              }
+              else{
+                $table = $table->orWhereExists(function ($query) use ($option, $main_key, $sub_key, $explode) {
+                  $query->from($main_key.'s')->where($main_key.'s.'.$sub_key, "=", $explode)->whereRaw($option.'s.'.$main_key.'_id'. "=". $main_key.'s.id');;
+                });
               }
             }
           }
-          switch($key){
-            case 'email':
-              $table = $table->orWhereExists(function($query) use ($key, $explode, $option){
-                $query->from('Users')->orWhere($key,"=",$explode)->whereRaw($option.'s.user_id = Users.id');;
-              });
-              break;
-            case 'categories':
-              $table = $table->Category->orWhere('typ',"=",$explode);
-              break;
-            default:
-              $table = $table->orWhere($key,"=",$explode);
-              break;
-          }
         }
       }
+
       if($pretty){
         echo '<pre>' . json_encode($table->get(),JSON_PRETTY_PRINT) . '</pre>'; // Runs the query we have build up.
       }
