@@ -43,7 +43,7 @@
             <td>{{$value->stats_id}}</td>
             <td>{{$value->project_title}}</td>
             <td>{{$value->project_url}}</td>
-			<td>{{$value->project_body}}</td>
+            <td>{{$value->project_body}}</td>
 
 
             <!-- we will also add show, edit, and delete buttons -->

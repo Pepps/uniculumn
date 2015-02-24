@@ -12,8 +12,8 @@
         <a class="navbar-brand" href="{{ URL::to('Project') }}">Project Alert</a>
     </div>
     <ul class="nav navbar-nav">
-        <li><a href="{{ URL::to('Project') }}">View All Projects</a></li>
-        <li><a href="{{ URL::to('Project/create') }}">Create a Project</a>
+        <li><a href="{{ URL::to('project') }}">View All Projects</a></li>
+        <li><a href="{{ URL::to('project/create') }}">Create a Project</a>
     </ul>
 </nav>
 
