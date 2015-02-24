@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Projects</title>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-</head>
-<body>
+@extends('layouts.master')
+
+@section('content')
 <div class="container">
 
 <nav class="navbar navbar-inverse">
@@ -43,7 +39,7 @@
             <td>{{$value->stats_id}}</td>
             <td>{{$value->project_title}}</td>
             <td>{{$value->project_url}}</td>
-			<td>{{$value->project_body}}</td>
+            <td>{{$value->project_body}}</td>
 
 
             <!-- we will also add show, edit, and delete buttons -->
@@ -58,13 +54,33 @@
                 <!-- edit this project (uses the edit method found at GET /projects/{id}/edit -->
                 <a class="btn btn-small btn-info" href="{{ URL::to('Project/' . $value->id . '/edit') }}">Edit this Project</a>
 
-                <button class="btn btn-small btn-danger">Radera Projekt</button>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-small btn-danger" data-toggle="modal" data-target="#myModal">Radera Projekt</button>
+
             </td>
-        </tr>
-    @endforeach
+    @endforeach        </tr>
+
     </tbody>
 </table>
 
+
 </div>
-</body>
-</html>
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+              </div>
+              <div class="modal-body">
+                KOm iGne
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+@stop

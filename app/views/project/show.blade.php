@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Uniculum</title>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-</head>
-<body>
+@extends('layouts.master')
+
+@section('content')
+
 <div class="container">
 
 <nav class="navbar navbar-inverse">
@@ -30,5 +27,4 @@
     </div>
 
 </div>
-</body>
-</html>
+@stop

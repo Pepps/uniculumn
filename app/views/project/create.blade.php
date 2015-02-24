@@ -1,26 +1,7 @@
 <!-- app/views/projects/create.blade.php -->
+@extends('layouts.master')
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Uniculum</title>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-    {{ HTML::script('javascript/jquery-2.1.3.min.js') }}
-    {{ HTML::script('javascript/ajax.js') }}
-    <style type="text/css">
-    /*Jesper Css*/
-        .checkbox {
-            float:left;
-            width: 20%;
-            height:50px;
-            margin:0 !important;
-        }
-        #subcategory-form {
-            height:200px;
-        }
-    </style>
-</head>
-<body>
+@section('content')
 <div class="container">
 
 <nav class="navbar navbar-inverse">
@@ -72,7 +53,4 @@
     {{ Form::submit('Create the Project!', array('class' => 'btn btn-primary')) }}
 
 {{ Form::close() }}
-
-</div>
-</body>
-</html>
+@stop
