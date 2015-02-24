@@ -21,7 +21,7 @@ class HomeController extends BaseController {
 
 
 	public function store(){
-            //$data =  Input::except(array('_token')) ;
+            $data =  Input::except(array('_token')) ;
 
             $user = new User;
             $user->fname = Input::get('fname');

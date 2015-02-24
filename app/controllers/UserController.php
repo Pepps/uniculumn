@@ -100,4 +100,14 @@ class UserController extends BaseController {
     }
 
 }
+    public function logIn(){
+        
+        $email = Input::get('email');
+        $password = Input::get('password');
+        if (Auth::attempt(array('email' => $email, 'password' => $password))){
+            echo 1;
+        
+
+        }
+    }
 }
