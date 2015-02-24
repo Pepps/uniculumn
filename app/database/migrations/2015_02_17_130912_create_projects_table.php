@@ -14,10 +14,10 @@ class CreateProjectsTable extends Migration {
 			$table->increments('id');
 			$table->integer('user_id')->unsigned();
 			$table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
-			$table->string('project_title', 40);
+			$table->string('title', 40);
 			$table->timestamps();
-			$table->text('project_body');
-			$table->string('project_url', 60);
+			$table->text('body');
+			$table->string('url', 60);
 		});
 	}
 

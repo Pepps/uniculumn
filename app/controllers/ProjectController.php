@@ -39,7 +39,7 @@ class ProjectController extends \BaseController {
         $validator = Validator::make(Input::all(), $rules);
         // process the login
         if ($validator->fails()) {
-            return Redirect::to('Project/create')
+            return Redirect::to('project/create')
                 ->withErrors($validator)
                 ->withInput(Input::except('password'));
                 echo Input::get('subcategory');
@@ -47,9 +47,9 @@ class ProjectController extends \BaseController {
             // store
             $categories = explode("-", Input::get('subcategory_id'));
             $project = new Project;
-            $project->project_title= Input::get('project_title');
-            $project->project_body = Input::get('project_body');
-            $project->project_url = "typ";
+            $project->title= Input::get('project_title');
+            $project->body = Input::get('project_body');
+            $project->url = "typ";
             $project->user_id = Input::get('user_id', false);
         //    $project->category->add($category);
             $project->save();
@@ -57,7 +57,7 @@ class ProjectController extends \BaseController {
         //$project->category()->attach($categories[0]);
             // redirect
             Session::flash('message', 'Successfully created Project!');
-            return Redirect::to('Project');
+            return Redirect::to('project');
         }
 	}
 	/**
