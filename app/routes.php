@@ -1,16 +1,5 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the Closure to execute when that URI is requested.
-|
-*/
-
 Route::get('/', 'HomeController@index');
 //Route::resource('nerds','NerdController');
 
@@ -24,4 +13,30 @@ Route::post('register_action', function()
         $obj = new HomeController() ;
         return $obj->store();
 });
+<<<<<<< HEAD
+=======
+
+Route::get('/users', function()
+
+
+{
+	//return View::make('hello');
+	//$users = User::find(1);
+$project = User::find(1)->project;
+
+
+var_dump($project);
+});
+
+Route::get('/doc', function(){
+	return View::make('doc');
+});
+
+Route::get("/search/{option}/{key}/{val}", "SearchController@index");
+Route::get("/search/{option}/{key}/{val}/{pretty}", "SearchController@index");
+
+Route::resource('Project', "ProjectController");
+
+Route::get('category/show/{id}', 'CategoryController@show');
+>>>>>>> 28c7c8d2d2b39b06fe73ef7001521d51404fff5e
 Route::get('/register', 'HomeController@index');
