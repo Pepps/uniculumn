@@ -25,11 +25,11 @@
 
 <nav class="navbar navbar-inverse">
     <div class="navbar-header">
-        <a class="navbar-brand" href="{{ URL::to('Project') }}">Project Alert</a>
+        <a class="navbar-brand" href="{{ URL::to('project') }}">project Alert</a>
     </div>
     <ul class="nav navbar-nav">
-        <li><a href="{{ URL::to('projects') }}">View All Projects</a></li>
-        <li><a href="{{ URL::to('project/create') }}">Create a Project</a>
+        <li><a href="{{ URL::to('projects') }}">View All projects</a></li>
+        <li><a href="{{ URL::to('project/create') }}">Create a project</a>
     </ul>
 </nav>
 
@@ -38,7 +38,7 @@
 <!-- if there are creation errors, they will show here -->
 {{ HTML::ul($errors->all()) }}
 
-{{ Form::open(array('url' => 'Project')) }}
+{{ Form::open(array('url' => 'project')) }}
 
     <div class="form-group">
         {{ Form::label('project_title', 'Titel') }}
@@ -52,7 +52,7 @@
 
     <div class="form-group">
         {{ Form::label('category', 'Kategori') }}
-        {{ Form::select('category', array('0' => 'Select a Project Type', '1' => 'Hemligt bajs', '2' => 'Ekonomi'), Input::old('category'), array('class' => 'form-control')) }}
+        {{ Form::select('category', array('0' => 'Select a project Type', '1' => 'Hemligt bajs', '2' => 'Ekonomi'), Input::old('category'), array('class' => 'form-control')) }}
     </div>
 
     <div class="form-group" id="subcategory-form">
@@ -69,7 +69,7 @@
 
     {{ Form::text('subcategory_id', Input::old('category'), array('class' => 'hidden', 'id' => 'subcategory_id')) }}
 
-    {{ Form::submit('Create the Project!', array('class' => 'btn btn-primary')) }}
+    {{ Form::submit('Create the project!', array('class' => 'btn btn-primary')) }}
 
 {{ Form::close() }}
 

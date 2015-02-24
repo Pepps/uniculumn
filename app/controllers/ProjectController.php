@@ -9,10 +9,7 @@ class ProjectController extends \BaseController {
 	 */
 	public function index()
 	{
-
-		$projects = Project::all();
-
-		return View::make("project.index")->with('projects',$projects);
+		return View::make("project.index")->with('projects',Project::all());
 	}
 
 
@@ -84,11 +81,13 @@ class ProjectController extends \BaseController {
 	 */
 	public function show($project_id)
 	{
-		 // get the project
+			$Project = Project::find($project_id);
 
-        // show the view and pass the project to it
-        return View::make('Project.show')
-            ->with('project', Project::find($project_id))->with('categories', Project::find($project_id)->category);
+      // show the view and pass the project to it
+      return View::make('project.show')
+          ->with('project', $Project)
+					->with('categories', Project::find($project_id)->category)
+					->with('user', User::find($Project->user_id));
 
 	}
 

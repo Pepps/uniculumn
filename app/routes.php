@@ -11,10 +11,7 @@ Route::post('register_action', function()
         return $obj->store();
 });
 
-Route::get('/users', function()
-
-
-{
+Route::get('/users', function(){
 	//return View::make('hello');
 	//$users = User::find(1);
 $project = User::find(1)->project;
@@ -30,7 +27,7 @@ Route::get('/doc', function(){
 Route::get("/search/{option}/{key}/{val}", "SearchController@index");
 Route::get("/search/{option}/{key}/{val}/{pretty}", "SearchController@index");
 
-Route::resource('Project', "ProjectController");
+Route::resource('project', "ProjectController");
 
 Route::get('category/show/{id}', 'CategoryController@show');
 Route::get('/register', 'HomeController@index');
