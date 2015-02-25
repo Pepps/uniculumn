@@ -30,8 +30,8 @@
     @foreach($projects as $value)
         <tr>
             <td>{{$i++}}</td>
-            <td>{{$value->project_title}}</td>
-            <td>{{str_limit($value->project_body, $limit = 200, $end = '...')}}</td>
+            <td>{{$value->title}}</td>
+            <td>{{str_limit($value->body, $limit = 200, $end = '...')}}</td>
             <td>{{$value->created_at}}</td>
             <td><a class="btn btn-small btn-success" href="{{ URL::to('project/' . $value->id) }}"><i class="fa fa-search"></i></a></td>
             <td><a class="btn btn-small btn-info" href="{{ URL::to('project/' . $value->id . '/edit') }}"><i class="fa fa-pencil-square-o"></i></a></td>
