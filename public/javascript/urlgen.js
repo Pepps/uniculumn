@@ -17,8 +17,7 @@ var url;
    array. Then loops the keysboxes array of checkboxes and check if its checked and if so
    adds its value to a key arrey. and lastly creates a input area with the createInputArea function
    and passes it the the selected keyboxs value. Lastly it ads the values of keys array to
-   the url string and replaces the , with _.
-*/
+   the url string and replaces the , with _. */
 $(function(){
   url = $("#url");
   var keys = [];
