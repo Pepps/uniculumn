@@ -51,7 +51,7 @@ class ProjectController extends \BaseController {
             $categories = explode("-", Input::get('subcategory_id'));
 
             $project = new Project;
-            $project->title= Input::get('project_title');
+            $project->title = Input::get('project_title');
             $project->body = Input::get('project_body');
             $project->url = "typ";
             $project->user_id = Auth::user()->id;

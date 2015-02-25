@@ -9,11 +9,7 @@ Route::get('/login', array('as' => 'login', 'uses' => 'UserController@loginWithG
 //Route for getting login information
 Route::post('/home', array('as' => 'home', 'uses' => 'AuthController@logIn'));
 //Route for storing register information
-Route::post('register_action', function()
-{
-        $obj = new AuthController() ;
-        return $obj->store();
-});
+Route::post('/register_action', "AuthController@store");
 
 Route::get("/logout", "AuthController@logout");
 
