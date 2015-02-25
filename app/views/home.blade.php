@@ -105,6 +105,7 @@
       {{ Form::password('password') }}
       {{ Form::submit('Login') }}
       {{ Form::close() }}
+
       {{HTML::link('login', 'Logga in')}}
           <!--
           Author: Joakim D Google loginbutton

@@ -26,7 +26,7 @@
 
     <div class="form-group">
         {{ Form::label('category', 'Kategori') }}
-        {{ Form::select('category', array('0' => 'Select a project Type', '1' => 'Hemligt bajs', '2' => 'Ekonomi'), Input::old('category'), array('class' => 'form-control')) }}
+        {{ Form::select('category', array('0' => 'Select a project Type'), Input::old('category'), array('class' => 'form-control')) }}
     </div>
 
     <div class="form-group" id="subcategory-form">
