@@ -105,6 +105,13 @@
       {{ Form::password('password') }}
       {{ Form::submit('Login') }}
       {{ Form::close() }}
+<<<<<<< HEAD
+=======
+
+      <?php if(!empty(Session::get('key'))) $name = Session::get('key'); ?>
+
+      {{ HTML::link('login', $name) }}
+>>>>>>> jesper
           <!--
           Author: Joakim D Google loginbutton
         -->
