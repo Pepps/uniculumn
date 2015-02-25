@@ -50,7 +50,7 @@ class ProjectController extends \BaseController {
             $project->title= Input::get('project_title');
             $project->body = Input::get('project_body');
             $project->url = "typ";
-            $project->user_id = Input::get('user_id', false);
+            $project->user_id = Auth::user()->id;
         //    $project->category->add($category);
             $project->save();
             Project::find($project->id)->category()->attach($categories);
