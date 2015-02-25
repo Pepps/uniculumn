@@ -41,14 +41,24 @@ class SearchController extends BaseController {
             $split = explode('+', $string);
             foreach ($split as $explode) {
               if (end($value) !== $string) {
-                $table = $table->whereExists(function ($query) use ($option,$main_key, $sub_key, $explode) {
-                  $query->from($main_key.'s')->where($main_key.'s.'.$sub_key, "=", $explode)->whereRaw($option.'s.'.$main_key.'_id' ."=". $main_key.'s.id');
-                });
+                if($option == $main_key){
+                  $table = $table->where($main_key.'s.'.$sub_key, "=", $explode);
+                }
+                else{
+                  $table = $table->whereExists(function ($query) use ($option,$main_key, $sub_key, $explode) {
+                    $query->from($main_key.'s')->where($main_key.'s.'.$sub_key, "=", $explode)->whereRaw($option.'s.'.$main_key.'_id' ."=". $main_key.'s.id');
+                  });
+                }
               }
               else{
-                $table = $table->orWhereExists(function ($query) use ($option, $main_key, $sub_key, $explode) {
-                  $query->from($main_key.'s')->where($main_key.'s.'.$sub_key, "=", $explode)->whereRaw($option.'s.'.$main_key.'_id'. "=". $main_key.'s.id');;
-                });
+                if($option == $main_key){
+                  $table = $table->orWhere($main_key.'s.'.$sub_key, "=", $explode);
+                }
+                else{
+                  $table = $table->orWhereExists(function ($query) use ($option, $main_key, $sub_key, $explode) {
+                    $query->from($main_key.'s')->where($main_key.'s.'.$sub_key, "=", $explode)->whereRaw($option.'s.'.$main_key.'_id'. "=". $main_key.'s.id');;
+                  });
+                }
               }
             }
           }
