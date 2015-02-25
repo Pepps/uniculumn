@@ -45,6 +45,17 @@
 
         </form>-->
       </div>
+
+      <div class="login_box">
+        @if ($errors->has())
+        <div class="alert alert-danger">
+            @foreach ($errors->all() as $error)
+                {{ $error }}<br>
+            @endforeach
+        </div>
+        @endif
+      </div>
+
     </div>
     <div class="column_right">
       Bläddra <span class="dark">bland</span> &nbsp; &nbsp;<br/>
@@ -94,7 +105,7 @@
       {{ Form::password('password') }}
       {{ Form::submit('Login') }}
       {{ Form::close() }}
-      {{HTML::link('login')}}
+      {{HTML::link('login', 'Logga in')}}
           <!--
           Author: Joakim D Google loginbutton
         -->

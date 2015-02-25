@@ -1,9 +1,9 @@
 body {
 	background: url(../img/background_gradient.PNG);
-	margin: 0px;
+	/*margin: 0px;*/
 	font-family: verdana;
 	color: #465b5c;
-	overflow-x:hidden;
+	/*overflow-x:hidden;*/
 	font-weight: 100;
 
 }

@@ -6,11 +6,11 @@ Route::get('/', 'HomeController@index');
 //
 Route::get('/login', array('as' => 'login', 'uses' => 'UserController@loginWithGoogle'));
 //Route for getting login information
-Route::post('/home', array('as' => 'home', 'uses' => 'UserController@logIn'));
+Route::post('/home', array('as' => 'home', 'uses' => 'AuthController@logIn'));
 //Route for storing register information
 Route::post('register_action', function()
 {
-        $obj = new HomeController() ;
+        $obj = new AuthController() ;
         return $obj->store();
 });
 

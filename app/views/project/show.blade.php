@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Uniculum</title>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-</head>
-<body>
+@extends('layouts.master')
+
+@section('content')
+
 <div class="container">
 
 <div class="jumbotron text-center">
@@ -18,6 +15,4 @@
   {{ Markdown::parse($project->project_body) }}
 </div>
 
-</div>
-</body>
-</html>
+@stop

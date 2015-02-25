@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>projects</title>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-</head>
-<body>
+@extends('layouts.master')
+
+@section('content')
+
 <div class="container">
 
 @include('project.projectnav')
@@ -36,19 +32,35 @@
         <tr>
             <td>{{$i++}}</td>
             <td>{{$value->project_title}}</td>
-			      <td>{{str_limit($value->project_body, $limit = 200, $end = '...')}}</td>
+            <td>{{str_limit($value->project_body, $limit = 200, $end = '...')}}</td>
             <td>{{$value->created_at}}</td>
-            <td><a class="btn btn-small btn-success" href="{{ URL::to('project/' . $value->id) }}"><i class="fa fa-search"></i>
-</a></td>
-            <td><a class="btn btn-small btn-info" href="{{ URL::to('project/' . $value->id . '/edit') }}"><i class="fa fa-pencil-square-o"></i>
-</a></td>
-            <td><button class="btn btn-small btn-danger"><i class="fa fa-trash"></i>
-</button></td>
+            <td><a class="btn btn-small btn-success" href="{{ URL::to('project/' . $value->id) }}"><i class="fa fa-search"></i></a></td>
+            <td><a class="btn btn-small btn-info" href="{{ URL::to('project/' . $value->id . '/edit') }}"><i class="fa fa-pencil-square-o"></i></a></td>
+            <td><button class="btn btn-small btn-danger"><i class="fa fa-trash"></i></button></td>
         </tr>
     @endforeach
     </tbody>
 </table>
 
+
 </div>
-</body>
-</html>
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+              </div>
+              <div class="modal-body">
+                KOm iGne
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+@stop

@@ -7,7 +7,12 @@ class ProjectController extends \BaseController {
 	 */
 	public function index()
 	{
-		return View::make("project.index")->with('projects',User::find(Auth::user()->id)->project);
+        if (Auth::check()) {
+		  return View::make("project.index")->with('projects',User::find(Auth::user()->id)->project);
+        }
+        else {
+            return Redirect::to('/')->with();
+        }
 	}
 	/**
 	 * Show the form for creating a new resource.
@@ -50,7 +55,6 @@ class ProjectController extends \BaseController {
             $project->body = Input::get('project_body');
             $project->url = "typ";
             $project->user_id = Auth::user()->id;
-
             $project->save();
 
             Project::find($project->id)->category()->attach($categories);
