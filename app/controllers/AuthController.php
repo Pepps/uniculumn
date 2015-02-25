@@ -38,13 +38,16 @@ class AuthController extends BaseController {
                 );*/
 
             //$data =  Input::except(array('_token')) ;
-
+                        $pdir = Hash::make(Input::get('fname') . Input::get('lname') . date('Y/m/d'));
                         $user = new User;
-                        $user->fname = Input::get('fname');
-                        $user->lname = Input::get('lname');
+                        $user->firstname = Input::get('fname');
+                        $user->lastname = Input::get('lname');
                         $user->email = Input::get('email');
                         $user->password = Hash::make(Input::get('password'));
+                        $user->pdir = $pdir;
                         $user->save();
+
+                        File::makeDirectory(app_path() . '/projects/' . $pdir);
                         return Redirect::to('/');
 
                         /*

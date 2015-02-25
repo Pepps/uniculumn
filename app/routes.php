@@ -2,7 +2,7 @@
 
 Route::get("/", "AuthController@googleStatus");
 Route::get('/', 'HomeController@index');
-//Route::resource('nerds','NerdController');
+
 
 //
 Route::get('/login', array('as' => 'login', 'uses' => 'UserController@loginWithGoogle'));

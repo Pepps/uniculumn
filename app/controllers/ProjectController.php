@@ -49,11 +49,14 @@ class ProjectController extends \BaseController {
         } else {
 
             $categories = explode("-", Input::get('subcategory_id'));
-			$project = new Project;
-            $project->project_title= Input::get('project_title');
-            $project->project_body = Input::get('project_body');
-            $project->project_url = "typ";
+
+            $project = new Project;
+            $project->title= Input::get('project_title');
+            $project->body = Input::get('project_body');
+            $project->url = "typ";
             $project->user_id = Auth::user()->id;
+        //    $project->category->add($category);
+
             $project->save();
 
             Project::find($project->id)->category()->attach($categories);
