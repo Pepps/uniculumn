@@ -106,7 +106,7 @@
       {{ Form::submit('Login') }}
       {{ Form::close() }}
 
-      @if (!empty(Session::get('key'))) {{--*/ $name = Session::get('key') /*--}} @endif
+      <?php if(!empty(Session::get('key'))) $name = Session::get('key'); ?>
 
       {{ HTML::link('login', $name) }}
           <!--

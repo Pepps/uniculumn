@@ -5,7 +5,7 @@ Route::get('/', 'HomeController@index');
 
 
 //
-Route::get('/login', array('as' => 'login', 'uses' => 'UserController@loginWithGoogle'));
+Route::get('/login', array('as' => 'login', 'uses' => 'AuthController@loginWithGoogle'));
 //Route for getting login information
 Route::post('/home', array('as' => 'home', 'uses' => 'AuthController@logIn'));
 //Route for storing register information
