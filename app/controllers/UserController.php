@@ -34,7 +34,7 @@ class UserController extends BaseController {
         // get data from input
         $code = Input::get( 'code' );
         // get google service
-        $googleService = OAuth::consumer( 'Google', 'http://localhost:8000/project' );
+        $googleService = OAuth::consumer( 'Google' );
         // check if code is valid
         // if code is provided get user data and sign in
         if ( !empty( $code ) ) {
@@ -53,6 +53,7 @@ class UserController extends BaseController {
                 $user->save();
     }
             Auth::login($user);
+            return Redirect::to('/project');
         }
 
         // if not ask for permission first
@@ -61,15 +62,6 @@ class UserController extends BaseController {
             $url = $googleService->getAuthorizationUri();
             // return to google login url
             return Redirect::to( (string)$url );
-    }
-}
-    public function logIn(){
-        //Checking if email and password match the information in the database
-        $email = Input::get('email');
-        $password = Input::get('password');
-        if (Auth::attempt(array('email' => $email, 'password' => $password))){
-            return Redirect::to('project');
-
         }
     }
 }

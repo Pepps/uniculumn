@@ -28,7 +28,7 @@
       {{ Form::text('email', '', array('placeholder' => 'Email')) }}<br>
       {{ Form::password('password', array('placeholder' => 'Lösenord')) }}<br>
       {{ Form::password('cpassword', '', array('placeholder' => 'Bekräfta lösenord')) }} <br>
-      {{ Form::submit('', array('class' => 'back_to_welcome')) }}
+      <a href="#" class="back_to_welcome"></a>
       {{ Form::submit('Register', array('class' => 'register_button')) }} <br>
       {{ Form::close() }}
        <!-- <form>
@@ -46,7 +46,15 @@
         </form>-->
       </div>
 
-
+      <div class="login_box">
+        @if ($errors->has())
+        <div class="alert alert-danger">
+            @foreach ($errors->all() as $error)
+                {{ $error }}<br>
+            @endforeach
+        </div>
+        @endif
+      </div>
 
     </div>
     <div class="column_right">
@@ -97,7 +105,7 @@
       {{ Form::password('password') }}
       {{ Form::submit('Login') }}
       {{ Form::close() }}
-      {{HTML::link('login')}}
+      {{HTML::link('login', 'Logga in')}}
           <!--
           Author: Joakim D Google loginbutton
         -->
