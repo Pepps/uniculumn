@@ -2,15 +2,17 @@
 
 Route::get('/', 'HomeController@index');
 //Route::resource('nerds','NerdController');
+
+//
 Route::get('/login', array('as' => 'login', 'uses' => 'UserController@loginWithGoogle'));
-
-
+//Route for getting login information
+Route::post('/home', array('as' => 'home', 'uses' => 'UserController@logIn'));
+//Route for storing register information
 Route::post('register_action', function()
 {
         $obj = new HomeController() ;
         return $obj->store();
 });
-
 Route::get('/users', function()
 
 
@@ -33,4 +35,5 @@ Route::get("/search/{option}/{key}/{val}/{pretty}", "SearchController@index");
 Route::resource('Project', "ProjectController");
 
 Route::get('category/show/{id}', 'CategoryController@show');
+
 Route::get('/register', 'HomeController@index');
