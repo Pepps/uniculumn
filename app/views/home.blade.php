@@ -109,7 +109,10 @@
       <?php if(!empty(Session::get('key'))) $name = Session::get('key'); ?>
 
       {{ HTML::link('login', $name) }}
+<<<<<<< HEAD
 
+=======
+>>>>>>> a46007d56eea7231756974aba79d05111061b888
           <!--
           Author: Joakim D Google loginbutton
         -->

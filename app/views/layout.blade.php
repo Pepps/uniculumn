@@ -7,7 +7,6 @@
     <link rel="shortcut icon" href="img/favicon.ico" />
   </head>
 <body>
-
     @yield('content')
 
     <script src="javascript/jquery-2.1.3.min.js"></script>
