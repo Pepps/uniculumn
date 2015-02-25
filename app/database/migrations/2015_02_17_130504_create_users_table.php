@@ -12,16 +12,16 @@ class CreateUsersTable extends Migration {
 		{
 			$table->engine = 'InnoDB';
 			$table->increments('id');
-			$table->string('fname', 50);
-			$table->string('lname', 50);
+			$table->string('firstname', 50);
+			$table->string('lastname', 50);
 			$table->string('email')->unique();
 			$table->string('password', 60);
 			$table->timestamps();
 			$table->string('token', 100);
 			$table->rememberToken();
-			$table->string('FBauth_token', 255);
-			$table->string('googleauth_token', 255);
-			$table->string('p_dir', 60);
+			$table->string('FBtoken', 255);
+			$table->string('googletoken', 255);
+			$table->string('pdir', 60);
 		});
 	}
 

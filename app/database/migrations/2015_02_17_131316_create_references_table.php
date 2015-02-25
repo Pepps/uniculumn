@@ -15,10 +15,10 @@ class CreateReferencesTable extends Migration {
 			$table->integer('user_id')->unsigned();
 			$table->foreign('user_id')->references('id')->on('users');
 			$table->string('company', 100);
-			$table->string('ref_fname', 50);
-			$table->string('ref_lname', 50);
-			$table->string('ref_email', 100);
-			$table->integer('ref_phone');
+			$table->string('firstname', 50);
+			$table->string('lastname', 50);
+			$table->string('email', 100);
+			$table->integer('phone');
 		});
 	}
 

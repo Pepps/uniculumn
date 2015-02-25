@@ -11,7 +11,7 @@ class CreateCategoriesTable extends Migration {
 		{
 			/* This is the categories table. */
 			$table->increments('id');
-			$table->string('category_title', 50);
+			$table->string('title', 50);
 			$table->integer('subcategory_id');
 			$table->timestamps();
 		});
