@@ -34,12 +34,9 @@
             <td>{{$value->project_title}}</td>
             <td>{{str_limit($value->project_body, $limit = 200, $end = '...')}}</td>
             <td>{{$value->created_at}}</td>
-            <td><a class="btn btn-small btn-success" href="{{ URL::to('project/' . $value->id) }}"><i class="fa fa-search"></i>
-</a></td>
-            <td><a class="btn btn-small btn-info" href="{{ URL::to('project/' . $value->id . '/edit') }}"><i class="fa fa-pencil-square-o"></i>
-</a></td>
-            <td><button class="btn btn-small btn-danger"><i class="fa fa-trash"></i>
-</button></td>
+            <td><a class="btn btn-small btn-success" href="{{ URL::to('project/' . $value->id) }}"><i class="fa fa-search"></i></a></td>
+            <td><a class="btn btn-small btn-info" href="{{ URL::to('project/' . $value->id . '/edit') }}"><i class="fa fa-pencil-square-o"></i></a></td>
+            <td><button class="btn btn-small btn-danger"><i class="fa fa-trash"></i></button></td>
         </tr>
     @endforeach
     </tbody>

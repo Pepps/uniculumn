@@ -14,6 +14,9 @@ class AuthController extends BaseController {
     if (Auth::attempt(array('email' => $email, 'password' => $password))){
         return Redirect::intended('project');
         }
+    else {
+        return Redirect::intended('/')->with('loginError','Något gick fel');
+        }
     }
 
   public function store(){
