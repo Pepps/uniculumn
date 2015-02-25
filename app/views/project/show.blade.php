@@ -14,5 +14,4 @@
   @endforeach
   {{ Markdown::parse($project->body) }}
 </div>
-
 @stop
