@@ -13,8 +13,7 @@ Route::post('register_action', function()
         $obj = new HomeController() ;
         return $obj->store();
 });
-<<<<<<< HEAD
-=======
+
 
 Route::get('/users', function()
 
@@ -38,5 +37,5 @@ Route::get("/search/{option}/{key}/{val}/{pretty}", "SearchController@index");
 Route::resource('Project', "ProjectController");
 
 Route::get('category/show/{id}', 'CategoryController@show');
->>>>>>> 28c7c8d2d2b39b06fe73ef7001521d51404fff5e
+
 Route::get('/register', 'HomeController@index');

@@ -111,11 +111,11 @@ class UserController extends BaseController
         }
 
     }
-    public function logOut(){
-        Auth::logout()
-        return Redirect::route('home');
+   // public function logOut(){
+     //   Auth::logout()
+      //  return Redirect::route('home');
 
-        }
+      //  }
     
 }
 
