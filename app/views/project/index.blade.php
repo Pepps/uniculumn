@@ -1,19 +1,13 @@
 @extends('layouts.master')
 
 @section('content')
+
 <div class="container">
 
-<nav class="navbar navbar-inverse">
-    <div class="navbar-header">
-        <a class="navbar-brand" href="{{ URL::to('Project') }}">Project Alert</a>
-    </div>
-    <ul class="nav navbar-nav">
-        <li><a href="{{ URL::to('Project') }}">View All Projects</a></li>
-        <li><a href="{{ URL::to('Project/create') }}">Create a Project</a>
-    </ul>
-</nav>
+@include('project.projectnav')
+@yield('projectnav')
 
-<h1>All the Projects</h1>
+<h3>Your projects</h3>
 
 <!-- will be used to show any messages -->
 @if (Session::has('message'))
@@ -23,48 +17,37 @@
 <table class="table table-striped table-bordered">
     <thead>
         <tr>
-            <td>ID</td>
-            <td>Name</td>
-            <td>Stats</td>
-            <td>Project title</td>
-            <td>Url</td>
-            <td>Project body</td>
+            <td><b>#</b></td>
+            <td><b>project title</b></td>
+            <td><b>project body</b></td>
+            <td><b>Created at</b></td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
         </tr>
     </thead>
     <tbody>
+    <span style="display: none;">{{$i = 1}}</span>
     @foreach($projects as $value)
         <tr>
-            <td>{{$value->id }}</td>
-            <td>{{$value->user_id}}</td>
-            <td>{{$value->stats_id}}</td>
+            <td>{{$i++}}</td>
             <td>{{$value->project_title}}</td>
-            <td>{{$value->project_url}}</td>
-            <td>{{$value->project_body}}</td>
-
-
-            <!-- we will also add show, edit, and delete buttons -->
-            <td>
-
-                <!-- delete the project (uses the destroy method DESTROY /projects/{id} -->
-                <!-- we will add this later since its a little more complicated than the other two buttons -->
-
-                <!-- show the project (uses the show method found at GET /projects/{id} -->
-                <a class="btn btn-small btn-success" href="{{ URL::to('Project/' . $value->id) }}">Show this Project</a>
-
-                <!-- edit this project (uses the edit method found at GET /projects/{id}/edit -->
-                <a class="btn btn-small btn-info" href="{{ URL::to('Project/' . $value->id . '/edit') }}">Edit this Project</a>
-
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-small btn-danger" data-toggle="modal" data-target="#myModal">Radera Projekt</button>
-
-            </td>
-    @endforeach        </tr>
-
+            <td>{{str_limit($value->project_body, $limit = 200, $end = '...')}}</td>
+            <td>{{$value->created_at}}</td>
+            <td><a class="btn btn-small btn-success" href="{{ URL::to('project/' . $value->id) }}"><i class="fa fa-search"></i>
+</a></td>
+            <td><a class="btn btn-small btn-info" href="{{ URL::to('project/' . $value->id . '/edit') }}"><i class="fa fa-pencil-square-o"></i>
+</a></td>
+            <td><button class="btn btn-small btn-danger"><i class="fa fa-trash"></i>
+</button></td>
+        </tr>
+    @endforeach
     </tbody>
 </table>
 
 
 </div>
+
         <!-- Modal -->
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
           <div class="modal-dialog">

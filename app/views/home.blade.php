@@ -28,7 +28,7 @@
       {{ Form::text('email', '', array('placeholder' => 'Email')) }}<br>
       {{ Form::password('password', array('placeholder' => 'Lösenord')) }}<br>
       {{ Form::password('cpassword', '', array('placeholder' => 'Bekräfta lösenord')) }} <br>
-      {{ Form::submit('', array('class' => 'back_to_welcome')) }}
+      <a href="#" class="back_to_welcome"></a>
       {{ Form::submit('Register', array('class' => 'register_button')) }} <br>
       {{ Form::close() }}
        <!-- <form>
@@ -55,7 +55,6 @@
         </div>
         @endif
       </div>
-
 
     </div>
     <div class="column_right">
