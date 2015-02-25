@@ -44,7 +44,7 @@
           <div class="register_button">Registrera dig</div>
 
         </form>-->
-      </div>o
+      </div>
 
       <div class="login_box">
         @if ($errors->has())
