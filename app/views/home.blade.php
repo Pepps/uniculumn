@@ -106,9 +106,6 @@
       {{ Form::submit('Login') }}
       {{ Form::close() }}
 
-      @if (!empty(Session::get('key'))) {{--*/ $name = Session::get('key') /*--}} @endif
-
-      {{ HTML::link('login', $name) }}
           <!--
           Author: Joakim D Google loginbutton
         -->
