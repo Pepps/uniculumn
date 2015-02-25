@@ -1,5 +1,6 @@
 <?php
 
+Route::get("/", "AuthController@googleStatus");
 Route::get('/', 'HomeController@index');
 //Route::resource('nerds','NerdController');
 

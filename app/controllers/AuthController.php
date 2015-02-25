@@ -63,4 +63,19 @@ class AuthController extends BaseController {
                 return Redirect::to('home')->withMessage('Data inserted');
         }*/
     }
+
+    public function googleStatus() {
+
+        // get data from input
+        $code = Input::get( 'code' );
+        // get google service
+        $googleService = OAuth::consumer( 'Google' );
+        // check if code is valid
+        // if code is provided get user data and sign in
+        if ( empty( $code ) ) {
+            // This was a callback request from google, get the token
+            Session::put('key', 'Logga in med Chrome');
+            return Redirect::to('/');
+        }
+    }
 }
