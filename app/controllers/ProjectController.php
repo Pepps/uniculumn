@@ -72,7 +72,7 @@ class ProjectController extends \BaseController {
 	 */
 	public function show($project_id)
 	{
-			$Project = Project::find($project_id);
+		$Project = Project::find($project_id);
 
       // show the view and pass the project to it
       return View::make('project.show')

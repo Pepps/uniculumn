@@ -1,6 +1,5 @@
 <?php
 
-Route::get("/", "AuthController@googleStatus");
 Route::get('/', 'HomeController@index');
 
 
@@ -23,5 +22,6 @@ Route::get("/search/{option}/{key}/{val}/{pretty}", "SearchController@index");
 Route::resource('project', "ProjectController");
 
 Route::get('category/show/{id}', 'CategoryController@show');
+Route::get('user/show', 'UserController@show');
 
 Route::get('/register', 'HomeController@index');

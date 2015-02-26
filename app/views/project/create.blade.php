@@ -31,6 +31,14 @@
 
     <div class="form-group" id="subcategory-form">
     </div>
+
+    <div class="form-group" id="collaborators-form">
+        {{ Form::label('collaborators-form', 'Medarbetare') }}
+        {{ Form::text('collaborators-form', Input::old('name'), array('class' => 'typeahead form-control')) }}
+        <button id=""></button>
+    </div>
+
+
     <!---
     / HIDDEN FORMS
     -->

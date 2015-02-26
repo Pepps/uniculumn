@@ -38,6 +38,41 @@ function show(id) {
 
     return false;
 }
+
+function collaborator() {
+
+    var collaborator = new Bloodhound({
+      datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
+      queryTokenizer: Bloodhound.tokenizers.whitespace,
+      limit: 10,
+      prefetch: {
+        // url points to a json file that contains an array of user names, see
+        // https://github.com/twitter/typeahead.js/blob/gh-pages/data/collaborator.json
+        url: '/get-users',
+        // the json file contains an array of strings, but the Bloodhound
+        // suggestion engine expects JavaScript objects so this converts all of
+        // those strings
+        filter: function(list) {
+          return $.map(list, function(user) { return { name: user }; });
+        }
+      }
+    });
+
+    // kicks off the loading/processing of `local` and `prefetch`
+    collaborator.initialize();
+
+    // passing in `null` for the `options` arguments will result in the default
+    // options being used
+    $('#prefetch .typeahead').typeahead(null, {
+      name: 'collaborator',
+      displayKey: 'name',
+      // `ttAdapter` wraps the suggestion engine in an adapter that
+      // is compatible with the typeahead jQuery plugin
+      source: collaborator.ttAdapter()
+    });
+
+}
+
 $(document).on('change', '#category', function(e) {
     e.preventDefault(e);
 

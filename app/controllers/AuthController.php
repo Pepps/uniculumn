@@ -71,13 +71,13 @@ class AuthController extends BaseController {
             $user = User::whereEmail($result['email'])->first(['id']);
             if (empty($user)) {
                 $user = new User;
-                $user->fname = $result['given_name'];
+                $user->firstname = $result['given_name'];
                 $user->email= $result['email'];
-                $user->lname = $result['family_name'];
+                $user->lastname = $result['family_name'];
                 $user->save();
     }
             Auth::login($user);
-            Session::put('key', $result['given_name']);
+            Session::put('key', $result['email']);
             return Redirect::to('/project');
         }
 
@@ -87,22 +87,6 @@ class AuthController extends BaseController {
             $url = $googleService->getAuthorizationUri();
             // return to google login url
             return Redirect::to( (string)$url );
-        }
-    }
-
-
-    public function googleStatus() {
-
-        // get data from input
-        $code = Input::get( 'code' );
-        // get google service
-        $googleService = OAuth::consumer( 'Google' );
-        // check if code is valid
-        // if code is provided get user data and sign in
-        if ( empty( $code ) ) {
-            // This was a callback request from google, get the token
-            Session::put('key', 'Logga in med Chrome');
-            return Redirect::to('/');
         }
     }
 }
