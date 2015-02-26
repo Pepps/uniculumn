@@ -21,6 +21,9 @@ Route::get("/search/{option}/{key}/{val}", "SearchController@index");
 Route::get("/search/{option}/{key}/{val}/{pretty}", "SearchController@index");
 
 Route::resource('project', "ProjectController");
+/* Duck punch for fixing update */
+Route::post('/project/update/{id}', "ProjectController@update");
+Route::get('/project/delete/{id}', "ProjectController@destroy");
 
 Route::get('category/show/{id}', 'CategoryController@show');
 
