@@ -9,6 +9,7 @@ $(function(){
             collaborator(data);
         }
     });
+});
 
 function collaborator(data) {
     // constructs the suggestion engine
