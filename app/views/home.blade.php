@@ -105,6 +105,7 @@
       {{ Form::password('password') }}
       {{ Form::submit('Login') }}
       {{ Form::close() }}
+<<<<<<< HEAD
 
       <?php if(!empty(Session::get('key'))) $name = Session::get('key'); ?>
 
@@ -113,6 +114,9 @@
 
 =======
 >>>>>>> a46007d56eea7231756974aba79d05111061b888
+=======
+      
+>>>>>>> 980b8458c61b32248449c9f7bea5f75d9c858369
           <!--
           Author: Joakim D Google loginbutton
         -->
