@@ -12,7 +12,9 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 
 	protected $table = 'users';
 
-	protected $hidden = array('password', 'remember_token');
+	protected $hidden = array('password', 'remember_token', 'pdir',
+														'created_at', 'updated_at', 'token',
+														'remeber_token', 'FBtoken', 'googletoken');
 
 
 	// A User has many projects.
