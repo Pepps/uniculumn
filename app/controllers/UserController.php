@@ -1,7 +1,7 @@
 <?php
 class UserController extends BaseController {
     /*
-        Author : Joakim
+        Author : Jesper
     */
     public function show() {
 

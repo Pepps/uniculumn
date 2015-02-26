@@ -1,118 +1,113 @@
 <?php
 class ProjectController extends \BaseController {
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
-	public function index()
-	{
-        if (Auth::check()) {
-		  return View::make("project.index")->with('projects',User::find(Auth::user()->id)->project);
-        }
-        else {
-            return Redirect::to('/')->with();
-        }
+
+
+	/*
+		The Method resposible for redering the index file on the /prodject URL.
+		It allso checks if the user is logged in or not. If the user is not logged in it returns to
+		the / route. When to view is created the logged in users prodject is allso sent to the view.
+	*/
+
+	public function index(){
+	    if (Auth::check()){
+	  		return View::make("project.index")->with('projects',User::find(Auth::user()->id)->project);
+	    }
+	    else{
+	        return Redirect::to('/');
+	    }
 	}
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-		// load the create form (app/views/projects/create.blade.php)
-        return View::make('project.create');
+
+	/*
+		The method responsible for redering the createing the view for the route /project/create
+	*/
+	public function create(){
+      return View::make('project.create');
 	}
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
-	public function store()
-	{
-		 // validate
-        // read more on validation at http://laravel.com/docs/validation
-        $rules = array(
-            'project_title'         => 'required',
-            'project_body'          => 'required',
-            'category'              => 'required',
-            'subcategory_id'        => 'required'
-        );
-        $validator = Validator::make(Input::all(), $rules);
-        // process the login
-        if ($validator->fails()) {
-            return Redirect::to('project/create')
-                ->withErrors($validator)
-                ->withInput(Input::except('password'));
-                echo Input::get('subcategory');
-        } else {
 
-            $categories = explode("-", Input::get('subcategory_id'));
+	/*
+		The method responsibble for Storing data sent from the /project/create route.
+		$rules is for valedeting the data given by the form and if the validator fails
+		the user is redirected to prodjects/create with the errors.
+		else a prodject is created and the data is inserted in to the database.
+	*/
+	public function store(){
+      $rules = array(
+          'project_title'         => 'required',
+          'project_body'          => 'required',
+          'category'              => 'required',
+          'subcategory_id'        => 'required'
+      );
+      $validator = Validator::make(Input::all(), $rules);
+      if ($validator->fails()) {
+          return Redirect::to('project/create')
+              ->withErrors($validator)
+              ->withInput(Input::except('password'));
+              echo Input::get('subcategory');
+      }else{
+        //$categories = explode("-", Input::get('subcategory_id'));
 
-            $project = new Project;
-            $project->title = Input::get('project_title');
-            $project->body = Input::get('project_body');
-            $project->url = "typ";
-            $project->user_id = Auth::user()->id;
-        //    $project->category->add($category);
+        $project = new Project;
+        $project->title = Input::get('project_title');
+        $project->body = Input::get('project_body');
+        $project->url = "typ";
+        $project->user_id = Auth::user()->id;
 
-            $project->save();
+        $project->save();
 
-            Project::find($project->id)->category()->attach($categories);
-            Session::flash('message', 'Successfully created Project!');
-            return Redirect::to('project');
-        }
+        Project::find($project->id)->category()->attach(explode("-", Input::get('subcategory_id')));
+        Session::flash('message', 'Successfully created Project!');
+        return Redirect::to('project');
+      }
 	}
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($project_id)
-	{
-		$Project = Project::find($project_id);
 
-      // show the view and pass the project to it
+	/*
+		The method responsible for redering the view for the prodject/{id} route.
+		The selected prodject from the id is passed to the view.
+	*/
+	public function show($project_id){
+			$Project = Project::find($project_id);
       return View::make('project.show')
           ->with('project', $Project)
-					->with('categories', Project::find($project_id)->category)
+					->with('categories', $Project->category)
 					->with('user', User::find($Project->user_id));
 	}
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-		//
+
+	/*
+		The method responsible for redering the view for the project/{id}/edit and
+		passes the selected prodject to the view.
+	*/
+	public function edit($id){
+		return View::make('project.edit')->with('project',Project::find($id));
 	}
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
-	{
-		//
+
+	/*
+		The method resposible for updateing the data form the project/{id}/edit
+		route and redirects the user to the /prodjects route.
+
+		This have a separate route witch is duck punched.
+	*/
+	public function update($id){
+		$Project = Project::find($id);
+		$Project->title = Input::get("project_title");
+		$Project->body = Input::get("project_body");
+		$Project->save();
+		return Redirect::to('/project');
 	}
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
-	{
-		//
+
+	/*
+		The method responsible for deleting the seleced prodject from the prodject/delete/{id} and
+		redirectiong the user to the /prodject route. The code duse also checks if the user is logged
+		in or not and if the user is not logged in the user is redirected to the /prodjects route.
+
+		This have a separate route witch is duck punched.
+	*/
+	public function destroy($id){
+		if(Auth::check()){
+			$project = Project::find($id);
+			$project->delete();
+			return Redirect::to('/project');
+		}else{
+			return Redirect::to('/project');
+		}
 	}
-    /**
-     *
-     *
-     *
-     */
 }

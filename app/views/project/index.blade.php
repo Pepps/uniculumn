@@ -30,12 +30,13 @@
     @foreach($projects as $value)
         <tr>
             <td>{{$i++}}</td>
-            <td>{{$value->project_title}}</td>
-            <td>{{str_limit($value->project_body, $limit = 200, $end = '...')}}</td>
+            <td class="pi" style="display: none;">{{$value->id}}</td>
+            <td class="pt">{{$value->title}}</td>
+            <td>{{str_limit($value->body, $limit = 200, $end = '...')}}</td>
             <td>{{$value->created_at}}</td>
             <td><a class="btn btn-small btn-success" href="{{ URL::to('project/' . $value->id) }}"><i class="fa fa-search"></i></a></td>
             <td><a class="btn btn-small btn-info" href="{{ URL::to('project/' . $value->id . '/edit') }}"><i class="fa fa-pencil-square-o"></i></a></td>
-            <td><a class="btn btn-small btn-danger" data-toggle="modal" data-target="#myModal"><i class="fa fa-pencil-square-o"></i></a></td>
+            <td><button class="btn btn-small btn-danger" id="delmodal-btn"><i class="fa fa-trash"></i></button></td>
         </tr>
     @endforeach
     </tbody>
@@ -44,22 +45,34 @@
 
 </div>
 
-        <!-- Modal -->
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-              </div>
-              <div class="modal-body">
-                KOm iGne
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-              </div>
-            </div>
-          </div>
-        </div>
+<script>
+
+  window.onload = function(){
+
+      $("#delmodal-btn").on("click", function(){
+        $('#delete').modal('show');
+        $('.modal-backdrop').css( "zIndex", -1030 );
+        $("#delete-pt").text($(this).parent().parent().find(".pt").text());
+        $('#del-btn').attr('href','/project/delete/'+$(this).parent().parent().find(".pi").text());
+      });
+
+  }
+
+</script>
+
+<!-- Modal -->
+<div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h4 style="text-align:center;">Är du säker på att du vill ta bort <b><span id="delete-pt"></span></b>?</h4>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Stäng</button>
+        <a class="btn btn-danger" id="del-btn">Ta bort!</a>
+      </div>
+    </div>
+  </div>
+</div>
+
 @stop
