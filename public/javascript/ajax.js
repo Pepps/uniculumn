@@ -5,36 +5,55 @@ $(function(){
     $.ajax({
         type    : 'GET',
         url     : '/user/show',
-        success : function(data) {
-            collaborator(data);
+        success : function(result) {
+            var names = [];
+            var data = $.parseJSON(result);
+            for(var i=0;i<data.length;i++){
+                names.push(data[i]['firstname']);
+            }
+            collaborator(names);
+
         }
-    });
+    }, "json");
+    return false;
 });
 
-function collaborator(data) {
-    // constructs the suggestion engine
-    var data = new Bloodhound({
-      datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value'),
-      queryTokenizer: Bloodhound.tokenizers.whitespace,
-      // `states` is an array of state names defined in "The Basics"
-      local: $.map(data, function(firstname) { return { value: firstname }; })
+function collaborator(names) {
+
+var substringMatcher = function(strs) {
+  return function findMatches(q, cb) {
+    var matches, substrRegex;
+
+    // an array that will be populated with substring matches
+    matches = [];
+
+    // regex used to determine if a string contains the substring `q`
+    substrRegex = new RegExp(q, 'i');
+
+    // iterate through the pool of strings and for any string that
+    // contains the substring `q`, add it to the `matches` array
+    $.each(strs, function(i, str) {
+      if (substrRegex.test(str)) {
+        // the typeahead jQuery plugin expects suggestions to a
+        // JavaScript object, refer to typeahead docs for more info
+        matches.push({ value: str });
+      }
     });
 
-    // kicks off the loading/processing of `local` and `prefetch`
-    states.initialize();
+    cb(matches);
+  };
+};
 
-    $('#bloodhound .typeahead').typeahead({
-      hint: true,
-      highlight: true,
-      minLength: 1
-    },
-    {
-      name: 'data',
-      displayKey: 'value',
-      // `ttAdapter` wraps the suggestion engine in an adapter that
-      // is compatible with the typeahead jQuery plugin
-      source: states.ttAdapter()
-    });
+$('#bloodhound .typeahead').typeahead({
+  hint: true,
+  highlight: true,
+  minLength: 1
+},
+{
+  name: 'names',
+  displayKey: 'value',
+  source: substringMatcher(names)
+});
 }
 
 function show(id) {
