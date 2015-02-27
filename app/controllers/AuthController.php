@@ -39,7 +39,9 @@ class AuthController extends BaseController {
         );*/
 
     //$data =  Input::except(array('_token')) ;
+
     $pdir = Hash::make(Input::get('fname') . Input::get('lname') . date('Y/m/d'));
+    //var_dump(app_path(). '/projects/' . $pdir);
     $user = new User;
     $user->firstname = Input::get('fname');
     $user->lastname = Input::get('lname');
@@ -48,7 +50,8 @@ class AuthController extends BaseController {
     $user->pdir = $pdir;
     $user->save();
 
-    File::makeDirectory(app_path() . '/projects/' . $pdir);
+    //File::makeDirectory(app_path() . '/projects/' . $pdir);
+    File::makeDirectory(app_path() . '/projects/' . $pdir, 0775, true);
     return Redirect::to('/');
 
   }

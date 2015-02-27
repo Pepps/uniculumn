@@ -118,4 +118,31 @@ class ProjectController extends \BaseController {
 			return Redirect::to('/project');
 		}
 	}
+
+	public function showfiles($id){
+		$project = Project::find($id);
+		$user = User::find($project->user_id);
+
+		$filepaths = File::files(app_path() . "/projects/" . $user->pdir . "/" . $project->title);
+		$files = [];
+
+		for($i = 0; $i < sizeof($filepaths); $i++){
+			$f = explode("/", $filepaths[$i]);
+			array_push($files, $f[sizeof($f)-1]);
+			//echo "<pre>" . var_dump($f) . "</pre><br>";
+		}
+
+		//var_dump($files);
+
+		return View::make('project.showprojects')->with('files', $files);
+	}
+
+	public function getfiles($id){
+
+	}
+
+	public function readfile($id){
+
+	}
+
 }
