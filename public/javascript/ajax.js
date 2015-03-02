@@ -18,6 +18,12 @@ $(function(){
     return false;
 });
 
+
+$('.typeahead').on('click', function(){
+    console.log($(this).val());
+    $('#bloodhound-names').append("<span>"+$(this).val()+"</span>");
+});
+
 function collaborator(names) {
 
 var substringMatcher = function(strs) {

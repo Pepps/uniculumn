@@ -36,6 +36,7 @@
         {{ Form::text('collaborators-form', Input::old('name'), array('class' => 'typeahead form-control')) }}
     </div>
 
+    <div id="bloodhound-names"></div>
 
     <!---
     / HIDDEN FORMS

@@ -19,7 +19,7 @@
   <tr><td>{{ $user->email }}</td></tr>
 </table>
 
-<a class="btn btn-small btn-info" href="">Redigera</a>
+<a class="btn btn-small btn-info" href="user/{{$user->id}}/edit">Redigera</a>
 
 </div>
 

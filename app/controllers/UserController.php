@@ -6,7 +6,7 @@ class UserController extends BaseController {
 
     public function index() {
 
-        return View::make('profile.index')->with('user', User::find((Auth::user()->id)));
+        return View::make('user.index')->with('user', User::find((Auth::user()->id)));
 
     }
 
@@ -18,7 +18,7 @@ class UserController extends BaseController {
 
     public function edit($id) {
 
-        return User::find($id);
+        return View::make('user.edit')->with('user', User::find($id));
 
     }
 
