@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateCategoryExperienceTable extends Migration {
+class CreateExperienceUserTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,14 +12,13 @@ class CreateCategoryExperienceTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('experience_category', function(Blueprint $table)
+		Schema::create('experience_user', function(Blueprint $table)
 		{
 			$table->increments('id');
 			$table->integer('experience_id')->unsigned()->index();
 			$table->foreign('experience_id')->references('id')->on('experiences')->onDelete('cascade');
-			$table->integer('category_id')->unsigned()->index();
-			$table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
-	
+			$table->integer('user_id')->unsigned()->index();
+			$table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 			$table->timestamps();
 		});
 	}
@@ -32,7 +31,7 @@ class CreateCategoryExperienceTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('experience_category');
+		Schema::drop('experience_user');
 	}
 
 }
