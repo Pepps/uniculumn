@@ -24,6 +24,7 @@
         {{ Form::textarea('project_body', $project->body, array('class' => 'form-control')) }}
     </div>
 
+
     {{ Form::submit('Update the project!', array('class' => 'btn btn-primary')) }}
 
 {{ Form::close() }}

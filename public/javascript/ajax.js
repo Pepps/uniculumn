@@ -1,6 +1,67 @@
 var subcategories = [];
 show(0);
 
+$(function(){
+    $.ajax({
+        type    : 'GET',
+        url     : '/user/show',
+        success : function(result) {
+            var names = [];
+            var data = $.parseJSON(result);
+            for(var i=0;i<data.length;i++){
+                names.push(data[i]['firstname']);
+            }
+            collaborator(names);
+
+        }
+    }, "json");
+    return false;
+});
+
+
+$('.typeahead').on('click', function(){
+    console.log($(this).val());
+    $('#bloodhound-names').append("<span>"+$(this).val()+"</span>");
+});
+
+function collaborator(names) {
+
+var substringMatcher = function(strs) {
+  return function findMatches(q, cb) {
+    var matches, substrRegex;
+
+    // an array that will be populated with substring matches
+    matches = [];
+
+    // regex used to determine if a string contains the substring `q`
+    substrRegex = new RegExp(q, 'i');
+
+    // iterate through the pool of strings and for any string that
+    // contains the substring `q`, add it to the `matches` array
+    $.each(strs, function(i, str) {
+      if (substrRegex.test(str)) {
+        // the typeahead jQuery plugin expects suggestions to a
+        // JavaScript object, refer to typeahead docs for more info
+        matches.push({ value: str });
+      }
+    });
+
+    cb(matches);
+  };
+};
+
+$('#bloodhound .typeahead').typeahead({
+  hint: true,
+  highlight: true,
+  minLength: 1
+},
+{
+  name: 'names',
+  displayKey: 'value',
+  source: substringMatcher(names)
+});
+}
+
 function show(id) {
     $.ajax({
         type    : "GET",
@@ -38,6 +99,7 @@ function show(id) {
 
     return false;
 }
+
 $(document).on('change', '#category', function(e) {
     e.preventDefault(e);
 
@@ -46,5 +108,6 @@ $(document).on('change', '#category', function(e) {
         //-----
 
     show($("#category").val());
+
 
 });

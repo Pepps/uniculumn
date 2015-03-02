@@ -32,6 +32,13 @@
 
     <div class="form-group" id="subcategory-form">
     </div>
+
+    <div class="form-group" id="bloodhound">
+        {{ Form::text('collaborators-form', Input::old('name'), array('class' => 'typeahead form-control')) }}
+    </div>
+
+    <div id="bloodhound-names"></div>
+
     <!---
     / HIDDEN FORMS
     -->

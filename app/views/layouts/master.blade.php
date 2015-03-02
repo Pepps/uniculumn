@@ -16,6 +16,7 @@
     {{ HTML::script('javascript/jquery.ui.touch-punch.js') }}
     {{ HTML::script('javascript/user_jquery.js') }}
     {{ HTML::script('javascript/urlgen.js') }}
+    {{ HTML::script('javascript/typeahead.bundle.js') }}
     {{ HTML::script('javascript/ajax.js') }}
     {{ HTML::script('javascript/ace/ace.js') }}
     <script src="https://apis.google.com/js/client:platform.js" async defer></script>
