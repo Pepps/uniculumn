@@ -31,13 +31,15 @@ class ProjectController extends \BaseController {
 		else a prodject is created and the data is inserted in to the database.
 	*/
 	public function store(){
+      $file = array('file' => Input::file('file'));
       $rules = array(
           'project_title'         => 'required',
           'project_body'          => 'required',
+          'file'				  => '',
           'category'              => 'required',
           'subcategory_id'        => 'required'
       );
-      $validator = Validator::make(Input::all(), $rules);
+      $validator = Validator::make($file, Input::all(), $rules);
       if ($validator->fails()) {
           return Redirect::to('project/create')
               ->withErrors($validator)
@@ -45,11 +47,15 @@ class ProjectController extends \BaseController {
               echo Input::get('subcategory');
       }else{
         //$categories = explode("-", Input::get('subcategory_id'));
+        $path = app_path() . "/projects/" . Auth::user()->pdir .  "/" . Input::get('project_title');
+        File::makeDirectory($path);
+        $name = Input::file('file')->getClientOriginalName();
+        $upload = Input::file('file')->move($path, $name);
 
         $project = new Project;
         $project->title = Input::get('project_title');
         $project->body = Input::get('project_body');
-        $project->url = "typ";
+        $project->url = $upload;
         $project->user_id = Auth::user()->id;
 
         $project->save();
@@ -104,7 +110,9 @@ class ProjectController extends \BaseController {
 	public function destroy($id){
 		if(Auth::check()){
 			$project = Project::find($id);
+			File::deleteDirectory(app_path() . "/projects/" . Auth::user()->pdir .  "/" . $project->title);
 			$project->delete();
+
 			return Redirect::to('/project');
 		}else{
 			return Redirect::to('/project');

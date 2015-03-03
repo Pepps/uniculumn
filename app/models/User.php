@@ -16,7 +16,6 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 														'created_at', 'updated_at', 'token',
 														'remeber_token', 'FBtoken', 'googletoken');
 
-
 	// A User has many projects.
 	public function project()
 	{
