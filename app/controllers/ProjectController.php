@@ -61,6 +61,7 @@ class ProjectController extends \BaseController {
         $project->save();
 
         Project::find($project->id)->category()->attach(explode("-", Input::get('subcategory_id')));
+        Project::find($project->id)->users()->attach(explode("-", Input::get('user_id')));
         Session::flash('message', 'Successfully created Project!');
         return Redirect::to('project');
       }
