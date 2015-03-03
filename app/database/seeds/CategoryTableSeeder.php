@@ -223,12 +223,12 @@ class CategoryTableSeeder extends Seeder {
                 if (strpos($categories[$i], "0") !== false) {
                     $x = $i+1;
                     $category_id = str_replace("0","", $categories[$i]);
-                    $category->category_title = $category_id;
+                    $category->title = $category_id;
                     $category->subcategory_id = 0;
                     $category->save();
                 }
                 else {
-                    $category->category_title = $categories[$i];
+                    $category->title = $categories[$i];
                     $category->subcategory_id = $x;
                     $category->save();
                 }

@@ -10,14 +10,14 @@ function show(id) {
             if (id==0) {
                 $('#category').html("");
                 for (var i=0; i<data.length; i++) {
-                    $('<option value="'+data[i]['id']+'">'+data[i]['category_title']+'</option>').appendTo($('#category'));
+                    $('<option value="'+data[i]['id']+'">'+data[i]['title']+'</option>').appendTo($('#category'));
                     }
                 }
                 else {
                     $('#subcategory-form').html("");
                     var x = 0;
                     for (var i=0; i<data.length; i++) {
-                            $('<div class="checkbox"><input type="checkbox" class="sub-checkbox" name="subcategory" value="'+data[i]['id']+'"/>'+data[i]['category_title']+"</div>").appendTo($(' #subcategory-form') );
+                            $('<div class="checkbox"><input type="checkbox" class="sub-checkbox" name="subcategory" value="'+data[i]['id']+'"/>'+data[i]['title']+"</div>").appendTo($(' #subcategory-form') );
                         }
                     }
 
@@ -42,7 +42,7 @@ $(document).on('change', '#category', function(e) {
     e.preventDefault(e);
 
         //-----
-        //
+        // TODO comments here
         //-----
 
     show($("#category").val());
