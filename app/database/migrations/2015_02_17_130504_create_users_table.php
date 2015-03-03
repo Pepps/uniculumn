@@ -18,8 +18,8 @@ class CreateUsersTable extends Migration {
 			$table->string('state', 40);
 			$table->string('city', 30);
 			$table->string('address', 120);
-			$table->integer('postnumber', 6);
-			$table->integer('phone', 10);
+			$table->integer('postnumber');
+			$table->integer('phone');
 			$table->string('password', 60);
 			$table->timestamps();
 			$table->string('token', 100);
