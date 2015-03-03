@@ -12,7 +12,7 @@
 <!-- if there are creation errors, they will show here -->
 {{ HTML::ul($errors->all()) }}
 
-{{ Form::open(array('url' => 'project', 'files'=>true, 'method'=>'post')) }}
+{{ Form::open(array('url' => 'project', 'files'=>true, 'method'=>'post', 'class'=>'dropzone')) }}
 
 
     <div class="form-group">
@@ -46,7 +46,11 @@
     {{ Form::text('subcategory_id', Input::old('category'), array('class' => 'hidden', 'id' => 'subcategory_id')) }}
 
 
-    {{ Form::file('file') }}
+    <div id="dropzone">
+        {{ Form::file('file') }}
+    </div>
+
+
     {{ Form::submit('Create the project!', array('class' => 'btn btn-primary')) }}
 
 {{ Form::close() }}

@@ -86,7 +86,12 @@ body {
 * JESPERS INPUT!!!!! DEN ÄR SÅ SNYGG!
 **/
 
-/* oO //FILIP */
+#dropzone {
+	height:400px;
+	width: 100%;
+	border:1px solid #eee;
+	box-shadow: 1px 1px 10px 1px #bbb;
+}
 
 .input-sub {
 	float:left;
