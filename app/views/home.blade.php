@@ -115,6 +115,8 @@
       {{ Form::submit('Login') }}
       {{ Form::close() }}
 
+      <?php //if(!empty(Session::get('key'))) $name = Session::get('key'); ?>
+
           <!--
           Author: Joakim D Google loginbutton
         -->
