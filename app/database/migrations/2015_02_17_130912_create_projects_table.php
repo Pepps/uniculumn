@@ -12,8 +12,7 @@ class CreateProjectsTable extends Migration {
 			/* This is the projects table. */
 			$table->engine = 'InnoDB';
 			$table->increments('id');
-			$table->integer('user_id')->unsigned();
-			$table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
+			$table->integer('user_id');
 			$table->string('title', 40);
 			$table->timestamps();
 			$table->text('body');

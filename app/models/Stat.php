@@ -5,11 +5,13 @@ class Stat extends Eloquent
 
 
 	// A Stat belongs to many Users.
-	public function user()
-	{
+	public function user() {
 
 		return $this->belongsToMany('User');
 	}
 
+	public function project() {
+		return $this->belongsToMany('Project');
+	}
 
 }
