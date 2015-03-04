@@ -1,0 +1,361 @@
+body {
+	background: url(../img/background_gradient.PNG);
+	/*margin: 0px;*/
+	font-family: verdana;
+	color: #465b5c;
+	/*overflow-x:hidden;*/
+	font-weight: 100;
+
+}
+
+
+ /* user logged in */
+
+
+#ui_sidebar {
+	background-color: #2f4343;
+	width: 14vw;
+	height: 98vh;
+	float: left;
+	padding: 1vw;
+}
+
+#ui_sidebar h2 {
+	color: white;
+	width: 80%;
+	font-size: 1.3vw;
+}
+#main_content {
+	width: 85vw;
+	height: 83.5vh;
+	position: absolute;
+	top: 9vw;
+	left: 16vw;
+	z-index: -2;
+}
+
+#user_content {
+	width: 81vw;
+	height: 79.5vh;
+	padding: 2vh 2vw;
+}
+
+#user_upload {
+	width: 81vw;
+	height: 75.5vh;
+	padding: 4vh 2vw;
+	display: none;
+}
+
+
+
+.custom_list {
+	background: #1f2d2c;
+	width: 28vw;
+	height: 4.5vw;
+	margin-top: 2px;
+	cursor: pointer;
+}
+
+.custom_list p {
+	font-family: "Kozuka Gothic Pr6N";
+	font-weight: lighter;
+	font-size: 1.4vw;
+	color: #e1e3e3;
+	margin-top: 0vw;
+	padding-top: 0.7vw;
+}
+
+.list_square {
+	background-color: #56c5cc;
+	width: 3.5vw;
+	height: 3.5vw;
+	padding: 0.5vw;
+	float: left;
+	margin-right: 1vw;
+	cursor: default;
+}
+
+.list_square img {
+	width: 2.5vw;
+	height: 2.5vw;
+	margin: 0.5vw;
+}
+
+/**
+* JESPERS INPUT!!!!! DEN ÄR SÅ SNYGG!
+**/
+
+/* oO //FILIP */
+
+.input-sub {
+	float:left;
+}
+
+/**
+* SLUT PÅ JESPERS INPUT!!!!! VISST VAR DEN SNYGG?!
+**/
+
+#ui_header {
+	background: #192626 url(../img/ui_header.PNG);
+	height:9.1vw;
+	width: 83vw;
+	color: #fff;
+	font-family: "Kozuka Gothic Pr6N";
+	float: right;
+	max-width: 100%;
+	position: absolute;
+	top: 0vw;
+	right: 0vw;
+	z-index: -1;
+}
+
+.upload_shortcut {
+	float:right;
+	width: 30vw;
+	height:5.1vw;
+	padding-top: 5.5vw;
+	cursor: default;
+	z-index: 2;
+}
+.school_icon {
+	background: url(../img/hogwarts.PNG)  no-repeat center;
+	background-size: 3vw;
+	width: 3vw;
+	height: 3vw;
+	margin-left: -1.2vw;
+	margin-top: 4.5vw;
+
+}
+
+.upload_shortcut img {
+	width: 6vw;
+	float: right;
+	margin-right: 2vw;
+	margin-top: -4.5vw;
+	cursor: pointer;
+}
+
+.user_picture {
+	width: 7vw;
+	height: 7vw;
+	background: url(../img/snape.PNG);
+	background-size: 7vw;
+	border: 0.3vw solid white;
+	float: left;
+	margin-right: 1vw;
+	margin-top: 0.5vw;
+}
+
+.user_box {
+	float: left;
+	height:8.5vw;
+	width: 39vw;
+	padding: 0.3vw;
+	margin-left: 3vw;
+
+}
+
+.user_box h2 {
+	margin-bottom: 0.3vw;
+	margin-top: 1.6vw;
+
+}
+
+.user_box p {
+	margin: -0.6vw;
+	padding: 0vw;
+	font-size: 1vw;
+
+}
+
+
+  /* index page css */
+
+#header {
+	background: url(../img/header_1.PNG);
+	background-size: 100vw;
+	height:11.5vw;
+	width: 100vw;
+	text-align: center;
+	padding-top: 2.8vw;
+	max-width: 100%;
+}
+
+#header img {
+	width: 70%;
+}
+
+#footer {
+	background: #243333 url(../img/smartphone.PNG) no-repeat left;
+	background-size: 6.6vw;
+	height: 10vw;
+	width: 89vw;
+	margin: 0vw;
+	max-width: 100%;
+	padding-left: 11vw;
+	padding-top: 2vw;
+	position: absolute;
+	bottom: 0vw;
+}
+
+
+.footer_box {
+	width: 14vw;
+	height: 10vw;
+	float: left;
+	margin-right: 2.3vw;
+	font-family: "Kozuka Gothic Pr6N";
+	color: #fff;
+	font-size: 0.9vw;
+	line-height: 1.4vw;
+	letter-spacing: 0.06vw;
+}
+
+
+.footer_box h2 {
+	margin-bottom: 1.1vw;
+}
+
+
+.blue_box {
+	background: #56c5cc;
+	float: right;
+	height: 12vw;
+	width: 26vw;
+	margin-top: -2vw;
+}
+
+.blue_box input {
+	padding: 0.5vw;
+	margin-bottom: 1vw;
+	width: 13vw;
+	/**height: 0.8vw;**/
+}
+
+.login_box
+{
+	text-align: right;
+	font-family: "Kozuka Gothic Pr6N";
+	font-weight: 100;
+	font-size: 1.1vw;
+	line-height: 2vw;
+	color: #2c3333;
+	margin-top: 1vw;
+	height:9vw;
+	padding: 1vw;
+	margin-right: 2vw;
+}
+
+.login_button {
+	background-color: #243333;
+	margin-right: 0.3vw;
+	padding: 0.2vw 1.2vw;
+	color: white;
+	float: right;
+	font-size: 1vw;
+}
+
+
+
+h2 {
+	font-family: "Kozuka Gothic Pr6N";
+	font-weight: 100;
+	font-size: 1.7vw;
+	margin-bottom: 0vw;
+	margin-top: 0vw;
+}
+
+#welcome
+{
+	background: url(../img/big_logo.png) center no-repeat;
+	background-size: 14vw;
+	width: 90vw;
+	height: 20vw;
+	margin: 1vw auto;
+	text-align: center;
+	font-family: "Kozuka Gothic Pr6N";
+	font-weight: 100;
+	font-size: 2.4vw;
+	color: #56c5cc;
+	line-height: 3.5vw;
+}
+
+.column_right {
+	float: right;
+	text-align: right;
+	padding-right: 14vw;
+	padding-top: 5vw;
+	cursor: pointer
+;
+}
+
+.column_left {
+	float: left;
+	text-align: left;
+	padding-left: 14vw;
+	padding-top: 5vw;
+
+}
+
+ .registration_box
+ {
+	text-align: left;
+	font-family: "Kozuka Gothic Pr6N";
+	font-weight: 100;
+	font-size: 1.1vw;
+	color: #56c5cc;
+	line-height: 2vw;
+	color: #465b5c;
+	margin-top: -3vw;
+	margin-left: -8vw;
+	width: 30vw;
+
+}
+
+ .registration_box input {
+	margin-left: 1vw;
+}
+
+.back_to_welcome {
+	background: url(../img/arrow_blue.PNG);
+	background-size: 2.2vw;
+	width: 2vw;
+	height: 2vw;
+	float: left;
+	margin-top: 0.3vw;
+	cursor: pointer;
+
+}
+
+
+input {
+	padding: 0.5vw;
+	margin-bottom: 1vw;
+	width: 16vw;
+	/**height: 1vw;**/
+	border: 0.1vw solid #56c5cc;
+}
+
+.register_button {
+	background-color: #243333;
+	margin-right: 0.3vw;
+	padding: 0.2vw 1.2vw;
+	color: white;
+	float: right;
+	font-size: 1vw;
+}
+
+.dark {
+	color: #465b5c;
+}
+
+.registration_box {
+	display: none;
+}
+
+.trigger_registration {cursor: pointer;
+padding: 0.4vw;}
+
+ .login_button, .register_button{cursor: pointer;
+}
