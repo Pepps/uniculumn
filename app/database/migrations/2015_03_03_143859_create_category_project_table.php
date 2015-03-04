@@ -12,6 +12,7 @@ class CreateCategoryProjectTable extends Migration {
 	 */
 	public function up()
 	{
+		/* This is the category_project pivot */
 		Schema::create('category_project', function(Blueprint $table)
 		{
 			$table->increments('id');
