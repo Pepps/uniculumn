@@ -1,28 +1,51 @@
 var subcategories = [];
+var collaborators = [];
 show(0);
 
 $(function(){
+    var bool = true;
+
     $.ajax({
         type    : 'GET',
         url     : '/user/show',
         success : function(result) {
-            var names = [];
+            var users = new Array();
+            var usersIds = new Object();
+
             var data = $.parseJSON(result);
             for(var i=0;i<data.length;i++){
-                names.push(data[i]['firstname']);
+                users[data[i]['firstname']] = data[i]['id'];
+                console.log(data[i]['id']);
+                console.log(users[i]);
             }
-            collaborator(names);
+            collaborator(users);
 
         }
     }, "json");
-    return false;
+
+    $('.button-collaborators').on('click',function(e) {
+        e.preventDefault();
+        if (jQuery.inArray($('#input-collaborators').val(), collaborators) == -1) {
+            collaborators.push($('#input-collaborators').val());
+            rednerCollaborators();
+            $('#input-collaborators').val("");
+        }
+    });
+});
+$(document).on('click','.remove', function() {
+    collaborators.splice($(this).data("id"),1);
+    rednerCollaborators();
 });
 
+function rednerCollaborators() {
+    $('#bloodhound-names').html("");
+    for(var i=0;i<collaborators.length;i++) {
+        $('#bloodhound-names').append('<span class="col-lab label label-info">'+collaborators[i]+' <i data-id="'+i+'" class="remove fa fa-times"></i></span>');
+    }
+    $('#collaborators_id').val("");
+    $('#collaborators_id').val(collaborators.toString().replace(new RegExp(",","g"), "-"));
+}
 
-$('.typeahead').on('click', function(){
-    console.log($(this).val());
-    $('#bloodhound-names').append("<span>"+$(this).val()+"</span>");
-});
 
 function collaborator(names) {
 
@@ -45,7 +68,6 @@ var substringMatcher = function(strs) {
         matches.push({ value: str });
       }
     });
-
     cb(matches);
   };
 };
@@ -56,9 +78,9 @@ $('#bloodhound .typeahead').typeahead({
   minLength: 1
 },
 {
-  name: 'names',
+  name: 'users',
   displayKey: 'value',
-  source: substringMatcher(names)
+  source: users
 });
 }
 
@@ -92,9 +114,7 @@ function show(id) {
                 $('#subcategory_id').val("");
                 $('#subcategory_id').val(subcategories.toString().replace(new RegExp(",","g"), "-"));
             });
-
         }
-
     }, "json");
 
     return false;

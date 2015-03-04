@@ -20,6 +20,14 @@
         {{ Form::text('project_title', Input::old('name'), array('class' => 'form-control')) }}
     </div>
 
+    <div class="form-group" id="bloodhound">
+        {{ Form::label('collaborators-form', 'Medarbetare') }}
+        {{ Form::text('collaborators-form', Input::old('name'), array('class' => 'typeahead form-control', 'id' => 'input-collaborators')) }}
+        <button class="button-collaborators btn btn-small btn-success"> Lägg till</button>
+    </div>
+
+    <h3 id="bloodhound-names"></h3>
+
     <div class="form-group">
         {{ Form::label('project_body', 'Beskrivning') }}
         {{ Form::textarea('project_body', Input::old('project_body'), array('class' => 'form-control')) }}
@@ -33,17 +41,12 @@
     <div class="form-group" id="subcategory-form">
     </div>
 
-    <div class="form-group" id="bloodhound">
-        {{ Form::text('collaborators-form', Input::old('name'), array('class' => 'typeahead form-control')) }}
-    </div>
-
-    <div id="bloodhound-names"></div>
-
     <!---
     / HIDDEN FORMS
     -->
 
     {{ Form::text('subcategory_id', Input::old('category'), array('class' => 'hidden', 'id' => 'subcategory_id')) }}
+    {{ Form::text('collaborators_id', Input::old('collaborators'), array('class' => 'hidden', 'id' => 'collaborators_id')) }}
 
 
     <div id="dropzone">
