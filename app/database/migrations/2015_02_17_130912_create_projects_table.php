@@ -10,13 +10,10 @@ class CreateProjectsTable extends Migration {
 		Schema::create('projects', function(Blueprint $table)
 		{
 			/* This is the projects table. */
-			$table->engine = 'InnoDB';
 			$table->increments('id');
-			$table->integer('user_id');
 			$table->string('title', 40);
 			$table->timestamps();
 			$table->text('body');
-			$table->string('url', 60);
 		});
 	}
 

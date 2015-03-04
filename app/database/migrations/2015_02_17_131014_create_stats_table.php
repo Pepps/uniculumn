@@ -10,12 +10,14 @@ class CreateStatsTable extends Migration {
 		Schema::create('stats', function(Blueprint $table)
 		{
 			/* This is the stats table. */
-			$table->engine = 'InnoDB';
 			$table->increments('id');
 			$table->bigInteger('count');	
 			$table->timestamps();
 			$table->integer('user_id');
 			$table->integer('project_id');
+
+			$table->foreign('user_id')->references('id')->on('users');
+			$table->foreign('project_id')->references('id')->on('projects');
 		});
 	}
 
