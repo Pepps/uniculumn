@@ -89,9 +89,14 @@ class ProjectController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($id)
+	public function edit($project_id)
 	{
-		//
+		// get the nerd
+        $project = Nerd::find($project_id);
+
+        // show the edit form and pass the nerd
+        return View::make('projects.edit')
+            ->with('project', $project);
 	}
 
 
@@ -101,10 +106,38 @@ class ProjectController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
-	{
-		//
-	}
+
+    public function update($project_id)
+    {
+        // validate
+        // read more on validation at http://laravel.com/docs/validation
+        $rules = array(
+            'name'       => 'required',
+            'subname'      => 'required',
+            'project_type' => 'required|numeric',
+            'user_id' => 'required'
+        );
+        $validator = Validator::make(Input::all(), $rules);
+
+        // process the login
+        if ($validator->fails()) {
+            return Redirect::to('projects/' . $project_id . '/edit')
+                ->withErrors($validator)
+                ->withInput(Input::except('password'));
+        } else {
+            // store
+            $project = Project::find($project_id);
+            $project->project_title= Input::get('name');
+            $project->project_body = Input::get('subname');
+            $project->project_url = Input::get('project_type');
+            $project->user_id = Input::get('user_id', false);
+            $nerd->save();
+
+            // redirect
+            Session::flash('message', 'Successfully updated Project!');
+            return Redirect::to('Project');
+        }
+    }
 
 
 	/**
