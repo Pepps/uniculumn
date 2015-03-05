@@ -1,5 +1,9 @@
 var subcategories = [];
 var collaborators = [];
+var names = [];
+var element = {};
+var userId = [];
+var inputId = [];
 show(0);
 
 $(function(){
@@ -9,16 +13,15 @@ $(function(){
         type    : 'GET',
         url     : '/user/show',
         success : function(result) {
-            var users = new Array();
-            var usersIds = new Object();
-
             var data = $.parseJSON(result);
             for(var i=0;i<data.length;i++){
-                users[data[i]['firstname']] = data[i]['id'];
-                console.log(data[i]['id']);
-                console.log(users[i]);
+                names.push(data[i]['email']);
+                element.email = data[i]['email'];
+                element.id = data[i]['id'];
+                userId.push({'element' : element});
+                element = {};
             }
-            collaborator(users);
+            collaborator(names);
 
         }
     }, "json");
@@ -26,6 +29,11 @@ $(function(){
     $('.button-collaborators').on('click',function(e) {
         e.preventDefault();
         if (jQuery.inArray($('#input-collaborators').val(), collaborators) == -1) {
+            for(var i=0;i<userId.length;i++){
+                if($('#input-collaborators').val() == userId[i]['element'].email) {
+                    inputId.push(userId[i]['element']['id']);
+                }
+            }
             collaborators.push($('#input-collaborators').val());
             rednerCollaborators();
             $('#input-collaborators').val("");
@@ -34,6 +42,7 @@ $(function(){
 });
 $(document).on('click','.remove', function() {
     collaborators.splice($(this).data("id"),1);
+    inputId.splice($(this).data("id"),1);
     rednerCollaborators();
 });
 
@@ -43,7 +52,8 @@ function rednerCollaborators() {
         $('#bloodhound-names').append('<span class="col-lab label label-info">'+collaborators[i]+' <i data-id="'+i+'" class="remove fa fa-times"></i></span>');
     }
     $('#collaborators_id').val("");
-    $('#collaborators_id').val(collaborators.toString().replace(new RegExp(",","g"), "-"));
+    $('#collaborators_id').val(inputId.toString().replace(new RegExp(",","g"), "-"));
+    console.log($('#collaborators_id').val());
 }
 
 
@@ -68,6 +78,7 @@ var substringMatcher = function(strs) {
         matches.push({ value: str });
       }
     });
+
     cb(matches);
   };
 };
@@ -78,9 +89,9 @@ $('#bloodhound .typeahead').typeahead({
   minLength: 1
 },
 {
-  name: 'users',
+  name: 'names',
   displayKey: 'value',
-  source: users
+  source: substringMatcher(names)
 });
 }
 
