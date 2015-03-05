@@ -5,22 +5,28 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateProjectsTable extends Migration {
 
+	/**
+	 * Run the migrations.
+	 *
+	 * @return void
+	 */
 	public function up()
 	{
 		Schema::create('projects', function(Blueprint $table)
 		{
 			/* This is the projects table. */
-			$table->engine = 'InnoDB';
 			$table->increments('id');
-			$table->integer('user_id');
 			$table->string('title', 40);
 			$table->timestamps();
 			$table->text('body');
-			$table->string('url', 60);
 		});
 	}
 
-
+	/**
+	 * Reverse the migrations.
+	 *
+	 * @return void
+	 */
 	public function down()
 	{
 		Schema::drop('projects');
