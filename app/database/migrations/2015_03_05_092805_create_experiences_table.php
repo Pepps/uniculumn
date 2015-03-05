@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFeedbackTable extends Migration {
+class CreateExperiencesTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,14 +12,15 @@ class CreateFeedbackTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('feedback', function(Blueprint $table)
+		Schema::create('experiences', function(Blueprint $table)
 		{
+			/* This is the experiences table. */
 			$table->increments('id');
-			$table->timestamps();
-			$table->string('name', 100);
-			$table->integer('user_id')->unsigned();
 			$table->string('title', 100);
-			$table->text('comment');
+			$table->timestamps();
+			$table->text('description');
+			$table->integer('user_id')->unsigned();
+			$table->string('duration', 30);
 
 			$table->foreign('user_id')->references('id')->on('users');
 		});
@@ -32,7 +33,7 @@ class CreateFeedbackTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('feedback');
+		Schema::drop('experiences');
 	}
 
 }
