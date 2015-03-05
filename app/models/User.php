@@ -13,7 +13,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	protected $hidden = array('password', 'remember_token');
 
 
-	// A User has many projects.
+	// A User belongsToMany projects.
 	public function project() {
 		return $this->belongsToMany('Project', 'project_user');
 	}
