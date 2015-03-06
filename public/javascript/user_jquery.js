@@ -1,6 +1,19 @@
 $(document).ready(function() {
 
 
+  $(".controlPanel_dropDown").toggle(
+        function(){$(".control_panel").show();},
+        function(){$(".control_panel").hide();
+     });
+
+$(".edit_icon").mouseenter(function(){
+       $(this).css("background-image","url(img/edit_orange.PNG)");
+      });
+
+    $(".edit_icon").mouseleave(function(){
+       $(this).css("background-image","url(img/edit.PNG)");
+      });
+
       $("#upload_button").click(function(){
       $("#user_content").hide();
         $("#user_upload").slideDown(1000);

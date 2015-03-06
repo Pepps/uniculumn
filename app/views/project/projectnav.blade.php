@@ -10,7 +10,7 @@
         <li><a href="{{ URL::to('project/create') }}">Create a project</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="./"><i class="fa fa-user"></i> Profil</a></li>
+        <li><a href="/user"><i class="fa fa-user"></i> Profil</a></li>
         <li><a style="float: right;" href="/logout"><i class="fa fa-sign-out"></i>
  Log out</a></li>
       </ul>

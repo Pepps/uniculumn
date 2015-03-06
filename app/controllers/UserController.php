@@ -112,26 +112,15 @@ class UserController extends BaseController
 
 class UserController extends BaseController {
     /*
-        Author : Joakim
+        Author : Jesper
     */
-    public function loginWithFacebook() {
-        // get data from input
-        $code = Input::get( 'code' );
-        // get fb service
-        $fb = OAuth::consumer( 'Facebook' );
-        // check if code is valid
-        // if code is provided get user data and sign in
-        if ( !empty( $code ) ) {
-            // This was a callback request from facebook, get the token
-            $token = $fb->requestAccessToken( $code );
-            // Send a request with it
-            $result = json_decode( $fb->request( '/me' ), true );
-            $message = 'Your unique facebook user id is: ' . $result['id'] . ' and your name is ' . $result['name'];
-            echo $message. "<br/>";
-            //Var_dump
-            //display whole array().
-            dd($result);
+
+    public function index() {
+
+        return View::make('user.index')->with('user', User::find((Auth::user()->id)));
+
     }
+
             // if not ask for permission first
         else {
             // get fb authorization
@@ -140,6 +129,25 @@ class UserController extends BaseController {
             return Redirect::to( (string)$url );
 
         }
+
+
+    public function get($id) {
+
+        return User::find($id);
+
+    }
+
+    public function edit($id) {
+
+        return View::make('user.edit')->with('user', User::find($id));
+
+    }
+
+    // funtion show return Array to 'project.create' in Bloodhound div, also connected to ajax.js
+    public function show() {
+
+        return User::all()->toJson();
+
 
     }
    // public function logOut(){

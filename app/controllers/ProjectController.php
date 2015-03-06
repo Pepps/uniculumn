@@ -31,15 +31,14 @@ class ProjectController extends \BaseController {
 		else a prodject is created and the data is inserted in to the database.
 	*/
 	public function store(){
-      $file = array('file' => Input::file('file'));
+      //$file = array('file' => Input::file('file'));
       $rules = array(
-          'project_title'         => 'required',
-          'project_body'          => 'required',
-          'file'				  => '',
-          'category'              => 'required',
-          'subcategory_id'        => 'required'
+          'project_title'           => 'required',
+          'project_body'            => 'required',
+          'category'                => 'required',
+          'subcategory_id'          => 'required',
       );
-      $validator = Validator::make($file, Input::all(), $rules);
+      $validator = Validator::make(Input::all(), $rules);
       if ($validator->fails()) {
           return Redirect::to('project/create')
               ->withErrors($validator)
@@ -47,20 +46,22 @@ class ProjectController extends \BaseController {
               echo Input::get('subcategory');
       }else{
         //$categories = explode("-", Input::get('subcategory_id'));
-        $path = app_path() . "/projects/" . Auth::user()->pdir .  "/" . Input::get('project_title');
-        File::makeDirectory($path);
-        $name = Input::file('file')->getClientOriginalName();
-        $upload = Input::file('file')->move($path, $name);
+        //$path = app_path() . "/projects/" . Auth::user()->pdir .  "/" . Input::get('project_title');
+        //File::makeDirectory($path);
+        //$name = Input::file('file')->getClientOriginalName();
+        //$upload = Input::file('file')->move($path, $name);
 
         $project = new Project;
         $project->title = Input::get('project_title');
         $project->body = Input::get('project_body');
-        $project->url = $upload;
+        //$project->url = $upload;
         $project->user_id = Auth::user()->id;
 
         $project->save();
 
         Project::find($project->id)->category()->attach(explode("-", Input::get('subcategory_id')));
+        Project::find($project->id)->users()->attach(explode("-", Input::get('user_id')));
+        //Project::find($project->id)->user()->attach(explode("-", Input::get('collaborators_id')));
         Session::flash('message', 'Successfully created Project!');
         return Redirect::to('project');
       }
@@ -118,4 +119,31 @@ class ProjectController extends \BaseController {
 			return Redirect::to('/project');
 		}
 	}
+
+	public function showfiles($id){
+		$project = Project::find($id);
+		$user = User::find($project->user_id);
+
+		$filepaths = File::files(app_path() . "/projects/" . $user->pdir . "/" . $project->title);
+		$files = [];
+
+		for($i = 0; $i < sizeof($filepaths); $i++){
+			$f = explode("/", $filepaths[$i]);
+			array_push($files, $f[sizeof($f)-1]);
+			//echo "<pre>" . var_dump($f) . "</pre><br>";
+		}
+
+		//var_dump($files);
+
+		return View::make('project.showprojects')->with('files', $files);
+	}
+
+	public function getfiles($id){
+
+	}
+
+	public function readfile($id){
+
+	}
+
 }

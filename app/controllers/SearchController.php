@@ -2,12 +2,16 @@
 
 class SearchController extends BaseController {
     //foo.com/search/project/email_category/foo@foo.com-admin@foo.com_spel+kod-game+code
-    public function index($option, $key, $val, $pretty=false){
+    public function index($option, $key, $val, $extra='', $pretty=false){
       $keys = explode('_', $key);
       $vals = explode('_', $val);
       $data = [];
+      $selection = [];
+      $extras = explode('_', $extra);
 
-
+      foreach($extras as $extra){
+        $selection = explode('-',$extra);
+      }
 
       for($i = 0; $i < sizeof($keys); $i++){
         $key = explode('-',$keys[$i]);
@@ -35,6 +39,17 @@ class SearchController extends BaseController {
       // Get all rows in option table, but we are going to sort things out before calling it with ->get();
       $model = studly_case($option);
       $table = new $model;
+      //for($i = 0; count($selection); $i++){
+          if($selection[0] == 'first'){
+              $table = $table->take($selection[1]);
+          }
+          else if($selection[0] == 'last'){
+              $table = $table->orderBy('id', 'desc');
+              $table = $table->take($selection[1]);
+          }
+      //}
+
+
       foreach($data as $main_key => $sub_key) {
         foreach ($sub_key as $sub_key => $value){
           foreach ($value as $string) {
@@ -45,9 +60,7 @@ class SearchController extends BaseController {
                   $table = $table->where($main_key.'s.'.$sub_key, "=", $explode);
                 }
                 else{
-                  $table = $table->whereExists(function ($query) use ($option,$main_key, $sub_key, $explode) {
-                    $query->from($main_key.'s')->where($main_key.'s.'.$sub_key, "=", $explode)->whereRaw($option.'s.'.$main_key.'_id' ."=". $main_key.'s.id');
-                  });
+                    $table = $table->$main_key->where($sub_key, "=", $explode);
                 }
               }
               else{
@@ -55,9 +68,7 @@ class SearchController extends BaseController {
                   $table = $table->orWhere($main_key.'s.'.$sub_key, "=", $explode);
                 }
                 else{
-                  $table = $table->orWhereExists(function ($query) use ($option, $main_key, $sub_key, $explode) {
-                    $query->from($main_key.'s')->where($main_key.'s.'.$sub_key, "=", $explode)->whereRaw($option.'s.'.$main_key.'_id'. "=". $main_key.'s.id');;
-                  });
+                    $table = $table->$main_key->orWhere($sub_key, "=", $explode);
                 }
               }
             }
