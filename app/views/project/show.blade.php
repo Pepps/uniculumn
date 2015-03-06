@@ -13,5 +13,6 @@
     <span class="label label-default">{{ $value->title }}</span>
   @endforeach
   {{ Markdown::parse($project->body) }}
+  <a class="btn btn-primary"  href="/project/showfiles/{{ $project->id }}" target="_blank"> visa filer i projektet </a>
 </div>
 @stop
