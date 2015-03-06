@@ -17,6 +17,12 @@
   <tr><td>{{ $user->firstname }}</td></tr>
   <tr><td>{{ $user->lastname }}</td></tr>
   <tr><td>{{ $user->email }}</td></tr>
+  <tr><td>{{ $user->state }}</td></tr>
+  <tr><td>{{ $user->state }}</td></tr>
+  <tr><td>{{ $user->city }}</td></tr>
+  <tr><td>{{ $user->address }}</td></tr>
+  <tr><td>{{ $user->postnumber }}</td></tr>
+  <tr><td>{{ $user->phone }}</td></tr>
 </table>
 
 <a class="btn btn-small btn-info" href="user/{{$user->id}}/edit">Redigera</a>

@@ -21,6 +21,7 @@ Route::get("/search/{option}/{key}/{val}/{pretty}", "SearchController@index");
 Route::get("/search/{option}/{key}/{val}/{extra}/{pretty}", "SearchController@index");
 
 Route::resource('project', "ProjectController");
+Route::resource('user', "UserController");
 Route::post('apply/upload', 'ProjectController@store');
 
 /* Duck punch for fixing update */
