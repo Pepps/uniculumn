@@ -21,10 +21,10 @@ class CreateUsersTable extends Migration {
 			$table->string('password', 60);
 			$table->timestamps();
 
-			$table->integer('city_id')->unsigned();
-			$table->string('address', 120);
-			$table->integer('postnumber');
-			$table->integer('phone');
+			$table->integer('city_id')->unsigned()->nullable();
+			$table->string('address', 120)->nullable();
+			$table->integer('postnumber')->nullable();
+			$table->integer('phone')->nullable();
 
 
 			$table->string('token', 100);
