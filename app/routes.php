@@ -31,6 +31,9 @@ Route::get('/project/showfiles/{id}', "ProjectController@showfiles");
 Route::get('/project/getfiles/{id}', "ProjectController@getfiles");
 Route::get('/project/readfile/{id}', "ProjectController@readfile");
 
+/* Routes for experiences */
+Route::resource('experience', "ExperienceController");
+
 Route::get('category/show/{id}', 'CategoryController@show');
 Route::get('/user/show', 'UserController@show');
 
