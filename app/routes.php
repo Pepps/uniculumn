@@ -17,7 +17,7 @@ Route::post('register_action', function()
 });
 
 
-Route::get('/users', function()
+
 
 
 Route::post('/register_action', "AuthController@store");
