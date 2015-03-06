@@ -32,6 +32,8 @@ Route::get('/project/getfiles/{id}', "ProjectController@getfiles");
 Route::get('/project/readfile/{id}', "ProjectController@readfile");
 
 Route::get('category/show/{id}', 'CategoryController@show');
+Route::get('state/show/{id}', 'StateController@show');
+Route::get('city/show/{id}', 'CityController@show');
 Route::get('/user/show', 'UserController@show');
 
 Route::get('/register', 'HomeController@index');
