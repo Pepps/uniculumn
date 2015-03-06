@@ -12,13 +12,21 @@
 <!-- if there are creation errors, they will show here -->
 {{ HTML::ul($errors->all()) }}
 
-{{ Form::open(array('url' => 'project', 'files'=>true, 'method'=>'post')) }}
+{{ Form::open(array('url' => 'project', 'files'=>true, 'method'=>'post', 'class'=>'dropzone')) }}
 
 
     <div class="form-group">
         {{ Form::label('project_title', 'Titel') }}
         {{ Form::text('project_title', Input::old('name'), array('class' => 'form-control')) }}
     </div>
+
+    <div class="form-group" id="bloodhound">
+        {{ Form::label('collaborators-form', 'Medarbetare') }}
+        {{ Form::text('collaborators-form', Input::old('name'), array('class' => 'typeahead form-control', 'id' => 'input-collaborators')) }}
+        <button class="button-collaborators btn btn-small btn-success"> Lägg till</button>
+    </div>
+
+    <h3 id="bloodhound-names"></h3>
 
     <div class="form-group">
         {{ Form::label('project_body', 'Beskrivning') }}
@@ -32,14 +40,20 @@
 
     <div class="form-group" id="subcategory-form">
     </div>
+
     <!---
     / HIDDEN FORMS
     -->
 
     {{ Form::text('subcategory_id', Input::old('category'), array('class' => 'hidden', 'id' => 'subcategory_id')) }}
+    {{ Form::text('collaborators_id', Input::old('collaborators'), array('class' => 'hidden', 'id' => 'collaborators_id')) }}
 
 
-    {{ Form::file('file') }}
+    <div id="dropzone">
+        {{ Form::file('file') }}
+    </div>
+
+
     {{ Form::submit('Create the project!', array('class' => 'btn btn-primary')) }}
 
 {{ Form::close() }}
