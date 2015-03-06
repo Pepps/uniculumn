@@ -57,19 +57,6 @@
       </div>
 
     </div>
-    <div class="column_right">
-      <?php
-        if(!empty(Session::get('key'))) {
-          echo "Inloggad på <span class='dark'><a href='/login'>".Session::get('key'). "</a></span><br/> genom Google Drive";
-        }
-        else {
-          echo "Logga in genom <span class='dark'><a href='/login'>Oauth</a></span><br/> här";
-          }
-
-          $data =Session::all();
-
-
-      ?></div>
   </div>
 
   <div id="footer">

@@ -25,6 +25,8 @@ Route::post('apply/upload', 'ProjectController@store');
 /* Duck punch for fixing update */
 Route::post('/project/update/{id}', "ProjectController@update");
 Route::get('/project/delete/{id}', "ProjectController@destroy");
+Route::post('/project/addcolab/{id}', "ProjectController@addcolab");
+Route::get('/project/delcolab/{project_id}/{colab_id}', "ProjectController@deletecolab");
 
 Route::get('/project/showfiles/{id}', "ProjectController@showfiles");
 Route::get('/project/getfiles/{id}', "ProjectController@getfiles");

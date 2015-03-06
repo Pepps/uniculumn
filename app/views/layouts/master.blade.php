@@ -18,9 +18,6 @@
     {{ HTML::script('javascript/urlgen.js') }}
     {{ HTML::script('javascript/typeahead.bundle.js') }}
     {{ HTML::script('javascript/ajax.js') }}
-    {{ HTML::script('javascript/ace/ace.js') }}
-    {{ HTML::script('javascript/jszip/dist/jszip.js') }}
-    {{ HTML::script('javascript/dropzone.js') }}
     <script src="https://apis.google.com/js/client:platform.js" async defer></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
