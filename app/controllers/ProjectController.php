@@ -10,7 +10,6 @@ class ProjectController extends \BaseController {
 
 	public function index(){
 	    if (Auth::check()){
-	  		//var_dump(User::find(Auth::user()->id)->project);
 				return View::make("project.index")->with('projects',User::find(Auth::user()->id)->project);
 	    }
 	    else{
@@ -32,22 +31,22 @@ class ProjectController extends \BaseController {
 		else a prodject is created and the data is inserted in to the database.
 	*/
 	public function store(){
-			//var_dump(Input::file("files"));
-
+			/* TODO Check if folder exist if so delete it
+				 TODO Check if there is files if not do not try to upload files
+			 */
 
       $rules = array(
-          'project_title'           => 'required',
+          'project_title'           => 'required|unique:projects,title',
           'project_body'            => 'required',
           'category'                => 'required',
           'subcategory_id'          => 'required',
       );
+
       $validator = Validator::make(Input::all(), $rules);
-      if ($validator->fails()) {
+
+			if ($validator->fails()) {
           return Redirect::to('project/create')->withErrors($validator);
       }else{
-        $path = app_path() . "/projects/" . Auth::user()->pdir .  "/" . Input::get('project_title');
-        File::makeDirectory($path);
-
         $project = new Project;
         $project->title = Input::get('project_title');
         $project->body = Input::get('project_body');
@@ -58,8 +57,13 @@ class ProjectController extends \BaseController {
         Project::find($project->id)->category()->attach(explode("-", Input::get('subcategory_id')));
 				Project::find($project->id)->users()->attach(Auth::user()->id);
 
-				foreach(Input::file("files") as $file){
-					$file->move($path, $file->getClientOriginalName());
+
+				if(Input::hasfile("files")){
+					$path = app_path() . "/projects/" . Auth::user()->pdir .  "/" . Input::get('project_title');
+					File::makeDirectory($path);
+					foreach(Input::file("files") as $file){
+						$file->move($path, $file->getClientOriginalName());
+					}
 				}
 
 				Session::flash('message', 'Projektet har skappats!');
@@ -114,7 +118,7 @@ class ProjectController extends \BaseController {
 			$project = Project::find($id);
 			File::deleteDirectory(app_path() . "/projects/" . Auth::user()->pdir .  "/" . $project->title);
 			$project->delete();
-			
+
 			return Redirect::to('/project');
 		}else{
 			return Redirect::to('/project');
@@ -122,13 +126,21 @@ class ProjectController extends \BaseController {
 	}
 
 	public function addcolab($id){
-		Project::find($id)->users()->attach($user = User::where("email", "=", Input::get("collaborators-form"))->first()->id);
-		return Redirect::to("/project/".$id."/edit");
+		if(Auth::check()){
+			Project::find($id)->users()->attach($user = User::where("email", "=", Input::get("collaborators-form"))->first()->id);
+			return Redirect::to("/project/".$id."/edit");
+		}else{
+			return Redirect::to('/project');
+		}
 	}
 
 	public function deletecolab($project_id, $colab_id){
-		DB::table('project_user')->where('user_id', '=', $colab_id)->where('project_id', '=', $project_id)->delete();
-		return Redirect::to("/project/".$project_id."/edit");
+		if(Auth::check()){
+			DB::table('project_user')->where('user_id', '=', $colab_id)->where('project_id', '=', $project_id)->delete();
+			return Redirect::to("/project/".$project_id."/edit");
+		}else{
+			return Redirect::to('/project');
+		}
 	}
 
 }
