@@ -8,4 +8,8 @@ class Reference extends Eloquent
 		return $this->belongsToMany('User');
 	}
 
+	// A reference has one experience.
+	public function experience() {
+		return $this->hasOne('Experience');
+	}
 }

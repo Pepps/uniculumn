@@ -37,7 +37,18 @@ class ExperienceController extends BaseController {
 	 */
 	public function store()
 	{
-		//
+		$rules = array(
+			'title' 				=> 'required',
+			'description' 			=> 'required',
+			'title' 				=> 'required',
+			'from' 					=> 'required',
+			'to' 					=> 'required',
+			'company' 				=> 'required',
+			'firstname' 			=> 'required',
+			'lastname' 				=> 'required',
+			'email' 				=> 'required',
+			'phone' 				=> 'required'
+			);
 	}
 
 	/**

@@ -16,7 +16,7 @@ class CreateProjectsTable extends Migration {
 		{
 			/* This is the projects table. */
 			$table->increments('id');
-			$table->string('title', 40);
+			$table->string('title', 40)->unique();
 			$table->timestamps();
 			$table->text('body');
 			$table->integer('user_id')->unsigned();

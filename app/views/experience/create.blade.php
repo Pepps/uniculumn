@@ -27,10 +27,10 @@
 
     <div class="form-group">
     	<div class="col-xs-2">
-        {{ Form::label('duration', 'From') }}
-        {{ Form::text('duration', Input::old('name'), array('class' => 'form-control', 'placeholder' => 'Hello')) }}
-        {{ Form::label('duration', 'To') }}
-        {{ Form::text('duration', Input::old('name'), array('class' => 'form-control', 'placeholder' => 'Hello')) }}
+        {{ Form::label('from', 'From') }}
+        {{ Form::text('duration', Input::old('name'), array('class' => 'form-control', 'placeholder' => 'YYYY/MMMM/DDDD')) }}
+        {{ Form::label('to', 'To') }}
+        {{ Form::text('duration', Input::old('name'), array('class' => 'form-control', 'placeholder' => 'YYYY/MMMM/DDDD')) }}
     	</div>
 	</div>
     <br>
