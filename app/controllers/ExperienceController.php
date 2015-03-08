@@ -37,18 +37,32 @@ class ExperienceController extends BaseController {
 	 */
 	public function store()
 	{
+		$cities = City::lists('id', 'name');
+
+		//Rules for input fields
 		$rules = array(
 			'title' 				=> 'required',
 			'description' 			=> 'required',
 			'title' 				=> 'required',
-			'from' 					=> 'required',
-			'to' 					=> 'required',
-			'company' 				=> 'required',
-			'firstname' 			=> 'required',
-			'lastname' 				=> 'required',
-			'email' 				=> 'required',
-			'phone' 				=> 'required'
+			'duration' 					=> 'required'
 			);
+
+		$validator = Validator::make(Input::all(), $rules);
+
+		//Validation
+		if ($validator->fails()) {
+          return Redirect::to('experience/create')
+              ->withErrors($validator);
+		}else {
+			$experience = new Experience;
+			$experience->title = Input::get('title');
+			$experience->description = Input::get('description');
+			$experience->duration = Input::get('duration');
+			$experience->user_id = Auth::user()->id;
+
+			$experience->save();
+
+		}
 	}
 
 	/**
@@ -60,9 +74,29 @@ class ExperienceController extends BaseController {
 	 */
 	public function show($id)
 	{
-		//
+
 	}
 
+	/**
+	 * Display the specified resource.
+	 * GET /experience/{id}
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function newref($id) {
+			return View::make('experience.newref')->with("states", State::all());
+
+	}
+
+	public function addref($id) {
+
+	}
+
+	public function getcities($id) {
+		$input = Input::get('option');
+		return City::where("state_id", "id", "name", "=", $input)->get()->toJson();
+	}
 	/**
 	 * Show the form for editing the specified resource.
 	 * GET /experience/{id}/edit

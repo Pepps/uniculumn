@@ -17,6 +17,7 @@ class CreateReferencesTable extends Migration {
 			/* This is the references table. */
 			$table->increments('id');
 			$table->integer('user_id')->unsigned();
+			$table->integer('city_id')->unsigned();
 			$table->integer('experience_id')->unsigned();
 			$table->string('company', 100);
 			$table->string('firstname', 50);
@@ -25,6 +26,7 @@ class CreateReferencesTable extends Migration {
 			$table->integer('phone');
 
 			$table->foreign('user_id')->references('id')->on('users');
+			$table->foreign('city_id')->references('id')->on('cities');
 			$table->foreign('experience_id')->references('id')->on('experiences');
 		});
 	}
