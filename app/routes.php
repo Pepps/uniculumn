@@ -36,12 +36,7 @@ Route::resource('experience', "ExperienceController");
 Route::get('/experience/{id}/addref/', "ExperienceController@newref");
 Route::post('/experience/{id}/addref/', "ExperienceController@addref");
 
-Route::get('/state/{id}/', "ExperienceController@getcities", function(){
-    $input = Input::get('option');
-    $maker = City::find($input);
-    $models = $maker->City();
-    return Response::eloquent($models->get(array('id','name')));
-});
+Route::get('/state/{id}/', "ExperienceController@getcities");
 
 Route::get('category/show/{id}', 'CategoryController@show');
 Route::get('/user/show', 'UserController@show');

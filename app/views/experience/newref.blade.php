@@ -37,19 +37,23 @@
     {{ Form::submit('Add experience', array('class' => 'btn btn-primary')) }}
 {{ Form::close() }}
 
+
 <script>
+//Ajax script that gets cities from the DB depending on the state you select.
 window.onload = function() {
   $("#state-select").on("change", function() {
     $.ajax({
       type: "GET",
       dataType: "json",
       url: "/state/"+$(this).val(),
-    }).done(function(index, data) {
+    }).done(function(data) {
+      $("#cities").empty();
       for(var i = 0; i < data.length; i++) {
-       $("#cities").append("<option value='"+index+"'>"+data[i].name+"</option>");
+       $("#cities").append("<option>"+data[i].name+"</option>");
+
      }
 
-      console.log(data[5].name);
+     // console.log(data[5].name);
     });
   });
 }

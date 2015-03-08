@@ -95,7 +95,9 @@ class ExperienceController extends BaseController {
 
 	public function getcities($id) {
 		$input = Input::get('option');
-		return City::where("state_id", "id", "name", "=", $input)->get()->toJson();
+		$cities = DB::table('cities')->where("state_id",  "=", $id, $input )->get();
+
+		return json_encode($cities);
 	}
 	/**
 	 * Show the form for editing the specified resource.
