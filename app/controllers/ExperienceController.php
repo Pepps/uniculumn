@@ -90,7 +90,13 @@ class ExperienceController extends BaseController {
 	}
 
 	public function addref($id) {
+		$experience = new Experience;
+		$experience->title = Input::get('title');
+		$experience->description = Input::get('description');
+		$experience->duration = Input::get('duration');
+		$experience->user_id = Auth::user()->id;
 
+		$experience->save();
 	}
 
 	public function getcities($id) {
