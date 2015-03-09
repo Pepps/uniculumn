@@ -20,9 +20,7 @@
             <td><b>project title</b></td>
             <td><b>project body</b></td>
             <td><b>Created at</b></td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
+
         </tr>
     </thead>
     <tbody>

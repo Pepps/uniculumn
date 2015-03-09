@@ -32,6 +32,13 @@ Route::get('/project/showfiles/{id}', "ProjectController@showfiles");
 Route::get('/project/getfiles/{id}', "ProjectController@getfiles");
 Route::get('/project/readfile/{id}', "ProjectController@readfile");
 
+/* Routes for experiences */
+Route::resource('experience', "ExperienceController");
+Route::get('/experience/{id}/addref/', "ExperienceController@newref");
+Route::post('/experience/{id}/addref/', array('as' => 'addref', 'uses' => "ExperienceController@addref"));
+
+Route::get('/state/{id}/', "ExperienceController@getcities");
+
 Route::get('category/show/{id}', 'CategoryController@show');
 Route::get('state/show/{id}', 'StateController@show');
 Route::get('city/show/{id}', 'CityController@show');

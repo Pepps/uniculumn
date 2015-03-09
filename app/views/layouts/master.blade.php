@@ -3,10 +3,11 @@
   <head>
     <meta charset="utf-8" />
     <title>uniculum.se</title>
-    {{ HTML::style('css/style.css') }}
     <link rel="shortcut icon" href="{{asset('img/favicon.ico')}}" />
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    {{ HTML::style('css/style.css') }}
+
  </head>
 <body>
     @yield('content')
