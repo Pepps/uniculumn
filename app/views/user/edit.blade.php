@@ -15,34 +15,42 @@
 {{ Form::open(array('url' => 'user/update/'.$user->id)) }}
 
     <div class="form-group">
-        {{ Form::text('user_title', $user->firstname, array('class' => 'form-control')) }}
+        {{ Form::label('firstname', "Användarnamn" ) }}
+        {{ Form::text('firstname', $user->firstname, array('class' => 'form-control')) }}
     </div>
 
     <div class="form-group">
+        {{ Form::label('lastname', "Efternamn" ) }}
         {{ Form::text('lastname', $user->lastname, array('class' => 'form-control')) }}
     </div>
 
     <div class="form-group">
+        {{ Form::label('email', "Email" ) }}
         {{ Form::text('email', $user->email, array('class' => 'form-control')) }}
     </div>
 
     <div class="form-group">
+        {{ Form::label('address', "Adress" ) }}
         {{ Form::text('address', $user->address, array('class' => 'form-control')) }}
     </div>
 
     <div class="form-group">
+        {{ Form::label('user_title', "Postnummer" ) }}
         {{ Form::text('postnumber', $user->postnumber, array('class' => 'form-control')) }}
     </div>
 
     <div class="form-group">
+        {{ Form::label('user_title', "Telefonnummer" ) }}
         {{ Form::text('phone', $user->phone, array('class' => 'form-control')) }}
     </div>
 
     <div class="form-group">
+        {{ Form::label('user_title', "Län" ) }}
         {{ Form::select('state', array('0' => 'Välj ditt län'), Input::old('state'), array('class' => 'form-control', 'id' => 'state')) }}
     </div>
 
     <div class="form-group">
+        {{ Form::label('user_title', "Ort" ) }}
         {{ Form::select('city', array('0' => 'Välj din stad'), Input::old('state'), array('class' => 'form-control', 'id' => 'city')) }}
     </div>
 
