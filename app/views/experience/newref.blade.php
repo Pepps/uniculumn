@@ -10,7 +10,7 @@
 <!-- If there are creation errors, they will show here -->
 {{ HTML::ul($errors->all()) }}
 
-{{ Form::open(array('url' => '/experience/{id}/addref/', 'method'=>'post')) }}
+{{ Form::open(array('url' => '/experience/' . $expid . '/addref/', 'method'=>'post')) }}
 <div class="form-group">
     {{ Form::label('company', 'Company') }}
     {{ Form::text('company', Input::old('name'), array('class' => 'form-control')) }}
@@ -49,7 +49,7 @@ window.onload = function() {
     }).done(function(data) {
       $("#cities").empty();
       for(var i = 0; i < data.length; i++) {
-       $("#cities").append("<option>"+data[i].name+"</option>");
+       $("#cities").append("<option value='"+data[i].id+"'>"+data[i].name+"</option>");
 
      }
 

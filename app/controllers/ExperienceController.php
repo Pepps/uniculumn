@@ -41,8 +41,8 @@ class ExperienceController extends BaseController {
 		$rules = array(
 			'title' 				=> 'required',
 			'description' 			=> 'required',
-			'title' 				=> 'required',
-			'duration' 					=> 'required'
+			'type'	 				=> 'required',
+			'duration' 				=> 'required'
 			);
 
 		$validator = Validator::make(Input::all(), $rules);
@@ -55,6 +55,7 @@ class ExperienceController extends BaseController {
 			$experience = new Experience;
 			$experience->title = Input::get('title');
 			$experience->description = Input::get('description');
+			$experience->type = Input::get('type');
 			$experience->duration = Input::get('duration');
 			$experience->user_id = Auth::user()->id;
 
@@ -83,7 +84,7 @@ class ExperienceController extends BaseController {
 	 * @return Response
 	 */
 	public function newref($id) {
-			return View::make('experience.newref')->with("states", State::all());
+			return View::make('experience.newref')->with("states", State::all())->with("expid", $id);
 
 	}
 
@@ -95,14 +96,13 @@ class ExperienceController extends BaseController {
 			'lastname' 				=> 'required',
 			'email' 				=> 'required',
 			'phone' 				=> 'required',
-			'cities' 				=> ''
 			);
 
 		$validator = Validator::make(Input::all(), $rules);
 
 		//Validation
 		if ($validator->fails()) {
-          return Redirect::route('addref')
+          return Redirect::to('experience')
               ->withErrors($validator);
 		}else {
 			$reference = new Reference;
@@ -112,9 +112,8 @@ class ExperienceController extends BaseController {
 			$reference->email = Input::get('email');
 			$reference->phone = Input::get('phone');
 			$reference->user_id = Auth::user()->id;
-			$reference->city_id = Reference::find($id);
-			//$reference->experience_id = Input::get()->id;
-
+			$reference->city_id = Input::get('cities');
+			$reference->experience_id = $id;
 			$reference->save();
 
 		}

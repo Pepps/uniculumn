@@ -17,6 +17,8 @@ class CreateExperiencesTable extends Migration {
 			/* This is the experiences table. */
 			$table->increments('id');
 			$table->string('title', 100);
+			// 1 is equal to Job ("Jobb") and 0 is equal to Education ("Utbildning"). 
+			$table->integer('type');
 			$table->timestamps();
 			$table->text('description');
 			$table->integer('user_id')->unsigned();

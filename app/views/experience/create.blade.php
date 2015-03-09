@@ -21,8 +21,15 @@
     </div>
 
     <div class="form-group">
+        {{ Form::label('type', 'Jobb:') }}
+        {{ Form::radio('type', 1, false, ['class' => 'jobb']) }}
+        {{ Form::label('type', 'Utbildning:') }}
+        {{ Form::radio('type', 0, false, ['class' => 'utbildning']) }}
+    </div>
+
+    <div class="form-group">
         {{ Form::label('description', 'Description') }}
-        {{ Form::textarea('description', Input::old('name'), array('class' => 'form-control')) }}
+        {{ Form::text('description', Input::old('name'), array('class' => 'form-control')) }}
     </div>
 
     <div class="form-group">
@@ -33,7 +40,7 @@
 	</div>
     <br>
 
-    		{{ Form::submit('Add experience', array('class' => 'btn btn-primary')) }}
+    	{{ Form::submit('Add experience', array('class' => 'btn btn-primary')) }}
 		{{ Form::close() }}
 
 
