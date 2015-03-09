@@ -23,7 +23,7 @@ Route::get("/search/{option}/{key}/{val}/{extra}/{pretty}", "SearchController@in
 Route::resource('project', "ProjectController");
 Route::resource('user', "UserController");
 Route::post('apply/upload', 'ProjectController@store');
-Route::post('/user/update/{id}', "UserController@user");
+Route::post('/user/update/{id}', "UserController@update");
 
 /* Duck punch for fixing update */
 Route::post('/project/update/{id}', "ProjectController@update");
