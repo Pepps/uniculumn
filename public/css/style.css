@@ -12,6 +12,55 @@ body {
 
 }
 
+.control_panel2 {
+	display: none;
+	color: white;
+	font-family: Kozuka;
+	font-size: 0.9vw;
+}
+
+.arrow-down {
+	width: 0; 
+	height: 0; 
+	border-left: 0.5vw solid transparent;
+	border-right: 0.5vw solid transparent;
+	border-top: 0.7vw solid #56c5cb;
+	float: right;
+	margin-top: 1.3vw;
+	margin-left: 0.6vw;
+}
+
+
+.arrow-up {
+	width: 0; 
+	height: 0; 
+	border-left: 0.5vw solid transparent;
+	border-right: 0.5vw solid transparent;
+	border-bottom: 0.7vw solid #56c5cb;
+	float: right;
+	margin-top: 1.1vw;
+}
+
+#hide_me, #search_for {
+	display: none;
+}
+
+.search_div {
+	margin: 0vw auto;
+	width: 15vw;
+	font-family: Kozuka;
+	font-size: 1.7vw;
+	color: #56c5cb;
+	padding-left: 8vw;
+
+}
+.thumbnail {
+	width: 0.7vw; height: 0.7vw; margin-right: 0.5vw;
+}
+
+
+
+
 /* ----- custom font ---- */
 
 @font-face {
@@ -74,8 +123,60 @@ body {
 .choicebox {
 	width: 50vw;
 	margin: 0vw auto;
+	text-align: center;
 }
 
+
+.search_wrapper {
+	width: 55vw;
+	float: left;
+}
+
+.ind_search {
+	margin-top: 0.8vw;
+	width: 21vw;
+}
+
+.td_category {width: 6vw; padding-bottom: 0.5vw;}
+.td_words {width: 9vw; padding-bottom: 0.5vw;}
+.td_delete {width: 4vw; padding-bottom: 0.5vw;
+	text-align: center;}
+
+	.td_delete img {
+		width: 1vw;
+		height: 1vw;
+	}
+
+.category_search {
+	display: inline-block;
+	padding: 0.3vw;
+	background-color: #56c5cb;
+	color: white;
+	border-radius: 0.2vw;
+	font-size: 0.75vw;
+
+}
+
+.word_search {
+	font-size: 0.75vw;
+}
+
+
+.url_wrapper {
+	float: right;
+	width: 22vw;
+	margin-right: 7vw;
+	padding: 0.5vw;
+	margin-top: 2vw;
+
+}
+
+.search_log {
+	width:20vw;
+	padding: 1vw;
+	margin: -0.2vw 0vw;
+	background: white;
+}
 
 
 .search_logo {
@@ -87,6 +188,23 @@ body {
 	float: left;
 }
 
+.input_thing {
+	font-family: Kozuka;
+	padding: 0.1vw 0.7vw;
+	width: 20vw;
+	border: 0.1vw solid #56c5cb;
+	background-color: white;
+	border-radius: 0.5vw;
+	color: white;
+	margin: 2vw 1vw;
+	display: inline-block;
+	font-size: 1.3vw;
+	color: #56c5cb;
+	text-align: left;
+	height: 3vw;
+
+}
+
 
 
 .search_bubble {
@@ -94,8 +212,9 @@ body {
 	width: 20vw;
 	padding: 0.5vw;
 	border: 0.1vw solid #56c5cb;
-	background-color: white;
+	background-color: #56c5cb;
 	border-radius: 0.5vw;
+	color: white;
 	margin-left: 1vw;
 	margin-top: 1vw;
 	float: left;
@@ -103,7 +222,7 @@ body {
 }
 
 .bubble_tip {
-	background-image: url(../img/bubble_tip.PNG);
+	background-image: url(../img/bubble_tip_blue.PNG);
 	background-size: 0.8vw;
 	background-repeat: no-repeat;
 	float: left;
@@ -115,18 +234,18 @@ body {
 
 .dark_square {
 	background-color: #2f4343;
-	border-radius: 8vw;
-	background-size: 5vw;
+	background-size: 6vw;
 	background-position: center;
 	background-repeat: no-repeat;
-	width: 7vw;
+	width: 8vw;
 	height: 0vw;
-	padding-top: 7vw;
-	margin: 1vw 2vw 5vw 0vw;
+	padding-top: 8vw;
+	margin: 1vw 2vw 2vw 0vw;
 	float: left;
 	line-height: 2vw;
 	text-align: center;
 	font-family: Kozuka;
+	border-radius: 0.5vw;
 }
 
 .s_users 		{ background-image: url(../img/users.PNG); }
@@ -689,6 +808,26 @@ input[type=radio   ]:not(old) + label > span{
   border-radius: 0.7vw;
 }
 
+input[type=radio   ]:not(old) + label > span{
+  display          : inline-block;
+  width            : 0.8vw;
+  height           : 0.8vw;
+  background 	: white;
+  border: 0.1vw solid #98a4a4;
+  margin-right: 0.5vw;
+  border-radius: 0.7vw;
+}
+
+input[type=checkbox]:not(old) + label > span{
+  display          : inline-block;
+  width            : 0.8vw;
+  height           : 0.8vw;
+  background 	: white;
+  border: 0.1vw solid #98a4a4;
+  margin-right: 0.5vw;
+  border-radius: 0.3vw;
+}
+
 
 input[type=checkbox]:not(old):checked + label > span,
 input[type=radio   ]:not(old):checked + label > span{
@@ -701,11 +840,12 @@ input[type=checkbox]:not(old):checked + label > span:before{
   width       : 0.6vw;
   height      : 0.6vw;
   color       : #56c5cb;
-  font-size   : 0.875em;
+  font-size   : 0.9vw;
   line-height : 1em;
   text-align  : center;
   text-shadow : #bccfd0;
   font-weight : bold;
+  margin-top: 0.1vw;
 }
 
 input[type=radio]:not(old):checked + label > span > span{
