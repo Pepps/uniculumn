@@ -44,14 +44,15 @@
         {{ Form::text('phone', $user->phone, array('class' => 'form-control')) }}
     </div>
 
-    <div class="form-group">
-        {{ Form::label('user_title', "Län" ) }}
-        {{ Form::select('state', array('0' => 'Välj ditt län'), Input::old('state'), array('class' => 'form-control', 'id' => 'state')) }}
-    </div>
+    <select class="form-control" id="state-select">
+      @foreach ($states as $state)
+        <option value="{{ $state->id }}">{{$state->name}}</option>
+      @endforeach
+    </select>
 
     <div class="form-group">
         {{ Form::label('user_title', "Ort" ) }}
-        {{ Form::select('city', array('0' => 'Välj din stad'), Input::old('state'), array('class' => 'form-control', 'id' => 'city')) }}
+        {{ Form::select('city', array('0' => 'Välj din stad'), Input::old('state'), array('class' => 'form-control', 'id' => 'cities')) }}
     </div>
 
     {{ Form::submit('Updatera din profil', array('class' => 'btn btn-primary')) }}
@@ -70,10 +71,8 @@ window.onload = function() {
     }).done(function(data) {
       $("#cities").empty();
       for(var i = 0; i < data.length; i++) {
-       $("#cities").append("<option>"+data[i].name+"</option>");
-
+       $("#cities").append("<option value='"+data[i].id+"''>"+data[i].name+"</option>");
      }
-
      // console.log(data[5].name);
     });
   });

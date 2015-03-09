@@ -5,7 +5,7 @@ var element = {};
 var userId = [];
 var inputId = [];
 categoryShow(0);
-stateShow(0);
+//stateShow(0);
 
 $(function(){
     var bool = true;
