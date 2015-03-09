@@ -20,8 +20,8 @@ body {
 }
 
 .arrow-down {
-	width: 0; 
-	height: 0; 
+	width: 0;
+	height: 0;
 	border-left: 0.5vw solid transparent;
 	border-right: 0.5vw solid transparent;
 	border-top: 0.7vw solid #56c5cb;
@@ -32,8 +32,8 @@ body {
 
 
 .arrow-up {
-	width: 0; 
-	height: 0; 
+	width: 0;
+	height: 0;
 	border-left: 0.5vw solid transparent;
 	border-right: 0.5vw solid transparent;
 	border-bottom: 0.7vw solid #56c5cb;
@@ -98,7 +98,7 @@ body {
 	width: 21vw;
 	height: 26vw;
 	background-image: url(../img/profile_picture.PNG);
-	background-size: 21vw; 
+	background-size: 21vw;
 	margin-bottom: 1.5vw;
 }
 
@@ -111,7 +111,7 @@ body {
 	width: 1vw;
 	cursor: pointer;
 	background-image: url(../img/edit.PNG);
-	background-size: 1vw; 
+	background-size: 1vw;
 	display: inline-block;
 }
 
@@ -436,7 +436,7 @@ body {
 
 #my_experiences h3 {
 	border-bottom: 0.1vw dotted #1f2d2c;
-    display:inline; 
+    display:inline;
     padding-bottom: 0.2vw;
 }
 
@@ -634,7 +634,7 @@ text-decoration: none;}
 	float: right;
 	height: 12vw;
 	width: 26vw;
-	margin-top: -2vw; 
+	margin-top: -2vw;
 }
 
 .blue_box input {
@@ -779,6 +779,9 @@ padding: 0.4vw;}
 
 /* radio buttonz stylin' */
 
+input[type=file]:not(old) {
+	height 	: 100px;
+}
 
 input[type=checkbox]:not(old),
 input[type=radio   ]:not(old){
@@ -786,7 +789,7 @@ input[type=radio   ]:not(old){
   margin    : 0;
   padding   : 0;
   font-size : 1em;
-  opacity   : 0;
+  /*opacity   : 0;*/
 }
 
 input[type=checkbox]:not(old) + label,
