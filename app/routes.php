@@ -34,7 +34,7 @@ Route::get('/project/readfile/{id}', "ProjectController@readfile");
 /* Routes for experiences */
 Route::resource('experience', "ExperienceController");
 Route::get('/experience/{id}/addref/', "ExperienceController@newref");
-Route::post('/experience/{id}/addref/', "ExperienceController@addref");
+Route::post('/experience/{id}/addref/', array('as' => 'addref', 'uses' => "ExperienceController@addref"));
 
 Route::get('/state/{id}/', "ExperienceController@getcities");
 

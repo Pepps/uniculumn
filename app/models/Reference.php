@@ -12,4 +12,14 @@ class Reference extends Eloquent
 	public function experience() {
 		return $this->hasOne('Experience');
 	}
+
+	// A reference has many states.
+	public function states() {
+		return $this->hasMany('State');
+	}
+
+	// A reference has many cities.
+	public function cities() {
+		return $this->belongsTo('City');
+	}
 }

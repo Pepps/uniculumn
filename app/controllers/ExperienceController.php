@@ -37,8 +37,6 @@ class ExperienceController extends BaseController {
 	 */
 	public function store()
 	{
-		$cities = City::lists('id', 'name');
-
 		//Rules for input fields
 		$rules = array(
 			'title' 				=> 'required',
@@ -90,13 +88,36 @@ class ExperienceController extends BaseController {
 	}
 
 	public function addref($id) {
-		$experience = new Experience;
-		$experience->title = Input::get('title');
-		$experience->description = Input::get('description');
-		$experience->duration = Input::get('duration');
-		$experience->user_id = Auth::user()->id;
+//Rules for input fields
+		$rules = array(
+			'company' 				=> 'required',
+			'firstname' 			=> 'required',
+			'lastname' 				=> 'required',
+			'email' 				=> 'required',
+			'phone' 				=> 'required',
+			'cities' 				=> ''
+			);
 
-		$experience->save();
+		$validator = Validator::make(Input::all(), $rules);
+
+		//Validation
+		if ($validator->fails()) {
+          return Redirect::route('addref')
+              ->withErrors($validator);
+		}else {
+			$reference = new Reference;
+			$reference->company = Input::get('company');
+			$reference->firstname = Input::get('firstname');
+			$reference->lastname = Input::get('lastname');
+			$reference->email = Input::get('email');
+			$reference->phone = Input::get('phone');
+			$reference->user_id = Auth::user()->id;
+			$reference->city_id = Reference::find($id);
+			//$reference->experience_id = Input::get()->id;
+
+			$reference->save();
+
+		}
 	}
 
 	public function getcities($id) {

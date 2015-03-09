@@ -24,6 +24,7 @@ class CreateReferencesTable extends Migration {
 			$table->string('lastname', 50);
 			$table->string('email', 100);
 			$table->integer('phone');
+			$table->timestamps();
 
 			$table->foreign('user_id')->references('id')->on('users');
 			$table->foreign('city_id')->references('id')->on('cities');
