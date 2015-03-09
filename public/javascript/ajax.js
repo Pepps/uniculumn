@@ -131,7 +131,7 @@ function categoryShow(id) {
 
     return false;
 }
-
+/*
 function stateShow(id) {
     $.ajax({
         type    : "GET",
@@ -165,7 +165,7 @@ function cityShow(id) {
 
     return false;
 }
-
+*/
 //------
 // on changes functions: category and state
 //------
@@ -182,7 +182,7 @@ $(document).on('change', '#category', function(e) {
 
 });
 
-
+/*
 $(document).on('change', '#state', function(e) {
     e.preventDefault(e);
 
@@ -193,7 +193,7 @@ $(document).on('change', '#state', function(e) {
     cityShow($("#state").val());
 
 });
-
+*/
 
 
 // ################  Dropzone  ##############
