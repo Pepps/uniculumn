@@ -58,4 +58,27 @@
 
 {{ Form::close() }}
 </div>
+
+<script>
+//Ajax script that gets cities from the DB depending on the state you select.
+window.onload = function() {
+  $("#state-select").on("change", function() {
+    $.ajax({
+      type: "GET",
+      dataType: "json",
+      url: "/state/"+$(this).val(),
+    }).done(function(data) {
+      $("#cities").empty();
+      for(var i = 0; i < data.length; i++) {
+       $("#cities").append("<option>"+data[i].name+"</option>");
+
+     }
+
+     // console.log(data[5].name);
+    });
+  });
+}
+
+</script>
+
 @stop
