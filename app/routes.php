@@ -2,8 +2,6 @@
 
 Route::get('/', 'HomeController@index');
 
-
-//
 Route::get('/login', array('as' => 'login', 'uses' => 'AuthController@loginWithGoogle'));
 //Route for getting login information
 Route::post('/home', array('as' => 'home', 'uses' => 'AuthController@logIn'));
@@ -27,6 +25,9 @@ Route::post('apply/upload', 'ProjectController@store');
 /* Duck punch for fixing update */
 Route::post('/project/update/{id}', "ProjectController@update");
 Route::get('/project/delete/{id}', "ProjectController@destroy");
+Route::post('/project/addcolab/{id}', "ProjectController@addcolab");
+Route::get('/project/delcolab/{project_id}/{colab_id}', "ProjectController@deletecolab");
+
 Route::get('/project/showfiles/{id}', "ProjectController@showfiles");
 Route::get('/project/getfiles/{id}', "ProjectController@getfiles");
 Route::get('/project/readfile/{id}', "ProjectController@readfile");
@@ -42,3 +43,5 @@ Route::get('category/show/{id}', 'CategoryController@show');
 Route::get('/user/show', 'UserController@show');
 
 Route::get('/register', 'HomeController@index');
+
+Route::get('/test', 'ExperienceController@show');

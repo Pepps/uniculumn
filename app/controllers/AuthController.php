@@ -50,7 +50,6 @@ class AuthController extends BaseController {
     $user->pdir = $pdir;
     $user->save();
 
-    //File::makeDirectory(app_path() . '/projects/' . $pdir);
     File::makeDirectory(app_path() . '/projects/' . $pdir, 0775, true);
     return Redirect::to('/');
 
