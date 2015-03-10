@@ -39,42 +39,47 @@ class SearchController extends BaseController {
       // Get all rows in option table, but we are going to sort things out before calling it with ->get();
       $model = studly_case($option);
       $table = new $model;
-      //for($i = 0; count($selection); $i++){
-          if($selection[0] == 'first'){
-              $table = $table->take($selection[1]);
-          }
-          else if($selection[0] == 'last'){
-              $table = $table->orderBy('id', 'desc');
-              $table = $table->take($selection[1]);
-          }
-      //}
-
 
       foreach($data as $main_key => $sub_key) {
         foreach ($sub_key as $sub_key => $value){
           foreach ($value as $string) {
             $split = explode('+', $string);
             foreach ($split as $explode) {
-              if (end($value) !== $string) {
-                if($option == $main_key){
-                  $table = $table->where($main_key.'s.'.$sub_key, "=", $explode);
+                if (end($value) !== $string || count($value) == 1) {
+                    if($option == $main_key){
+                      $table = $table->where($sub_key, "=", $explode);
+                    }
+                    else{
+                      $table = $table->whereHas($main_key, function($query) use ($sub_key, $explode){
+                          $query->where($sub_key, "=", $explode);
+                      });
+                    }
                 }
                 else{
-                    $table = $table->$main_key->where($sub_key, "=", $explode);
+                  if($option == $main_key){
+                    $table = $table->orWhere($sub_key, "=", $explode);
+                  }
+                  else{
+                    $table = $table->orwhereHas($main_key, function($query) use ($sub_key, $explode){
+                      $query->where($sub_key, "=", $explode);
+                    });
+                  }
                 }
-              }
-              else{
-                if($option == $main_key){
-                  $table = $table->orWhere($main_key.'s.'.$sub_key, "=", $explode);
-                }
-                else{
-                    $table = $table->$main_key->orWhere($sub_key, "=", $explode);
-                }
-              }
             }
           }
         }
       }
+
+        //for($i = 0; count($selection); $i++){
+        if($selection[0] == 'first'){
+          $table = $table->take($selection[1]);
+        }
+        else if($selection[0] == 'last'){
+          $table = $table->orderBy('id', 'desc');
+          $table = $table->take($selection[1]);
+        }
+        //}
+
 
       if($pretty){
         echo '<pre>' . json_encode($table->get(),JSON_PRETTY_PRINT) . '</pre>'; // Runs the query we have build up.
