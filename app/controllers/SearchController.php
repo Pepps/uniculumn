@@ -60,7 +60,7 @@ class SearchController extends BaseController {
                     $table = $table->orWhere($sub_key, "=", $explode);
                   }
                   else{
-                    $table = $table->orwhereHas($main_key, function($query) use ($sub_key, $explode){
+                    $table = $table->orWhereHas($main_key, function($query) use ($sub_key, $explode){
                       $query->where($sub_key, "=", $explode);
                     });
                   }
