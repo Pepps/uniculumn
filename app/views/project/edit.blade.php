@@ -9,7 +9,7 @@
 
 <h1>Updatera Projekt</h1>
 
-@if ( $project->user_id == Auth::user()->id)
+@if ( $project->owner_id == Auth::user()->id)
 {{ Form::open(array('url' => 'project/addcolab/'.$project->id)) }}
   <div class="form-group" id="bloodhound">
       {{ Form::label('collaborators-form', 'Medarbetare') }}

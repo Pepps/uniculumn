@@ -2,7 +2,11 @@
 class CvController extends BaseController {
     public function index($userid) {
 
-        return View::make("cv");
+        return View::make("cv")
+               ->with("user", User::find($userid))
+               ->with("city", City::find(User::find($userid)->city_id))
+               ->with("exps", User::find($userid)->experience)
+               ->with("projects", User::find($userid)->project);
 
     }
 

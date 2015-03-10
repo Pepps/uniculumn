@@ -25,15 +25,19 @@
     </div><!--/.navbar-collapse -->
   </div>
 </nav>
-<br><br><br><br>
+<br><br><br><br><br><br>
 <div class="container">
 
-  <p>Filip Ramstedt</p>
-  <p>Fridhemsgatan 22</p>
-  <p>Karlshamn Blekinga Län</p>
+  <p>{{$user->firstname}} {{$user->lastname}}</p>
+  @if($user->city_id != null)
+    <p>{{$user->address}}</p>
+    <p>{{$city->name}} {{State::find($city->state_id)->name}}</p>
+  @endif
   <br>
-  <p>Telefon: 0707102178</p>
-  <p>Email: filipramstedt@gmai.com</p>
+  @if($user->phone != null)
+    <p>Telefon: {{$user->phone}}</p>
+  @endif
+  <p>Email: {{$user->email}}</p>
 
   <h3>Om mig </h3>
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mollis dictum nunc at porta.
@@ -44,44 +48,26 @@
   Ut lacus urna, iaculis eget nunc a, elementum consectetur enim.
   Phasellus vel scelerisque purus.</p>
 
+  <h3>Projekt jag deltar i</h3>
+  @foreach($projects as $project)
+    <a href="/project/{{$project->id}}">{{$project->title}}</a>
+  @endforeach
+
   <h3>Utbildningar</h3>
-  <p><b>Media programmet, Kungsgårdgymnasiet Norrköping<span style="float:right;">2008-2011</span></b></p>
-  <p style="margin-top: -10px">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mollis dictum nunc at porta.
-  Nullam ac venenatis risus. In tincidunt consequat rhoncus. Donec in laoreet metus.
-  Ut lacus urna, iaculis eget nunc a, elementum consectetur enim.
-  Phasellus vel scelerisque purus.</p>
-
-  <p><b>Interaktiva Digitala Medier, Linnéunivärsitetet Växjö<span style="float:right;">2012-2013</span></b></p>
-  <p style="margin-top: -10px">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mollis dictum nunc at porta.
-  Nullam ac venenatis risus. In tincidunt consequat rhoncus. Donec in laoreet metus.
-  Ut lacus urna, iaculis eget nunc a, elementum consectetur enim.
-  Phasellus vel scelerisque purus.</p>
-
-  <p><b>Webbutveckling, Blekinge Tekniska Högskola Karlshamn<span style="float:right;">2014-2017  </span></b></p>
-  <p style="margin-top: -10px">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mollis dictum nunc at porta.
-  Nullam ac venenatis risus. In tincidunt consequat rhoncus. Donec in laoreet metus.
-  Ut lacus urna, iaculis eget nunc a, elementum consectetur enim.
-  Phasellus vel scelerisque purus.</p>
+  @foreach($exps as $exp)
+    @if($exp->type == 0)
+      <p><b>{{$exp->title}}<span style="float:right;">{{$exp->duration}}</span></b></p>
+      <p style="margin-top: -10px">{{$exp->description}}</p>
+    @endif
+  @endforeach
 
   <h3>Anstälningar</h3>
-
-  <p><b>Fotograf (praktik), Norrköpings tidningar Norrköping<span style="float:right;">2005</span></b></p>
-  <p style="margin-top: -10px">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mollis dictum nunc at porta.
-  Nullam ac venenatis risus. In tincidunt consequat rhoncus. Donec in laoreet metus.
-  Ut lacus urna, iaculis eget nunc a, elementum consectetur enim.
-  Phasellus vel scelerisque purus.</p>
-
-  <p><b>Fotograf (praktik), Atelje Carlsbecker Norrköping<span style="float:right;">2010</span></b></p>
-  <p style="margin-top: -10px">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mollis dictum nunc at porta.
-  Nullam ac venenatis risus. In tincidunt consequat rhoncus. Donec in laoreet metus.
-  Ut lacus urna, iaculis eget nunc a, elementum consectetur enim.
-  Phasellus vel scelerisque purus.</p>
-
-  <p><b>Fotograf (praktik), Fredriknågotinkpg Norrköping<span style="float:right;">2010</span></b></p>
-  <p style="margin-top: -10px">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mollis dictum nunc at porta.
-  Nullam ac venenatis risus. In tincidunt consequat rhoncus. Donec in laoreet metus.
-  Ut lacus urna, iaculis eget nunc a, elementum consectetur enim.
-  Phasellus vel scelerisque purus.</p>
+  @foreach($exps as $exp)
+    @if($exp->type == 1)
+      <p><b>{{$exp->title}}<span style="float:right;">{{$exp->duration}}</span></b></p>
+      <p style="margin-top: -10px">{{$exp->description}}</p>
+    @endif
+  @endforeach
 
 </div>
 
