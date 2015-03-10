@@ -164,9 +164,6 @@ body {
 
 .url_wrapper {
 	float: right;
-	width: 22vw;
-	margin-right: 7vw;
-	padding: 0.5vw;
 	margin-top: 2vw;
 
 }
@@ -353,13 +350,13 @@ body {
 
 #ui_header {
 	background: #192626 url(../img/ui_header.PNG);
+	background-position: right;
+	background-size: 100vw;
 	height:6.1vw;
 	width: 82vw;
 	padding-left: 18vw;
 	color: #fff;
 	font-family: Kozuka;
-	float: right;
-	max-width: 100%;
 	position: absolute;
 	top: 0vw;
 	right: 0vw;
@@ -522,10 +519,12 @@ text-decoration: none;}
 
 
 .upload_shortcut {
-	float:right;
+	position: absolute;
+	top: 0;
+	right: 0;
 	width: 27vw;
 	height:5.1vw;
-	padding-top: 3.1vw;
+	padding-top: 2.1vw;
 	cursor: default;
 	z-index: 2;
 }
@@ -534,7 +533,7 @@ text-decoration: none;}
 	width: 6vw;
 	float: right;
 	margin-right: 2vw;
-	margin-top: -4.5vw;
+	margin-top: -5vw;
 	cursor: pointer;
 }
 
@@ -552,9 +551,8 @@ text-decoration: none;}
 
 .user_box {
 	float: left;
-	height:8.5vw;
 	width: 39vw;
-	padding: 0.1vw;
+	/*padding: 0.1vw;*/
 	margin-left: 1vw;
 
 }
@@ -681,7 +679,6 @@ h2 {
 	font-weight: 100;
 	font-size: 1.5vw;
 	margin-bottom:  -0.2vw;
-	margin-top: 0vw;
 }
 
 #welcome

@@ -1,6 +1,10 @@
 <?php
 
-Route::get('/', 'HomeController@index');
+
+Route::get('/', function()
+    {
+        return View::make('search');
+    });
 
 
 //

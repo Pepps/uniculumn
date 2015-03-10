@@ -5,8 +5,6 @@
     <title>uniculum.se</title>
     {{ HTML::style('css/style.css') }}
     <link rel="shortcut icon" href="{{asset('img/favicon.ico')}}" />
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
  </head>
 <body>
     @yield('content')
@@ -21,6 +19,7 @@
     {{ HTML::script('javascript/ace/ace.js') }}
     {{ HTML::script('javascript/jszip/dist/jszip.js') }}
     {{ HTML::script('javascript/dropzone.js') }}
+    {{ HTML::script('javascript/user_jquery.js') }}
     <script src="https://apis.google.com/js/client:platform.js" async defer></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
