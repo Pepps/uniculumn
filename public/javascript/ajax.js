@@ -4,7 +4,8 @@ var names = [];
 var element = {};
 var userId = [];
 var inputId = [];
-show(0);
+categoryShow(0);
+//stateShow(0);
 
 $(function(){
     var bool = true;
@@ -95,7 +96,7 @@ $('#bloodhound .typeahead').typeahead({
 });
 }
 
-function show(id) {
+function categoryShow(id) {
     $.ajax({
         type    : "GET",
         url     : "/category/show/"+id,
@@ -130,6 +131,45 @@ function show(id) {
 
     return false;
 }
+/*
+function stateShow(id) {
+    $.ajax({
+        type    : "GET",
+        url     : "/state/show/"+id,
+        success : function(data) {
+            data = jQuery.parseJSON(data);
+            if (id==0) {
+                $('#state').html("");
+                for (var i=0; i<data.length; i++) {
+                    $('<option value="'+data[i]['id']+'">'+data[i]['name']+'</option>').appendTo($('#state'));
+                    }
+                }
+            }
+        },"json");
+
+    return false;
+}
+
+function cityShow(id) {
+    $.ajax({
+        type    : "GET",
+        url     : "/city/show/"+id,
+        success : function(data) {
+            data = jQuery.parseJSON(data);
+                $('#city').html("");
+                for (var i=0; i<data.length; i++) {
+                    $('<option value="'+data[i]['id']+'">'+data[i]['name']+'</option>').appendTo($('#city'));
+                }
+            }
+        },"json");
+
+    return false;
+}
+*/
+//------
+// on changes functions: category and state
+//------
+
 
 $(document).on('change', '#category', function(e) {
     e.preventDefault(e);
@@ -138,14 +178,26 @@ $(document).on('change', '#category', function(e) {
         // TODO comments here
         //-----
 
-    show($("#category").val());
-
+    categoryShow($("#category").val());
 
 });
 
+/*
+$(document).on('change', '#state', function(e) {
+    e.preventDefault(e);
+
+        //-----
+        // TODO comments here
+        //-----
+
+    cityShow($("#state").val());
+
+});
+*/
 
 
 // ################  Dropzone  ##############
+
 $(document).ready(function() {
     $("#dropzone").dropzone({ url: "/file/post" });
 });

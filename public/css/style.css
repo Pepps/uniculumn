@@ -746,7 +746,6 @@ h2 {
 
 }
 
-
 input {
 	padding: 0.5vw;
 	margin-bottom: 1vw;
@@ -859,4 +858,10 @@ input[type=radio]:not(old):checked + label > span > span{
   border           : 0.05vw solid #4ee9f1;
   border-radius: 0.6vw;
   background       : #56c5cb;
+}
+
+/* Override convention of bootstrap file of the column in projects and experiences*/
+.col-xs-2 {
+	padding: 0px;
+	float:none;
 }

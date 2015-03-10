@@ -8,6 +8,8 @@
       <ul class="nav navbar-nav">
         <li><a href="{{ URL::to('project') }}">View All projects</a></li>
         <li><a href="{{ URL::to('project/create') }}">Create a project</a></li>
+        <li><a href="{{ URL::to('../experience') }}">View All experiences</a></li>
+        <li><a href="{{ URL::to('../experience/create') }}">Create an experience</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="/user"><i class="fa fa-user"></i> Profil</a></li>
