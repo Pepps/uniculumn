@@ -54,7 +54,6 @@ class AuthController extends BaseController {
       File::makeDirectory(app_path() . '/projects/' . $pdir, 0775, true);
       return Redirect::to('/');
     }
-
   }
 
     public function loginWithGoogle() {

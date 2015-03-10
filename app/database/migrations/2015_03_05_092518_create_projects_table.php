@@ -16,12 +16,12 @@ class CreateProjectsTable extends Migration {
 		{
 			/* This is the projects table. */
 			$table->increments('id');
-			$table->string('title', 40);
+			$table->string('title', 40)->unique();
 			$table->timestamps();
 			$table->text('body');
-			$table->integer('user_id')->unsigned();
+			$table->integer('owner_id')->unsigned();
 
-			$table->foreign('user_id')->references('id')->on('users');
+			$table->foreign('owner_id')->references('id')->on('users');
 		});
 	}
 

@@ -39,3 +39,8 @@ CV!
 	- True/False för Experience/Project/
 
 FEEDBACK!
+
+Inte glömma!
+	Kommentera kod!
+	Komprimera Javascript/CSS!
+	konkatenera Javascript!
