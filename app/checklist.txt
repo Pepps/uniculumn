@@ -1,0 +1,46 @@
+﻿Back-end snabb check!
+
+	*create functions -
+		Kunna smidigt lägga till medarbetare.
+		Ladda upp filer till användarens mapp.
+		
+	Vad som ska göras - implementera status för projekt.
+				Färdig/Prototyp/Under pågående
+	*store functions -
+		Fungernade mellan tabeller, (categori och projekt, användare och projekt)
+	*Login
+
+	*
+
+
+Dokumentation = Dennis
+
+Generera CV:n
+
+Fixa P-tabell:
+	- intressen
+
+Fixa erfarenheter och ref sida
+	- Ta bort user_experience tabell bort!
+	- Addera FK i Ref tabell
+	- Skapa CRUD till Ref och Experience!
+
+Layouts som snusk!!!
+	- Start
+	- Profil -> Redigera
+	- Projekt -> Skapa, Presentera, Radera och Updatera
+	- Erfarenheter -> Skapa, Presentera, Radera och Updatera
+	- Referenser -> Skapa, Presentera, Radera och Updatera
+	- Search?
+	- Index? Regristrera? 
+
+CV!
+	- En template
+	- True/False för Experience/Project/
+
+FEEDBACK!
+
+Inte glömma!
+	Kommentera kod!
+	Komprimera Javascript/CSS!
+	konkatenera Javascript!

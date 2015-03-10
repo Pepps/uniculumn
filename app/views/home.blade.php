@@ -57,10 +57,6 @@
       </div>
 
     </div>
-    <div class="column_right">
-      Bläddra <span class="dark">bland</span> &nbsp; &nbsp;<br/>
-      &nbsp; &nbsp; +1000 projekt
-    </div>
   </div>
 
   <div id="footer">
@@ -106,8 +102,7 @@
       {{ Form::submit('Login') }}
       {{ Form::close() }}
 
-
-      <?php if(!empty(Session::get('key'))) $name = Session::get('key'); ?>
+      <?php //if(!empty(Session::get('key'))) $name = Session::get('key'); ?>
 
           <!--
           Author: Joakim D Google loginbutton

@@ -373,7 +373,7 @@ class CategoryTableSeeder extends Seeder {
                 'Maskinteknik',
                 'Materialteknik',
                 'Medicinsk',
-                'teknik',
+                'Teknik',
                 'Miljö och energiteknik',
                 'Rymdteknik',
                 'Samhällsbyggnadsteknik',

@@ -12,7 +12,7 @@
 <!-- if there are creation errors, they will show here -->
 {{ HTML::ul($errors->all()) }}
 
-{{ Form::open(array('url' => 'project', 'files'=>true, 'method'=>'post')) }}
+{{ Form::open(array('url' => 'project', 'files'=>true, 'method'=>'post', 'class'=>'dropzone')) }}
 
 
     <div class="form-group">
@@ -32,14 +32,20 @@
 
     <div class="form-group" id="subcategory-form">
     </div>
+
     <!---
-    / HIDDEN FORMS
+     HIDDEN FORMS
     -->
 
     {{ Form::text('subcategory_id', Input::old('category'), array('class' => 'hidden', 'id' => 'subcategory_id')) }}
+    {{ Form::text('collaborators_id', Input::old('collaborators'), array('class' => 'hidden', 'id' => 'collaborators_id')) }}
 
 
-    {{ Form::file('file') }}
+    <div class="alert alert-info" role="alert" style="text-align: center;"><b>Om du vill lade upp ett störe arbete så rekomderar vi att du gör en Zip fil av det och laddar up den.</b></div>
+    {{ Form::file('files[]', array('multiple'=>true)) }}
+
+    <br>
+
     {{ Form::submit('Create the project!', array('class' => 'btn btn-primary')) }}
 
 {{ Form::close() }}
