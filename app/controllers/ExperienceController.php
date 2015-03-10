@@ -10,8 +10,14 @@ class ExperienceController extends BaseController {
 	 */
 	public function index()
 	{
+		$experience = User::find(Auth::user()->id)->experience;
+		$ids = [];
+		foreach($experience as $value) {
+			array_push($ids, $value -> city_id);
+		}
+
 	    if (Auth::check()){
-	  		return View::make("experience.index")->with('experiences',User::find(Auth::user()->id)->experience);
+	  		return View::make("experience.index")->with('experiences',$experience)->with('cities', City::findMany($ids));
 	    }
 	    else{
 	        return Redirect::to('/');
@@ -42,9 +48,7 @@ class ExperienceController extends BaseController {
 			'title' 				=> 'required',
 			'description' 			=> 'required',
 			'type'	 				=> 'required',
-			'from' 					=> 'required',
-			'to' 					=> ''
-			);
+			'from' 					=> 'required',			);
 
 		$validator = Validator::make(Input::all(), $rules);
 
@@ -70,7 +74,6 @@ class ExperienceController extends BaseController {
 
 			$experience->save();
 
-			Session::flash('message', 'Erfarenhet har skapats!');
 			return Redirect::to('experience');
 		}
 
@@ -86,7 +89,7 @@ class ExperienceController extends BaseController {
 	 */
 	public function show()
 	{
-		var_dump(User::find(Auth::User()->id)->experience);
+		echo (User::find(Auth::User()->id)->experience);
 	}
 
 	/**
@@ -128,6 +131,7 @@ class ExperienceController extends BaseController {
 			$reference->user_id = Auth::user()->id;
 			$reference->experience_id = $id;
 			$reference->save();
+
 
 		}
 		

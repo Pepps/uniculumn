@@ -23,8 +23,7 @@ class CreateExperiencesTable extends Migration {
 			$table->string('description', 255);
 			$table->integer('user_id')->unsigned();
 			$table->integer('city_id')->unsigned();
-			$table->string('from', 15);
-			$table->string('to', 15);
+			$table->string('duration', 10);
 
 			$table->foreign('city_id')->references('id')->on('cities');
 			$table->foreign('user_id')->references('id')->on('users');
