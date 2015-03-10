@@ -46,3 +46,5 @@ Route::get('city/show/{id}', 'CityController@show');
 Route::get('/user/show', 'UserController@show');
 
 Route::get('/register', 'HomeController@index');
+
+Route::get('/test', 'ExperienceController@show');
