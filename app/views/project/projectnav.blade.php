@@ -1,5 +1,5 @@
 @section('projectnav')
-<nav class="navbar navbar-default navbar-static-top">
+<!-- <nav class="navbar navbar-default navbar-static-top">
   <div class="container">
     <div class="navbar-header">
       <a class="navbar-brand" href="{{ URL::to('project') }}">Uniculum</a>
@@ -16,8 +16,8 @@
         <li><a style="float: right;" href="/logout"><i class="fa fa-sign-out"></i>
  Log out</a></li>
       </ul>
-    </div><!--/.nav-collapse -->
+    </div>
   </div>
 </nav>
-
+ -->
 @stop

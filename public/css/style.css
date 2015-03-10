@@ -20,8 +20,8 @@ body {
 }
 
 .arrow-down {
-	width: 0; 
-	height: 0; 
+	width: 0;
+	height: 0;
 	border-left: 0.5vw solid transparent;
 	border-right: 0.5vw solid transparent;
 	border-top: 0.7vw solid #56c5cb;
@@ -32,8 +32,8 @@ body {
 
 
 .arrow-up {
-	width: 0; 
-	height: 0; 
+	width: 0;
+	height: 0;
 	border-left: 0.5vw solid transparent;
 	border-right: 0.5vw solid transparent;
 	border-bottom: 0.7vw solid #56c5cb;
@@ -98,7 +98,7 @@ body {
 	width: 21vw;
 	height: 26vw;
 	background-image: url(../img/profile_picture.PNG);
-	background-size: 21vw; 
+	background-size: 21vw;
 	margin-bottom: 1.5vw;
 }
 
@@ -111,7 +111,7 @@ body {
 	width: 1vw;
 	cursor: pointer;
 	background-image: url(../img/edit.PNG);
-	background-size: 1vw; 
+	background-size: 1vw;
 	display: inline-block;
 }
 
@@ -353,13 +353,13 @@ body {
 
 #ui_header {
 	background: #192626 url(../img/ui_header.PNG);
+	background-position: right;
+	background-size: 100vw;
 	height:6.1vw;
 	width: 82vw;
 	padding-left: 18vw;
 	color: #fff;
 	font-family: Kozuka;
-	float: right;
-	max-width: 100%;
 	position: absolute;
 	top: 0vw;
 	right: 0vw;
@@ -436,7 +436,7 @@ body {
 
 #my_experiences h3 {
 	border-bottom: 0.1vw dotted #1f2d2c;
-    display:inline; 
+    display:inline;
     padding-bottom: 0.2vw;
 }
 
@@ -520,12 +520,13 @@ text-decoration: none;}
 
 
 
-
 .upload_shortcut {
-	float:right;
+	position: absolute;
+	top: 0vw;
+	right: 0vw;
 	width: 27vw;
 	height:5.1vw;
-	padding-top: 3.1vw;
+	padding-top: 4.8vw;
 	cursor: default;
 	z-index: 2;
 }
@@ -534,7 +535,7 @@ text-decoration: none;}
 	width: 6vw;
 	float: right;
 	margin-right: 2vw;
-	margin-top: -4.5vw;
+	margin-top: -5vw;
 	cursor: pointer;
 }
 
@@ -634,7 +635,7 @@ text-decoration: none;}
 	float: right;
 	height: 12vw;
 	width: 26vw;
-	margin-top: -2vw; 
+	margin-top: -2vw;
 }
 
 .blue_box input {
