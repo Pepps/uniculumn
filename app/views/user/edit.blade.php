@@ -46,7 +46,11 @@
 
     <select class="form-control" id="state-select">
       @foreach ($states as $state)
-        <option value="{{ $state->id }}">{{$state->name}}</option>
+        @if ($state->id == $city->state_id)
+            <option value="{{ $state->id }}" selected >{{$state->name}}</option>
+        @else
+            <option value="{{ $state->id }}">{{$state->name}}</option>
+        @endif
       @endforeach
     </select>
 
@@ -56,28 +60,38 @@
     </div>
 
     {{ Form::submit('Updatera din profil', array('class' => 'btn btn-primary')) }}
-
+    <span id="hidden_city" style="display:none;">{{$user->city_id}}</span>
 {{ Form::close() }}
 </div>
 
 <script>
 //Ajax script that gets cities from the DB depending on the state you select.
+
 window.onload = function() {
-  $("#state-select").on("change", function() {
-    $.ajax({
-      type: "GET",
-      dataType: "json",
-      url: "/state/"+$(this).val(),
-    }).done(function(data) {
-      $("#cities").empty();
-      for(var i = 0; i < data.length; i++) {
-       $("#cities").append("<option value='"+data[i].id+"''>"+data[i].name+"</option>");
-     }
-     // console.log(data[5].name);
-    });
+    get($('#state-select').val());
+    $("#state-select").on("change", function() {
+        value = $(this).val();
+        get(value);
   });
 }
 
+function get(value) {
+    $.ajax({
+      type: "GET",
+      dataType: "json",
+      url: "/state/"+value,
+    }).done(function(data) {
+      $("#cities").empty();
+      for(var i = 0; i < data.length; i++) {
+        if (data[i].id == Number($('#hidden_city').text())) {
+           $("#cities").append("<option value='"+data[i].id+"'selected>"+data[i].name+"</option>");
+        }
+        else {
+           $("#cities").append("<option value='"+data[i].id+"''>"+data[i].name+"</option>");
+        }
+    }
+    });
+}
 </script>
 
 @stop
