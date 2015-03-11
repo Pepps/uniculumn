@@ -3,7 +3,6 @@
 
 @section('content')
 
-{{ Form::open(array('url' => 'project', 'files'=>true, 'method'=>'post')) }}
 
       <div id="bottom"></div>
         <div id="ui_sidebar">
@@ -47,6 +46,7 @@
       <div id="main_content">
 
       <h1><img src="img/cloud.PNG" class="cloud"/>Ladda upp nytt projekt</h1>
+      {{ Form::open(array('url' => 'project', 'files'=>true, 'method'=>'post')) }}
 
           <div class="upload_column">
             <div class="dark_icon title_icon"><div class="check_title"></div></div>
