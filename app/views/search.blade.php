@@ -2,46 +2,50 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <title>uniculum.se</title>
+        <title>Uniculum - Sök</title>
+    <link rel="shortcut icon" href="img/favicon.ico" />
     @extends('layouts.master')
-
     </head>
       <body>
 
-      <div id="ui_sidebar">
-
-      </div>
-
-      <div id="ui_header">
-
-         <div class="user_box"> 
-
-            <div class="user_picture">
-            </div>
-
-            <div class="control_flip">
-              <span class="user_name">Severus Snape</span>
-
- <div class="arrow-down" id="clickmetoo">
-      <div class="control_panel2">
-                  Kontoinställningar<br/>
-                  Logga ut 
-      <div class="arrow-up" id="hide_controlpanel"></div>
-                  
-              </div></div>
-            </div>
-
+        <div id="ui_sidebar">
+            <img src="img/logoleft.PNG" class="left_logo"/>
+            <h2><div class="arrow-right"></div>Avancerad sökning</h2>
+            <h2><div class="arrow-right"></div>Min profil</h2>
+            <h2><div class="arrow-right"></div>Mina projekt</h2>
+            <h2><div class="arrow-right"></div>Mina erfarenheter</h2>
         </div>
 
-        <div class="upload_shortcut">
-          <h2 class="cursor">» Ladda upp ett nytt projekt</h2>
-          <img src="img/upload_button.PNG" id="upload_button" />
-        </div>
+        <div id="ui_header">
+
+            <div class="user_box"> 
+
+                <div class="user_picture">
+                </div>
+
+                <div class="username_holder">
+                    <span class="user_name">Severus Snape</span>
+
+                    <div class="arrow-down" id="clickmetoo">
+                      <div class="settings">
+                          Kontoinställningar<br/>
+                          Logga ut 
+                          <div class="arrow-up" id="hide_controlpanel"></div>
+                          
+                      </div>
+                    </div>
+                </div>
+
+            </div>
+
+          <div class="upload_shortcut">
+              <h2 class="cursor">» Ladda upp ett nytt projekt</h2>
+              <img src="img/upload_button.PNG" id="upload_button" />
+          </div>
 
       </div>
       
       <div id="main_content">
-
       
 
 
@@ -92,11 +96,11 @@
         <div class="choicebox" id="hide_me2">
 
             <!-- allt detta är en jävla mess, sry -->
-           <div class="s_users dark_square"><input type="radio" name="fgg1" value="user"><label for="user"><span><span></span></span>Användare</label></div>
-           <div class="dark_square s_projects"> <input type="radio" name="fgg1" value="projects"><label for="projects"><span><span></span></span>Projekt</label></div>
-           <div class="dark_square s_experiences"><input type="radio" name="fgg1" value="experiences"><label for="experiences"><span><span></span></span>Erfarenheter</label> </div>
-           <div class="dark_square s_categories"> <input type="radio" name="fgg1" value="categories"><label for="categories"><span><span></span></span>Kategori</label></div>
-           <div class="dark_square s_status"> <input type="radio" name="fgg1" value="status"><label for="status"><span><span></span></span>Status</label></div>
+           <div class="s_users dark_square"><input class="option" type="radio" name="fgg1" value="user"><label for="user"><span><span></span></span>Användare</label></div>
+           <div class="dark_square s_projects"> <input class="option" type="radio" name="fgg1" value="projects"><label for="projects"><span><span></span></span>Projekt</label></div>
+           <div class="dark_square s_experiences"><input class="option" type="radio" name="fgg1" value="experiences"><label for="experiences"><span><span></span></span>Erfarenheter</label> </div>
+           <div class="dark_square s_categories"> <input class="option" type="radio" name="fgg1" value="categories"><label for="categories"><span><span></span></span>Kategori</label></div>
+           <div class="dark_square s_status"> <input class="option" type="radio" name="fgg1" value="status"><label for="status"><span><span></span></span>Status</label></div>
         </div>
   
 
@@ -107,11 +111,11 @@
        <div style="clear: both;"></div>
 
        <div class="choicebox" id="hide_me">
-       <div class="dark_square s_users"><input type="checkbox" name="field2" value="user2"><label for="user22"><span><span></span></span>Användare</label></div>
-       <div class="dark_square s_projects"><input type="checkbox" name="field2" value="projects22"><label for="projects22"><span><span></span></span>Projekt</label></div>
-       <div class="dark_square s_experiences"><input type="checkbox" name="field2" value="experiences22"><label for="experiences22"><span><span></span></span>Erfarenheter</label></div>
-       <div class="dark_square s_categories"><input type="checkbox" name="field2" value="categories22"><label for="categories22"><span><span></span></span>Kategori</label></div>
-       <div class="dark_square s_status"><input type="checkbox" name="field2" value="status22"><label for="status22"><span><span></span></span>Status</label></div>
+       <div class="dark_square s_users"><input class="key" type="checkbox" name="field2" value="user"><label for="user22"><span><span></span></span>Användare</label></div>
+       <div class="dark_square s_projects"><input class="key" type="checkbox" name="field2" value="projects"><label for="projects22"><span><span></span></span>Projekt</label></div>
+       <div class="dark_square s_experiences"><input class="key" type="checkbox" name="field2" value="experiences"><label for="experiences22"><span><span></span></span>Erfarenheter</label></div>
+       <div class="dark_square s_categories"><input class="key" type="checkbox" name="field2" value="categories"><label for="categories22"><span><span></span></span>Kategori</label></div>
+       <div class="dark_square s_status"><input class="key" type="checkbox" name="field2" value="status"><label for="status22"><span><span></span></span>Status</label></div>
 
 
       <h2>Sök... <input class="input_thing"></div></h2>
