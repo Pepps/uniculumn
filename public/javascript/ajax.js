@@ -103,16 +103,16 @@ function categoryShow(id) {
         success : function(data) {
             data = jQuery.parseJSON(data);
             if (id==0) {
-                $('#category').html("");
+                $('#project_category').html("");
                 for (var i=0; i<data.length; i++) {
-                    $('<option value="'+data[i]['id']+'">'+data[i]['title']+'</option>').appendTo($('#category'));
+                    $('<option value="'+data[i]['id']+'">'+data[i]['title']+'</option>').appendTo($('#project_category'));
                     }
                 }
                 else {
-                    $('#subcategory-form').html("");
+                    $('.subcategories').html("");
                     var x = 0;
                     for (var i=0; i<data.length; i++) {
-                            $('<div class="checkbox"><input type="checkbox" class="sub-checkbox" name="subcategory" value="'+data[i]['id']+'"/>'+data[i]['title']+"</div>").appendTo($(' #subcategory-form') );
+                            $('<div class="subcheckbox"><input type="checkbox" name="subcategory" value="'+data[i]['id']+'"/><label for="subcategory"><span><span></span></span>'+data[i]['title']+'</label></div>"').appendTo($(' .subcategories') );
                         }
                     }
 
@@ -171,14 +171,14 @@ function cityShow(id) {
 //------
 
 
-$(document).on('change', '#category', function(e) {
+$(document).on('change', '#project_category', function(e) {
     e.preventDefault(e);
 
         //-----
         // TODO comments here
         //-----
 
-    categoryShow($("#category").val());
+    categoryShow($("#project_category").val());
 
 });
 

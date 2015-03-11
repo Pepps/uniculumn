@@ -9,46 +9,45 @@
 @endif
 
 
-      <div id="ui_sidebar">
-          <h2>
-            Sök
-          </h2>
-
-          <input type="text" name="search">
-
-          <h2>
-            Kategorier
-          </h2>
-
-          <h2>
-            Medlemmar
-          </h2>
-      </div>
-
-
-        <div id="ui_header">
-          <div class="user_box">
-          <div class="user_picture">
-      </div>
-
-        <div class="control_flip"> <span class="user_name">Severus Snape</span> <img src="img/small_arrow.PNG" class="controlPanel_dropDown cursor"/>
-          <div class="control_panel">
-          Kontoinställningar<br/>
-          Logga ut  </div></div>
-
-      </div>
-
-          <div class="upload_shortcut">
-            <h2 class="cursor">» Ladda upp ett nytt projekt</h2>
-            <img src="img/upload_button.PNG" id="upload_button" />
-          </div>
+<div id="ui_sidebar">
+            {{ HTML::image('img/logoleft.PNG', 'a picture', array('class' => 'left_logo')) }}
+            <h2><div class="arrow-right"></div>Avancerad sökning</h2>
+            <h2><div class="arrow-right"></div>Min profil</h2>
+            <h2><div class="arrow-right"></div>Mina projekt</h2>
+            <h2><div class="arrow-right"></div>Mina erfarenheter</h2>
         </div>
 
+        <div id="ui_header">
 
+            <div class="user_box">
 
+                <div class="user_picture">
+                </div>
 
+                <div class="username_holder">
+                    <span class="user_name">{{$user->firstname}}</span>
 
-        <div id="main_content">
+                    <div class="arrow-down" id="clickmetoo">
+                      <div class="settings">
+                          Kontoinställningar<br/>
+                          Logga ut
+                          <div class="arrow-up" id="hide_controlpanel"></div>
+
+                      </div>
+                    </div>
+                </div>
+
+            </div>
+
+          <div class="upload_shortcut">
+              <h2 class="cursor">» Ladda upp ett nytt projekt</h2>
+              {{ HTML::image('img/upload_button.PNG', '', array('id' => 'upload_button')) }}
+          </div>
+
+      </div>
+
+      <div id="main_content">
+
 
           <div class="columnLeft">
 
@@ -57,10 +56,10 @@
 
               <h2>Kontaktuppgifter <div class="edit_icon"></div></h2>
               <div id="contact_information">
-                <div class="contact_rows">Namn: Severus "Halvblodsprinsen" Snape.</div>
-                <div class="contact_rows">Ort: Spinner's End, Cokeworth, England.</div>
-                <div class="contact_rows">Tel: 073-M4G1C-2N4P3</div>
-                <div class="contact_rows">Email: i_killed_dumbledore@hogwarts.net </div>
+                <div class="contact_rows">Namn: {{$user->firstname.' '.$user->lastname}}</div>
+                <div class="contact_rows">Ort: {{$city->name.', '.$state->name}}</div>
+                <div class="contact_rows">Tel: {{$user->phonenumber}}</div>
+                <div class="contact_rows">Email: {{$user->email}} </div>
               </div>
 
           </div>
@@ -68,50 +67,29 @@
 
          <div class="columnMiddle">
 
-             <h2>Severus Snape</h2> <!--username-->
+             <h2>{{$user->firstname}}</h2> <!--username-->
 
                 <div id="description"> <!--user personal description-->
-
-                    <p>
-                      Bacon ipsum dolor amet biltong pork loin brisket pork cow ribeye meatball flank andouille. Corned beef kielbasa chicken, pancetta short ribs pig jerky. Ground round beef prosciutto short ribs bacon. Strip steak jerky biltong flank drumstick venison tenderloin turkey porchetta turducken!
-                    </p>
-
-                    <p>
-                      Cupim salami shoulder picanha. Cow chicken venison tail, shank brisket hamburger. Filet mignon short loin sausage brisket, cupim shank cow pig porchetta frankfurter pork loin hamburger meatball turkey. Frankfurter tenderloin porchetta turkey. Pork belly bresaola tail ball tip kielbasa tenderloin pork loin pancetta jerky. Brisket capicola pork loin drumstick tenderloin landjaeger.  <div class="edit_icon"></div>
-                    </p>
 
                   </div>
 
 
                  <h2>Mina projekt <div class="edit_icon"></div></h2>
-
-                <div class="project_description">
+                <span style="display: none;">{{$i = 1}}</span>
+                @foreach($projects as $value)
+                  <div class="project_description">
                   <div class="icon audio"></div>
-                  <h2>Snape, Snape</h2>
-                  Snape, Snape, Severus Snape... Dumbledore! <a href="">Läs mer...</a>
-
-                </div>
-                <div class="project_members">
-                Med Albus Dumbledore, Ron Weasley, Harry Potter och 2 andra.
-                <img src="img/users.PNG"/>
+                    <h2>{{$value->title}}</h2>
+                    {{str_limit($value->body, $limit = 50, $end = '...')}} <a href="{{ URL::to('project/' . $value->id) }}">Läs mer...</a>
+                    <a class="btn btn-small btn-info" href="{{ URL::to('project/' . $value->id . '/edit') }}"><i class="fa fa-pencil-square-o"></i></a>
+                    <button class="btn btn-small btn-danger" id="delmodal-btn"><i class="fa fa-trash"></i></button>
+                    {{$i++}}
                   </div>
-
-                <div class="project_description">
-                  <div class="icon game"></div>
-                  <h2>Harry Potter-detention-game</h2>
-                  Ju ledsnare Harry Potter är, desto fler poäng. <a href="">Läs mer...</a>
-                </div>
-                <div class="project_description">
-                  <div class="icon video"></div>
-                  <h2>Snape Bond & the Green-eyed Lady</h2>
-                  The name is Bond. Snape Bond. <a href="">Läs mer...</a>
-                </div>
-                <div class="project_description">
-                  <div class="icon essay"></div>
-                  <h2>100 things I hate about Harry Potter</h2>
-                  <a href="">Läs mer...</a>
-                </div>
-
+                  <div class="project_members">
+                    Test.
+                    {{ HTML::image('img/users.PNG', '', array('id' => 'upload_button')) }}
+                  </div>
+              @endforeach
             </div>
 
 
@@ -143,6 +121,10 @@
                     </div>
 
           </div>
+
+
+
+
         </div>
 
 
@@ -159,7 +141,6 @@
 <!-- will be used to show any messages -->
 <!--
 <table class="table table-striped table-bordered">
-  <tr><td>{{ $user->firstname }}</td></tr>
   <tr><td>{{ $user->lastname }}</td></tr>
   <tr><td>{{ $user->email }}</td></tr>
   <tr><td>{{ $user->state }}</td></tr>
@@ -186,8 +167,7 @@
   }
 
 </script>
-
-<!-- Modal -->
+<!--
 <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -201,5 +181,5 @@
     </div>
   </div>
 </div>
-
+ -->
 @stop
