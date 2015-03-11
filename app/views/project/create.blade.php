@@ -3,6 +3,9 @@
 
 @section('content')
 
+{{ HTML::ul($errors->all()) }}
+
+
 
       <div id="bottom"></div>
         <div id="ui_sidebar">
@@ -76,7 +79,7 @@
             <div class="dark_icon categories_icon"><div class="check_category"></div></div>
 
              <h3>Välj kategori</h3>
-           <select class="uploadfile" id="project_category">
+           <select name="category" class="uploadfile" id="project_category">
             <option value="none">-----</option>
           </select>
 

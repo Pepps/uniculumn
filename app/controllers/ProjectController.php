@@ -36,7 +36,6 @@ class ProjectController extends \BaseController {
           'project_title'           => 'required',
           'project_body'            => 'required',
           'category'                => 'required',
-          'subcategory_id'          => 'required',
       );
       $validator = Validator::make(Input::all(), $rules);
       if ($validator->fails()) {
