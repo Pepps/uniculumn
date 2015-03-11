@@ -3,6 +3,8 @@
 
 @section('content')
 
+{{ Form::open(array('url' => 'project', 'files'=>true, 'method'=>'post')) }}
+
       <div id="bottom"></div>
         <div id="ui_sidebar">
 
@@ -101,6 +103,5 @@
         {{ Form::text('collaborators_id', Input::old('collaborators'), array('class' => 'hidden', 'id' => 'collaborators_id')) }}
 
         {{ Form::close() }}
-
 
     @stop
