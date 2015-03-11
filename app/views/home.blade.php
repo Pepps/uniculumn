@@ -2,87 +2,23 @@
 
 @section('content')
 
-  <div id="header">
-    <img src="img/header_title.PNG"/>
-  </div>
-  <div id="welcome">
-    <div class="column_left">
 
-      <div class="welcome_box">
-        <span class="trigger_login">Logga in </span>eller <br/>
-        <span class="trigger_registration">registrera dig</span>
-
-      </div>
-
-      <div class="registration_box">
-        {{ Form::open(array('url' => 'register_action','method' => 'post')) }}
-      @if($errors->any())
-        <div class="alert alert-danger" role="alert">
-          @foreach($errors as $error)
-            <span>{{$error}}</span>
-          @endforeach
-        </div>
-      @endif
-
-     <!-- {{ Form::token('token')}}-->
-      {{ Form::text('fname', '', array('placeholder' => 'Förnamn')) }} <br>
-      {{ Form::text('lname', '', array('placeholder' => 'Efternamn')) }} <br>
-      {{ Form::text('email', '', array('placeholder' => 'Email')) }}<br>
-      {{ Form::password('password', array('placeholder' => 'Lösenord')) }}<br>
-      {{ Form::password('cpassword', '', array('placeholder' => 'Bekräfta lösenord')) }} <br>
-      <a href="#" class="back_to_welcome"></a>
-      {{ Form::submit('Register', array('class' => 'register_button')) }} <br>
-      {{ Form::close() }}
-       <!-- <form>
-          &nbsp; &nbsp;För/efternamn:
-          <input type="text" name="username"><br>
-          &nbsp;Email:
-          <input type="text" name="username"><br>
-          Lösenord:
-          <input type="text" name="password"><br>
-          &nbsp; &nbsp;Bekräfta lösenord:
-          <input type="text" name="password"><br>
-          <div class="back_to_welcome"></div>
-          <div class="register_button">Registrera dig</div>
-
-        </form>-->
-      </div>
-
-      <div class="login_box">
-        @if ($errors->has())
-        <div class="alert alert-danger">
-            @foreach ($errors->all() as $error)
-                {{ $error }}<br>
-            @endforeach
-        </div>
-        @endif
-      </div>
-
+<div id="header">
+    <div id="headerpic">
+             <img src="img/header.png" width="1000" height="200" alt="header" />
     </div>
-  </div>
-
-  <div id="footer">
-    <div class="footer_box">
-      <h2>
-        Kontakt
-      </h2>
-      Lorem ipsum dolor sit amet<br/>
-      consectetur adipiscing elit<br/>
-      sed do eiusmod tempor.df..<br/>
-      083653473
-    </div>
-    <div class="footer_box">
-      <h2>
-        Om oss
-      </h2>
-      Lorem ipsum dolor sit amet<br/>
-      consectetur adipiscing elit<br/>
-      sed do eiusmod tempor.df..<br/>
-    </div>
-    <div class="blue_box">
+</div>
 
 
-      <div class="login_box">
+<body>
+
+
+<div id="roligbox">
+      <img src="img/penna.png"><img src="img/ladda.png"><img src="img/gubbe.png">
+      <h1>Ladda upp projekt och n&auml;tverka med arbetsgivare</h1>
+</div>
+
+      <div id="loginbox">
 
         {{ Form::open(array('url' => 'home','method' => 'post')) }}
 
@@ -104,32 +40,13 @@
       {{ Form::submit('Login') }}
       {{ Form::close() }}
 
-      <?php //if(!empty(Session::get('key'))) $name = Session::get('key'); ?>
-
-          <!--
-          Author: Joakim D Google loginbutton
-        -->
-
-       <!-- {{ Form::submit('Login') }}-->
-
-        <!--<span id="signinButton">
-        <span class="g-signin"
-        data-callback="signinCallback"
-        data-clientid="179291477685-vmnc97hujne8rf4rv7ihtpta15fvbbf1.apps.googleusercontent.com"
-        data-cookiepolicy="single_host_origin"
-        data-requestvisibleactions="http://schema.org/AddAction"
-        data-scope="https://www.googleapis.com/auth/plus.login">
-        </span>
-        </span>
-
-          <a href="user.html"><div class="login_button">Logga in</div></a>
-        <!-->
-        </form>
-      </div>
+<br>
 
 
-
-    </div>
-  </div>
+<div id="finbox">
+    <p>Med en portfolio online g&ouml;r du det enkelt f&ouml;r f&ouml;retag att skicka jobberbjudande<br> som matchar just dina kompentenser.</p>
+    <h1>Registrera dig idag, det &auml;r enkelt och gratis!</h1>
+    <img src="img/big_logo.png" width="160" height="160" alt="logo">
+</div>
 
 @stop

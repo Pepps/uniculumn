@@ -12,7 +12,7 @@ class UserController extends BaseController {
           $city  = City::find($user->city_id);
           $state  = State::find($city->state_id);
 
-          return View::make('user.index')->with('user', $user)->with("nocity", false)->with('city', $city)->with('state', $state);
+          return View::make('user.index')->with('user', $user)->with("nocity", false)->with('city', $city)->with('state', $state)->with('projects',User::find(Auth::user()->id)->project);
         }
     }
 
