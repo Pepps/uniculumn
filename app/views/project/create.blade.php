@@ -1,54 +1,17 @@
 <!-- app/views/projects/create.blade.php -->
 @extends('layouts.master')
 
+
 @section('content')
+
+@include('layouts.nav')
+@yield('nav')
 
 {{ HTML::ul($errors->all()) }}
 
-
-
-      <div id="bottom"></div>
-        <div id="ui_sidebar">
-
-            <img src="img/logoleft.PNG" class="left_logo"/>
-            <h2><div class="arrow-right"></div>Avancerad sökning</h2>
-            <h2><div class="arrow-right"></div>Min profil</h2>
-            <h2><div class="arrow-right"></div>Mina projekt</h2>
-            <h2><div class="arrow-right"></div>Mina erfarenheter</h2>
-        </div>
-
-        <div id="ui_header">
-
-            <div class="user_box">
-
-                <div class="user_picture">
-                </div>
-
-                <div class="username_holder">
-                    <span class="user_name">Severus Snape</span>
-
-                    <div class="arrow-down" id="clickmetoo">
-                      <div class="settings">
-                          Kontoinställningar<br/>
-                          Logga ut
-                          <div class="arrow-up" id="hide_controlpanel"></div>
-
-                      </div>
-                    </div>
-                </div>
-
-            </div>
-
-          <div class="upload_shortcut">
-              <h2 class="cursor">» Ladda upp ett nytt projekt</h2>
-              <img src="img/upload_button.PNG" id="upload_button" />
-          </div>
-
-      </div>
-
       <div id="main_content">
 
-      <h1><img src="img/cloud.PNG" class="cloud"/>Ladda upp nytt projekt</h1>
+      <h1>{{ HTML::image('img/cloud.PNG', 'a picture', array('class' => 'cloud')) }}Ladda upp nytt projekt</h1>
       {{ Form::open(array('url' => 'project', 'files'=>true, 'method'=>'post')) }}
 
           <div class="upload_column">
@@ -56,8 +19,6 @@
              <h3>Välj titel</h3>
             <input class="uploadfile" name="project_title" id="project_title" value=""> </input>
           </div>
-
-
 
           <div class="upload_column">
             <div class="dark_icon description_icon"><div class="check_description"></div> </div>
@@ -68,10 +29,10 @@
           <div class="upload_column mediatype" style="display: none;">
            <div class="dark_icon mediatype_icon"><div class="check_mediatype"></div></div>
             <h3>Välj mediatyp</h3>
-            <div class="media_icon"><img src="img/icons/blue/game.PNG"/>Spel</div>
-            <div class="media_icon"><img src="img/icons/blue/music.PNG"/>Ljud</div>
-            <div class="media_icon"><img src="img/icons/blue/video.PNG"/>Video</div>
-            <div class="media_icon"><img src="img/icons/blue/essay.PNG"/>Text</div>
+            <div class="media_icon">{{ HTML::image('img/icons/blue/game.PNG') }}Spel</div>
+            <div class="media_icon">{{ HTML::image('img/icons/blue/music.PNG') }}Ljud</div>
+            <div class="media_icon">{{ HTML::image('img/icons/blue/video.PNG') }}Video</div>
+            <div class="media_icon">{{ HTML::image('img/icons/blue/essay.PNG') }}Text</div>
           </div>
 
 
@@ -91,7 +52,7 @@
           <div class="upload_column">
             <div class="dark_icon upload_icon"> </div>
              <h3>Ladda upp fil</h3>
-            <input class="uploadfile"> </input>
+             {{ Form::file('files[]', array('multiple'=>true, "class" => 'uploadfile')) }}
           </div>
           <br/><br/><br/>
           <input type="submit" class="submit_project" value="Skapa projekt">
@@ -99,10 +60,8 @@
         </div>
 
         {{ Form::text('subcategory_id', Input::old('category'), array('class' => 'hidden', 'id' => 'subcategory_id')) }}
-        {{ Form::text('collaborators_id', Input::old('collaborators'), array('class' => 'hidden', 'id' => 'collaborators_id')) }}
 
     <div class="alert alert-info" role="alert" style="text-align: center;"><b>Om du vill lade upp ett störe arbete så rekomderar vi att du gör en Zip fil av det och laddar up den.</b></div>
-    {{ Form::file('files[]', array('multiple'=>true)) }}
 
     <br>
         {{ Form::close() }}

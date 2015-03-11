@@ -3,8 +3,8 @@
 
 <div class="container">
 
-@include('project.projectnav')
-@yield('projectnav')
+@include('project.nav')
+@yield('nav')
 
 <h3>Your projects</h3>
 

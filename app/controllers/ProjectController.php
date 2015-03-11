@@ -21,7 +21,7 @@ class ProjectController extends \BaseController {
 		The method responsible for redering the createing the view for the route /project/create
 	*/
 	public function create(){
-      return View::make('project.create');
+      return View::make('project.create')->with('user',User::find(Auth::user()->id));
 	}
 
 	/*

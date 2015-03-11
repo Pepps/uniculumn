@@ -112,7 +112,7 @@ function categoryShow(id) {
                     $('.subcategories').html("");
                     var x = 0;
                     for (var i=0; i<data.length; i++) {
-                            $('<div class="subcheckbox"><input type="checkbox" name="subcategory_id" value="'+data[i]['id']+'"/><label for="subcategory"><span><span></span></span>'+data[i]['title']+'</label></div>"').appendTo($(' .subcategories') );
+                            $('<div class="subcheckbox"><input class="sub-checkbox" type="checkbox" name="subcategory_id" value="'+data[i]['id']+'"/><label for="subcategory"><span><span></span></span>'+data[i]['title']+'</label></div>"').appendTo($(' .subcategories') );
                         }
                     }
 
@@ -195,9 +195,3 @@ $(document).on('change', '#state', function(e) {
 });
 */
 
-
-// ################  Dropzone  ##############
-
-$(document).ready(function() {
-    $("#dropzone").dropzone({ url: "/file/post" });
-});

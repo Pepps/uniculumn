@@ -1,50 +1,8 @@
 @extends('layouts.master')
 @section('content')
 
-@include('project.projectnav')
-@yield('projectnav')
-
-@if (Session::has('message'))
-    <div class="alert alert-info">{{ Session::get('message') }}</div>
-@endif
-
-
-<div id="ui_sidebar">
-            {{ HTML::image('img/logoleft.PNG', 'a picture', array('class' => 'left_logo')) }}
-            <h2><div class="arrow-right"></div>Avancerad sökning</h2>
-            <h2><div class="arrow-right"></div>Min profil</h2>
-            <h2><div class="arrow-right"></div>Mina projekt</h2>
-            <h2><div class="arrow-right"></div>Mina erfarenheter</h2>
-        </div>
-
-        <div id="ui_header">
-
-            <div class="user_box">
-
-                <div class="user_picture">
-                </div>
-
-                <div class="username_holder">
-                    <span class="user_name">{{$user->firstname}}</span>
-
-                    <div class="arrow-down" id="clickmetoo">
-                      <div class="settings">
-                          Kontoinställningar<br/>
-                          Logga ut
-                          <div class="arrow-up" id="hide_controlpanel"></div>
-
-                      </div>
-                    </div>
-                </div>
-
-            </div>
-
-          <div class="upload_shortcut">
-              <h2 class="cursor">» Ladda upp ett nytt projekt</h2>
-              {{ HTML::image('img/upload_button.PNG', '', array('id' => 'upload_button')) }}
-          </div>
-
-      </div>
+@include('layouts.nav')
+@yield('nav')
 
       <div id="main_content">
 
