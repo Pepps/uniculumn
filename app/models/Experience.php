@@ -14,6 +14,7 @@ class Experience extends Eloquent
 		return $this->hasMany('Category');
 	}
 
+
 	//
 	public function reference() {
 		return $this->hasMany('Reference', 'experience_reference', 'experience_id', 'reference_id');
