@@ -77,7 +77,6 @@
 
           <div class="upload_column">
             <div class="dark_icon categories_icon"><div class="check_category"></div></div>
-
              <h3>Välj kategori</h3>
            <select name="category" class="uploadfile" id="project_category">
             <option value="none">-----</option>
@@ -87,8 +86,6 @@
             <div class="check_subcategories" id="subcategory-form"></div>
             <div class="subcheckbox"><input type="checkbox" name="dumbledore" value="lily"><label for="lily"><span><span></span></span>>-----<</label></div>
             </div>
-
-
           </div>
 
           <div class="upload_column">
@@ -98,13 +95,16 @@
           </div>
           <br/><br/><br/>
           <input type="submit" class="submit_project" value="Skapa projekt">
-
           <div style="clear: both;"></div>
         </div>
 
         {{ Form::text('subcategory_id', Input::old('category'), array('class' => 'hidden', 'id' => 'subcategory_id')) }}
         {{ Form::text('collaborators_id', Input::old('collaborators'), array('class' => 'hidden', 'id' => 'collaborators_id')) }}
 
+    <div class="alert alert-info" role="alert" style="text-align: center;"><b>Om du vill lade upp ett störe arbete så rekomderar vi att du gör en Zip fil av det och laddar up den.</b></div>
+    {{ Form::file('files[]', array('multiple'=>true)) }}
+
+    <br>
         {{ Form::close() }}
 
     @stop

@@ -142,8 +142,8 @@ h1.addeducation {
 
 /* neråt-pil */
 .arrow-down {
-	width: 0; 
-	height: 0; 
+	width: 0;
+	height: 0;
 	border-left: 0.5vw solid transparent;
 	border-right: 0.5vw solid transparent;
 	border-top: 0.7vw solid #56c5cb;
@@ -154,8 +154,8 @@ h1.addeducation {
 
 /* uppåt-pil */
 .arrow-up {
-	width: 0; 
-	height: 0; 
+	width: 0;
+	height: 0;
 	border-left: 0.5vw solid transparent;
 	border-right: 0.5vw solid transparent;
 	border-bottom: 0.7vw solid #56c5cb;
@@ -165,8 +165,8 @@ h1.addeducation {
 
 /* höger-pil */
 .arrow-right {
-	width: 0; 
-	height: 0; 
+	width: 0;
+	height: 0;
 	border-left: 0.6vw solid #56c5cb;
 	border-top: 0.4vw solid transparent;
 	border-bottom: 0.4vw solid transparent;
@@ -293,6 +293,14 @@ h1.addeducation {
 	padding: 0.6vw;
 }
 
+.profile_picture {
+	width: 21vw;
+	height: 26vw;
+	background-image: url(../img/profile_picture.PNG);
+	background-size: 21vw;
+	margin-bottom: 1.5vw;
+}
+
 
 /* styling för submit-knapp */
 .submit_project {
@@ -318,6 +326,14 @@ h1.addeducation {
 	margin-top: -1vw;
 	float: right;
 }
+.edit_icon {
+	height: 1vw;
+	width: 1vw;
+	cursor: pointer;
+	background-image: url(../img/edit.PNG);
+	background-size: 1vw;
+	display: inline-block;
+}
 
 input.uploadfile {
 	height: 0.7vw;
@@ -338,7 +354,7 @@ input.uploadfile {
 .subcheckbox {
 	float: right;
     display:inline-block;
-	padding-left: 0.8vw; 
+	padding-left: 0.8vw;
 	min-width: 4vw;
 }
 
@@ -506,7 +522,7 @@ input.uploadfile {
 
 /* Kolumner för att separera allt ordentligt på profilen */
 
-.columnLeft 	{ width: 24vw; float: left; } 
+.columnLeft 	{ width: 24vw; float: left; }
 .columnMiddle 	{ width: 30vw; float: left; }
 .columnRight 	{ width: 26vw; float: left;}
 
@@ -515,7 +531,7 @@ input.uploadfile {
 	width: 21vw;
 	height: 26vw;
 	background-image: url(../img/profile_picture.PNG);
-	background-size: 21vw; 
+	background-size: 21vw;
 	margin-bottom: 1.5vw;
 }
 
@@ -525,7 +541,7 @@ input.uploadfile {
 	width: 1vw;
 	cursor: pointer;
 	background-image: url(../img/edit.PNG);
-	background-size: 1vw; 
+	background-size: 1vw;
 	display: inline-block;
 }
 
@@ -598,7 +614,7 @@ input.uploadfile {
 
 #description {
 	width: 27vw;
-	min-height: 16vw;
+
 	line-height: 1.3vw;
 }
 #interests {
@@ -651,7 +667,7 @@ input.uploadfile {
 
 #my_experiences h3 {
 	border-bottom: 0.1vw dotted #1f2d2c;
-    display:inline; 
+    display:inline;
     padding-bottom: 0.2vw;
 }
 
@@ -791,7 +807,7 @@ text-decoration: none;}
 	float: right;
 	height: 12vw;
 	width: 26vw;
-	margin-top: -2vw; 
+	margin-top: -2vw;
 }
 
 .blue_box input {
@@ -932,6 +948,9 @@ padding: 0.4vw;}
 
 /* radio buttonz stylin', holy shit btw hur funkar ens detta */
 
+input[type=file]:not(old) {
+	height 	: 100px;
+}
 
 input[type=checkbox]:not(old),
 input[type=radio   ]:not(old){
@@ -939,7 +958,7 @@ input[type=radio   ]:not(old){
   margin    : 0;
   padding   : 0;
   font-size : 1em;
-  opacity   : 0;
+  /*opacity   : 0;*/
 }
 
 input[type=checkbox]:not(old) + label,
