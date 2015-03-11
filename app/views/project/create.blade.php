@@ -51,7 +51,7 @@
           <div class="upload_column">
             <div class="dark_icon title_icon"><div class="check_title"></div></div>
              <h3>Välj titel</h3>
-            <input class="uploadfile" id="project_title" value=""> </input>
+            <input class="uploadfile" name="project_title" id="project_title" value=""> </input>
           </div>
 
 
@@ -59,7 +59,7 @@
           <div class="upload_column">
             <div class="dark_icon description_icon"><div class="check_description"></div> </div>
              <h3>Beskriv ditt projekt</h3>
-            <textarea class="uploadfile" id="project_description" rows="4" cols="50"></textarea>
+            <textarea class="uploadfile" name="project_body" id="project_description" rows="4" cols="50"></textarea>
           </div>
 
           <div class="upload_column mediatype" style="display: none;">
