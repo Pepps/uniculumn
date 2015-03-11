@@ -11,6 +11,10 @@ Route::get("/doc", function(){
 	return View::make("doc");
 });
 
+Route::get("/isa", function(){
+	return View::make("project.upload");
+});
+
 Route::get("/cv/{userid}", "CvController@index");
 Route::get("/t/{id}/{useremail}", "CvController@test");
 
