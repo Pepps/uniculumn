@@ -4,9 +4,6 @@
 
 @section('content')
 
-@include('layouts.nav')
-@yield('nav')
-
 {{ HTML::ul($errors->all()) }}
 
       <div id="main_content">

@@ -6,11 +6,14 @@ class UserController extends BaseController {
 
     public function index() {
         $user   = User::find(Auth::user()->id);
-        $city  = City::find($user->city_id);
-        $state  = State::find($city->state_id);
+        if($user->city_id == null){
+          return View::make('user.index')->with('user', $user)->with("nocity", true);
+        }else{
+          $city  = City::find($user->city_id);
+          $state  = State::find($city->state_id);
 
-        return View::make('user.index')->with('user', $user)->with('city', $city)->with('state', $state)->with('projects',User::find(Auth::user()->id)->project);
-
+          return View::make('user.index')->with('user', $user)->with("nocity", false)->with('city', $city)->with('state', $state);
+        }
     }
 
     public function get($id) {
@@ -21,9 +24,8 @@ class UserController extends BaseController {
 
     public function edit($id) {
         $user = User::find(Auth::user()->id);
-
-        return View::make('user.edit')->with('user', User::find($id))->with("states", State::all())->with('city', City::find($user->city_id));
-
+        if($user->city_id == null){$nocity = true;}else{$nocity = false;}
+        return View::make('user.edit')->with('user', User::find($id))->with("nocity", $nocity)->with("states", State::all());
     }
 
     public function update($id) {
@@ -32,7 +34,7 @@ class UserController extends BaseController {
         $user->firstname    =   Input::get("firstname");
         $user->lastname     =   Input::get("lastname");
         $user->email        =   Input::get("email");
-        $user->city_id         =   Input::get("city");
+        $user->city_id      =   Input::get("city");
         $user->address      =   Input::get("address");
         $user->postnumber   =   Input::get("postnumber");
         $user->phone        =   Input::get("phone");

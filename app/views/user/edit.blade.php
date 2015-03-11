@@ -30,11 +30,6 @@
     </div>
 
     <div class="form-group">
-        {{ Form::label('address', "Adress" ) }}
-        {{ Form::text('address', $user->address, array('class' => 'form-control')) }}
-    </div>
-
-    <div class="form-group">
         {{ Form::label('user_title', "Postnummer" ) }}
         {{ Form::text('postnumber', $user->postnumber, array('class' => 'form-control')) }}
     </div>
@@ -44,10 +39,17 @@
         {{ Form::text('phone', $user->phone, array('class' => 'form-control')) }}
     </div>
 
+    <div class="form-group">
+        {{ Form::label('address', "Adress" ) }}
+        {{ Form::text('address', $user->address, array('class' => 'form-control')) }}
+    </div>
+
     <select class="form-control" id="state-select">
       @foreach ($states as $state)
-        @if ($state->id == $city->state_id)
+        @if(!$nocity)
+          @if ($state->id == $city->state_id)
             <option value="{{ $state->id }}" selected >{{$state->name}}</option>
+          @endif
         @else
             <option value="{{ $state->id }}">{{$state->name}}</option>
         @endif
@@ -60,7 +62,9 @@
     </div>
 
     {{ Form::submit('Updatera din profil', array('class' => 'btn btn-primary')) }}
-    <span id="hidden_city" style="display:none;">{{$user->city_id}}</span>
+    @if(!$nocity)
+      <span id="hidden_city" style="display:none;">{{$user->city_id}}</span>
+    @endif
 {{ Form::close() }}
 </div>
 
