@@ -18,7 +18,6 @@ class CreateReferencesTable extends Migration {
 			$table->increments('id');
 			$table->integer('user_id')->unsigned();
 			$table->integer('experience_id')->unsigned();
-			$table->string('company', 100);
 			$table->string('firstname', 50);
 			$table->string('lastname', 50);
 			$table->string('email', 100);

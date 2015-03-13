@@ -14,6 +14,7 @@ class CreateUsersTable extends Migration {
 	{
 		Schema::create('users', function(Blueprint $table)
 		{
+			// Rows that will be filled in at registration.
 			$table->increments('id');
 			$table->string('firstname', 50);
 			$table->string('lastname', 50);
@@ -21,6 +22,8 @@ class CreateUsersTable extends Migration {
 			$table->string('password', 60);
 			$table->timestamps();
 
+			//All these rows are nullable because they are to be filled after registration. 
+			$table->text('description')->nullable();
 			$table->integer('city_id')->unsigned()->nullable();
 			$table->string('address', 120)->nullable();
 			$table->integer('zipcode')->nullable();
@@ -29,8 +32,6 @@ class CreateUsersTable extends Migration {
 
 			$table->string('token', 100);
 			$table->rememberToken();
-			$table->string('FBtoken', 255);
-			$table->string('googletoken', 255);
 			$table->string('pdir', 60);
 
 			$table->foreign('city_id')->references('id')->on('cities');

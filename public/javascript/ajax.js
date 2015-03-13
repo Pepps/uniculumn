@@ -143,9 +143,3 @@ $(document).on('change', '#category', function(e) {
 
 });
 
-
-
-// ################  Dropzone  ##############
-$(document).ready(function() {
-    $("#dropzone").dropzone({ url: "/file/post" });
-});
