@@ -3,7 +3,7 @@
 
 Route::get('/', function()
     {
-        return View::make('search');
+        return View::make('view_project');
     });
 
 

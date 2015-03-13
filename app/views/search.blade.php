@@ -96,11 +96,11 @@
         <div class="choicebox" id="hide_me2">
 
             <!-- allt detta är en jävla mess, sry -->
-           <div class="s_users dark_square"><input class="option" type="radio" name="fgg1" value="user"><label for="user"><span><span></span></span>Användare</label></div>
-           <div class="dark_square s_projects"> <input class="option" type="radio" name="fgg1" value="projects"><label for="projects"><span><span></span></span>Projekt</label></div>
-           <div class="dark_square s_experiences"><input class="option" type="radio" name="fgg1" value="experiences"><label for="experiences"><span><span></span></span>Erfarenheter</label> </div>
-           <div class="dark_square s_categories"> <input class="option" type="radio" name="fgg1" value="categories"><label for="categories"><span><span></span></span>Kategori</label></div>
-           <div class="dark_square s_status"> <input class="option" type="radio" name="fgg1" value="status"><label for="status"><span><span></span></span>Status</label></div>
+           <div class="s_users dark_square"><input class="option" type="radio" name="option" value="user"><label for="user"><span><span></span></span>Användare</label></div>
+           <div class="dark_square s_projects"> <input class="option" type="radio" name="option" value="projects"><label for="projects"><span><span></span></span>Projekt</label></div>
+           <div class="dark_square s_experiences"><input class="option" type="radio" name="option" value="experiences"><label for="experiences"><span><span></span></span>Erfarenheter</label> </div>
+           <div class="dark_square s_categories"> <input class="option" type="radio" name="option" value="categories"><label for="categories"><span><span></span></span>Kategori</label></div>
+           <div class="dark_square s_status"> <input class="option" type="radio" name="option" value="status"><label for="status"><span><span></span></span>Status</label></div>
         </div>
   
 
@@ -112,8 +112,8 @@
 
        <div class="choicebox" id="hide_me">
        <div class="dark_square s_users"><input class="key" type="checkbox" name="field2" value="user"><label for="user22"><span><span></span></span>Användare</label></div>
-       <div class="dark_square s_projects"><input class="key" type="checkbox" name="field2" value="projects"><label for="projects22"><span><span></span></span>Projekt</label></div>
-       <div class="dark_square s_experiences"><input class="key" type="checkbox" name="field2" value="experiences"><label for="experiences22"><span><span></span></span>Erfarenheter</label></div>
+       <div class="dark_square s_projects"><input class="key" type="checkbox" name="field2" value="project"><label for="projects22"><span><span></span></span>Projekt</label></div>
+       <div class="dark_square s_experiences"><input class="key" type="checkbox" name="field2" value="experience"><label for="experiences22"><span><span></span></span>Erfarenheter</label></div>
        <div class="dark_square s_categories"><input class="key" type="checkbox" name="field2" value="categories"><label for="categories22"><span><span></span></span>Kategori</label></div>
        <div class="dark_square s_status"><input class="key" type="checkbox" name="field2" value="status"><label for="status22"><span><span></span></span>Status</label></div>
 
