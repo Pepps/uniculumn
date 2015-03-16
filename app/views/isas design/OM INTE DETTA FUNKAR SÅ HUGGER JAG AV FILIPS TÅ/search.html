@@ -2,92 +2,86 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <title>Uniculum - Sök</title>
-    <link href="css/style.css" type="text/css" rel="stylesheet" />
-    <link rel="shortcut icon" href="img/favicon.ico" />
-    <script src="javascript/jquery-1.8.3.js"></script>
-    <script src="javascript/jquery-ui-1.9.2.js"></script>
-    <script src="javascript/jquery.ui.touch-punch.js"></script>
-    <script src="javascript/user_jquery.js"></script>
+        <title>Uniculum - Mina projekt</title>
+          <link href="css/style.css" type="text/css" rel="stylesheet" />
+          <link rel="shortcut icon" href="img/favicon.ico" />
+          <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
+            <script src="javascript/jquery-1.8.3.js"></script>
+            <script src="javascript/jquery-ui-1.9.2.js"></script>
+            <script src="javascript/jquery.ui.touch-punch.js"></script>
+            <script src="javascript/user_jquery.js"></script>
     </head>
-      <body>
+     <body>
 
         <div id="ui_sidebar">
+            
             <img src="img/logoleft.PNG" class="left_logo"/>
             <h2><div class="arrow-right"></div><a href="search.html">Avancerad sökning</a></h2>
             <h2><div class="arrow-right"></div><a href="user_profile.html">Min profil</a></h2>
-            <h2><div class="arrow-right"></div><a href="upload_file.html">Mina projekt</a></h2>
+            <h2><div class="arrow-right"></div><a href="my_projects.html">Mina projekt</a></h2>
             <h2><div class="arrow-right"></div><a href="erfarenheter.html">Mina erfarenheter</a></h2>
+
         </div>
 
         <div id="ui_header">
 
             <div class="user_box"> 
-
-                <div class="user_picture">
-                </div>
-
+               <div class="user_picture"></div>
                 <div class="username_holder">
                     <span class="user_name">Severus Snape</span>
 
-                    <div class="arrow-down" id="clickmetoo">
-                      <div class="settings">
-                          Kontoinställningar<br/>
-                          Logga ut 
-                          <div class="arrow-up" id="hide_controlpanel"></div>
-                          
-                      </div>
-                    </div>
+                        <div class="arrow-down" id="clickmetoo">
+                          <div class="account_settings">
+                              Kontoinställningar<br/>
+                              Logga ut 
+                                <div class="arrow-up" id="hide_controlpanel"></div>  
+                          </div>
+                        </div>
                 </div>
-
             </div>
 
           <div class="upload_shortcut">
-              <h2 class="cursor">» Ladda upp ett nytt projekt</h2>
-              <img src="img/upload_button.PNG" id="upload_button" />
+              <a href="upload_file.html"><h2 class="cursor">» Ladda upp ett nytt projekt</h2>
+              <img src="img/upload_button.PNG" id="upload_button" /></a>
           </div>
 
       </div>
       
       <div id="main_content">
       
-
-
-
         <div class="url_wrapper">
-          <img src="img/search.PNG" style="width: 0.7vw; height: 0.7vw; margin-right: 0.5vw;"/> www.randomurl.com/i-barely-understand-this-send-help<br/><br/>
-        
-          <h2>Dina sökningar:</h2>
 
+              <img src="img/search.PNG" style="width: 0.7vw; height: 0.7vw; margin-right: 0.5vw;"/> www.randomurl.com/i-barely-understand-this-send-help<br/><br/>
+              
+              <h2>Dina sökningar:</h2>
+                <div class="search_log">
 
-          <div class="search_log">
+                  <!-- hatar tabeller :@@@@ -->
+                  <table style="width: 20vw; vertical-align: top;">
+                    <tr>
+                      <td class="td_category">Kategori</td>
+                      <td class="td_words">Sökord</td>
+                      <td class="td_delete">Ta bort</td>
+                    </tr>
+                    <tr>
+                      <td class="td_category"><span>Användare</span></td>
+                      <td class="td_words"><span>"I must go, the beard people is calling me"</span></td>
+                      <td class="td_delete"><img src="img/delete_button.PNG"/></td>
+                    </tr>
+                    <tr>
+                      <td class="td_category"><span>Erfarenheter</span></td>
+                      <td class="td_words"><span>Smörgåstårtsätning</span></td>
+                      <td class="td_delete"><img src="img/delete_button.PNG"/></td>
+                    </tr>
+                  </table>
 
-            <!-- hatar tabeller :@@@@ -->
-            <table style="width: 20vw; vertical-align: top;">
-              <tr>
-                <td class="td_category">Kategori</td>
-                <td class="td_words">Sökord</td>
-                <td class="td_delete">Ta bort</td>
-              </tr>
-              <tr>
-                <td class="td_category"><div class="category_search">Användare</div></td>
-                <td class="td_words"><div class="word_search">"I must go, the beard people is calling me"</div></td>
-                <td class="td_delete"><img src="img/delete_button.PNG"/></td>
-              </tr>
-              <tr>
-                <td class="td_category"><div class="category_search">Erfarenheter</div></td>
-                <td class="td_words"><div class="word_search">Smörgåstårtsätning</div></td>
-                <td class="td_delete"><img src="img/delete_button.PNG"/></td>
-              </tr>
-            </table>
-
-          </div>
+                </div>
 
           </div>
 
         <div class="search_wrapper">
           
-          <div class="searchbox" id="search_in">
+          <div class="searchbox search_in">
             <div class="search_logo"></div>
               <div class="search_bubble"><div class="bubble_tip"></div> Vad vill du söka i?</div>
         </div>
@@ -105,7 +99,7 @@
         </div>
   
 
-   <div class="searchbox" id="search_for">
+   <div class="searchbox search_for">
        <div class="search_logo"></div><div class="search_bubble"><div class="bubble_tip"></div> Vad vill du söka efter?</div>
        
         </div>
