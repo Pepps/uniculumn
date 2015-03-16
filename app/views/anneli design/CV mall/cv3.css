@@ -1,0 +1,36 @@
+body {
+	border:2px solid gray;
+	width: 700px; 
+	height: 1000px;
+	margin-left:auto;
+    margin-right:auto;
+	padding: 10px;
+	font-family: "calibri";
+	font-size: 14px;
+}
+#header{
+	border-radius: 25px;
+	width: 660px;
+	height: 170px;
+	background: #B8B8B8;
+	padding:20px;
+	float:left;
+}
+#profil {
+	float:right;
+	position:absolute;
+	top:50;
+	right:190;
+	width:200px;
+}
+#text{
+	 position:absolute;
+	 top:20;
+	 left:250;
+	 width:450px;
+}
+
+h1 {
+	font-size: 30px;
+	font-family: "calibri light";
+}

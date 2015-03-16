@@ -1,0 +1,19 @@
+
+
+body {
+	border:2px solid gray;
+	width: 700px; 
+	height: 1000px;
+	margin-left:auto;
+    margin-right:auto;
+	padding: 10px;
+	font-family: "calibri";
+	font-size: 13px;
+}
+h1 {
+	font-family: "calibri light";
+}
+
+header {
+	float:left;
+}
