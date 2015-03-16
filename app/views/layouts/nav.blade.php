@@ -19,7 +19,7 @@
                     <span class="user_name">{{$user->firstname}}</span>
 
                     <div class="arrow-down" id="clickmetoo">
-                      <div class="settings">
+                      <div class="account_settings">
                           Kontoinställningar<br/>
                           <a href="/logout">Logga ut</a>
                           <div class="arrow-up" id="hide_controlpanel"></div>

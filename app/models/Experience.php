@@ -16,7 +16,7 @@ class Experience extends Eloquent
 
 	//Experience belongs to a city
 	public function city() {
-		return $this->belongsTo('City');
+		return $this->hasOne('City');
 	}
 
 	//An experience has many references

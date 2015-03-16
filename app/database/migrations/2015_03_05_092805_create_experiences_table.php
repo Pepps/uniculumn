@@ -20,7 +20,7 @@ class CreateExperiencesTable extends Migration {
 			$table->string('title', 100);
 			//Location is the actual place where the user has worked or studied. 
 			$table->string('location', 100);
-			// 1 is equal to Job ("Jobb"), 0 is equal to Education ("Utbildning") and 2 is equal to Skills ("merit"). 
+			// 0 is equal to Job ("Jobb"), 1 is equal to Education ("Utbildning") and 2 is equal to Skills ("merit"), and 3 is övrigt. 
 			$table->integer('type');
 
 			$table->timestamps();

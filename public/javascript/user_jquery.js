@@ -210,7 +210,7 @@ $('input:radio[name="fgg1"]').on('click', function(){
   $("#clickmetoo").click(function(){
 
       if (controlPanel == true) {
-            $(".settings").show();
+            $(".account_settings").show();
             $("#clickmetoo").css({ "background-color" : "#56c5cb", "cursor" : "text"}, "fast" );
             $("#clickmetoo").animate({ "border": "0vw", "height" : "3.6vw", "background-color" : "#2f4343", "width" : "11vw", "padding" : "0.5vw"}, 450 );
             controlPanel = false;
@@ -221,7 +221,7 @@ $('input:radio[name="fgg1"]').on('click', function(){
 
     $("#hide_controlpanel").click(function(e){
             controlPanel = true;
-            $(".settings").hide();
+            $(".account_settings").hide();
             $("#clickmetoo").css({ "border-top": "0.7vw solid #56c5cb", "border-left": "0.5vw solid transparent", "border-right": "0.5vw solid transparent", "height" : "0vw", "background-color" : "transparent", "width" : "0vw", "padding" : "0", "cursor" : "pointer" }, "slow" );
             e.stopPropagation();
           });

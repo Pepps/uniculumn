@@ -18,7 +18,7 @@ class ExperienceController extends BaseController {
 		}
 
 	    if (Auth::check()){
-	  		return View::make("experience.index")->with('experiences', $experience)->with('cities', City::findMany($ids));
+	  		return View::make("experience.index")->with('experiences', $experience)->with('cities', City::findMany($ids))->with('user',User::find(Auth::user()->id));
 	    }
 	    else{
 	        return Redirect::to('/');
