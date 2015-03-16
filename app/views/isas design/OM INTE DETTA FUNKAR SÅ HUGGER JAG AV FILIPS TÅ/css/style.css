@@ -1,138 +1,589 @@
+/* Custom font, free for commercial use */
 
-.edit_tags_block {
-	background-color: #253737;
-	color: white;
-	float: right;
-	width: 11vw;
-	height: 9vw;
-	padding: 0.5vw;
-	margin-right: -12vw;
-	font-size: 0.8vw;
-	display: none;
-	overflow:  auto;
-	position: relative;
-}
-
-.tag_boxes {
-	float: left;
-	width: 5vw !important;
-	height: 2vw !important;
-}
-
-
-
-/* vänster-pil */
-.arrow-left {
-	width: 0; 
-	height: 0; 
-	border-right: 1vw solid  red;
-	border-top: 0.8vw solid transparent;
-	border-bottom: 0.8vw solid transparent;
-	float: left;
-	position: absolute;
-	left: -0.4vw;
-	top: 2.8vw;
-}
-
-
-
-.edit_tags {
-	width: 8vw;
-	height: 2vw;
-	padding-right: 0.5vw;
-	float: right;
-	margin: 0.5vw 0vw;
-	cursor: pointer;
-	font-size: 1vw;
-}
-
-.edit_tags img {
-	width: 1vw !important;
-	height: 1vw !important;
-}
-
-/* //////////////////////////////////////////////////////          <CUSTOM FONT> */
-																		      /**/
 @font-face {
     font-family: Kozuka;
-    src: url(../font/KozGoPr6N-ExtraLight.otf) format('opentype');
+    src: url(../font/SourceSansPro-ExtraLight.ttf) format('opentype');
 }
-																			  /**/
-/* /////////////////////////////////////////////////////         </CUSTOM FONT*/
 
+h1 {
+	font-family: Kozuka;
+	font-weight: 100;
+	font-size: 2.6vw;
+	margin-bottom:  1.2vw;
+	margin-top: -0.5vw;
+}
 
-/* //////////////////////////////////////////////////////		        <BODY> */
-																			/**/
+h2 {
+	font-family: Kozuka;
+	font-weight: 100;
+	font-size: 1.7vw;
+	margin-bottom:  0.2vw;
+	margin-top: 0vw;
+}
+
 body {
 	background: url(../img/background_vertical.PNG) repeat-y;
 	background-position: left;
 	background-size: 16vw;
-	margin: 0px;
+	margin: 0vw;
 	padding: 0vw;
 	font-family: verdana;
-	font-size: 0.9vw;
+	font-size: 1vw;
 	color: #465b5c;
-	overflow-y:;
-	font-weight: 100;
+	overflow-y: scroll; 
 }
-																 		       /**/
-/* //////////////////////////////////////////////////////		        </BODY> */
+
+/*/////////////////////////////////////////////////////////////////////// Själva skalet på sidan ///////////////////////////////////////////////////////////////////////*/
+
+/* Kolumn till vänster för länkar */
+#ui_sidebar {
+	width: 16vw;
+	float: left; 
+}
+
+/* Loggan till vänster med enhörningen och den fonetiska skriften */
+.left_logo {
+	width: 15vw;
+	height: 6vw;
+	margin-top: 1.2vw;
+}
+
+/* Styling för vänster-kolumnens länkar */
+#ui_sidebar h2 {
+	font-family: Kozuka;
+	width: 13vw;
+	font-size: 1.3vw;
+	float: left;
+	background: #182626;
+	border-radius: 0.5vw;
+	padding: 0.4vw 0.3vw;
+	margin-left: 0.5vw;
+	padding-left: 1.4vw;
+	margin-bottom: 1vw;
+}
+
+/*  Dessa länkarna kan inte vara blå!!!! */
+#ui_sidebar a 	{ color: #e7efef; text-decoration: none ;}
+#ui_header a 	{ color: #e7efef; text-decoration: none ;}
+
+/* Pilarna till vänster om länkarna */
+.arrow-right {
+	width: 0; 
+	height: 0; 
+	border-left: 0.6vw solid #56c5cb;
+	border-top: 0.4vw solid transparent;
+	border-bottom: 0.4vw solid transparent;
+	float: left;
+	margin-right: 0.5vw;
+	margin-top: 0.4vw;
+}
 
 
+/* Header, håller i användarens bild samt ladda upp-genvägen */
+#ui_header {
+	background: #192626 url(../img/ui_header.PNG) right;
+	background-size: 100vw;
+	position: absolute;
+	top: 0vw;
+	right: 0vw;
+	height:6.1vw;
+	width: 82vw;
+	padding-left: 18vw;
+	color: #e7efef;
+	font-family: Kozuka;
+	z-index: -1;
+}
+
+/* Avataren, användarnamnet och konto-inställningars hus */
+.user_box {
+	height: 8.5vw;
+	width: 39vw;
+	padding: 0.1vw;
+	margin-left: 1vw;
+}
+
+/* Avataren */
+.user_picture {
+	width: 5.5vw;
+	height: 5.5vw;
+	background: url(../img/snape.PNG) #f7fafa;
+	background-size: 5.5vw;
+	float: left;
+	border: 0.2vw solid #f7fafa;
+	margin: 1vw 1vw 0vw 0vw;
+}
+
+/* Användarnamnet */
+.user_name {
+	float: left;
+	font-size: 1.6vw;
+	margin-top: 0.4vw;
+}
+
+
+/* Användarnamnet och dropdown-knappens rum*/
+.username_holder {
+	display: inline-block;
+	margin-top: 2vw;
+}
+
+/* Kontoinställningar-dropdown */
+.account_settings {
+	display: none;
+	color: white;
+	font-family: Kozuka;
+	font-size: 1vw;
+}
+
+/* Visa konto-inställningar-knapp */
+.arrow-down {
+	cursor: pointer;
+	width: 0; 
+	height: 0; 
+	border-left: 0.5vw solid transparent;
+	border-right: 0.5vw solid transparent;
+	border-top: 0.7vw solid #56c5cb;
+	float: right;
+	margin: 1.3vw 0vw 0vw 0.6vw;
+}
+
+/* Dölj konto-inställningar-knapp */
+.arrow-up {
+	cursor: pointer;
+	width: 0; 
+	height: 0; 
+	border-left: 0.5vw solid transparent;
+	border-right: 0.5vw solid transparent;
+	border-bottom: 0.7vw solid #56c5cb;
+	float: right;
+	margin-top: 1.5vw;
+}
+
+/* Ladda upp nytt projekt-boxen */
+.upload_shortcut {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 27.8vw;
+	padding-top: 3.3vw;
+	cursor: default;
+	z-index: 2;
+}
+
+/* Ladda upp-knappen */
+.upload_shortcut img {
+	width: 6vw;
+	height: 6vw;
+	float: right;
+	margin: -3.5vw 2vw 0vw 0vw;
+	cursor: pointer;
+}
+
+/* Main content, har en absolut position */
+#main_content {
+	background: url(../img/background_gradient.PNG) transparent top repeat-x;
+	width: 81.8vw;
+	min-height: 67vh;
+	position: absolute;
+	top: 6vw;
+	right: 0vw;
+	z-index: -2;
+	padding: 3vw 0vw 2vw 2vw;
+}
+
+
+/*/////////////////////////////////////////////////////////// Mina referenser-sidan /////////////////////////////////////////////////////////////////*/
+
+
+/*/////// Lägg till erfarenhet //////*/
+
+/* Lägg till erfarenhet-kolumn */
+#add_new_experience {
+	float: right;
+	width: 37vw;
+	margin-top: -1vw;
+}
+
+
+/* Lägg till erfarenhet-rubrik */
+#add_new_experience h1 {
+	padding-left: 4.5vw;
+	padding-top: 0.2vw;
+	background: url(../img/experiences.PNG) no-repeat top left;
+	background-size: 4vw;
+	height: 3vw;
+	width: 28vw;
+	font-size: 2.1vw;
+	margin: 0vw;
+
+}
+
+
+
+/* Rutorna för valet av erfarenheter */
+.exp_square {
+	background: #2f4343 center no-repeat;
+	background-size: 5vw;
+	border-radius: 0.5vw;
+	float: left;
+	padding-top: 5vw;
+	margin: 1vw 1vw 0.5vw 0vw;
+	width: 7.3vw;
+	height: 0vw;
+	font-size: 1.1vw;
+	font-family: Kozuka;
+	line-height: 2vw;
+	text-align: center;
+}
+
+
+/* Bakgrundsbilderna till valet av erfarenheter */
+.exp_education 	{ background-image: url(../img/school.PNG); }
+.exp_employment	{ background-image: url(../img/employment_icon.PNG); }
+.exp_merits 	{ background-image: url(../img/merits.PNG); }
+.exp_other	 	{ background-image: url(../img/other.PNG); }
+
+
+/* Hus till alla erfarenhets-inputs och diverse */
+.things { display: none; float: left; }
+
+
+/* En wrapper för att kontrollera längden på de olika stegen i processen */
+/* OBS OBS OBS samma klass används i "ladda upp projekt"-stegen!!! */
+.upload_column {
+	width: 32vw;
+	margin-bottom: 0.2vw;
+	clear: right;
+	font-family: Kozuka;
+}
+
+/* Rubrikstylingen inuti dessa kolumnerna ^ */
+.upload_column h2 {
+	padding: 0vw 0vw 0.4vw 0vw;
+}
+
+/* Basen till de mörkgråa ikonerna som definierar varje steg*/
+.dark_icon {
+	background-color: #253737;
+	width: 3vw;
+	height: 3vw;
+	padding: 0.5vw;
+	float: left;
+	text-align: center;
+	margin: 0.7vw 1.3vw 0vw 0vw;
+}
+
+/* Bakgrundsbilderna till dessa ikoner ^ */
+.ico_education 	 { background-image: url(../img/education.PNG); background-size:6vw; }
+.ico_employment  { background-image: url(../img/employment.PNG); background-size:6vw;  }
+.employer_icon 	 { background-image: url(../img/icons/blue/employer.PNG) ; background-size: 4vw; }
+.employment_icon { background-image: url(../img/icons/blue/employment.PNG) ; background-size: 4vw; }
+.merits_icon 	 { background-image: url(../img/icons/blue/merits.PNG) ; background-size: 4vw; }
+.school_icon 	 { background-image: url(../img/icons/blue/school.PNG) ; background-size: 4vw; }
+.education_icon  { background-image: url(../img/icons/blue/education.PNG) ; background-size: 4vw; }
+.location_icon   { background-image: url(../img/icons/blue/location.PNG) ; background-size: 4vw; }
+.other_icon 	 { background-image: url(../img/icons/blue/description.PNG) ; background-size: 4vw; }
+.time_icon 	     { background-image: url(../img/icons/blue/time.PNG) ; background-size: 4vw; }
+
+
+
+/* Generell styling för inputs... Ger en blå border och lite padding */
+.uploadfile {
+	padding: 0.7vw;
+	width: 24.9vw;
+	margin: -1vw 0vw 1vw 0vw;
+	border: 0.1vw solid #56c5cc;
+	float: right;
+}
+
+/* Inputs för upload column, tar bort lite html */
+.upload_column input[type=text] {
+	padding: 0.7vw;
+	width: 24.9vw;
+	margin: -1vw 0vw 1vw 0vw;
+	border: 0.1vw solid #56c5cc;
+	float: right;
+	height: 0.7vw; 
+}
+
+/* Selects för upload column, tar bort lite html */
+.upload_column select {
+	width: 26.6vw;
+	height: 2.4vw;
+	padding: 0.6vw;
+	border: 0.1vw solid #56c5cc;
+	margin: -1vw 0vw 1vw 0vw;
+	float: right;
+}
+/* Detta gäller endast de input-element som får .uploadfile. Textarea t.ex ska 
+till exempel inte ha denna. */
+input.uploadfile {
+	height: 0.7vw;
+}
+
+
+/* Hus för plats/tid-input-elementen. */
+.time_separator {
+	display: inline-block;
+	padding-right: 1vw;
+	margin-top: -0.9vw;
+}
+
+/* Fixar längden på tid/plats inputs/selects*/
+.time_separator input[type=text]  {	width: 9.5vw;}
+.time_separator select { width: 11vw !important; }
+
+/* Submit-knapp styling, denna gäller både för erfarenheter och projekt */
+.submit_project {
+	background-color: #253737;
+	font-family: Kozuka;
+	font-size: 1.1vw;
+	color: #fff;
+	border: 0;
+	padding: 0.6vw 1.8vw;
+	margin-top: 0.3vw;
+}
+
+/*/////// "Mina erfarenheter" //////*/
+
+/* Kolumn för mina erfarenheter */
+#my_experiences {
+	float: right;
+	width: 24vw;
+}
+
+/* Wrappern för varje enskild erfarenhet */
+.ex_column {
+	width: 39vw;
+	margin-bottom: 0.2vw;
+	font-family: Kozuka;
+	background-image: url(../img/white.png);
+	background-repeat: repeat-x;
+	background-size: 7vw;
+	margin-bottom: 0.5vw;
+}
+
+/* Rubrikstylingen inuti dessa kolumnerna ^ */
+.ex_column h2 {
+	padding: 0.5vw 0vw 0.6vw 0vw;
+}
+
+
+
+/* Blå fyrkant för att indikera mediatyp, bakgrunderna är samma som 
+i checkboxarna i "ladda upp erfarenheter" */
+.ex {
+	width: 6vw;
+	height:3vw;
+	background-color: #56c5cc;
+	background-repeat: no-repeat;
+	padding-top: 4vw;
+	margin-right: 0.8vw;
+	color: #fff;
+	text-align: center;
+	float: left;
+}
+
+/* Denna håller allt som är till höger, dvs redigera-knapparna 
+men också plats/tid */
+.edit_wrapper {
+	float: right;
+	width: 10vw;
+	height: 6vw;
+	text-align: right;
+	padding: 0.5vw 0.5vw 0vw 0vw;
+}
+
+/* Wrapper för plats/tid */
+.ex_float {
+	height: 1.7vw;
+	margin-bottom: 0.3vw;
+}
+
+/* De små bilderna bredvid plats/tid */
+.ex_float img {
+	height: 1.2vw;
+	width: 1.2vw;
+	margin-left: 0.2vw;
+	margin-bottom: -0.2vw;
+}
+
+/* Plats behöver vara längre och ha en negativ margin för att längre 
+ortnamn ska få plats */
+.exp_location {
+	margin-left: -5vw;
+	width: 15vw;
+}
+
+/* Knapparna för redigera/lägg till/ta bort */
+.ex_button, .delete_reference {
+	background: #394747;
+	border-radius: 0.2vw;
+	text-align: center;
+	float: right;
+	margin: 0.2vw 0vw 0vw 0.1vw;
+	padding: 0.2vw 0.7vw;
+	cursor: pointer;
+}
+
+
+/* Göm all redigerings-html tills en knapp klickas på */
+.edit_this {
+	display: none;
+}
+
+/* Beskrivningen på erfarenheten */
+.ex_description {
+	line-height: 1vw;
+	font-size: 0.7vw;
+	font-family: verdana;
+	height: 3.2vw;
+}
+
+/* Visa referenser */
+.show_references {
+	width: 38vw;
+	display: inline-block;
+	color: #465353;
+	font-size:1.1vw;
+	cursor: pointer;
+	margin: 0.3vw 0vw 2vw 0vw;
+}
+
+/* Ikonerna inne bland referenserna */
+.show_references img {
+	width: 0.7vw;
+	height: 0.7vw;
+	margin-right: 0.2vw;
+}
+
+/* Denna är här för jquery-stuff, viktig! */
+.allreferences {
+	display: none;
+	cursor: text;
+	padding-top: 1.2vw;
+}
+
+/* Husen för referenserna */
+.ref_square {
+	background: #2f4343 center no-repeat;
+	background-size: 5vw;
+	font-size: 0.9vw;
+	padding: 0.8vw;
+	margin: 0.3vw 0.3vw 0.3vw 0vw;
+	display: inline-block;
+	line-height: 1.3vw;
+	border-radius: 0.5vw;
+	color: white;
+	height: 4vw;
+	width: 16.7vw;
+
+}
+
+/* Ta bort en referens */
+.delete_reference {
+	background: #d70808;
+	padding: 0.2vw 0.6vw 0.2vw 0.7vw;
+	margin-left: 0.2vw;
+	margin-top: -1vw;
+}
+
+/*/////// Lägg till en referens //////*/
+
+/* Referensredigeringens hus */
+.references_choices {
+	width: 39vw;
+	height: 9vw;
+	background-color: #465353;
+	color: #fff;
+	text-align: right;
+	line-height: 0.2vw;
+	padding-top: 0.5vw;
+	margin: 1vw 0vw 0.5vw 0vw;
+	display: none;
+}
+
+
+/* Kolumner för att separera de fyra input-elementen*/
+.ref_column {
+	width: 18.6vw;
+	float: left;
+	padding-right: 0.5vw;
+	padding-left: 0.2vw;
+}
+
+/* Rubrikerna i kolumnerna*/
+.ref_column h3 {
+	float: left;
+	font-size: 1vw;
+	margin-left: 0.8vw;
+	margin-top: 1.4vw;
+}
+
+/* Input i kolumnerna*/
+.references_input  {
+	height: 0.9vw;
+	padding: 0.3vw;
+	display: inline-block;
+	margin-bottom: 1.2vw;
+	width: 12vw;
+}
+
+/* Knappar för lägg till/ångra */
+.addreference, .clearreference{
+	padding: 1vw;
+	background-color: #42b8bf;
+	float: right; 
+	cursor: pointer;
+	font-family: Kozuka;
+}
+
+/* Ångra med annan färg */
+.clearreference{
+	background-color: #253737;
+	margin-right: 0.4vw;
+}
+
+
+/*/////// Redigera erfarenhet //////*/
+
+/* Redigerings-rubrik */
+.edit_column {
+	width: 39vw;
+	margin-bottom: -0.8vw;
+}
+
+
+/* Styling för selects i erfarenhets-redigering */
 .ex_column select {
 	padding: 0.4vw;
-	width: 7.8vw;
+	width: 6.6vw;
 	margin-right: 0.2vw;
 	border: 0.1vw solid #56c5cc;
 	float: right;
 	font-size: 0.8vw;
 }
 
-.show_tags {
-	float: right;
-}
-
-.alltags {display: none;
-padding-top: 0.4vw;
-text-align: center;}
-
-.alltags span {
-	background-color: #56c5cc;
-	color: white;
-	padding: 0.3vw 0.7vw;
-	border-radius: 0.4vw;
-	margin-right: 0.3vw;
-	margin-bottom: 0.3vw;
-
-}
-
-/* omfg all this css i cant deal */
-
-.exp_location {
-	margin-left: -5vw;
-	width: 15vw;
-}
-
-.edit_this {
-	display: none;
-}
-
-.edit_wrapper input {
-	width: 5.6vw !important;
-	margin-left: 0.3vw;
-	font-size: 0.8vw;
-	margin-top: 0.2vw !important;
-}
-
+/* Styling för inputs i erfarenhets-redigering */
 .ex_column input {
 	padding: 0.4vw;
 	border: 0.1vw solid #56c5cc;
 	font-size: 0.8vw;
 	margin-top: 0.8vw;
-
 }
 
+/* Styling för små inputs i erfarenhets-redigering */
+.edit_wrapper input  {
+	width: 5.6vw !important;
+	margin-left: 0.3vw;
+	margin-top: 0.2vw !important;
+	padding: 0.4vw;
+	border: 0.1vw solid #56c5cc;
+	font-size: 0.8vw;
+	margin-top: 0.8vw;
+}
 
+/* Styling för textareor i erfarenhets-redigering */
 .ex_column textarea {
 	padding: 0.2vw;
 	border: 0.1vw solid #56c5cc;
@@ -143,43 +594,534 @@ text-align: center;}
 	font-family: verdana;
 }
 
-
-.show_references {
-	width: 38vw;
-	display: inline-block;
-	color: #465353;
-	font-size:0.9vw;
+/* Knapparna för att ångra/spara ändringar */
+.ignore_edit, .add_edit{
+	padding: 0.5vw;
+	background-color: #42b8bf;
+	float: right;
 	cursor: pointer;
-	margin-top: 0.3vw;
-	margin-bottom: 0vw;
+	color: #fff;
+	font-family: Kozuka;
+	font-size: 1.1vw;
+	margin: 1.5vw 0.3vw 0vw 0vw;
 }
 
-.allreferences {
+/* Obviously annan färg på "Ångra" */
+.ignore_edit{
+	background-color: #253737;
+}
+
+
+
+
+/*/////////////////////////////////////////////////////////// Avancerad sökning /////////////////////////////////////////////////////////////////*/
+
+
+/* Göm det som inte behöver synas än */
+#hide_me, .search_for {
 	display: none;
-	cursor: text;
 }
-
-.show_references img {
-	width: 0.8vw;
-	height: 0.8vw;
-	margin-right: 0.2vw;
-
-}
-
-.ref_square {
-	background: #2f4343 center no-repeat;
-	background-size: 5vw;
+/* Hus till mina sökningar, url:en */
+.url_wrapper {
 	font-size: 0.8vw;
-	padding: 0.8vw;
-	margin: 0.3vw 0.3vw 0.3vw 0vw;
+	float: right;
+	width: 22vw;
+	padding: 0.5vw;
+	margin: 2vw 3vw 0vw 0vw;
+}
+
+.url_wrapper h2 {
+	margin: 0vw 0vw 1vw 0vw;
+}
+
+
+/* Mina sökningar */
+.search_log {
+	width:20vw;
+	padding: 1vw;
+	margin: -0.2vw 0vw;
+	background: white;
+}
+
+/* Styling för det lilla förstoringsglaset */
+.thumbnail {
+	width: 0.7vw; height: 0.7vw; margin-right: 0.5vw;
+}
+
+/* Kategori */
+.td_category span{
 	display: inline-block;
-	line-height: 1.3vw;
+	padding: 0.3vw;
+	background-color: #56c5cb;
+	color: white;
+	border-radius: 0.2vw;
+	font-size: 0.75vw;
+}
+
+/* Sökord */
+.td_words span {
+	font-size: 0.75vw; 
+}
+
+/* Individuell cell-padding och bredd */
+.td_category	{width: 6vw; padding-bottom: 0.5vw;}
+.td_words 		{width: 9vw; padding-bottom: 0.5vw;}
+.td_delete 		{width: 4vw; padding-bottom: 0.5vw; text-align: center;}
+
+/* Gör ta bort-knappen liten */
+.td_delete img {
+	width: 1vw;
+	height: 1vw;
+}
+
+/* Sökningsalternativens hus */
+.search_wrapper {
+	width: 55vw;
+	float: left;
+}
+
+/* Hästarnas hus */
+.searchbox {
+	width: 35vw;
+	margin: 0vw auto;
+}
+
+/* Ponnyjävel */
+.search_logo {
+	width: 7vw;
+	height: 7vw;
+	background-size: 7vw;
+	background-image: url(../img/big_logo.PNG);
+	background-repeat: no-repeat;
+	float: left;
+}
+
+/* Hästens pratbubbla haha*/
+.search_bubble {
+	font-family: Kozuka;
+	width: 20vw;
+	padding: 0.5vw;
+	border: 0.1vw solid #56c5cb;
+	background-color: #56c5cb;
 	border-radius: 0.5vw;
 	color: white;
-	width: 16vw;
+	margin: 1vw 0vw 0vw 1vw;
+	float: left;
+	font-size: 1.4vw;
+}
+
+
+/* Hmmmm ska göra denna som box kanske*/
+.bubble_tip {
+	background: url(../img/bubble_tip_blue.PNG)  no-repeat;
+	background-size: 0.8vw;
+	float: left;
+	width: 2vw;
+	height: 1.2vw;
+	margin: 0.6vw 0vw 0vw -1.1vw;
+}
+
+/* Radioknapparnas och checkboxarnas hus */
+.choicebox {
+	width: 50vw;
+	margin: 0vw auto;
+	text-align: center;
+}
+
+/* Fyrkanterna runt checkboxarna/radioknapparna */
+.dark_square {
+	background: #2f4343 center no-repeat;
+	background-size: 6vw;
+	width: 8vw;
+	height: 0vw;
+	padding-top: 8vw;
+	margin: 1vw 2vw 2vw 0vw;
+	float: left;
+	line-height: 2vw;
+	text-align: center;
+	font-family: Kozuka;
+	border-radius: 0.5vw;
+	position: relative;
+	font-size: 1.1vw;
+}
+
+/* Bakgrundsbilderna till fyrkanterna */
+.s_users 		{ background-image: url(../img/users.PNG); }
+.s_projects 	{ background-image: url(../img/projects.PNG); }
+.s_experiences 	{ background-image: url(../img/experiences.PNG); }
+.s_categories 	{ background-image: url(../img/categories.PNG); }
+.s_status 		{ background-image: url(../img/status.PNG); }
+
+
+/* Söker i.... */
+.search_div {
+	margin: 0vw auto;
+	width: 15vw;
+	font-family: Kozuka;
+	font-size: 1.7vw;
+	color: #56c5cb;
+	padding-left: 8vw;
+}
+
+
+/*/////////////////////////////////////////////////////// Mina projekt-sidan ////////////////////////////////////////////////////////////////////*/
+
+/* Helpful horsie's hus */
+#help_projects {
+	font-family: Kozuka;
+	font-size: 1.1vw;
+	float: right;
+	margin-top: 6vw; 
+	margin-right: 2vw;
+	width: 24vw;
+	background-color: #243333;
+	border-radius: 1.3vw;
+	padding: 1vw 1.3vw;
+	color: #d9eff0;
+}
+
+#help_projects img {
+	width: 0.8vw;
+	width: 0.8vw;
+	margin-right: 0.3vw;
+}
+
+#help_projects p {
+	line-height: 2.3vw;}
+
+.help_logo {
+	background-image: url(../img/big_logo_fl.png);
+	background-repeat: no-repeat;
+	background-size: 10vw;
+	height: 10vw;
+	width: 10vw;
+	margin-top: -7vw;
+	float: right;
 
 }
 
+
+
+/* bakgrunderna för mediatyp */
+.ico_audio {background-image: url(../img/audio.PNG); background-size:6vw;  }
+.ico_game {background-image: url(../img/game.PNG); background-size:6vw;  }
+.ico_video {background-image: url(../img/video.PNG); background-size:6vw;  }
+.ico_essay {background-image: url(../img/essay.PNG); background-size:6vw;  }
+
+/* Boxen för att ändra taggarna i ett projekt */
+.edit_tags_block_wrapper {
+	float: right;
+	width: 12vw;
+	height: 13vw;
+	margin-right: -12vw;
+	display: none;
+	position: relative;
+}
+
+/* Taggarnas hus */
+.edit_tags_block {
+	background-color: #253737;
+	color: #fff;
+	float: right;
+	width: 11vw;
+	height: 12vw;
+	padding: 0.5vw;
+	font-size: 0.9vw;
+	margin-left: 2vw;
+	overflow:  auto;
+    word-break: break-all;
+}
+
+/* Taggarnas hus */
+.tag_boxes {
+	float: left;
+	width: 5vw !important;
+	padding: 0.2vw;
+	margin-bottom: 0.5vw;
+}
+
+/* Den svarta triangeln till vänster */
+.arrow-left {
+	width: 0; 
+	height: 0; 
+	border-right: 1vw solid  #253737;
+	border-top: 0.8vw solid transparent;
+	border-bottom: 0.8vw solid transparent;
+	float: left;
+	position: absolute;
+	left: -0.8vw;
+	top: 7.3vw;
+}
+
+
+
+
+/* Lägg till projektmedlem */
+.add_selected_member {
+	background-color: #42b8bf;
+	padding: 0.9vw;
+	float: right;
+	margin-top: -0.6vw;
+}
+
+
+
+
+.edit_tags {
+	width: 8vw;
+	height: 2vw;
+	padding-right: 0.5vw;
+	float: right;
+	margin: 0.5vw 0vw;
+	cursor: pointer;
+	font-size: 1.1vw;
+}
+
+.edit_tags img {
+	width: 1vw !important;
+	height: 1vw !important;
+}
+
+
+.show_tags {
+	float: right;
+}
+
+.alltags {display: none;
+padding-top: 1.2vw;
+text-align: center;}
+
+.alltags span {
+	background-color: #56c5cc;
+	color: white;
+	padding: 0.3vw 0.7vw;
+	border-radius: 0.4vw;
+	margin-right: 0.3vw;
+	margin-bottom: 0.3vw;
+	display: inline-block;
+
+}
+
+
+
+.alltags img {
+	margin-left: 0.3vw;
+	width: 0.7vw;
+	height: 0.7vw;
+}
+
+.confirm_changes {
+	display: none;
+}
+
+.hashtag {
+	font-size: 0.8vw;
+	background-color: #56c5cc;
+	color: white;
+	padding: 0.3vw 0.7vw;
+	border-radius: 0.4vw;
+	margin: 0vw 0.3vw 0.3vw 0vw;
+	float: left;
+
+}
+
+
+
+
+.added_members {
+	height: 7vw;
+	margin-bottom: 0.5vw;
+	width: 18vw;
+	overflow: auto;
+	float: right;
+
+}
+
+.added_members span {
+	font-size: 1vw;
+	background-color: #56c5cc;
+	color: white;
+	padding: 0.6vw;
+	border-radius: 0.4vw;
+	float: right;
+	font-size: 0.8vw;
+	margin-bottom: 0.2vw;
+	margin-left: 0.2vw;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*/////////////////////////////////////////////////////////////////// Min profil-CSS /////////////////////////////////////////////////////////////////////*/
+
+/* Kolumner för att separera allt ordentligt på profilen */
+
+.columnLeft 	{ width: 24vw; float: left; } 
+.columnMiddle 	{ width: 30vw; float: left; }
+.columnRight 	{ width: 26vw; float: left;}
+
+/* Styling för profilbilden */
+.profile_picture {
+	width: 21vw;
+	height: 26vw;
+	background-image: url(../img/profile_picture.PNG);
+	background-size: 21vw; 
+	margin-bottom: 1.5vw;
+}
+
+/* De små penn-ikonerna */
+.edit_icon {
+	height: 1vw;
+	width: 1vw;
+	cursor: pointer;
+	background-image: url(../img/edit.PNG);
+	background-size: 1vw; 
+	display: inline-block;
+}
+
+
+.input_thing {
+	font-family: Kozuka;
+	padding: 0.1vw 0.7vw;
+	width: 20vw;
+	border: 0.1vw solid #56c5cb;
+	background-color: white;
+	border-radius: 0.5vw;
+	color: white;
+	margin: 2vw 1vw;
+	display: inline-block;
+	font-size: 1.3vw;
+	color: #56c5cb;
+	text-align: left;
+	height: 3vw;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.project_choices {
+	background-color: #56c5cc;
+	float: left;
+	height: 9vw;
+	width: 11vw;
+	margin-right: 1vw;
+		text-align: center;}
+
+	.project_choices img {
+		width: 8vw;
+		height: 5vw;
+		margin-top: 1vw;
+		margin-bottom: 1vw;
+	}
+
+.box_description {
+	background-color: #2f4343;
+	width: 10.8vw;
+	padding: 0.1vw;
+	color: white;
+	font-family: Kozuka;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* */
+
+
+
+/* omfg all this css i cant deal */
 
 
 
@@ -202,115 +1144,24 @@ text-align: center;}
 	cursor: pointer;
 }
 
-.references_choices {
-	width: 39vw;
-	height: 9.5vw;
-	margin-bottom: 4vw;
-	background-color: #465353;
-	color: white;
-	text-align: right;
-	line-height: 0.2vw;
-	padding-top: 0.5vw;
-	margin-top: 1vw;
-	display: none;
+
+.ref_column h2 {
+	font-size: 1.1vw  !important;;
+	margin: 1vw 0.9vw !important;
+	text-align: left;
 }
 
-.references_input  {
+.added_members img {
+	width: 0.9vw;
 	height: 0.9vw;
-	padding: 0.3vw;
-	display: inline-block;
-	margin-bottom: 1.8vw;
-	width: 12vw;
-}
-
-.ref_column {
-	width: 18.6vw;
-	float: left;
-	padding-right: 0.5vw;
-	padding-left: 0.2vw;
-}
-
-.ref_column h3 {
-	float: left;
-	font-size: 0.9vw;
-	margin-left: 0.8vw;
-	margin-top: 1.4vw;
-}
-
-.addreference, .clearreference{
-	padding: 1vw;
-	background-color: #42b8bf;
-	float: right; 
-
+	margin-bottom: -0.2vw;
 	cursor: pointer;
-	font-family: Kozuka;
 }
 
-.clearreference{
-	background-color: #253737;
-	margin-right: 0.4vw;
-}
-
-.ignore_ref_edit, .add_ref_edit{
-	padding: 0.5vw;
-	background-color: #42b8bf;
-	float: right;
-	cursor: pointer;
-	color: white;
-	font-family: Kozuka;
-	font-size: 0.9vw;
-	margin-top: 0.5vw;
-	margin-right: 0.3vw;
-}
-
-.ignore_ref_edit{
-	background-color: #253737;
-}
-
-
-.exp_square {
-	background: #2f4343 center no-repeat;
-	background-size: 5vw;
-	width: 7.3vw;
-	font-size: 0.9vw;
-	height: 0vw;
-	padding-top: 5vw;
-	margin: 1vw 1vw 0.5vw 0vw;
-	float: left;
-	line-height: 2vw;
-	text-align: center;
-	font-family: Kozuka;
-	border-radius: 0.5vw;
-}
-
-
-.things {display: none;
-float: left;}
-
-.ex {
-	width: 6vw;
-	height:3vw;
-	background-color: #56c5cc;
-	background-repeat: no-repeat;
-	padding-top: 4vw;
-	color: white;
-	text-align: center;
-	float: left;
-	margin-right: 0.8vw;
-
-}
-
-.ico_education {background-image: url(../img/education.PNG); background-size:6vw; }
-.ico_employment {background-image: url(../img/employment.PNG); background-size:6vw;  }
-.ico_audio {background-image: url(../img/audio.PNG); background-size:6vw;  }
 
 /* wrappers för varje steg */
 
-#add_new_experience {
-	float: right;
-	width: 37vw;
-	margin-top: -1vw;
-}
+
 
 #add_project {
 	float: right;
@@ -323,39 +1174,6 @@ float: left;}
 	float: left;
 	width: 40vw;
 	margin-left: 1vw;
-}
-
-
-.ex_column {
-	width: 39vw;
-	margin-bottom: 0.2vw;
-	font-family: Kozuka;
-	background-image: url(../img/white.png);
-	background-repeat: repeat-x;
-	background-size: 7vw;
-	margin-bottom: 0.5vw;
-}
-
-.ex_button {
-	background: #394747;
-	border-radius: 0.2vw;
-	text-align: center;
-	float: right;
-	padding: 0vw 0.7vw;
-	margin-left: 0.2vw;
-	margin-top: 0.5vw;
-	cursor: pointer;
-}
-
-.delete_reference {
-	background: #d70808;
-	border-radius: 0.2vw;
-	text-align: center;
-	float: right;
-	padding: 0.2vw 0.6vw 0.2vw 0.7vw;
-	margin-left: 0.2vw;
-	margin-top: -1vw;
-	cursor: pointer;
 }
 
 .delete_member {
@@ -410,58 +1228,6 @@ float: left;}
 	height: 0.7vw;
 }
 
-.edit_wrapper {
-	float: right;
-	width: 10vw;
-	height: 6vw;
-	text-align: right;
-	padding: 0.5vw 0.5vw 0vw 0vw;
-}
-
-.time_separator {
-	display: inline-block;
-	padding-right: 1vw;
-	margin-top: -0.9vw;
-}
-
-.time_separator input {
-	width: 9.5vw;
-}
-
-.time_separator select {
-	width: 11vw !important;;
-}
-
-
-.ex_float {
-	height: 1.7vw;
-	margin-bottom: 0.3vw;
-}
-
-.ex_float img {
-	height: 1.2vw;
-	width: 1.2vw;
-	margin-left: 0.2vw;
-	margin-bottom: -0.2vw;
-}
-
-.ex_description {
-	line-height: 0.9vw;
-	font-size: 0.7vw;
-	font-family: verdana;
-	height: 3.2vw;
-}
-
-
-h1.addemployment {
-	padding-left: 4.5vw;
-	background: url(../img/experiences.PNG) no-repeat bottom left;
-	background-size: 4vw;
-	width: 28vw;
-	font-size: 1.7vw;
-	margin: 0vw 0vw 0vw 0vw;
-
-}
 
 
  .login_button, .register_button, .cursor {
@@ -471,183 +1237,11 @@ h1.addemployment {
 
 /*/////////// "Header" /////////////*/
 
-/* maincontent, lite bakgrundsfärg, lite fix, mmm */
-#main_content {
-	background: url(../img/background_gradient.PNG) transparent;
-	background-position: top;
-	background-repeat: repeat-x;
-	width: 81.8vw;
-	min-height: 67vh;
-	position: absolute;
-	top: 6vw;
-	right: 0vw;
-	z-index: -2;
-	padding-left: 2vw;
-	padding-top: 3vw;
-	padding-bottom: 2vw;
-}
-/* sidebar */
-#ui_sidebar {
-	width: 16vw;
-	float: left; 
-}
-
-#ui_sidebar h2 {
-	width: 13vw;
-	float: left;
-	border-radius:  0.5vw;
-	padding: 0.4vw 0.3vw;
-	margin-left: 0.5vw;
-}
 
 
 
-/* uniculum-loggan, bildstyling*/
-.left_logo {
-	width: 15vw;
-	height: 6vw;
-	margin-top: 1.2vw;
-}
-
-/* headern */
-#ui_header {
-	background: #192626 url(../img/ui_header.PNG);
-	background-position: right;
-	background-size: 100vw;
-	position: absolute;
-	top: 0vw;
-	right: 0vw;
-	height:6.1vw;
-	width: 82vw;
-	padding-left: 18vw;
-	color: #fff;
-	font-family: Kozuka;
-	z-index: -1;
-}
-
-/* Avatar-styling */
-.user_picture {
-	width: 5.5vw;
-	height: 5.5vw;
-	background: url(../img/snape.PNG) #f7fafa;
-	background-size: 5.5vw;
-	float: left;
-	border: 0.2vw solid #f7fafa;
-	margin-right: 1vw;
-	margin-top: 1vw;
-
-}
-
-/* Användarnamn & bild-box*/
-.user_box {
-	height: 8.5vw;
-	width: 39vw;
-	padding: 0.1vw;
-	margin-left: 1vw;
-}
-
-/* Namn-styling */
-.user_box h2 {
-	margin-bottom: 0.3vw;
-	margin-top: 2.6vw;
-}
-
-/* Användarnamn och dropdown-knapp*/
-.username_holder {
-	display: inline-block;
-	font-family: Kozuka;
-	font-weight: 100;
-	font-size: 1.5vw;
-	margin-top: 2vw;
-}
 
 
-
-/* styling för username*/
-.user_name {
-	float: left;
-}
-
-/* dropdown för inställningar */
-.settings {
-	display: none;
-	color: white;
-	font-family: Kozuka;
-	font-size: 0.9vw;
-}
-
-
-/* neråt-pil */
-.arrow-down {
-	width: 0; 
-	height: 0; 
-	border-left: 0.5vw solid transparent;
-	border-right: 0.5vw solid transparent;
-	border-top: 0.7vw solid #56c5cb;
-	float: right;
-	margin-top: 1.3vw;
-	margin-left: 0.6vw;
-}
-
-/* uppåt-pil */
-.arrow-up {
-	width: 0; 
-	height: 0; 
-	border-left: 0.5vw solid transparent;
-	border-right: 0.5vw solid transparent;
-	border-bottom: 0.7vw solid #56c5cb;
-	float: right;
-	margin-top: 1vw;
-	cursor: pointer;
-}
-
-/* höger-pil */
-.arrow-right {
-	width: 0; 
-	height: 0; 
-	border-left: 0.6vw solid #56c5cb;
-	border-top: 0.4vw solid transparent;
-	border-bottom: 0.4vw solid transparent;
-	float: left;
-	margin-right: 0.5vw;
-	margin-top: 0.7vw;
-}
-
-
-
-/* Ladda upp nytt projekt-boxen */
-.upload_shortcut {
-	position: absolute;
-	top: 0;
-	right: 0;
-	width: 27.8vw;
-	padding-top: 3.1vw;
-	cursor: default;
-	z-index: 2;
-}
-
-/* Ladda upp-knappen */
-.upload_shortcut img {
-	width: 6vw;
-	height: 6vw;
-	float: right;
-	margin-right: 2vw;
-	margin-top: -4.5vw;
-	cursor: pointer;
-}
-
-#ui_sidebar h2 {
-	color: #e7efef;
-	font-family: Kozuka;
-	font-size: 1.1vw;
-	list-style: none;
-	padding-left: 1.4vw;
-	margin-top: 1.3vw;
-}
-
-#clickmetoo {
-	cursor: pointer;
-}
 
 .experiences_icon {
 	width: 4vw;
@@ -671,31 +1265,12 @@ h1.addemployment {
 	margin-bottom: -0.9vw;
 }
 
-/* ikonerna till höger, ladda upp, etc*/
-.dark_icon {
-	background-color: #253737;
-	width: 3vw;
-	height: 3vw;
-	padding: 0.5vw;
-	float: left;
-	text-align: center;
-	margin-right: 1.3vw;
-	margin-top: 0.7vw;
-}
 
 .title_icon { background-image: url(../img/icons/blue/title.PNG) ; background-size: 4vw; }
 .description_icon { background-image: url(../img/icons/blue/description.PNG) ; background-size: 4vw; }
 .mediatype_icon { background-image: url(../img/icons/blue/mediatype.PNG) ; background-size: 4vw; }
 .categories_icon { background-image: url(../img/icons/blue/categories.PNG) ; background-size: 4vw; }
 .upload_icon { background-image: url(../img/icons/blue/upload.PNG) ; background-size: 4vw; }
-.employer_icon { background-image: url(../img/icons/blue/employer.PNG) ; background-size: 4vw; }
-.employment_icon { background-image: url(../img/icons/blue/employment.PNG) ; background-size: 4vw; }
-.merits_icon { background-image: url(../img/icons/blue/merits.PNG) ; background-size: 4vw; }
-.school_icon { background-image: url(../img/icons/blue/school.PNG) ; background-size: 4vw; }
-.education_icon { background-image: url(../img/icons/blue/education.PNG) ; background-size: 4vw; }
-.location_icon { background-image: url(../img/icons/blue/location.PNG) ; background-size: 4vw; }
-.other_icon { background-image: url(../img/icons/blue/description.PNG) ; background-size: 4vw; }
-.time_icon { background-image: url(../img/icons/blue/time.PNG) ; background-size: 4vw; }
 
 
 
@@ -718,56 +1293,17 @@ h1.addemployment {
 }
 
 
-/* wrappers för varje steg */
-.upload_column {
-	width: 32vw;
-	margin-bottom: 0.2vw;
-	clear: right;
-	font-family: Kozuka;
-}
-
-/* h2-styling inuti kolumnerna */
-.upload_column h2 {
-	padding: 0vw 0vw 0.4vw 0vw;
-}
 
 
-/* upload_column select, denna behövde en egen styling */
-.upload_column select {
-	width: 26.6vw;
-	height: 2.4vw;
-	padding: 0.6vw;
-}
 
 
-/* styling för submit-knapp */
-.submit_project {
-	background-color: #253737;
-	font-family: Kozuka;
-	font-size: 1vw;
-	color: white;
-	border: 0;
-	padding: 0.2vw 1.8vw;
-}
 
 /* lite special-styling för välj mediatyp */
 .mediatype {
 	margin-bottom: 6vw;
 }
 
-/* styling för input, textarea */
-.uploadfile {
-	padding: 0.7vw;
-	width: 24.9vw;
-	margin-bottom: 1vw;
-	border: 0.1vw solid #56c5cc;
-	margin-top: -1vw;
-	float: right;
-}
 
-input.uploadfile {
-	height: 0.7vw;
-}
 
 /*sub-kategorier*/
 .subcategories {
@@ -777,7 +1313,6 @@ input.uploadfile {
 	margin-bottom: 0.9vw;
 	float: right;
 	padding-right: 0.3vw;
-    line-height: 0;
     display: none;
 }
 
@@ -785,7 +1320,7 @@ input.uploadfile {
 	float: right;
     display:inline-block;
 	padding-left: 0.8vw; 
-	min-width: 4vw;
+	min-width: 5vw;
 }
 
 
@@ -812,234 +1347,6 @@ input.uploadfile {
 
 
 
-/*/////////// sök-sidan /////////////*/
-
-
-/* lite jquery magic */
-#hide_me, #search_for {
-	display: none;
-}
-
-.search_div {
-	margin: 0vw auto;
-	width: 15vw;
-	font-family: Kozuka;
-	font-size: 1.7vw;
-	color: #56c5cb;
-	padding-left: 8vw;
-
-}
-/* Styling för det lilla förstoringsglaset */
-.thumbnail {
-	width: 0.7vw; height: 0.7vw; margin-right: 0.5vw;
-}
-
-/* TD-styling för "Dina sökningar" */
-.td_category	{width: 6vw; padding-bottom: 0.5vw;}
-.td_words 		{width: 9vw; padding-bottom: 0.5vw;}
-.td_delete 		{width: 4vw; padding-bottom: 0.5vw; text-align: center;}
-
-/* gör ta bort-knappen liten */
-.td_delete img {
-	width: 1vw;
-	height: 1vw;
-}
-
-/* styling */
-.category_search {
-	display: inline-block;
-	padding: 0.3vw;
-	background-color: #56c5cb;
-	color: white;
-	border-radius: 0.2vw;
-	font-size: 0.75vw;
-}
-
-/* styling */
-.word_search { font-size: 0.75vw;  }
-
-
-
-/* Hästens hus */
-.searchbox {
-	width: 35vw;
-	margin: 0vw auto;
-}
-
-/* Fyrkanternas hus */
-.choicebox {
-	width: 50vw;
-	margin: 0vw auto;
-	text-align: center;
-}
-
-/* allt det där till vänster så det ligger fint */
-.search_wrapper {
-	width: 55vw;
-	float: left;
-}
-
-/* Allt det där till höger så det ligger fint */
-.url_wrapper {
-	float: right;
-	width: 22vw;
-	margin-right: 3vw;
-	padding: 0.5vw;
-	margin-top: 2vw;
-
-}
-
-/* Ponnyjävel */
-.search_logo {
-	width: 7vw;
-	height: 7vw;
-	background-size: 7vw;
-	background-image: url(../img/big_logo.PNG);
-	background-repeat: no-repeat;
-	float: left;
-}
-
-
-/* Hästens pratbubbla haha*/
-.search_bubble {
-	font-family: Kozuka;
-	width: 20vw;
-	padding: 0.5vw;
-	border: 0.1vw solid #56c5cb;
-	background-color: #56c5cb;
-	border-radius: 0.5vw;
-	color: white;
-	margin-left: 1vw;
-	margin-top: 1vw;
-	float: left;
-	font-size: 1.3vw;
-}
-
-/* Hmmmm ska göra denna som box kanske*/
-.bubble_tip {
-	background: url(../img/bubble_tip_blue.PNG)  no-repeat;
-	background-size: 0.8vw;
-	float: left;
-	width: 2vw;
-	height: 1.2vw;
-	margin-left: -1.1vw;
-	margin-top: 0.6vw;
-}
-
-/* Fyrkanterna */
-.dark_square {
-	background: #2f4343 center no-repeat;
-	background-size: 6vw;
-	width: 8vw;
-	height: 0vw;
-	padding-top: 8vw;
-	margin: 1vw 2vw 2vw 0vw;
-	float: left;
-	line-height: 2vw;
-	text-align: center;
-	font-family: Kozuka;
-	border-radius: 0.5vw;
-	position: relative;
-}
-
-/* bakgrundsbilderna till fyrkanterna, much jquery-magic */
-.s_users 		{ background-image: url(../img/users.PNG); }
-.s_projects 	{ background-image: url(../img/projects.PNG); }
-.s_experiences 	{ background-image: url(../img/experiences.PNG); }
-.s_categories 	{ background-image: url(../img/categories.PNG); }
-.s_status 		{ background-image: url(../img/status.PNG); }
-.exp_education 	{ background-image: url(../img/school.PNG); }
-.exp_employment	{ background-image: url(../img/employment_icon.PNG); }
-.exp_merits 	{ background-image: url(../img/merits.PNG); }
-.exp_other	 	{ background-image: url(../img/other.PNG); }
-
-/*/////////// Min profil-CSS /////////////*/
-
-/* Kolumner för att separera allt ordentligt på profilen */
-
-.columnLeft 	{ width: 24vw; float: left; } 
-.columnMiddle 	{ width: 30vw; float: left; }
-.columnRight 	{ width: 26vw; float: left;}
-
-/* Styling för profilbilden */
-.profile_picture {
-	width: 21vw;
-	height: 26vw;
-	background-image: url(../img/profile_picture.PNG);
-	background-size: 21vw; 
-	margin-bottom: 1.5vw;
-}
-
-/* De små penn-ikonerna */
-.edit_icon {
-	height: 1vw;
-	width: 1vw;
-	cursor: pointer;
-	background-image: url(../img/edit.PNG);
-	background-size: 1vw; 
-	display: inline-block;
-}
-
-
-
-
-
-
-
-.search_log {
-	width:20vw;
-	padding: 1vw;
-	margin: -0.2vw 0vw;
-	background: white;
-}
-
-
-
-.input_thing {
-	font-family: Kozuka;
-	padding: 0.1vw 0.7vw;
-	width: 20vw;
-	border: 0.1vw solid #56c5cb;
-	background-color: white;
-	border-radius: 0.5vw;
-	color: white;
-	margin: 2vw 1vw;
-	display: inline-block;
-	font-size: 1.3vw;
-	color: #56c5cb;
-	text-align: left;
-	height: 3vw;
-
-}
-
-
-
-
-.project_choices {
-	background-color: #56c5cc;
-	float: left;
-	height: 9vw;
-	width: 11vw;
-	margin-right: 1vw;
-		text-align: center;}
-
-	.project_choices img {
-		width: 8vw;
-		height: 5vw;
-		margin-top: 1vw;
-		margin-bottom: 1vw;
-	}
-
-.box_description {
-	background-color: #2f4343;
-	width: 10.8vw;
-	padding: 0.1vw;
-	color: white;
-	font-family: Kozuka;
-}
-
-
-
  /* "Header" */
 
 
@@ -1049,8 +1356,8 @@ input.uploadfile {
 
 #description {
 	width: 27vw;
-	min-height: 16vw;
 	line-height: 1.3vw;
+	font-size: 0.8vw;
 }
 #interests {
 	float: right;
@@ -1084,10 +1391,6 @@ input.uploadfile {
 	width: 55vw;
 }
 
-#my_experiences {
-	float: right;
-	width: 24vw;
-}
 
 .project_members {
 	width: 28.6vw;
@@ -1102,8 +1405,13 @@ input.uploadfile {
 
 #my_experiences h3 {
 	border-bottom: 0.1vw dotted #1f2d2c;
-    display:inline; 
-    padding-bottom: 0.2vw;
+    margin-bottom: 0.3vw;
+    padding-bottom: 0.1vw;
+    margin-top: 0.4vw;
+}
+
+#my_experiences h2 {
+    margin-top: 1.5vw;
 }
 
 h3 {font-family: Kozuka;}
@@ -1143,7 +1451,7 @@ margin: 0vw 0vw 0.5vw 0vw;}
 	width: 27vw;
 	background-color: #1f2d2c;
 	color: white;
-	font-size: 0.7vw;
+	font-size: 0.9vw;
 	font-weight: lighter;
 	font-family: Kozuka;
 	margin-bottom: 0.2vw;
@@ -1151,8 +1459,8 @@ margin: 0vw 0vw 0.5vw 0vw;}
 
 
 .project_description h2 {
-	font-size: 1.2vw;
-	margin-bottom: -0.6vw;
+	font-size: 1.3vw;
+	margin-bottom: 0vw;
 	margin-top: -0.2vw;
 }
 
@@ -1162,8 +1470,6 @@ text-decoration: none;}
 
 
 
-#ui_sidebar a {color: #fff;
-text-decoration: none;}
 
 
 
@@ -1278,22 +1584,6 @@ text-decoration: none;}
 	font-size: 1vw;
 }
 
-
-h1 {
-	font-family: Kozuka;
-	font-weight: 100;
-	font-size: 2.3vw;
-	margin-bottom:  0.6vw;
-	margin-top: -1vw;
-}
-
-h2 {
-	font-family: Kozuka;
-	font-weight: 100;
-	font-size: 1.5vw;
-	margin-bottom:  -0.2vw;
-	margin-top: 0vw;
-}
 
 #welcome
 {
@@ -1425,11 +1715,12 @@ input[type=radio   ]:checked:not(old) + label+ label > span{
 
 input[type=checkbox]:checked:not(old) + label > span:before{
   content     : '✓';
+  font-family: verdana;
   display     : block;
   width       : 0.6vw;
   height      : 0.6vw;
   color       : #56c5cb;
-  font-size   : 0.9vw;
+  font-size   : 0.8vw;
   line-height : 1vw;
   text-align  : center;
   font-weight : bold;
