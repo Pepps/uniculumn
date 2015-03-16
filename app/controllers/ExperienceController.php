@@ -18,7 +18,7 @@ class ExperienceController extends BaseController {
 		}
 
 	    if (Auth::check()){
-	  		return View::make("experience.index")->with('experiences',$experience)->with('cities', City::findMany($ids));
+	  		return View::make("experience.index")->with('experiences', $experience)->with('cities', City::findMany($ids));
 	    }
 	    else{
 	        return Redirect::to('/');
@@ -97,6 +97,14 @@ class ExperienceController extends BaseController {
 
 	}
 
+
+	public function deleteExp($id) {
+		$experience = Experience::find($id);
+		$experience->delete();
+
+		Session::flash('message', 'Successfully deleted Experience');
+		return Redirect::to('experience');
+	}
 	/**
 	 * Display the specified resource.
 	 * GET /experience/{id}
@@ -120,6 +128,8 @@ class ExperienceController extends BaseController {
 			return View::make('experience.newref')->with("expid", $id);
 
 	}
+
+
 
 	public function addref($id) {
 //Rules for input fields

@@ -14,10 +14,13 @@ class Experience extends Eloquent
 		return $this->belongsToMany('Category');
 	}
 
+	public function city() {
+		return $this->belongsTo('City');
+	}
 
 	//
 	public function reference() {
-		return $this->hasMany('Reference', 'experience_reference', 'experience_id', 'reference_id');
+		return $this->hasMany('Reference');
 	}
 
 }

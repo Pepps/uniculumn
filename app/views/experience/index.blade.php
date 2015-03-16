@@ -1,4 +1,4 @@
-@extends('layouts.master')
+ @extends('layouts.master')
 @section('content')
 
 <div class="container">
@@ -14,10 +14,10 @@
       <td><b>#</b></td>
       <td><b>Title</b></td>
       <td><b>Type</b></td>
-      <td><b>City</b></td>
       <td><b>Description</b></td>
       <td><b>Category</b></td>
       <td><b>Duration</b></td>
+      <td><b>City</b></td>
       <td></td>
       <td></td>
       <td></td>
@@ -44,21 +44,23 @@
             Övrigt
             @endif
           </td>
-         <td> @foreach($cities as $city)
-              @if ($value->name == $city->city_id)
-                {{$city->name}}
-              @endif
-            @endforeach</td>
+
             <td>{{str_limit($value->description, $limit = 200, $end = '...')}}</td>
             <td>{{ $value->category_id }}</td>
             <td>{{$value->duration}}</td>
+            <td>
+
+
+              {{ $value->name }}
+
+              
+        </td>
             <td><a class="btn btn-small btn-success" href="{{ URL::to('experience/' . $value->id) }}"><i class="fa fa-search"></i></a></td>
             <td><a class="btn btn-small btn-info" href="{{ URL::to('experience/' . $value->id . '/edit') }}"><i class="fa fa-pencil-square-o"></i></a></td>
             <td><a class="btn btn-warning" href="{{ URL::to('experience/' . $value->id . '/addref') }}"><i class="fa fa-plus"></i></a></td>
-            <td><button class="btn btn-small btn-danger"><i class="fa fa-trash"></i>
-                {{ Form::open(array('url' => 'delete/' . $value->id, 'class' => 'pull-right')) }}
-                    {{ Form::hidden('_method', 'DELETE') }}
-                {{ Form::close() }}
+           <td><a onclick="deleteExp()" method="DELETE" class="btn btn-small btn-danger" href="{{ URL::to('experience/' . $value->id . '/deleteExp') }}"><i class="fa fa-trash"></i>
+
+
           </button></td>
         </tr>
     @endforeach
@@ -69,3 +71,10 @@
 
 
 </div>
+
+
+<script>
+function deleteExp() {
+    confirm("Vill du ta bort?");
+}
+</script>
