@@ -49,7 +49,7 @@ class ProjectController extends \BaseController {
         $project = new Project;
         $project->title = Input::get('project_title');
         $project->body = Input::get('project_body');
-        $project->user_id = Auth::user()->id;
+        $project->owner_id = Auth::user()->id;
 
         $project->save();
 
@@ -138,7 +138,7 @@ class ProjectController extends \BaseController {
 
 	public function deletecolab($project_id, $colab_id){
 		if(Auth::check()){
-			DB::table('project_user')->where('user_id', '=', $colab_id)->where('project_id', '=', $project_id)->delete();
+			DB::table('project_user')->where('owner_id', '=', $colab_id)->where('project_id', '=', $project_id)->delete();
 			return Redirect::to("/project/".$project_id."/edit");
 		}else{
 			return Redirect::to('/project');
