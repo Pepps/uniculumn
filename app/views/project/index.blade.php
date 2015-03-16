@@ -1,84 +1,153 @@
+<!-- app/views/projects/edit.blade.php -->
 @extends('layouts.master')
+
+
 @section('content')
 
-<div class="container">
-
-@include('project.nav')
+@include('layouts.nav')
 @yield('nav')
 
-<h3>Your projects</h3>
+<div id="main_content">
+  <div id="my_projects">
+      <h1>Mina projekt</h1>
 
-<!-- will be used to show any messages -->
-@if (Session::has('message'))
-    <div class="alert alert-success col-md-4"><b>{{ Session::get('message') }}</b></div>
-@endif
+      @foreach ($projects as $value)
+      <div class="ex_column">
+    <div class="edit_tags_block"/>
+        <div class="tag_boxes"><input type="checkbox" name="dumbledore" value="lily"><label for="lily"><span><span></span></span>Pommes </label></div>
+        <div class="tag_boxes"><input type="checkbox" name="dumbledore" value="lily"><label for="lily"><span><span></span></span>Kokt</label></div>
+        <div class="tag_boxes"><input type="checkbox" name="dumbledore" value="lily"><label for="lily"><span><span></span></span>Chips</label></div>
+        <div class="tag_boxes"><input type="checkbox" name="dumbledore" value="lily"><label for="lily"><span><span></span></span>Pommes </label></div>
+        <div class="tag_boxes"><input type="checkbox" name="dumbledore" value="lily"><label for="lily"><span><span></span></span>Kokt</label></div>
+     </div>
+            <div class="ex ico_audio">
+              Ljud
+            </div>
 
-<table class="table table-striped table-bordered">
-    <thead>
-        <tr>
-            <td><b>#</b></td>
-            <td><b>project title</b></td>
-            <td><b>project body</b></td>
-            <td><b>Created at</b></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-    </thead>
-    <tbody>
-    <span style="display: none;">{{$i = 1}}</span>
-    @foreach($projects as $value)
-        <tr>
-            <td>{{$i++}}</td>
-            <td class="pi" style="display: none;">{{$value->id}}</td>
-            <td class="pt">{{$value->title}}</td>
-            <td>{{str_limit($value->body, $limit = 200, $end = '...')}}</td>
-            <td>{{str_limit($value->created_at, $limit = 10, $end = '')}}</td>
-            <td><a class="btn btn-small btn-success" href="{{ URL::to('project/' . $value->id) }}"><i class="fa fa-search"></i></a></td>
+              <div class="edit_wrapper project_list">
 
-            @if ($value->owner_id != Auth::user()->id)
-              <td><a class="btn btn-small btn-info" disabled="disabled" href="{{ URL::to('project/' . $value->id . '/edit') }}"><i class="fa fa-pencil-square-o"></i></a></td>
-              <td><button class="btn btn-small btn-danger" disabled="disabled"><i class="fa fa-trash"></i></button></td>
-            @else
-              <td><a class="btn btn-small btn-info" href="{{ URL::to('project/' . $value->id . '/edit') }}"><i class="fa fa-pencil-square-o"></i></a></td>
-              <td><button class="btn btn-small btn-danger delmodal-btn"><i class="fa fa-trash"></i></button></td>
-            @endif
-        </tr>
-    @endforeach
-    </tbody>
-</table>
+                   <!-- <Kategori/created at>  -->
+                      <div class="ex_float hide_this exp_location">Potatis{{ HTML::image('img/icons/edit/categories.PNG') }}</div>
+                      <div class="ex_float hide_this">2007/03/23 {{ HTML::image('img/icons/edit/clock.PNG') }}</div>
+                   <!-- </Plats/tid>  -->
+
+                   <!-- <Redigera kategori>  -->
+                       <div class="ex_float edit_this">
+                        <select>
+                              <option value="none">Kategori</option>
+                              <option value="volvo">Potatis</option>
+                              <option value="saab">Fläsksallad</option>
+                              <option value="mercedes">Grötrullar</option>
+                              <option value="audi">Bananlåda</option>
+                            </select>
+
+                       <div class="edit_tags edit_this">{{ HTML::image('img/hashtag.PNG') }}
+                          Ändra taggar
+
+                       </div>
+                       </div>
+
+                  <!-- </Redigera plats/tid>  -->
+
+                   <!-- <Kontrollknappar>  -->
+                        <div class="ex_button" style="background-color: #d70808;">{{ HTML::image('img/icons/edit/delete.PNG') }}</div>
+                        <div class="ex_button edit_experience">{{ HTML::image('img/icons/edit/edit.PNG') }}</div>
+                        <div class="ex_button edit_references">{{ HTML::image('img/icons/edit/add.PNG') }}</div>
+                        <div class="ex_button">{{ HTML::image('img/icons/edit/search.PNG') }}</div>
+
+                          <!-- <Spara ändringar>  -->
+                <div class="add_ref_edit edit_this">
+                Spara ändringar
+                </div>
+                <div class="ignore_ref_edit edit_this">
+                Ångra
+                </div>
+             <!-- </Spara ändringar>  -->
+                   <!-- </Kontrollknappar>  -->
+
+              </div>
 
 
-</div>
+             <!-- <Titel>  -->
+                <h2 class="hide_this"><a href="">{{ $value->title }}</a></h2>
+             <!-- </Titel>  -->
 
-<script>
+             <!-- <Redigera titel>  -->
+                <input value="Snape, Snape!" class="edit_this"></input>
+             <!-- </Redigera titel>  -->
 
-  window.onload = function(){
+             <div class="ex_description">
+             <!-- <Beskrivning>  -->
+               <span class="hide_this">{{$value->body}}</span>
 
-      $(".delmodal-btn").on("click", function(){
-        $('#delete').modal('show');
-        $('.modal-backdrop').css( "zIndex", -1030 );
-        $("#delete-pt").text($(this).parent().parent().find(".pt").text());
-        $('#del-btn').attr('href','/project/delete/'+$(this).parent().parent().find(".pi").text());
-      });
+             <!-- </Beskrivning>  -->
 
-  }
+             <!-- <Redigera beskrivning>  -->
+                <textarea class="edit_this" rows="6">Snape, Snape, Severus Snape, Snape, Snape, Severus Snape... Dumbledore!</textarea>
+             <!-- </Redigera beskrivning>  -->
+             </div>
 
-</script>
+          <!-- <Lägg till ny referens>  -->
+            <div class="references_choices">
 
-<!-- Modal -->
-<div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-body">
-        <h4 style="text-align:center;">Är du säker på att du vill ta bort <b><span id="delete-pt"></span></b>?</h4>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Stäng</button>
-        <a class="btn btn-danger" id="del-btn">Ta bort!</a>
-      </div>
-    </div>
-  </div>
-</div>
+                <div class="ref_column">
 
+                  <h3> Förnamn</h3>
+                  <input class="references_input" id="first_name"></input>
+
+                  <h3>Efternamn</h3>
+                  <input class="references_input" id="last_name"></input>
+
+                </div>
+
+                 <div class="ref_column">
+
+                    <h3>Email </h3>
+                    <input class="references_input" id="email_address"></input>
+
+                    <h3>Telefon </h3>
+                    <input class="references_input" id="phone_number"></input>
+                    <br/>
+
+                  <div class="addreference">
+                     Klar
+                  </div>
+                  <div class="clearreference">
+                      Ta bort
+                  </div>
+                </div>
+              </div>
+
+             <!-- </Lägg till ny referens>  -->
+
+
+
+             <!-- <Referenser>  -->
+            <div class="show_references">
+            {{ HTML::image('img/small_menu.PNG') }} Visa projektmedlemmar  <div class="show_tags">{{ HTML::image('img/hashtag.PNG') }} Visa taggar</div><br/>
+
+              <div class="allreferences">
+
+                <div class="project_members_square">
+                  @foreach ($users as $user)
+                    @if($user->id != Auth::user()->id)
+                      <div class="delete_member">{{ HTML::image('img/icons/edit/delete.PNG') }}</div>
+                      <span class="label label-info">{{$user->email}} <a href="/project/delcolab/{{$value->id}}/{{$user->id}}" style="color: #fff;"><i class="fa fa-times"></i></a></span>
+                    @endif
+                  @endforeach
+                </div>
+
+              </div>
+
+              <div class="alltags">
+
+                 <span >#musik</span> <span>#beat</span> <span>#acapella</span>  <span>#teamwork</span>
+                      <span>#magi</span> <span>#chips</span>
+
+              </div>
+
+
+            </div>
+          </div>
+        @endforeach
 @stop

@@ -105,7 +105,7 @@ function categoryShow(id) {
             if (id==0) {
                 $('#project_category').html("");
                 for (var i=0; i<data.length; i++) {
-                    $('<option value="'+data[i]['id']+'">'+data[i]['title']+'</option>').appendTo($('#project_category'));
+                        $('<option value="'+data[i]['id']+'">'+data[i]['title']+'</option>').appendTo($('#project_category'));
                     }
                 }
                 else {
@@ -182,8 +182,6 @@ $(document).on('change', '#project_category', function(e) {
 
 });
 
-<<<<<<< HEAD
-=======
 /*
 $(document).on('change', '#state', function(e) {
     e.preventDefault(e);
@@ -196,5 +194,3 @@ $(document).on('change', '#state', function(e) {
 
 });
 */
-
->>>>>>> isa
