@@ -15,7 +15,7 @@
               <h2>Kontaktuppgifter <a href="user/{{$user->id}}/edit"><div class="edit_icon"></div></a></h2>
               <div id="contact_information">
                 <div class="contact_rows">Namn: {{$user->firstname.' '.$user->lastname}}</div>
-                <div class="contact_rows">Ort: {{$city->name.', '.$state->name}}</div>
+                <div class="contact_rows">Ort: @if($nocity) Inte verifierat @else {{$city->name.', '.$state->name}}@endif</div>
                 <div class="contact_rows">Tel: {{$user->phonenumber}}</div>
                 <div class="contact_rows">Email: {{$user->email}} </div>
               </div>
@@ -34,20 +34,7 @@
 
                  <h2>Mina projekt <div class="edit_icon"></div></h2>
                 <span style="display: none;">{{$i = 1}}</span>
-                @foreach($projects as $value)
-                  <div class="project_description">
-                  <div class="icon audio"></div>
-                    <h2>{{$value->title}}</h2>
-                    {{str_limit($value->body, $limit = 50, $end = '...')}} <a href="{{ URL::to('project/' . $value->id) }}">Läs mer...</a>
-                    <a class="btn btn-small btn-info" href="{{ URL::to('project/' . $value->id . '/edit') }}"><i class="fa fa-pencil-square-o"></i></a>
-                    <button class="btn btn-small btn-danger" id="delmodal-btn"><i class="fa fa-trash"></i></button>
-                    {{$i++}}
-                  </div>
-                  <div class="project_members">
-                    Test.
-                    {{ HTML::image('img/users.PNG', '', array('id' => 'upload_button')) }}
-                  </div>
-              @endforeach
+
             </div>
 
 
