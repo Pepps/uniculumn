@@ -46,7 +46,7 @@ $(".edit_experience").on('click', function(){
      $(this).closest('.ex_column').find('.show_references').css("display", "none");
      $(this).closest('.ex_column').find('.edit_this').show();
      $(this).closest('.ex_column').find('.ex_button, .allreferences, .references_choices, .hide_this').hide();
-      });
+});
 
 
 $(".add_ref_edit, .ignore_ref_edit").on('click', function(){
@@ -64,13 +64,35 @@ $(".add_ref_edit, .ignore_ref_edit").on('click', function(){
 
     $(".show_references").on('click', function(){
       if ( $(this).find('.allreferences').css("display") == "block") {
-     $(this).find('.allreferences').slideUp('slow');
+        $(this).find('.allreferences').slideUp('slow');
       }
       else {
-     $(this).find('.allreferences').slideDown('slow');
-     }
-      });
-    
+       var THIS = $(this);
+       $(THIS).find('.allreferences').slideDown('slow');
+       /*$(THIS).find(".project_members_square").remove();
+       console.log($(this).find('.projectid').text());
+       $.ajax({
+           type: 'GET',
+           dataType: 'json',
+           url: '/project/getusers/'+$(THIS).find('.projectid').text(),
+           success : function(data) {
+             console.log(data.length);
+             for(var i = 0; i< data.length; i++){
+               console.log(data[i].firstname);
+               //console.log($(THIS).find(".allreferences"));
+               $(THIS).find(".allreferences").append(
+                 "<div class='project_members_square'>"+
+                   "<div class='delete_member'><img src='http://localhost:8000/img/icons/edit/delete.PNG'></div>"+
+                   "<span class='label label-info'>"+data[i].email+"</span>"+
+                   "<img src='http://localhost:8000/img/avatar.PNG'>"+
+                 "</div>"
+              );
+             }
+           }
+       });*/
+      }
+    });
+
     $(".allreferences, .show_tags, .alltags").on('click', function(e){
        e.stopPropagation();
     });
@@ -86,10 +108,6 @@ $(".add_ref_edit, .ignore_ref_edit").on('click', function(){
 
 
     });
-
-
-
-
 // rensa inputs om man byter från anställning till utbildning etc
 $('input:radio[name="exptype"]').on('click', function(){
     $('#employer, #employment').val('');
@@ -105,10 +123,6 @@ $('input:radio[name="exptype"]').on('click', function(){
       $("#add_references").slideUp('slow');
     $(' #first_name, #last_name, #phone_number, #email_address').attr("disabled", false);
         });
-
-    
-
-
 
 // litte radiobuttonz hehe
 
@@ -147,7 +161,7 @@ $('input:radio[value="other"]').on('click', function(){
 $('input[name="dumbledore"]').on('click', function(){
   if ( $('input[name="dumbledore"]').is(':checked') ) {
       $(".check_subcategories").css({ "background-image" : "url(img/checkmark.PNG)"}, "fast" );
-} 
+}
 else {
       $(".check_subcategories").css({ "background-image" : "url(img/delete_button.PNG)"}, "fast" );
 }
@@ -177,18 +191,16 @@ $("#project_description").on("input", function() {
 
 $("#project_category").change(function(){
   $(".check_category").show();
-  
-    if ( $(this).val() == "none" ) { 
+    if ( $(this).val() == "none" ) {
       $(".check_category").css({ "background-image" : "url(img/delete_button.PNG)"}, "fast" );
       $(".subcategories").slideUp();
         }
-        else { 
+        else {
       $(".check_category").css({ "background-image" : "url(img/checkmark.PNG)"}, "fast" );
       $(".subcategories").slideDown();
         }
-     
-    }); 
 
+    });
 $('input:radio[name="fgg1"]').on('click', function(){
         $("#hide_me2").children('.dark_square').removeClass('s_users  s_projects s_experiences s_status s_categories').animate({ "padding-top": "0vw", "height" : "2vw", "background-image" : "none", "color" : "white" }, "slow" );
         $("#hide_me, #search_for").slideDown('slow');
@@ -196,7 +208,7 @@ $('input:radio[name="fgg1"]').on('click', function(){
       });
 
   $("#clickmetoo").click(function(){
-    
+
       if (controlPanel == true) {
             $(".settings").show();
             $("#clickmetoo").css({ "background-color" : "#56c5cb", "cursor" : "text"}, "fast" );
@@ -257,12 +269,12 @@ $(".edit_icon").mouseenter(function(){
       $(".trigger_registration").click(function(){
       $(".welcome_box").hide();
         $(".registration_box").slideDown(600);
-      }); 
+      });
 
       $(".back_to_welcome").click(function(){
       $(".registration_box").hide();
         $(".welcome_box").show('slide',{direction:'right'},700);
-      }); 
+      });
 
 
   });
