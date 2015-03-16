@@ -87,6 +87,7 @@ class ProjectController extends \BaseController {
 					->with('users', $Project->users);
 	}
 
+
 	/*
 		The method responsible for redering the view for the project/{id}/edit and
 		passes the selected prodject to the view.

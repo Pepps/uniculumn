@@ -181,7 +181,6 @@ $(document).on('change', '#project_category', function(e) {
     categoryShow($("#project_category").val());
 
 });
-
 /*
 $(document).on('change', '#state', function(e) {
     e.preventDefault(e);

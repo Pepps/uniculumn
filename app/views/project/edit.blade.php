@@ -4,6 +4,7 @@
 
 @section('content')
 
+<<<<<<< HEAD
 @include('layouts.nav')
 @yield('nav')
 
@@ -23,6 +24,37 @@
             <div class="ex ico_audio">
               Ljud
             </div>
+=======
+{{ HTML::ul($errors->all()) }}
+
+      <div id="main_content">
+
+      <h1>{{ HTML::image('img/edit.PNG', 'a picture', array('class' => 'cloud')) }}Redigera</h1>
+      {{ Form::open(array('url' => 'project', 'files'=>true, 'method'=>'post')) }}
+
+      @if ( $project->user_id == Auth::user()->id)
+        {{ Form::open(array('url' => 'project/addcolab/'.$project->id)) }}
+          <div class="form-group" id="bloodhound">
+              {{ Form::label('collaborators-form', 'Medarbetare') }}
+              {{ Form::text('collaborators-form', Input::old('name'), array('class' => 'typeahead uploadfile', 'id' => 'input-collaborators')) }}
+              {{ Form::submit('Update the project!', array('class' => 'submit_project')) }}
+          </div>
+        {{ Form::close() }}
+        <h3>
+      @foreach ($users as $user)
+        @if($user->id != Auth::user()->id)
+          <span class="label label-info">{{$user->email}} <a href="/project/delcolab/{{$project->id}}/{{$user->id}}" style="color: #fff;"><i class="fa fa-times"></i></a></span>
+        @endif
+      @endforeach
+      </h3>
+    @endif
+
+          <div class="upload_column">
+            <div class="dark_icon title_icon"><div class="check_title"></div></div>
+             <h3>Välj titel</h3>
+            <input class="uploadfile" name="project_title" id="project_title" value=""> </input>
+          </div>
+>>>>>>> kevin
 
               <div class="edit_wrapper project_list">
 
