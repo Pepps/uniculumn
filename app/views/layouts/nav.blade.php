@@ -20,7 +20,7 @@
                     <div class="arrow-down" id="clickmetoo">
                       <div class="settings">
                           Kontoinställningar<br/>
-                          Logga ut
+                          <a href="/logout">Logga ut</a>
                           <div class="arrow-up" id="hide_controlpanel"></div>
 
                       </div>

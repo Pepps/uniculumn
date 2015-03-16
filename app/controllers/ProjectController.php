@@ -12,8 +12,7 @@ class ProjectController extends \BaseController {
 	    if (Auth::check()){
 
 				return View::make("project.index")->with('projects',User::find(Auth::user()->id)->project)
-																		->with('user',User::find(Auth::user()->id))
-																		->with('users', Project::find(2)->users);
+																					->with('user',User::find(Auth::user()->id));
 	    }
 	    else{
 	        return Redirect::to('/');
@@ -95,7 +94,7 @@ class ProjectController extends \BaseController {
 		$Project = Project::find($id);
 		return View::make('project.edit')->with('project',Project::find($id))
 																		 ->with('users', Project::find($id)->users)
-                                                                         ->with('user',User::find(Auth::user()->id));
+                                     ->with('user',User::find(Auth::user()->id));
 	}
 
 	/*
@@ -147,6 +146,10 @@ class ProjectController extends \BaseController {
 		}else{
 			return Redirect::to('/project');
 		}
+	}
+
+	public function getcolabs($id){
+		return Project::find($id)->users->toJson();
 	}
 
 }

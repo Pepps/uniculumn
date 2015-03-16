@@ -16,4 +16,19 @@ window.onload = function(){
     doc.output("dataurlnewwindow");
 
   });
+
+  $(".delete_btn").on("click", function(){
+    var THIS = $(this);
+    //console.log($(this).parent().parent());
+    if(confirm("är du säker på att du vill ta bort?")){
+      console.log($(THIS).parent().find(".proj_id").text());
+      $.ajax({
+          type    : 'GET',
+          url     : '/project/delete/'+$(THIS).parent().find(".proj_id").text(),
+          success : function() {
+            $(THIS).parent().parent().remove();
+          }
+      });
+    }
+  });
 }

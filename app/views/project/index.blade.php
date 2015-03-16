@@ -27,8 +27,8 @@
               <div class="edit_wrapper project_list">
 
                    <!-- <Kategori/created at>  -->
-                      <div class="ex_float hide_this exp_location">Potatis{{ HTML::image('img/icons/edit/categories.PNG') }}</div>
-                      <div class="ex_float hide_this">2007/03/23 {{ HTML::image('img/icons/edit/clock.PNG') }}</div>
+                      <div class="ex_float hide_this exp_location">{{ HTML::image('img/icons/edit/categories.PNG') }}</div>
+                      <div class="ex_float hide_this">{{str_limit($value->created_at, $limit = 10, $end = '')}} {{ HTML::image('img/icons/edit/clock.PNG') }}</div>
                    <!-- </Plats/tid>  -->
 
                    <!-- <Redigera kategori>  -->
@@ -48,9 +48,9 @@
                        </div>
 
                   <!-- </Redigera plats/tid>  -->
-
+                        <span class="proj_id" style="display:none;">{{$value->id}}</span>
                    <!-- <Kontrollknappar>  -->
-                        <div class="ex_button" style="background-color: #d70808;">{{ HTML::image('img/icons/edit/delete.PNG') }}</div>
+                        <div class="ex_button delete_btn" style="background-color: #d70808;">{{ HTML::image('img/icons/edit/delete.PNG') }}</div>
                         <div class="ex_button edit_experience">{{ HTML::image('img/icons/edit/edit.PNG') }}</div>
                         <div class="ex_button edit_references">{{ HTML::image('img/icons/edit/add.PNG') }}</div>
                         <div class="ex_button">{{ HTML::image('img/icons/edit/search.PNG') }}</div>
@@ -69,7 +69,7 @@
 
 
              <!-- <Titel>  -->
-                <h2 class="hide_this"><a href="">{{ $value->title }}</a></h2>
+                <h2 class="hide_this">{{ $value->title }}</h2>
              <!-- </Titel>  -->
 
              <!-- <Redigera titel>  -->
@@ -125,25 +125,22 @@
              <!-- <Referenser>  -->
             <div class="show_references">
             {{ HTML::image('img/small_menu.PNG') }} Visa projektmedlemmar  <div class="show_tags">{{ HTML::image('img/hashtag.PNG') }} Visa taggar</div><br/>
+              <span style="display:none;" class="projectid">{{$value->id}}</span>
 
               <div class="allreferences">
-
-                <div class="project_members_square">
-                  @foreach ($users as $user)
-                    @if($user->id != Auth::user()->id)
-                      <div class="delete_member">{{ HTML::image('img/icons/edit/delete.PNG') }}</div>
-                      <span class="label label-info">{{$user->email}} <a href="/project/delcolab/{{$value->id}}/{{$user->id}}" style="color: #fff;"><i class="fa fa-times"></i></a></span>
-                    @endif
-                  @endforeach
-                </div>
-
+                @foreach($value->users as $user)
+                  <div class='project_members_square'>
+                    <div class='delete_member'>{{ HTML::image('img/icons/edit/delete.PNG') }}</div>
+                    <span class='label label-info'>{{$user->email}}</span>
+                    {{ HTML::image('img/avatar.PNG') }}
+                  </div>
+                @endforeach
               </div>
 
               <div class="alltags">
-
-                 <span >#musik</span> <span>#beat</span> <span>#acapella</span>  <span>#teamwork</span>
-                      <span>#magi</span> <span>#chips</span>
-
+                @foreach($value->category as $category)
+                  <span>#{{$category->title}}</span>
+                @endforeach
               </div>
 
 
