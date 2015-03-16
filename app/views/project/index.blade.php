@@ -87,38 +87,37 @@
              <!-- </Redigera beskrivning>  -->
              </div>
 
-          <!-- <Lägg till ny referens>  -->
+          <!-- <Lägg till projektmedlemmar>  -->
             <div class="references_choices">
 
                 <div class="ref_column">
 
-                  <h3> Förnamn</h3>
-                  <input class="references_input" id="first_name"></input>
+                  <h2> Lägg till projektmedlemmar</h2>
 
-                  <h3>Efternamn</h3>
-                  <input class="references_input" id="last_name"></input>
 
+                  <h3>Sök</h3><input class="references_input" id="last_name"></input>
+
+                  <div class="add_selected_member">Lägg till</div>
                 </div>
 
                  <div class="ref_column">
+                <div class="added_members">
+                <span>etafemtioj@gmail.com <img class="delete_added_member" src="img/delete_button.PNG"/></span>
+                <span>etttvåtretusenhundrafemtioj@gmail.com <img class="delete_added_member" src="img/delete_button.PNG"/></span>
+                <span>ettj@gmail.com <img class="delete_added_member" src="img/delete_button.PNG"/></span>
+                </div>
 
-                    <h3>Email </h3>
-                    <input class="references_input" id="email_address"></input>
-
-                    <h3>Telefon </h3>
-                    <input class="references_input" id="phone_number"></input>
-                    <br/>
 
                   <div class="addreference">
                      Klar
                   </div>
                   <div class="clearreference">
-                      Ta bort
+                      Ångra
                   </div>
                 </div>
               </div>
 
-             <!-- </Lägg till ny referens>  -->
+             <!-- </Lägg till projektmedlemmar>  -->
 
 
 
