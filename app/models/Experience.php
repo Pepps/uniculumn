@@ -11,8 +11,9 @@ class Experience extends Eloquent
 
 	// An Experience has many different Categories.
 	public function category() {
-		return $this->hasMany('Category');
+		return $this->belongsToMany('Category');
 	}
+
 
 	//
 	public function reference() {

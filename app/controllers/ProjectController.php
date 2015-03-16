@@ -10,7 +10,10 @@ class ProjectController extends \BaseController {
 
 	public function index(){
 	    if (Auth::check()){
-				return View::make("project.index")->with('projects',User::find(Auth::user()->id)->project);
+
+				return View::make("project.index")->with('projects',User::find(Auth::user()->id)->project)
+																		->with('user',User::find(Auth::user()->id))
+																		->with('users', Project::find(2)->users);
 	    }
 	    else{
 	        return Redirect::to('/');
@@ -21,7 +24,7 @@ class ProjectController extends \BaseController {
 		The method responsible for redering the createing the view for the route /project/create
 	*/
 	public function create(){
-      return View::make('project.create');
+      return View::make('project.create')->with('user',User::find(Auth::user()->id));
 	}
 
 	/*
@@ -40,7 +43,6 @@ class ProjectController extends \BaseController {
           'project_title'           => 'required|unique:projects,title',
           'project_body'            => 'required',
           'category'                => 'required',
-          'subcategory_id'          => 'required',
       );
 
       $validator = Validator::make(Input::all(), $rules);
@@ -90,8 +92,10 @@ class ProjectController extends \BaseController {
 		passes the selected prodject to the view.
 	*/
 	public function edit($id){
+		$Project = Project::find($id);
 		return View::make('project.edit')->with('project',Project::find($id))
-																		 ->with('users', Project::find($id)->users);
+																		 ->with('users', Project::find($id)->users)
+                                                                         ->with('user',User::find(Auth::user()->id));
 	}
 
 	/*
@@ -138,7 +142,7 @@ class ProjectController extends \BaseController {
 
 	public function deletecolab($project_id, $colab_id){
 		if(Auth::check()){
-			DB::table('project_user')->where('user_id', '=', $colab_id)->where('project_id', '=', $project_id)->delete();
+			DB::table('project_user')->where('owner_id', '=', $colab_id)->where('project_id', '=', $project_id)->delete();
 			return Redirect::to("/project/".$project_id."/edit");
 		}else{
 			return Redirect::to('/project');
