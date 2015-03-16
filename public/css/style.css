@@ -6,7 +6,7 @@ body {
 	font-family: verdana;
 	font-size: 0.9vw;
 	color: #465b5c;
-	overflow-x:hidden;
+	overflow-y:scroll;
 	font-weight: 100;
 
 }
@@ -48,7 +48,6 @@ h1.addeducation {
 #main_content {
 	background: url(../img/background_gradient.PNG);
 	width: 85vw;
-	height: 84vh;
 	min-height: 84vh;
 	position: absolute;
 	top: 6vw;
@@ -600,14 +599,14 @@ input.uploadfile {
 .projet_plane{
 	float: left;
 	width:40vw;
-	height:75vh;
+	/*height:75vh;*/
 	margin-left:5vw;
-	overflow:auto;
+	
 }
 .category_plane{
 	width:40vw;
 	max-width:40vw;
-	height:10vw;
+	/*height:10vw;*/
 	float: left;
 	overflow:hidden;
 }
@@ -615,6 +614,7 @@ input.uploadfile {
 	float: left;
 	margin-left:12vw;
 	color:white;
+	overflow:hidden;
 
 }
 
@@ -632,11 +632,14 @@ input.uploadfile {
 	margin-right: 45%;
 	font-size:24px;
 	color:white;
+	overflow:hidden;
+	
 }
 .text_description{
 	margin-left: 2vw;
 	margin-right: 2vw;
 	color:white;
+
 
 }
 .time_stamp{
