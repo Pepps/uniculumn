@@ -21,38 +21,39 @@ class AuthController extends BaseController {
 
   public function store(){
 
-    /*$validator = Validator::make(
-        array(
-            'fname' => Input::get('fname'),
-            'lname' => Input::get('lname'),
-            'email' => Input::get('email'),
-            'password' => Input::get('password'),
-            'cpassword' => Input::get('cpassword')
-            ),
-        array(
-            'fname' => 'required',
-            'lname' => 'required',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|min:8',
-            'cpassword' => 'same:password'
-            )
-        );*/
+    $validator = Validator::make(
+      array(
+          'firstname' => Input::get('fname'),
+          'lastname' => Input::get('lname'),
+          'email' => Input::get('email'),
+          'password' => Input::get('password'),
+          'Passwordconfirm' =>Input::get('cpassword')
+      ),
+      array(
+          'firstname' => 'required|max:50|string',
+          'lastname' => 'required|max:50|string',
+          'email' => 'required|email|unique:users',
+          'password' => 'required|min:6|max:20',
+          'Passwordconfirm' => 'same:password'
+      )
+    );
 
-    //$data =  Input::except(array('_token')) ;
+    if ($validator->fails()){
+      return Redirect::to('/')->withErrors($validator);
+    }else{
+      $pdir = Hash::make(Input::get('fname') . Input::get('lname') . date('Y/m/d'));
 
-    $pdir = Hash::make(Input::get('fname') . Input::get('lname') . date('Y/m/d'));
-    //var_dump(app_path(). '/projects/' . $pdir);
-    $user = new User;
-    $user->firstname = Input::get('fname');
-    $user->lastname = Input::get('lname');
-    $user->email = Input::get('email');
-    $user->password = Hash::make(Input::get('password'));
-    $user->pdir = $pdir;
-    $user->save();
+      $user = new User;
+      $user->firstname = Input::get('fname');
+      $user->lastname = Input::get('lname');
+      $user->email = Input::get('email');
+      $user->password = Hash::make(Input::get('password'));
+      $user->pdir = $pdir;
+      $user->save();
 
-    File::makeDirectory(app_path() . '/projects/' . $pdir, 0775, true);
-    return Redirect::to('/');
-
+      File::makeDirectory(app_path() . '/projects/' . $pdir, 0775, true);
+      return Redirect::to('/');
+    }
   }
 
     public function loginWithGoogle() {

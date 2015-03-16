@@ -3,8 +3,9 @@
 
 <div class="container">
 
-@include('project.projectnav')
-@yield('projectnav')
+@include('layouts.nav')
+@yield('nav')
+
 
 <h3>Your experiences</h3>
 
@@ -71,7 +72,7 @@
 
 
 </div>
-
+@stop
 
 <script>
 function deleteExp() {

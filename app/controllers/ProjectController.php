@@ -21,7 +21,7 @@ class ProjectController extends \BaseController {
 		The method responsible for redering the createing the view for the route /project/create
 	*/
 	public function create(){
-      return View::make('project.create');
+      return View::make('project.create')->with('user',User::find(Auth::user()->id));
 	}
 
 	/*
@@ -31,15 +31,15 @@ class ProjectController extends \BaseController {
 		else a prodject is created and the data is inserted in to the database.
 	*/
 	public function store(){
-			/* TODO Check if folder exist if so delete it
+			/*
+				 TODO Check if folder exist if so delete it
 				 TODO Check if there is files if not do not try to upload files
-			 */
+			*/
 
       $rules = array(
           'project_title'           => 'required|unique:projects,title',
           'project_body'            => 'required',
           'category'                => 'required',
-          'subcategory_id'          => 'required',
       );
 
       $validator = Validator::make(Input::all(), $rules);
@@ -50,7 +50,9 @@ class ProjectController extends \BaseController {
         $project = new Project;
         $project->title = Input::get('project_title');
         $project->body = Input::get('project_body');
-        $project->id = Auth::user()->id;
+
+        $project->owner_id = Auth::user()->id;
+
 
         $project->save();
 
@@ -69,7 +71,6 @@ class ProjectController extends \BaseController {
 
 				Session::flash('message', 'Projektet har skappats!');
 				return Redirect::to('project');
-
       }
 	}
 
@@ -82,8 +83,11 @@ class ProjectController extends \BaseController {
       return View::make('project.show')
           ->with('project', $Project)
 					->with('categories', $Project->category)
-					->with('user', User::find($Project->owner_id));
+
+					->with('users', $Project->users);
+
 	}
+
 
 	/*
 		The method responsible for redering the view for the project/{id}/edit and
@@ -91,7 +95,8 @@ class ProjectController extends \BaseController {
 	*/
 	public function edit($id){
 		return View::make('project.edit')->with('project',Project::find($id))
-																		 ->with('users', Project::find($id)->users);
+																		 ->with('users', Project::find($id)->users)
+                                                                         ->with('user',User::find(Auth::user()->id));
 	}
 
 	/*

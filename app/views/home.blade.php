@@ -17,11 +17,13 @@
       <div class="registration_box">
         {{ Form::open(array('url' => 'register_action','method' => 'post')) }}
       @if($errors->any())
-      <div class="alert alert-error">
-        <a href="#" class="close" data-dismiss="alert">&times;</a>
-        {{ implode('', $errors->all('<li class="error">:message</li>')) }}
-      </div>
+        <div class="alert alert-danger" role="alert">
+          @foreach($errors as $error)
+            <span>{{$error}}</span>
+          @endforeach
+        </div>
       @endif
+
      <!-- {{ Form::token('token')}}-->
       {{ Form::text('fname', '', array('placeholder' => 'Förnamn')) }} <br>
       {{ Form::text('lname', '', array('placeholder' => 'Efternamn')) }} <br>
