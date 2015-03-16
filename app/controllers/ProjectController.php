@@ -12,7 +12,7 @@ class ProjectController extends \BaseController {
 	    if (Auth::check()){
 
 				return View::make("project.index")->with('projects',User::find(Auth::user()->id)->project)
-																					->with('user',User::find(Auth::user()->id));
+													>with('user',User::find(Auth::user()->id));
 	    }
 	    else{
 	        return Redirect::to('/');

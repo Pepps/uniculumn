@@ -9,8 +9,6 @@
 
 
 
-        <!-- Filip vet vad han ska göra med den här, den ska bort och så ska funktionen flyttas till radioknapparna //isa noob -->
-        <div style="width: 1vw; height: 1vw; background: red; float: left;" id="clickyes"></div>
 
         <div class="url_wrapper">
           <img src="img/search.PNG" style="width: 0.7vw; height: 0.7vw; margin-right: 0.5vw;"/> www.randomurl.com/i-barely-understand-this-send-help<br/><br/>
