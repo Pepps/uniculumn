@@ -4,7 +4,7 @@
 @include('layouts.nav')
 @yield('nav')
 
-      <div id="main_content">
+<div id="main_content">
 
 
           <div class="columnLeft">
@@ -12,12 +12,13 @@
               <div class="profile_picture">
               </div>
 
-              <h2>Kontaktuppgifter <a href="user/{{$user->id}}/edit"><div class="edit_icon"></div></a></h2>
+              <h2>Kontaktuppgifter <div class="edit_icon"></div></h2>
               <div id="contact_information">
-                <div class="contact_rows">Namn: {{$user->firstname.' '.$user->lastname}}</div>
-                <div class="contact_rows">Ort: @if($nocity) Inte verifierat @else {{$city->name.', '.$state->name}}@endif</div>
-                <div class="contact_rows">Tel: {{$user->phonenumber}}</div>
-                <div class="contact_rows">Email: {{$user->email}} </div>
+                  <div class="contact_rows">Namn: {{ $user->firstname }}. </div>
+                  <div class="contact_rows">Ort: {{ $user->lastname }}.</div>
+                  <div class="contact_rows">Tel: {{ $user->phone }}.</div>
+                  <div class="contact_rows">Email: {{ $user->email }}.</div>
+                }
               </div>
 
           </div>
@@ -25,15 +26,28 @@
 
          <div class="columnMiddle">
 
-             <h2>{{$user->firstname}}</h2> <!--username-->
+             <h2>Severus Snape</h2> <!--username-->
 
                 <div id="description"> <!--user personal description-->
+
+                    <p>
+                      Bacon ipsum dolor amet biltong pork loin brisket pork cow ribeye meatball flank andouille. Corned beef kielbasa chicken, pancetta short ribs pig jerky. Ground round beef prosciutto short ribs bacon. Strip steak jerky biltong flank drumstick venison tenderloin turkey porchetta turducken!
+                    </p>
+
+                    <p>
+                      Cupim salami shoulder picanha. Cow chicken venison tail, shank brisket hamburger. Filet mignon short loin sausage brisket, cupim shank cow pig porchetta frankfurter pork loin hamburger meatball turkey. Frankfurter tenderloin porchetta turkey. Pork belly bresaola tail ball tip kielbasa tenderloin pork loin pancetta jerky. Brisket capicola pork loin drumstick tenderloin landjaeger.  <div class="edit_icon"></div>
+                    </p>
 
                   </div>
 
 
                  <h2>Mina projekt <div class="edit_icon"></div></h2>
-                <span style="display: none;">{{$i = 1}}</span>
+                  <div class="project_description">
+                    <div class="icon audio"></div>
+                    <h2> {{ $user->title }} </h2>
+                     <a href="">Läs mer...</a>
+
+                  </div>
 
             </div>
 
@@ -71,14 +85,6 @@
 
 
         </div>
-
-
-
-
-
-
-
-
 
 
 
