@@ -26,29 +26,23 @@
 
          <div class="columnMiddle">
 
-             <h2>Severus Snape</h2> <!--username-->
+             <h2>{{ $user->firstname }}</h2> <!--username-->
 
                 <div id="description"> <!--user personal description-->
 
-                    <p>
-                      Bacon ipsum dolor amet biltong pork loin brisket pork cow ribeye meatball flank andouille. Corned beef kielbasa chicken, pancetta short ribs pig jerky. Ground round beef prosciutto short ribs bacon. Strip steak jerky biltong flank drumstick venison tenderloin turkey porchetta turducken!
-                    </p>
-
-                    <p>
-                      Cupim salami shoulder picanha. Cow chicken venison tail, shank brisket hamburger. Filet mignon short loin sausage brisket, cupim shank cow pig porchetta frankfurter pork loin hamburger meatball turkey. Frankfurter tenderloin porchetta turkey. Pork belly bresaola tail ball tip kielbasa tenderloin pork loin pancetta jerky. Brisket capicola pork loin drumstick tenderloin landjaeger.  <div class="edit_icon"></div>
-                    </p>
 
                   </div>
 
 
                  <h2>Mina projekt <div class="edit_icon"></div></h2>
+                 @foreach($projects as $value)
                   <div class="project_description">
                     <div class="icon audio"></div>
-                    <h2> {{ $user->title }} </h2>
+                    <h2> {{ $value->title }} </h2>
                      <a href="">Läs mer...</a>
-
+                      {{ $value->body }}
                   </div>
-
+                  @endforeach
             </div>
 
 

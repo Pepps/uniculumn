@@ -2,7 +2,7 @@
 
 <div id="ui_sidebar">
             <a href="/user">{{ HTML::image('img/logoleft.PNG', 'a picture', array('class' => 'left_logo')) }}</a>
-            <a href="/search" ><h2><div class="arrow-right"></div>Avancerad sökning</h2></a>
+            <a href="/doc" ><h2><div class="arrow-right"></div>Avancerad sökning</h2></a>
             <a href="/user" ><h2><div class="arrow-right"></div>Min profil</h2></a>
             <a href="/project" ><h2><div class="arrow-right"></div>Mina projekt</h2></a>
             <a href="/experience" ><h2><div class="arrow-right"></div>Mina erfarenheter</h2></a>
@@ -20,7 +20,7 @@
                     <div class="arrow-down" id="clickmetoo">
                       <div class="settings">
                           Kontoinställningar<br/>
-                          Logga ut
+                          <a href="/logout">Logga ut</a>
                           <div class="arrow-up" id="hide_controlpanel"></div>
 
                       </div>
