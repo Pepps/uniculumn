@@ -1,23 +1,461 @@
+
+.edit_tags_block {
+	background-color: #253737;
+	color: white;
+	float: right;
+	width: 11vw;
+	height: 9vw;
+	padding: 0.5vw;
+	margin-right: -12vw;
+	font-size: 0.8vw;
+	display: none;
+	overflow:  auto;
+	position: relative;
+}
+
+.tag_boxes {
+	float: left;
+	width: 5vw !important;
+	height: 2vw !important;
+}
+
+
+
+/* vänster-pil */
+.arrow-left {
+	width: 0; 
+	height: 0; 
+	border-right: 1vw solid  red;
+	border-top: 0.8vw solid transparent;
+	border-bottom: 0.8vw solid transparent;
+	float: left;
+	position: absolute;
+	left: -0.4vw;
+	top: 2.8vw;
+}
+
+
+
+.edit_tags {
+	width: 8vw;
+	height: 2vw;
+	padding-right: 0.5vw;
+	float: right;
+	margin: 0.5vw 0vw;
+	cursor: pointer;
+	font-size: 1vw;
+}
+
+.edit_tags img {
+	width: 1vw !important;
+	height: 1vw !important;
+}
+
+/* //////////////////////////////////////////////////////          <CUSTOM FONT> */
+																		      /**/
+@font-face {
+    font-family: Kozuka;
+    src: url(../font/KozGoPr6N-ExtraLight.otf) format('opentype');
+}
+																			  /**/
+/* /////////////////////////////////////////////////////         </CUSTOM FONT*/
+
+
+/* //////////////////////////////////////////////////////		        <BODY> */
+																			/**/
 body {
 	background: url(../img/background_vertical.PNG) repeat-y;
 	background-position: left;
-	background-size: 18vw;
+	background-size: 16vw;
 	margin: 0px;
+	padding: 0vw;
 	font-family: verdana;
 	font-size: 0.9vw;
 	color: #465b5c;
-	overflow-x:hidden;
+	overflow-y:;
 	font-weight: 100;
+}
+																 		       /**/
+/* //////////////////////////////////////////////////////		        </BODY> */
+
+
+.ex_column select {
+	padding: 0.4vw;
+	width: 7.8vw;
+	margin-right: 0.2vw;
+	border: 0.1vw solid #56c5cc;
+	float: right;
+	font-size: 0.8vw;
+}
+
+.show_tags {
+	float: right;
+}
+
+.alltags {display: none;
+padding-top: 0.4vw;
+text-align: center;}
+
+.alltags span {
+	background-color: #56c5cc;
+	color: white;
+	padding: 0.3vw 0.7vw;
+	border-radius: 0.4vw;
+	margin-right: 0.3vw;
+	margin-bottom: 0.3vw;
 
 }
 
- .login_button, .register_button, .cursor {
+/* omfg all this css i cant deal */
+
+.exp_location {
+	margin-left: -5vw;
+	width: 15vw;
+}
+
+.edit_this {
+	display: none;
+}
+
+.edit_wrapper input {
+	width: 5.6vw !important;
+	margin-left: 0.3vw;
+	font-size: 0.8vw;
+	margin-top: 0.2vw !important;
+}
+
+.ex_column input {
+	padding: 0.4vw;
+	border: 0.1vw solid #56c5cc;
+	font-size: 0.8vw;
+	margin-top: 0.8vw;
+
+}
+
+
+.ex_column textarea {
+	padding: 0.2vw;
+	border: 0.1vw solid #56c5cc;
+	font-size: 0.8vw;
+	margin-top: 0.8vw;
+	width: 14vw;
+	font-size: 0.7vw;
+	font-family: verdana;
+}
+
+
+.show_references {
+	width: 38vw;
+	display: inline-block;
+	color: #465353;
+	font-size:0.9vw;
+	cursor: pointer;
+	margin-top: 0.3vw;
+	margin-bottom: 0vw;
+}
+
+.allreferences {
+	display: none;
+	cursor: text;
+}
+
+.show_references img {
+	width: 0.8vw;
+	height: 0.8vw;
+	margin-right: 0.2vw;
+
+}
+
+.ref_square {
+	background: #2f4343 center no-repeat;
+	background-size: 5vw;
+	font-size: 0.8vw;
+	padding: 0.8vw;
+	margin: 0.3vw 0.3vw 0.3vw 0vw;
+	display: inline-block;
+	line-height: 1.3vw;
+	border-radius: 0.5vw;
+	color: white;
+	width: 16vw;
+
+}
+
+
+
+
+.add_references {
+	text-align: right;
+	width: 33vw;
+	display: inline-block;
+}
+
+.add_references h3 {
+	margin: 0vw -0.5vw 0vw 0vw !important; 	padding: 0vw !important;
 	cursor: pointer;
 }
 
+.add_references img {
+	width: 1.5vw;
+	height: 1.5vw;
+	margin-bottom: -0.3vw;
+	margin-left: 0.2vw;
+	cursor: pointer;
+}
+
+.references_choices {
+	width: 39vw;
+	height: 9.5vw;
+	margin-bottom: 4vw;
+	background-color: #465353;
+	color: white;
+	text-align: right;
+	line-height: 0.2vw;
+	padding-top: 0.5vw;
+	margin-top: 1vw;
+	display: none;
+}
+
+.references_input  {
+	height: 0.9vw;
+	padding: 0.3vw;
+	display: inline-block;
+	margin-bottom: 1.8vw;
+	width: 12vw;
+}
+
+.ref_column {
+	width: 18.6vw;
+	float: left;
+	padding-right: 0.5vw;
+	padding-left: 0.2vw;
+}
+
+.ref_column h3 {
+	float: left;
+	font-size: 0.9vw;
+	margin-left: 0.8vw;
+	margin-top: 1.4vw;
+}
+
+.addreference, .clearreference{
+	padding: 1vw;
+	background-color: #42b8bf;
+	float: right; 
+
+	cursor: pointer;
+	font-family: Kozuka;
+}
+
+.clearreference{
+	background-color: #253737;
+	margin-right: 0.4vw;
+}
+
+.ignore_ref_edit, .add_ref_edit{
+	padding: 0.5vw;
+	background-color: #42b8bf;
+	float: right;
+	cursor: pointer;
+	color: white;
+	font-family: Kozuka;
+	font-size: 0.9vw;
+	margin-top: 0.5vw;
+	margin-right: 0.3vw;
+}
+
+.ignore_ref_edit{
+	background-color: #253737;
+}
+
+
+.exp_square {
+	background: #2f4343 center no-repeat;
+	background-size: 5vw;
+	width: 7.3vw;
+	font-size: 0.9vw;
+	height: 0vw;
+	padding-top: 5vw;
+	margin: 1vw 1vw 0.5vw 0vw;
+	float: left;
+	line-height: 2vw;
+	text-align: center;
+	font-family: Kozuka;
+	border-radius: 0.5vw;
+}
+
+
+.things {display: none;
+float: left;}
+
+.ex {
+	width: 6vw;
+	height:3vw;
+	background-color: #56c5cc;
+	background-repeat: no-repeat;
+	padding-top: 4vw;
+	color: white;
+	text-align: center;
+	float: left;
+	margin-right: 0.8vw;
+
+}
+
+.ico_education {background-image: url(../img/education.PNG); background-size:6vw; }
+.ico_employment {background-image: url(../img/employment.PNG); background-size:6vw;  }
+.ico_audio {background-image: url(../img/audio.PNG); background-size:6vw;  }
+
+/* wrappers för varje steg */
+
+#add_new_experience {
+	float: right;
+	width: 37vw;
+	margin-top: -1vw;
+}
+
+#add_project {
+	float: right;
+	width: 37vw;
+	margin-top: -1vw;
+	padding-top: 1.8vw;
+}
+
+#my_experience, #my_projects {
+	float: left;
+	width: 40vw;
+	margin-left: 1vw;
+}
+
+
+.ex_column {
+	width: 39vw;
+	margin-bottom: 0.2vw;
+	font-family: Kozuka;
+	background-image: url(../img/white.png);
+	background-repeat: repeat-x;
+	background-size: 7vw;
+	margin-bottom: 0.5vw;
+}
+
+.ex_button {
+	background: #394747;
+	border-radius: 0.2vw;
+	text-align: center;
+	float: right;
+	padding: 0vw 0.7vw;
+	margin-left: 0.2vw;
+	margin-top: 0.5vw;
+	cursor: pointer;
+}
+
+.delete_reference {
+	background: #d70808;
+	border-radius: 0.2vw;
+	text-align: center;
+	float: right;
+	padding: 0.2vw 0.6vw 0.2vw 0.7vw;
+	margin-left: 0.2vw;
+	margin-top: -1vw;
+	cursor: pointer;
+}
+
+.delete_member {
+	background: #d70808;
+	border-radius: 0.2vw;
+	text-align: center;
+	float: right;
+	padding: 0.1vw 0.5vw 0.1vw 0.7vw;
+	margin-left: 0.2vw;
+	margin-top: -1.3vw;
+	cursor: pointer;
+}
+
+.delete_member img {
+	width: 0.6vw !important;
+	height: 0.6vw !important;
+	margin-top: 0vw !important;
+	border-radius: 0vw !important;
+	border: 0vw !important;
+}
+
+.project_members_square {
+	background: #243333;
+	font-size: 0.8vw;
+	padding: 0.5vw 1vw 1vw 1vw;
+	margin: 1vw 0vw 0.3vw 0.4vw;
+	display: inline-block;
+	line-height: 1.3vw;
+	border-radius: 0.4vw;
+	color: white;
+	width: 5vw;
+	height: 5.9vw;
+	text-align: center;
+}
+
+.project_members_square img {
+	width: 4.5vw;
+	height:4.5vw;
+	margin-top: 0.4vw;
+	border-radius: 0.3vw;
+	border: 0.1vw solid white;
+}
+
+.ex_button img {
+	width: 0.7vw;
+	height: 0.7vw;
+}
+
+
+.delete_reference img {
+	width: 0.7vw;
+	height: 0.7vw;
+}
+
+.edit_wrapper {
+	float: right;
+	width: 10vw;
+	height: 6vw;
+	text-align: right;
+	padding: 0.5vw 0.5vw 0vw 0vw;
+}
+
+.time_separator {
+	display: inline-block;
+	padding-right: 1vw;
+	margin-top: -0.9vw;
+}
+
+.time_separator input {
+	width: 9.5vw;
+}
+
+.time_separator select {
+	width: 11vw !important;;
+}
+
+
+.ex_float {
+	height: 1.7vw;
+	margin-bottom: 0.3vw;
+}
+
+.ex_float img {
+	height: 1.2vw;
+	width: 1.2vw;
+	margin-left: 0.2vw;
+	margin-bottom: -0.2vw;
+}
+
+.ex_description {
+	line-height: 0.9vw;
+	font-size: 0.7vw;
+	font-family: verdana;
+	height: 3.2vw;
+}
+
+
 h1.addemployment {
 	padding-left: 4.5vw;
-	background: url(../img/employment.PNG) no-repeat bottom left;
+	background: url(../img/experiences.PNG) no-repeat bottom left;
 	background-size: 4vw;
 	width: 28vw;
 	font-size: 1.7vw;
@@ -25,44 +463,43 @@ h1.addemployment {
 
 }
 
-h1.addeducation {
-	padding-left: 4.5vw;
-	background: url(../img/education.PNG) no-repeat bottom left;
-	background-size: 4vw;
-	width: 28vw;
-	font-size: 1.7vw;
-	margin: 4vw 0vw 0vw 0vw;
+
+ .login_button, .register_button, .cursor {
+	cursor: pointer;
 }
 
-
-/* ----- custom font ---- */
-
-@font-face {
-    font-family: Kozuka;
-    src: url(../font/KozGoPr6N-ExtraLight.otf);
-}
 
 /*/////////// "Header" /////////////*/
 
 /* maincontent, lite bakgrundsfärg, lite fix, mmm */
 #main_content {
-	background: url(../img/background_gradient.PNG);
-	width: 85vw;
-	height: 84vh;
-	min-height: 84vh;
+	background: url(../img/background_gradient.PNG) transparent;
+	background-position: top;
+	background-repeat: repeat-x;
+	width: 81.8vw;
+	min-height: 67vh;
 	position: absolute;
 	top: 6vw;
-	left: 16vw;
+	right: 0vw;
 	z-index: -2;
 	padding-left: 2vw;
 	padding-top: 3vw;
-	padding-bottom: 6vw;
+	padding-bottom: 2vw;
 }
 /* sidebar */
 #ui_sidebar {
 	width: 16vw;
-	float: left;
+	float: left; 
 }
+
+#ui_sidebar h2 {
+	width: 13vw;
+	float: left;
+	border-radius:  0.5vw;
+	padding: 0.4vw 0.3vw;
+	margin-left: 0.5vw;
+}
+
 
 
 /* uniculum-loggan, bildstyling*/
@@ -90,16 +527,14 @@ h1.addeducation {
 
 /* Avatar-styling */
 .user_picture {
-	width: 6vw;
-	height: 6vw;
+	width: 5.5vw;
+	height: 5.5vw;
 	background: url(../img/snape.PNG) #f7fafa;
-	background-size: 6vw;
-	/*background: url(../img/snape.PNG) #f7fafa;*/
-	/*background-size: 6vw;*/
+	background-size: 5.5vw;
 	float: left;
 	border: 0.2vw solid #f7fafa;
 	margin-right: 1vw;
-	margin-top: 0.5vw;
+	margin-top: 1vw;
 
 }
 
@@ -144,8 +579,8 @@ h1.addeducation {
 
 /* neråt-pil */
 .arrow-down {
-	width: 0;
-	height: 0;
+	width: 0; 
+	height: 0; 
 	border-left: 0.5vw solid transparent;
 	border-right: 0.5vw solid transparent;
 	border-top: 0.7vw solid #56c5cb;
@@ -156,19 +591,20 @@ h1.addeducation {
 
 /* uppåt-pil */
 .arrow-up {
-	width: 0;
-	height: 0;
+	width: 0; 
+	height: 0; 
 	border-left: 0.5vw solid transparent;
 	border-right: 0.5vw solid transparent;
 	border-bottom: 0.7vw solid #56c5cb;
 	float: right;
 	margin-top: 1vw;
+	cursor: pointer;
 }
 
 /* höger-pil */
 .arrow-right {
-	width: 0;
-	height: 0;
+	width: 0; 
+	height: 0; 
 	border-left: 0.6vw solid #56c5cb;
 	border-top: 0.4vw solid transparent;
 	border-bottom: 0.4vw solid transparent;
@@ -184,8 +620,7 @@ h1.addeducation {
 	position: absolute;
 	top: 0;
 	right: 0;
-	width: 27vw;
-	height: 5.1vw;
+	width: 27.8vw;
 	padding-top: 3.1vw;
 	cursor: default;
 	z-index: 2;
@@ -224,6 +659,8 @@ h1.addeducation {
 }
 
 
+
+
 /*/////////// Ladda upp ett nytt projekt /////////////*/
 
 /* bildstyling för molnet*/
@@ -252,6 +689,13 @@ h1.addeducation {
 .categories_icon { background-image: url(../img/icons/blue/categories.PNG) ; background-size: 4vw; }
 .upload_icon { background-image: url(../img/icons/blue/upload.PNG) ; background-size: 4vw; }
 .employer_icon { background-image: url(../img/icons/blue/employer.PNG) ; background-size: 4vw; }
+.employment_icon { background-image: url(../img/icons/blue/employment.PNG) ; background-size: 4vw; }
+.merits_icon { background-image: url(../img/icons/blue/merits.PNG) ; background-size: 4vw; }
+.school_icon { background-image: url(../img/icons/blue/school.PNG) ; background-size: 4vw; }
+.education_icon { background-image: url(../img/icons/blue/education.PNG) ; background-size: 4vw; }
+.location_icon { background-image: url(../img/icons/blue/location.PNG) ; background-size: 4vw; }
+.other_icon { background-image: url(../img/icons/blue/description.PNG) ; background-size: 4vw; }
+.time_icon { background-image: url(../img/icons/blue/time.PNG) ; background-size: 4vw; }
 
 
 
@@ -340,7 +784,7 @@ input.uploadfile {
 .subcheckbox {
 	float: right;
     display:inline-block;
-	padding-left: 0.8vw;
+	padding-left: 0.8vw; 
 	min-width: 4vw;
 }
 
@@ -414,6 +858,8 @@ input.uploadfile {
 /* styling */
 .word_search { font-size: 0.75vw;  }
 
+
+
 /* Hästens hus */
 .searchbox {
 	width: 35vw;
@@ -437,7 +883,7 @@ input.uploadfile {
 .url_wrapper {
 	float: right;
 	width: 22vw;
-	margin-right: 7vw;
+	margin-right: 3vw;
 	padding: 0.5vw;
 	margin-top: 2vw;
 
@@ -493,6 +939,7 @@ input.uploadfile {
 	text-align: center;
 	font-family: Kozuka;
 	border-radius: 0.5vw;
+	position: relative;
 }
 
 /* bakgrundsbilderna till fyrkanterna, much jquery-magic */
@@ -501,12 +948,16 @@ input.uploadfile {
 .s_experiences 	{ background-image: url(../img/experiences.PNG); }
 .s_categories 	{ background-image: url(../img/categories.PNG); }
 .s_status 		{ background-image: url(../img/status.PNG); }
+.exp_education 	{ background-image: url(../img/school.PNG); }
+.exp_employment	{ background-image: url(../img/employment_icon.PNG); }
+.exp_merits 	{ background-image: url(../img/merits.PNG); }
+.exp_other	 	{ background-image: url(../img/other.PNG); }
 
 /*/////////// Min profil-CSS /////////////*/
 
 /* Kolumner för att separera allt ordentligt på profilen */
 
-.columnLeft 	{ width: 24vw; float: left; }
+.columnLeft 	{ width: 24vw; float: left; } 
 .columnMiddle 	{ width: 30vw; float: left; }
 .columnRight 	{ width: 26vw; float: left;}
 
@@ -515,7 +966,7 @@ input.uploadfile {
 	width: 21vw;
 	height: 26vw;
 	background-image: url(../img/profile_picture.PNG);
-	background-size: 21vw;
+	background-size: 21vw; 
 	margin-bottom: 1.5vw;
 }
 
@@ -525,7 +976,7 @@ input.uploadfile {
 	width: 1vw;
 	cursor: pointer;
 	background-image: url(../img/edit.PNG);
-	background-size: 1vw;
+	background-size: 1vw; 
 	display: inline-block;
 }
 
@@ -651,7 +1102,7 @@ input.uploadfile {
 
 #my_experiences h3 {
 	border-bottom: 0.1vw dotted #1f2d2c;
-    display:inline;
+    display:inline; 
     padding-bottom: 0.2vw;
 }
 
@@ -707,6 +1158,11 @@ margin: 0vw 0vw 0.5vw 0vw;}
 
 
 a {color: #56c5cc;
+text-decoration: none;}
+
+
+
+#ui_sidebar a {color: #fff;
 text-decoration: none;}
 
 
@@ -790,7 +1246,7 @@ text-decoration: none;}
 	float: right;
 	height: 12vw;
 	width: 26vw;
-	margin-top: -2vw;
+	margin-top: -2vw; 
 }
 
 .blue_box input {
@@ -934,78 +1390,56 @@ padding: 0.4vw;}
 
 input[type=checkbox]:not(old),
 input[type=radio   ]:not(old){
-  width     : 2em;
+  width     : 2vw;
   margin    : 0;
   padding   : 0;
-  font-size : 1em;
+  font-size : 1vw;
   opacity   : 0;
+  cursor: pointer;
 }
-
-input[type=checkbox]:not(old) + label,
-input[type=radio   ]:not(old) + label{
-  display      : inline-block;
-  margin-left  : -2em;
-  line-height  : 1.5em;
-}
-
 
 input[type=checkbox]:not(old) + label > span,
 input[type=radio   ]:not(old) + label > span{
   display          : inline-block;
   width            : 0.8vw;
   height           : 0.8vw;
+  margin-left  : -2vw;
   background 	: white;
   border: 0.1vw solid #98a4a4;
   margin-right: 0.5vw;
-  border-radius: 0.7vw;
 }
 
 input[type=radio   ]:not(old) + label > span{
-  display          : inline-block;
-  width            : 0.8vw;
-  height           : 0.8vw;
-  background 	: white;
-  border: 0.1vw solid #98a4a4;
-  margin-right: 0.5vw;
   border-radius: 0.7vw;
 }
 
 input[type=checkbox]:not(old) + label > span{
-  display          : inline-block;
-  width            : 0.8vw;
-  height           : 0.8vw;
-  background 	: white;
-  border: 0.1vw solid #98a4a4;
-  margin-right: 0.5vw;
   border-radius: 0.3vw;
 }
 
 
-input[type=checkbox]:not(old):checked + label > span,
-input[type=radio   ]:not(old):checked + label > span{
+input[type=checkbox]:checked:not(old) + label > span,
+input[type=radio   ]:checked:not(old) + label+ label > span{
   background 	: white;
 }
 
-input[type=checkbox]:not(old):checked + label > span:before{
+input[type=checkbox]:checked:not(old) + label > span:before{
   content     : '✓';
   display     : block;
   width       : 0.6vw;
   height      : 0.6vw;
   color       : #56c5cb;
   font-size   : 0.9vw;
-  line-height : 1em;
+  line-height : 1vw;
   text-align  : center;
-  text-shadow : #bccfd0;
   font-weight : bold;
-  margin-top: 0.1vw;
 }
 
 input[type=radio]:not(old):checked + label > span > span{
   display          : block;
   width            : 0.6vw;
   height           : 0.6vw;
-  margin           : 0.1vw;
-  border           : 0.05vw solid #4ee9f1;
-  border-radius: 0.6vw;
+  margin           : 0.1vw auto;
   background       : #56c5cb;
+  border-radius: 0.6vw;
 }
