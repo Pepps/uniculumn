@@ -50,7 +50,13 @@
               <div class="s_categories_dark">
 
             <div class="chosen_categories">
-              Kategori_1, Kategori_2, Kategori_3
+              <table>
+                <tr>
+                  <td class="td_category"><div class="category_view">Kategori_1</div></td>
+                  <td class="td_category"><div class="category_view">Kategori_2</div></td>
+                  <td class="td_category"><div class="category_view">Kategori_3</div></td>
+               </tr>
+              </table>
 
             </div>
 
