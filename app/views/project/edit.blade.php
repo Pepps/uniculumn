@@ -69,7 +69,7 @@
 
 
              <!-- <Titel>  -->
-                <h2 class="hide_this"><a href="">Snape, Snape!</a></h2>
+                <h2 class="hide_this"><a href="">{{ $project->title }}</a></h2>
              <!-- </Titel>  -->
 
              <!-- <Redigera titel>  -->
@@ -78,7 +78,7 @@
 
              <div class="ex_description">
              <!-- <Beskrivning>  -->
-               <span class="hide_this">Snape, Snape, Severus Snape, Snape, Snape, Severus Snape... Dumbledore!</span>
+               <span class="hide_this">{{$project->body}}</span>
 
              <!-- </Beskrivning>  -->
 
@@ -129,9 +129,11 @@
               <div class="allreferences">
 
                 <div class="project_members_square">
-                  @foreach ($users as $u)
-                        <div class="delete_member">{{ HTML::image('img/icons/edit/delete.PNG') }}</div>
-                    {{ $u->firstname }}
+                  @foreach ($users as $user)
+                    @if($user->id != Auth::user()->id)
+                      <div class="delete_member">{{ HTML::image('img/icons/edit/delete.PNG') }}</div>
+                      <span class="label label-info">{{$user->email}} <a href="/project/delcolab/{{$project->id}}/{{$user->id}}" style="color: #fff;"><i class="fa fa-times"></i></a></span>
+                    @endif
                   @endforeach
                 </div>
 
