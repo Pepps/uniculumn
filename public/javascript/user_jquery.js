@@ -46,7 +46,7 @@ $(".edit_experience").on('click', function(){
      $(this).closest('.ex_column').find('.show_references').css("display", "none");
      $(this).closest('.ex_column').find('.edit_this').show();
      $(this).closest('.ex_column').find('.ex_button, .allreferences, .references_choices, .hide_this').hide();
-   });
+});
 
 
 $(".add_ref_edit, .ignore_ref_edit").on('click', function(){
@@ -108,10 +108,6 @@ $(".add_ref_edit, .ignore_ref_edit").on('click', function(){
 
 
     });
-
-
-
-
 // rensa inputs om man byter från anställning till utbildning etc
 $('input:radio[name="exptype"]').on('click', function(){
     $('#employer, #employment').val('');
@@ -127,10 +123,6 @@ $('input:radio[name="exptype"]').on('click', function(){
       $("#add_references").slideUp('slow');
     $(' #first_name, #last_name, #phone_number, #email_address').attr("disabled", false);
         });
-
-
-
-
 
 // litte radiobuttonz hehe
 
@@ -199,7 +191,6 @@ $("#project_description").on("input", function() {
 
 $("#project_category").change(function(){
   $(".check_category").show();
-
     if ( $(this).val() == "none" ) {
       $(".check_category").css({ "background-image" : "url(img/delete_button.PNG)"}, "fast" );
       $(".subcategories").slideUp();
@@ -210,7 +201,6 @@ $("#project_category").change(function(){
         }
 
     });
-
 $('input:radio[name="fgg1"]').on('click', function(){
         $("#hide_me2").children('.dark_square').removeClass('s_users  s_projects s_experiences s_status s_categories').animate({ "padding-top": "0vw", "height" : "2vw", "background-image" : "none", "color" : "white" }, "slow" );
         $("#hide_me, #search_for").slideDown('slow');
