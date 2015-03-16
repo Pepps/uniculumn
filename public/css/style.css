@@ -23,8 +23,8 @@
 
 /* vänster-pil */
 .arrow-left {
-	width: 0; 
-	height: 0; 
+	width: 0;
+	height: 0;
 	border-right: 1vw solid  red;
 	border-top: 0.8vw solid transparent;
 	border-bottom: 0.8vw solid transparent;
@@ -240,7 +240,7 @@ text-align: center;}
 .addreference, .clearreference{
 	padding: 1vw;
 	background-color: #42b8bf;
-	float: right; 
+	float: right;
 
 	cursor: pointer;
 	font-family: Kozuka;
@@ -489,7 +489,7 @@ h1.addemployment {
 /* sidebar */
 #ui_sidebar {
 	width: 16vw;
-	float: left; 
+	float: left;
 }
 
 #ui_sidebar h2 {
@@ -557,6 +557,131 @@ h1.addemployment {
 	display: inline-block;
 	font-family: Kozuka;
 	font-weight: 100;
+<<<<<<< HEAD
+	font-size: 1.5vw;
+	margin-top: 2vw;
+}
+
+
+=======
+>>>>>>> framstedt
+
+/* styling för username*/
+.user_name {
+	float: left;
+}
+
+<<<<<<< HEAD
+=======
+ .login_button, .register_button, .cursor {
+	cursor: pointer;
+}
+
+h1.addemployment {
+	padding-left: 4.5vw;
+	background: url(../img/employment.PNG) no-repeat bottom left;
+	background-size: 4vw;
+	width: 28vw;
+	font-size: 1.7vw;
+	margin: 0vw 0vw 0vw 0vw;
+
+}
+
+h1.addeducation {
+	padding-left: 4.5vw;
+	background: url(../img/education.PNG) no-repeat bottom left;
+	background-size: 4vw;
+	width: 28vw;
+	font-size: 1.7vw;
+	margin: 4vw 0vw 0vw 0vw;
+}
+
+
+/* ----- custom font ---- */
+
+@font-face {
+    font-family: Kozuka;
+    src: url(../font/KozGoPr6N-ExtraLight.otf);
+}
+
+/*/////////// "Header" /////////////*/
+
+/* maincontent, lite bakgrundsfärg, lite fix, mmm */
+#main_content {
+	background: url(../img/background_gradient.PNG);
+	width: 85vw;
+	height: 84vh;
+	min-height: 84vh;
+	position: absolute;
+	top: 6vw;
+	left: 16vw;
+	z-index: -2;
+	padding-left: 2vw;
+	padding-top: 3vw;
+	padding-bottom: 6vw;
+}
+/* sidebar */
+#ui_sidebar {
+	width: 16vw;
+	float: left;
+}
+
+
+/* uniculum-loggan, bildstyling*/
+.left_logo {
+	width: 15vw;
+	height: 6vw;
+	margin-top: 1.2vw;
+}
+
+/* headern */
+#ui_header {
+	background: #192626 url(../img/ui_header.PNG);
+	background-position: right;
+	background-size: 100vw;
+	position: absolute;
+	top: 0vw;
+	right: 0vw;
+	height:6.1vw;
+	width: 82vw;
+	padding-left: 18vw;
+	color: #fff;
+	font-family: Kozuka;
+	z-index: -1;
+}
+
+/* Avatar-styling */
+.user_picture {
+	width: 6vw;
+	height: 6vw;
+	background: url(../img/snape.PNG) #f7fafa;
+	background-size: 6vw;
+	float: left;
+	border: 0.2vw solid #f7fafa;
+	margin-right: 1vw;
+	margin-top: 0.5vw;
+
+}
+
+/* Användarnamn & bild-box*/
+.user_box {
+	height: 8.5vw;
+	width: 39vw;
+	padding: 0.1vw;
+	margin-left: 1vw;
+}
+
+/* Namn-styling */
+.user_box h2 {
+	margin-bottom: 0.3vw;
+	margin-top: 2.6vw;
+}
+
+/* Användarnamn och dropdown-knapp*/
+.username_holder {
+	display: inline-block;
+	font-family: Kozuka;
+	font-weight: 100;
 	font-size: 1.5vw;
 	margin-top: 2vw;
 }
@@ -568,6 +693,7 @@ h1.addemployment {
 	float: left;
 }
 
+>>>>>>> framstedt
 /* dropdown för inställningar */
 .settings {
 	display: none;
@@ -579,8 +705,8 @@ h1.addemployment {
 
 /* neråt-pil */
 .arrow-down {
-	width: 0; 
-	height: 0; 
+	width: 0;
+	height: 0;
 	border-left: 0.5vw solid transparent;
 	border-right: 0.5vw solid transparent;
 	border-top: 0.7vw solid #56c5cb;
@@ -591,20 +717,23 @@ h1.addemployment {
 
 /* uppåt-pil */
 .arrow-up {
-	width: 0; 
-	height: 0; 
+	width: 0;
+	height: 0;
 	border-left: 0.5vw solid transparent;
 	border-right: 0.5vw solid transparent;
 	border-bottom: 0.7vw solid #56c5cb;
 	float: right;
 	margin-top: 1vw;
+<<<<<<< HEAD
 	cursor: pointer;
+=======
+>>>>>>> framstedt
 }
 
 /* höger-pil */
 .arrow-right {
-	width: 0; 
-	height: 0; 
+	width: 0;
+	height: 0;
 	border-left: 0.6vw solid #56c5cb;
 	border-top: 0.4vw solid transparent;
 	border-bottom: 0.4vw solid transparent;
@@ -613,6 +742,7 @@ h1.addemployment {
 	margin-top: 0.7vw;
 }
 
+<<<<<<< HEAD
 
 
 /* Ladda upp nytt projekt-boxen */
@@ -656,10 +786,66 @@ h1.addemployment {
 	margin-bottom: -0.9vw;
 	margin-top: 0.7vw;
 	float: left;
+=======
+
+
+/* Ladda upp nytt projekt-boxen */
+.upload_shortcut {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 27vw;
+	height: 5.1vw;
+	padding-top: 3.1vw;
+	cursor: default;
+	z-index: 2;
 }
 
+/* Ladda upp-knappen */
+.upload_shortcut img {
+	width: 6vw;
+	height: 6vw;
+	float: right;
+	margin-right: 2vw;
+	margin-top: -4.5vw;
+	cursor: pointer;
+>>>>>>> framstedt
+}
 
+#ui_sidebar h2 {
+	color: #e7efef;
+	font-family: Kozuka;
+	font-size: 1.1vw;
+	list-style: none;
+	padding-left: 1.4vw;
+	margin-top: 1.3vw;
+}
 
+#clickmetoo {
+	cursor: pointer;
+}
+
+.experiences_icon {
+	width: 4vw;
+	height: 3.5vw;
+	margin-right: 0.2vw;
+	margin-bottom: -0.9vw;
+	margin-top: 0.7vw;
+	float: left;
+}
+
+<<<<<<< HEAD
+/*/////////// Ladda upp ett nytt projekt /////////////*/
+
+/* bildstyling för molnet*/
+.cloud {
+	width: 6vw;
+	height: 4vw;
+	margin-right: 0.6vw;
+	margin-bottom: -0.9vw;
+}
+
+=======
 
 /*/////////// Ladda upp ett nytt projekt /////////////*/
 
@@ -671,6 +857,7 @@ h1.addemployment {
 	margin-bottom: -0.9vw;
 }
 
+>>>>>>> framstedt
 /* ikonerna till höger, ladda upp, etc*/
 .dark_icon {
 	background-color: #253737;
@@ -689,6 +876,7 @@ h1.addemployment {
 .categories_icon { background-image: url(../img/icons/blue/categories.PNG) ; background-size: 4vw; }
 .upload_icon { background-image: url(../img/icons/blue/upload.PNG) ; background-size: 4vw; }
 .employer_icon { background-image: url(../img/icons/blue/employer.PNG) ; background-size: 4vw; }
+<<<<<<< HEAD
 .employment_icon { background-image: url(../img/icons/blue/employment.PNG) ; background-size: 4vw; }
 .merits_icon { background-image: url(../img/icons/blue/merits.PNG) ; background-size: 4vw; }
 .school_icon { background-image: url(../img/icons/blue/school.PNG) ; background-size: 4vw; }
@@ -696,6 +884,8 @@ h1.addemployment {
 .location_icon { background-image: url(../img/icons/blue/location.PNG) ; background-size: 4vw; }
 .other_icon { background-image: url(../img/icons/blue/description.PNG) ; background-size: 4vw; }
 .time_icon { background-image: url(../img/icons/blue/time.PNG) ; background-size: 4vw; }
+=======
+>>>>>>> framstedt
 
 
 
@@ -709,6 +899,15 @@ h1.addemployment {
 	text-align: center;
 	margin-left: 0.5vw;
 	margin-top: -0.8vw;
+<<<<<<< HEAD
+}
+
+.mediatype img {
+	width: 3vw;
+	height: 3vw;
+	margin-bottom: 0.1vw;
+=======
+>>>>>>> framstedt
 }
 
 .mediatype img {
@@ -717,7 +916,10 @@ h1.addemployment {
 	margin-bottom: 0.1vw;
 }
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> framstedt
 /* wrappers för varje steg */
 .upload_column {
 	width: 32vw;
@@ -784,11 +986,72 @@ input.uploadfile {
 .subcheckbox {
 	float: right;
     display:inline-block;
-	padding-left: 0.8vw; 
+	padding-left: 0.8vw;
 	min-width: 4vw;
+<<<<<<< HEAD
 }
 
 
+.check_title, .check_description, .check_category, .check_upload {
+	width: 1.5vw;
+	height: 1.5vw;
+	background: url(../img/delete_button.PNG) NO-REPEAT;
+	background-size: 1.5vw;
+	margin-bottom: -3.5vw;
+	margin-top: 2vw;
+	margin-left: 2.3vw;
+}
+
+.check_subcategories {
+	width: 1.5vw;
+	height: 1.5vw;
+	background: url(../img/delete_button.PNG) NO-REPEAT;
+	background-size: 1.5vw;
+	margin-bottom: -3.5vw;
+	margin-right: -2.3vw;
+	float: right;
+}
+
+
+
+
+/*/////////// sök-sidan /////////////*/
+
+
+/* lite jquery magic */
+#hide_me, #search_for {
+	display: none;
+=======
+>>>>>>> framstedt
+}
+
+.search_div {
+	margin: 0vw auto;
+	width: 15vw;
+	font-family: Kozuka;
+	font-size: 1.7vw;
+	color: #56c5cb;
+	padding-left: 8vw;
+
+<<<<<<< HEAD
+}
+/* Styling för det lilla förstoringsglaset */
+.thumbnail {
+	width: 0.7vw; height: 0.7vw; margin-right: 0.5vw;
+}
+
+/* TD-styling för "Dina sökningar" */
+.td_category	{width: 6vw; padding-bottom: 0.5vw;}
+.td_words 		{width: 9vw; padding-bottom: 0.5vw;}
+.td_delete 		{width: 4vw; padding-bottom: 0.5vw; text-align: center;}
+
+/* gör ta bort-knappen liten */
+.td_delete img {
+	width: 1vw;
+	height: 1vw;
+}
+
+=======
 .check_title, .check_description, .check_category, .check_upload {
 	width: 1.5vw;
 	height: 1.5vw;
@@ -845,6 +1108,7 @@ input.uploadfile {
 	height: 1vw;
 }
 
+>>>>>>> framstedt
 /* styling */
 .category_search {
 	display: inline-block;
@@ -858,8 +1122,13 @@ input.uploadfile {
 /* styling */
 .word_search { font-size: 0.75vw;  }
 
+<<<<<<< HEAD
 
 
+=======
+
+
+>>>>>>> framstedt
 /* Hästens hus */
 .searchbox {
 	width: 35vw;
@@ -957,7 +1226,7 @@ input.uploadfile {
 
 /* Kolumner för att separera allt ordentligt på profilen */
 
-.columnLeft 	{ width: 24vw; float: left; } 
+.columnLeft 	{ width: 24vw; float: left; }
 .columnMiddle 	{ width: 30vw; float: left; }
 .columnRight 	{ width: 26vw; float: left;}
 
@@ -966,7 +1235,7 @@ input.uploadfile {
 	width: 21vw;
 	height: 26vw;
 	background-image: url(../img/profile_picture.PNG);
-	background-size: 21vw; 
+	background-size: 21vw;
 	margin-bottom: 1.5vw;
 }
 
@@ -976,7 +1245,7 @@ input.uploadfile {
 	width: 1vw;
 	cursor: pointer;
 	background-image: url(../img/edit.PNG);
-	background-size: 1vw; 
+	background-size: 1vw;
 	display: inline-block;
 }
 
@@ -1043,9 +1312,15 @@ input.uploadfile {
  /* "Header" */
 
 
+<<<<<<< HEAD
 
 
 
+=======
+
+
+
+>>>>>>> framstedt
 
 #description {
 	width: 27vw;
@@ -1102,7 +1377,7 @@ input.uploadfile {
 
 #my_experiences h3 {
 	border-bottom: 0.1vw dotted #1f2d2c;
-    display:inline; 
+    display:inline;
     padding-bottom: 0.2vw;
 }
 
@@ -1176,8 +1451,11 @@ text-decoration: none;}
 
 
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> framstedt
 
 
 
@@ -1246,7 +1524,7 @@ text-decoration: none;}
 	float: right;
 	height: 12vw;
 	width: 26vw;
-	margin-top: -2vw; 
+	margin-top: -2vw;
 }
 
 .blue_box input {
@@ -1393,9 +1671,14 @@ input[type=radio   ]:not(old){
   width     : 2vw;
   margin    : 0;
   padding   : 0;
+<<<<<<< HEAD
   font-size : 1vw;
   opacity   : 0;
   cursor: pointer;
+=======
+  font-size : 1em;
+  opacity   : 0;
+>>>>>>> framstedt
 }
 
 input[type=checkbox]:not(old) + label > span,
@@ -1441,5 +1724,8 @@ input[type=radio]:not(old):checked + label > span > span{
   height           : 0.6vw;
   margin           : 0.1vw auto;
   background       : #56c5cb;
+<<<<<<< HEAD
   border-radius: 0.6vw;
+=======
+>>>>>>> framstedt
 }

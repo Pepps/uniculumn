@@ -105,8 +105,10 @@
   <tr><td>{{ $user->address }}</td></tr>
   <tr><td>{{ $user->postnumber }}</td></tr>
   <tr><td>{{ $user->phone }}</td></tr>
-  <tr><td>{{ $state->name }}</td></tr>
-  <tr><td>{{ $city->name }}</td></tr>
+  @if(!$nocity)
+    <tr><td>{{ $state->name }}</td></tr>
+    <tr><td>{{ $city->name }}</td></tr>
+  @endif
 </table>
 
 <a class="btn btn-small btn-info" href="user/{{$user->id}}/edit">Redigera</a>
