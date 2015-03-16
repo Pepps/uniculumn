@@ -30,8 +30,11 @@ Route::post('/user/update/{id}', "UserController@update");
 /* Duck punch for fixing update */
 Route::post('/project/update/{id}', "ProjectController@update");
 Route::get('/project/delete/{id}', "ProjectController@destroy");
+/*End duck punch*/
+
 Route::post('/project/addcolab/{id}', "ProjectController@addcolab");
 Route::get('/project/delcolab/{project_id}/{colab_id}', "ProjectController@deletecolab");
+Route::get('/project/getusers/{id}', "ProjectController@getcolabs");
 
 Route::get('/project/showfiles/{id}', "ProjectController@showfiles");
 Route::get('/project/getfiles/{id}', "ProjectController@getfiles");

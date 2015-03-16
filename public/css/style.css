@@ -78,6 +78,10 @@ body {
 																 		       /**/
 /* //////////////////////////////////////////////////////		        </BODY> */
 
+.ex_column{
+	border: 1px solid #ccc;
+	padding: 10px;
+}
 
 .ex_column select {
 	padding: 0.4vw;
