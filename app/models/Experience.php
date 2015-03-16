@@ -14,11 +14,12 @@ class Experience extends Eloquent
 		return $this->belongsToMany('Category');
 	}
 
+	//Experience belongs to a city
 	public function city() {
 		return $this->belongsTo('City');
 	}
 
-	//
+	//An experience has many references
 	public function reference() {
 		return $this->hasMany('Reference');
 	}

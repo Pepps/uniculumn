@@ -62,7 +62,7 @@ class ExperienceController extends BaseController {
 			),
 		array(
 			'title' 					=> 'required|max:100',
-			'description' 				=> 'required|max:255',
+			'description' 				=> 'unique:experiences|required|max:255',
 			'type'	 					=> 'required',
 			'from' 						=> 'required|max:5',
 			'to'						=> 'max:5',
@@ -97,7 +97,7 @@ class ExperienceController extends BaseController {
 
 	}
 
-
+	//Delete the experiences
 	public function deleteExp($id) {
 		$experience = Experience::find($id);
 		$experience->delete();

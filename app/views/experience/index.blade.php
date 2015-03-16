@@ -58,7 +58,7 @@
             <td><a class="btn btn-small btn-success" href="{{ URL::to('experience/' . $value->id) }}"><i class="fa fa-search"></i></a></td>
             <td><a class="btn btn-small btn-info" href="{{ URL::to('experience/' . $value->id . '/edit') }}"><i class="fa fa-pencil-square-o"></i></a></td>
             <td><a class="btn btn-warning" href="{{ URL::to('experience/' . $value->id . '/addref') }}"><i class="fa fa-plus"></i></a></td>
-           <td><a onclick="deleteExp()" method="DELETE" class="btn btn-small btn-danger" href="{{ URL::to('experience/' . $value->id . '/deleteExp') }}"><i class="fa fa-trash"></i>
+           <td><a onclick="deleteExp()" class="btn btn-small btn-danger" href="{{ URL::to('experience/' . $value->id . '/deleteExp') }}"><i class="fa fa-trash"></i>
 
 
           </button></td>
