@@ -28,6 +28,7 @@
                 </div>
 
             </div>
+
           <div class="upload_shortcut">
               <h2 class="cursor">» Ladda upp ett nytt projekt</h2>
               <a href="/project/create">{{ HTML::image('img/upload_button.PNG', '', array('id' => 'upload_button')) }}</a>
