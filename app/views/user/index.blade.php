@@ -39,7 +39,7 @@
                   <div class="project_description">
                     <div class="icon audio"></div>
                     <h2> {{ $value->title }} </h2>
-                     <a href="">Läs mer...</a>
+                     <a href="project/show/{{$value->id}}">Läs mer...</a>
                       {{ $value->body }}
                   </div>
                   @endforeach

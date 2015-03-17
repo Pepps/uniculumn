@@ -80,10 +80,10 @@ class ProjectController extends \BaseController {
 	*/
 	public function show($project_id){
 			$Project = Project::find($project_id);
-      return View::make('project.show')
-          ->with('project', $Project)
-					->with('categories', $Project->category)
-					->with('users', $Project->users);
+      return View::make('project.show')->with('project', $Project)
+  				->with('categories', $Project->category)
+  				->with('users', $Project->users)
+  				->with('user', User::find(Auth::user()->id));
 	}
 
 
