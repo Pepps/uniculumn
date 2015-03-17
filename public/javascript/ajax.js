@@ -214,12 +214,7 @@ $(document).on('change', '#state', function(e) {
 */
 
 function deleteExp() {
-    var x;
-    if (confirm("Är du säker att du vill ta bort?") == true) {
-        x = "You pressed OK!";
-    } else {
-        x = "You pressed Cancel!";
-    }
-    document.getElementById("demo").innerHTML = x;
+return confirm('Är du säker på vill ta bort?');
+
 }
 
