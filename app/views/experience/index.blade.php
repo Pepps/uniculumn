@@ -98,15 +98,15 @@
                         @foreach ($cities as $city)
                         {{ $city->name }}
                         @endforeach
-                       <img src="img/icons/edit/location.PNG"/>
+                       <img src="../img/icons/edit/location.PNG"/>
 
                      </div>
-                      <div class="ex_float hide_this">{{ $experience->duration }} <img src="img/icons/edit/time.PNG"/></div>
+                      <div class="ex_float hide_this">{{ $experience->duration }} <img src="../img/icons/edit/time.PNG"/></div>
                    <!-- </Plats/tid>  -->
 
                    <!-- <Redigera plats/tid>  -->
                        <div class="ex_float edit_this"> 
-                       <img src="img/icons/edit/location.PNG" style="float: right;"/><select><option value="none">Västra Götaland</option>
+                       <img src="../img/icons/edit/location.PNG" style="float: right;"/><select><option value="none">Västra Götaland</option>
                               <option value="volvo">Potatis</option>
                               <option value="saab">Fläsksallad</option>
                               <option value="mercedes">Grötrullar</option>
@@ -119,17 +119,17 @@
                               <option value="mercedes">Grötrullar</option>
                               <option value="audi">Bananlåda</option>
                             </select></div>
-                       <div class="ex_float edit_this"><input value="2014"></input><input value="2014"></input> <img src="img/icons/edit/time.PNG"/></div>
+                       <div class="ex_float edit_this"><input value="2014"></input><input value="2014"></input> <img src="../img/icons/edit/time.PNG"/></div>
                   <!-- </Redigera plats/tid>  -->
                    
                   
                           
 
                    <!-- <Kontrollknappar>  -->
-                          <div class="ex_button" style="background-color: #d70808;"><img src="img/icons/edit/delete.PNG"/></div>
-                          <div class="ex_button edit_experience"><img src="img/icons/edit/edit.PNG"/></div>
-                          <div class="ex_button edit_references"><img src="img/icons/edit/add.PNG"/></div>
-                          <div class="ex_button"><img src="img/icons/edit/search.PNG"/></div>
+                          <div class="ex_button" style="background-color: #d70808;"><a onclick="deleteExp()" href="{{ URL::to('experience/' . $experience->id . '/deleteExp') }}"><img src="../img/icons/edit/delete.PNG"/></div>
+                          <div class="ex_button edit_experience"><a href="{{ URL::to('experience/' . $experience->id . '/edit') }}"><img src="../img/icons/edit/edit.PNG"/></div>
+                          <div class="ex_button edit_references"><a href="{{ URL::to('experience/' . $experience->id . '/addref') }}"><img src="../img/icons/edit/add.PNG"/></div>
+                          <div class="ex_button"><img src="../img/icons/edit/search.PNG"/></div>
 
                       <!-- <Spara ändringar>  -->
                           <div class="add_edit edit_this">
@@ -199,18 +199,18 @@
 
              <!-- <Referenser>  -->
             <div class="show_references">
-            <img src="img/small_menu.PNG"/> Visa referenser <br/>
+            <img src="../img/small_menu.PNG"/> Visa referenser <br/>
             
               <div class="allreferences">
 
                 <div class="ref_square">
-                        <div class="delete_reference"><img src="img/icons/edit/delete.PNG"/></div>
-                    <img src="img/references.PNG"/> Lord Voldemort<br/> <img src="img/phonenumber.PNG"/>  073-4V4D4-K3D4VR4  <br/> <img src="img/email.PNG"/> lord.voldemort@deatheaterslondon.net
+                        <div class="delete_reference"><img src="../img/icons/edit/delete.PNG"/></div>
+                    <img src="../img/references.PNG"/> Lord Voldemort<br/> <img src="../img/phonenumber.PNG"/>  073-4V4D4-K3D4VR4  <br/> <img src="../img/email.PNG"/> lord.voldemort@deatheaterslondon.net
                 </div>
 
                 <div class="ref_square">
-                        <div class="delete_reference"><img src="img/icons/edit/delete.PNG"/></div>
-                  <img src="img/references.PNG"/> Albus Dumbledore<br/> <img src="img/phonenumber.PNG"/>  073-M4G1C-D00MBL3  <br/> <img src="img/email.PNG"/> albus.dumbledore@hogwarts.net
+                        <div class="delete_reference"><img src="../img/icons/edit/delete.PNG"/></div>
+                  <img src="../img/references.PNG"/> Albus Dumbledore<br/> <img src="../img/phonenumber.PNG"/>  073-M4G1C-D00MBL3  <br/> <img src="../img/email.PNG"/> albus.dumbledore@hogwarts.net
                 </div>
 
               </div>
@@ -226,13 +226,4 @@
 </div>
 
 
-
-
-
-
-<script>
-function deleteExp() {
-    confirm("Vill du ta bort?");
-}
-</script>
 @stop
