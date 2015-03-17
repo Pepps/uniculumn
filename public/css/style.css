@@ -1174,7 +1174,6 @@ text-align: center;}
 #my_experience, #my_projects {
 	float: left;
 	width: 40vw;
-	margin-left: 1vw;
 }
 
 .delete_member {
