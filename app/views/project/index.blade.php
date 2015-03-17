@@ -1,6 +1,8 @@
 @extends('layouts.master')
 @section('content')
 
+<div class="container">
+
 @include('layouts.nav')
 @yield('nav')
 
