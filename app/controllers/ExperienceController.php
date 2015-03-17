@@ -84,7 +84,6 @@ class ExperienceController extends BaseController {
 			$experience->category_id = Input::get('category');
 
 			$experience->save();
-
 			return Redirect::to('experience');
 		}
 

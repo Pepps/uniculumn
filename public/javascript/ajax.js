@@ -213,8 +213,3 @@ $(document).on('change', '#state', function(e) {
 });
 */
 
-function deleteExp() {
-return confirm('Är du säker på vill ta bort?');
-
-}
-
