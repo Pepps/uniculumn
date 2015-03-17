@@ -3,7 +3,7 @@ $(document).ready(function() {
 
 // variabler!!!!!!!!!!
   controlPanel = true;
-  expType = true;
+  type = true;
 
 $(".edit_references").on('click', function(){
      $(this).closest('.ex_column').find('.references_choices').slideDown();
@@ -12,9 +12,23 @@ $(".edit_references").on('click', function(){
      $(this).closest('.ex_column').find('.allreferences').hide();
       });
 
-$(".delete_reference, .delete_member").on('click', function(){
-     $(this).parent().remove();
-      });
+$(".delete_member").on('click', function(){
+     var THIS = $(this);
+     if(confirm("är du säker på att du vill ta bort?")){
+       console.log($(THIS).parent().find(".member_projid").text());
+       $.ajax({
+           type    : 'GET',
+           url     : '/project/delcolab/'+$(THIS).parent().find(".member_projid").text()+'/'+$(THIS).parent().find(".member_id").text(),
+           success : function() {
+             $(THIS).parent().remove();
+           }
+       });
+     }
+});
+
+$(".delete_reference").on('click', function(){
+    $(this).parent().remove();
+});
 
 $(".edit_tags").on('click', function(){
 
@@ -109,13 +123,13 @@ $(".add_ref_edit, .ignore_ref_edit").on('click', function(){
 
     });
 // rensa inputs om man byter från anställning till utbildning etc
-$('input:radio[name="exptype"]').on('click', function(){
+$('input:radio[name="type"]').on('click', function(){
     $('#employer, #employment').val('');
     $('#first_name, #last_name, #phone_number, #email_address').val('');
-  if (expType == true) {
+  if (type == true) {
  $("#exp_types").children('.exp_square').removeClass('exp_education exp_merits exp_employment exp_other').animate({ "padding-top": "0vw", "height" : "2vw", "background-image" : "none", "color" : "white" }, "slow" );
  $(".things").slideDown('slow');
-  expType = false; }
+  type = false; }
 });
 
   $("#add_references").click(function(){
@@ -126,14 +140,14 @@ $('input:radio[name="exptype"]').on('click', function(){
 
 // litte radiobuttonz hehe
 
-$('input:radio[value="education"]').on('click', function(){
+$('input:radio[value="1"]').on('click', function(){
  $(".employerTitle").text("Skola");
  $(".employmentDescription").text("Utbildning");
  $("#exp_description").removeClass('other_icon education_icon employment_icon').addClass('education_icon');
  $("#exp_employer").removeClass('other_icon merits_icon school_icon employer_icon').addClass('school_icon');
 });
 
-$('input:radio[value="employment"]').on('click', function(){
+$('input:radio[value="0"]').on('click', function(){
  $(".employerTitle").text("Arbetsgivare");
  $(".employmentDescription").text("Arbetsbeskrivning");
  $("#exp_description").removeClass('other_icon education_icon employment_icon').addClass('employment_icon');
@@ -141,7 +155,7 @@ $('input:radio[value="employment"]').on('click', function(){
 });
 
 
-$('input:radio[value="merits"]').on('click', function(){
+$('input:radio[value="2"]').on('click', function(){
  $(".employerTitle").text("Merit");
  $(".employmentDescription").text("Beskrivning");
  $("#exp_description").removeClass('other_icon education_icon employment_icon').addClass('other_icon');
@@ -149,7 +163,7 @@ $('input:radio[value="merits"]').on('click', function(){
 });
 
 
-$('input:radio[value="other"]').on('click', function(){
+$('input:radio[value="3"]').on('click', function(){
  $(".employerTitle").text("Övrigt");
  $(".employmentDescription").text("Beskrivning");
  $("#exp_description").removeClass('other_icon education_icon employment_icon').addClass('other_icon');

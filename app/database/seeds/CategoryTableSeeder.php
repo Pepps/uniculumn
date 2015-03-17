@@ -106,7 +106,7 @@ class CategoryTableSeeder extends Seeder {
                 'Religionsvetenskap',
 
             #11
-            '0Litteratur'
+            '0Litteratur',
             #SUB CATEGORIES FOR ID 11
                 'Bilderbok',
                 'Biografi',
@@ -154,7 +154,7 @@ class CategoryTableSeeder extends Seeder {
                 'Drum and Bass',
                 'Dubstep',
                 'Electro',
-                'Elektronisk musik'
+                'Elektronisk musik',
                 'Eurobeat',
                 'Folkdans',
                 'Funk',
@@ -272,7 +272,7 @@ class CategoryTableSeeder extends Seeder {
                 'Stealthspel',
                 'Spectaclefighter',
                 'Sportspel',
-                'Survival Horror'
+                'Survival Horror',
                 'Textspel',
                 'Third Person Shooter',
                 'Visual Novel',
@@ -320,14 +320,14 @@ class CategoryTableSeeder extends Seeder {
                 'Basket',
                 'Biljard',
                 'Bilsport',
-                'Bodybuilding'
-                'Bordshockey'
-                'Bordtennis'
-                'Bowling'
-                'Boxning'
-                'Brottning'
-                'Brännboll'
-                'Bågskytte'
+                'Bodybuilding',
+                'Bordshockey',
+                'Bordtennis',
+                'Bowling',
+                'Boxning',
+                'Brottning',
+                'Brännboll',
+                'Bågskytte',
                 'Curling',
                 'E-sport',
                 'Fotboll,',

@@ -6,7 +6,6 @@
 
 <div id="main_content">
 
-
           <div class="columnLeft">
 
               <div class="profile_picture">
@@ -30,17 +29,16 @@
 
                 <div id="description"> <!--user personal description-->
                     {{ $user->description }}
-
                   </div>
 
 
                  <h2>Mina projekt <div class="edit_icon"></div></h2>
-                 @foreach($projects as $value)
+                 @foreach($projects as $project)
                   <div class="project_description">
                     <div class="icon audio"></div>
-                    <h2> {{ $value->title }} </h2>
-                     <a href="project/show/{{$value->id}}">Läs mer...</a>
-                      {{ $value->body }}
+                    <h2> {{ $project->title }} </h2>
+                     <a href="">Läs mer...</a>
+                      {{ $project->body }}
                   </div>
                   @endforeach
             </div>
