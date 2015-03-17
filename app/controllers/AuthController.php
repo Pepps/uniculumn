@@ -9,13 +9,23 @@ class AuthController extends BaseController {
 
   public function logIn(){
     //Checking if email and password match the information in the database
+    $validator = Validator::make(
+        array(
+            'email' => Input::get('email'),
+            'password' => Input::get('password')
+        ),
+        array(
+            'email' => 'required',
+            'password' => 'required'
+        )
+    );
     $email = Input::get('email');
     $password = Input::get('password');
     if (Auth::attempt(array('email' => $email, 'password' => $password))){
-    return Redirect::intended('project');
+      return Redirect::intended('project');
     }
     else {
-    return Redirect::intended('/')->with('loginError','Något gick fel');
+      return Redirect::intended('/')->withErrors($validator)->withErrors("authError");
     }
   }
 

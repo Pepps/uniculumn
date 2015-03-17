@@ -1,52 +1,44 @@
 @extends('layout')
-
 @section('content')
 
+<style>
+  body{
+    background: #fff;
+  }
+</style>
 
-<div id="header">
+<div id="a-wrapper">
+  <div id="aheader">
     <div id="headerpic">
-             <img src="img/header.png" width="1000" height="200" alt="header" />
+             {{ HTML::image('img/header.png') }}
     </div>
-</div>
+  </div>
 
+  <div id="roligbox">
+        {{ HTML::image('img/penna.png') }}{{ HTML::image('img/ladda.png') }}{{ HTML::image('img/gubbe.png') }}
+  			<h1>Ladda upp projekt och n&auml;tverka med arbetsgivare</h1>
+  </div>
 
-<body>
-
-
-<div id="roligbox">
-      <img src="img/penna.png"><img src="img/ladda.png"><img src="img/gubbe.png">
-      <h1>Ladda upp projekt och n&auml;tverka med arbetsgivare</h1>
-</div>
-
-      <div id="loginbox">
-
-        {{ Form::open(array('url' => 'home','method' => 'post')) }}
-
-    <!-- if there are login errors, show them here -->
-    @if (Session::get('loginError'))
-    <div class="alert alert-danger">{{ Session::get('loginError') }}</div>
-    @endif
-
-
-      {{ $errors->first('email') }}
-      {{ $errors->first('password') }}
-
-
-
-      {{ Form::label('email', 'Email Address') }}
-      {{ Form::text('email', Input::old('email'), array('placeholder' => 'awesome@awesome.com')) }}
-      {{ Form::label('password', 'Password') }}
-      {{ Form::password('password') }}
-      {{ Form::submit('Login') }}
+  <div id="loginbox">
+    <div style="margin-top:-25px;">
+      {{ Form::open(array('url' => '/home', 'id'=>'form')) }}
+        @if($errors->has())
+          <p>Email eller lösenordet är inkorrekt, försök igen!</p>
+        @endif
+        E-Mail<br>{{ Form::text('email',"", Array('id'=>'username')) }}<br>
+        L&ouml;senord<br>{{ Form::password('password',Array('id'=>'password')) }}<br><br>
+        {{ Form::submit('Logga in', Array('class'=>'skicka')) }}
+        <a href="#" class="skicka">Registrera dig</a>
       {{ Form::close() }}
+    </div>
+  </div>
+  <br>
 
-<br>
 
-
-<div id="finbox">
-    <p>Med en portfolio online g&ouml;r du det enkelt f&ouml;r f&ouml;retag att skicka jobberbjudande<br> som matchar just dina kompentenser.</p>
-    <h1>Registrera dig idag, det &auml;r enkelt och gratis!</h1>
-    <img src="img/big_logo.png" width="160" height="160" alt="logo">
+  <div id="finbox">
+  		<p>Med en portfolio online g&ouml;r du det enkelt f&ouml;r f&ouml;retag att skicka jobberbjudande<br> som matchar just dina kompentenser.</p>
+  		<h1>Registrera dig idag, det &auml;r enkelt och gratis!</h1>
+  		<img src="img/big_logo.png" width="160" height="160" alt="logo">
+  </div>
 </div>
-
 @stop
