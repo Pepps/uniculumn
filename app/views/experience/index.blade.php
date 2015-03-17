@@ -85,7 +85,7 @@
             <div class="ex ico_merits">
             Merit
             @elseif ($experience->type === '3')
-            <div class="ex other_icon">
+            <div class="ex ico_other">
             Övrigt
             @endif
             </div>
@@ -126,11 +126,9 @@
                           
 
                    <!-- <Kontrollknappar>  -->
-                          <div class="ex_button" style="background-color: #d70808;"><a onclick="deleteExp()" href="{{ URL::to('experience/' . $experience->id . '/deleteExp') }}"><img src="../img/icons/edit/delete.PNG"/></div>
+                          <a onclick="deleteExp()" href="{{ URL::to('experience/' . $experience->id . '/deleteExp') }}"><div class="ex_button" style="background-color: #d70808;"><img src="../img/icons/edit/delete.PNG"/></div></a>
                           <div class="ex_button edit_experience"><a href="{{ URL::to('experience/' . $experience->id . '/edit') }}"><img src="../img/icons/edit/edit.PNG"/></div>
                           <div class="ex_button edit_references"><a href="{{ URL::to('experience/' . $experience->id . '/addref') }}"><img src="../img/icons/edit/add.PNG"/></div>
-                          <div class="ex_button"><img src="../img/icons/edit/search.PNG"/></div>
-
                       <!-- <Spara ändringar>  -->
                           <div class="add_edit edit_this">
                               Spara ändringar
