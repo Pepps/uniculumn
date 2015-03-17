@@ -54,6 +54,7 @@ $(".clearreference, .addreference").click(function(){
 
 
 $(".edit_experience").on('click', function(){
+    console.log($(this).parent().parent());
      $(this).closest('.ex_column').find('.edit_wrapper').css({ "width": "16vw"});
      $(this).closest('.ex_column').animate({ "height" : "10vw", "background-color" : "white", "margin-bottom": "2vw"}, 350 );
      $(this).closest('.ex_column').find('.ex').animate({ "height" : "6vw"}, 450 );

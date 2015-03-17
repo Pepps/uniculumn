@@ -30,7 +30,7 @@ body {
 	font-family: verdana;
 	font-size: 1vw;
 	color: #465b5c;
-	overflow-y: scroll; 
+	overflow-y: scroll;
 }
 
 /*/////////////////////////////////////////////////////////////////////// Själva skalet på sidan ///////////////////////////////////////////////////////////////////////*/
@@ -38,7 +38,7 @@ body {
 /* Kolumn till vänster för länkar */
 #ui_sidebar {
 	width: 16vw;
-	float: left; 
+	float: left;
 }
 
 /* Loggan till vänster med enhörningen och den fonetiska skriften */
@@ -68,8 +68,8 @@ body {
 
 /* Pilarna till vänster om länkarna */
 .arrow-right {
-	width: 0; 
-	height: 0; 
+	width: 0;
+	height: 0;
 	border-left: 0.6vw solid #56c5cb;
 	border-top: 0.4vw solid transparent;
 	border-bottom: 0.4vw solid transparent;
@@ -138,8 +138,8 @@ body {
 /* Visa konto-inställningar-knapp */
 .arrow-down {
 	cursor: pointer;
-	width: 0; 
-	height: 0; 
+	width: 0;
+	height: 0;
 	border-left: 0.5vw solid transparent;
 	border-right: 0.5vw solid transparent;
 	border-top: 0.7vw solid #56c5cb;
@@ -150,8 +150,8 @@ body {
 /* Dölj konto-inställningar-knapp */
 .arrow-up {
 	cursor: pointer;
-	width: 0; 
-	height: 0; 
+	width: 0;
+	height: 0;
 	border-left: 0.5vw solid transparent;
 	border-right: 0.5vw solid transparent;
 	border-bottom: 0.7vw solid #56c5cb;
@@ -305,7 +305,7 @@ body {
 	margin: -1vw 0vw 1vw 0vw;
 	border: 0.1vw solid #56c5cc;
 	float: right;
-	height: 0.7vw; 
+	height: 0.7vw;
 }
 
 /* Selects för upload column, tar bort lite html */
@@ -318,7 +318,7 @@ body {
 	float: right;
 
 }
-/* Detta gäller endast de input-element som får .uploadfile. Textarea t.ex ska 
+/* Detta gäller endast de input-element som får .uploadfile. Textarea t.ex ska
 till exempel inte ha denna. */
 input.uploadfile {
 	height: 0.7vw;
@@ -373,7 +373,7 @@ input.uploadfile {
 
 
 
-/* Blå fyrkant för att indikera mediatyp, bakgrunderna är samma som 
+/* Blå fyrkant för att indikera mediatyp, bakgrunderna är samma som
 i checkboxarna i "ladda upp erfarenheter" */
 .ex {
 	width: 6vw;
@@ -387,7 +387,7 @@ i checkboxarna i "ladda upp erfarenheter" */
 	float: left;
 }
 
-/* Denna håller allt som är till höger, dvs redigera-knapparna 
+/* Denna håller allt som är till höger, dvs redigera-knapparna
 men också plats/tid */
 .edit_wrapper {
 	float: right;
@@ -411,7 +411,7 @@ men också plats/tid */
 	margin-bottom: -0.2vw;
 }
 
-/* Plats behöver vara längre och ha en negativ margin för att längre 
+/* Plats behöver vara längre och ha en negativ margin för att längre
 ortnamn ska få plats */
 .exp_location {
 	margin-left: -5vw;
@@ -536,7 +536,7 @@ ortnamn ska få plats */
 .addreference, .clearreference{
 	padding: 1vw;
 	background-color: #42b8bf;
-	float: right; 
+	float: right;
 	cursor: pointer;
 	font-family: Kozuka;
 }
@@ -663,7 +663,7 @@ ortnamn ska få plats */
 
 /* Sökord */
 .td_words span {
-	font-size: 0.75vw; 
+	font-size: 0.75vw;
 }
 
 /* Individuell cell-padding och bredd */
@@ -774,7 +774,7 @@ ortnamn ska få plats */
 	font-family: Kozuka;
 	font-size: 1.1vw;
 	float: right;
-	margin-top: 6vw; 
+	margin-top: 6vw;
 	margin-right: 2vw;
 	width: 24vw;
 	background-color: #243333;
@@ -845,8 +845,8 @@ ortnamn ska få plats */
 
 /* Den svarta triangeln till vänster */
 .arrow-left {
-	width: 0; 
-	height: 0; 
+	width: 0;
+	height: 0;
 	border-right: 1vw solid  #253737;
 	border-top: 0.8vw solid transparent;
 	border-bottom: 0.8vw solid transparent;
@@ -988,7 +988,7 @@ text-align: center;}
 
 /* Kolumner för att separera allt ordentligt på profilen */
 
-.columnLeft 	{ width: 24vw; float: left; } 
+.columnLeft 	{ width: 24vw; float: left; }
 .columnMiddle 	{ width: 30vw; float: left; }
 .columnRight 	{ width: 26vw; float: left;}
 
@@ -997,7 +997,7 @@ text-align: center;}
 	width: 21vw;
 	height: 26vw;
 	background-image: url(../img/profile_picture.PNG);
-	background-size: 21vw; 
+	background-size: 21vw;
 	margin-bottom: 1.5vw;
 }
 
@@ -1007,7 +1007,7 @@ text-align: center;}
 	width: 1vw;
 	cursor: pointer;
 	background-image: url(../img/edit.PNG);
-	background-size: 1vw; 
+	background-size: 1vw;
 	display: inline-block;
 }
 
@@ -1321,7 +1321,7 @@ text-align: center;}
 .subcheckbox {
 	float: right;
     display:inline-block;
-	padding-left: 0.8vw; 
+	padding-left: 0.8vw;
 	min-width: 5vw;
 }
 
@@ -1554,7 +1554,7 @@ text-decoration: none;}
 	float: right;
 	height: 12vw;
 	width: 26vw;
-	margin-top: -2vw; 
+	margin-top: -2vw;
 }
 
 .blue_box input {
@@ -1735,4 +1735,84 @@ input[type=radio]:not(old):checked + label > span > span{
   margin           : 0.1vw auto;
   background       : #56c5cb;
   border-radius: 0.6vw;
+}
+
+/* anneli design */
+
+#roligbox{
+    width: 600px;
+    height: 200px;
+    padding: 10px;
+    position: relative;
+    float:left;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    border: 2px solid #3FB272;
+    border-radius: 5px;
+    background: #43BF7E;
+    text-align: center;
+   	color: white;
+   	font-family: "calibri light";
+}
+
+#loginbox {
+    width: 250px;
+    height: 170px;
+    padding: 25px;
+    float:left;
+    border: 2px solid #3FB272;
+    border-radius: 5px;
+    margin-left:auto;
+    margin-right:auto;
+    position: relative;
+    background: #43BF7E;
+   	color: white;
+   	font-family: "calibri light";
+    text-align: center;
+}
+
+#finbox {
+    width: 945px;
+    height: 300px;
+    border: 2px solid #3FB272;
+   	border-radius: 5px;
+    margin-left:auto;
+    margin-right:auto;
+    margin-bottom: 20px;
+    float:left;
+    background: #43BF7E;
+    color: white;
+   	font-family: "calibri light";
+        text-align: center;
+}
+
+#username, #password {
+    width: 200px;
+    height: 35px;
+    border: 2px solid #3FB272;
+    border-radius: 10px;
+    background: white;
+    text-align: center;
+}
+
+.skicka {
+ padding: 10px;
+ background: #43BF7E;
+ border-radius: 13px;
+ color: white;
+ font-size: 20px;
+ font-family: "calibri light";
+}
+
+#a-wrapper{
+  margin-top: 10px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#headerpic img{
+  margin-left: -120px;
+  width: 70%;
+  height: 15%;
 }

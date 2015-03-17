@@ -94,10 +94,13 @@ class ProjectController extends \BaseController {
 		passes the selected prodject to the view.
 	*/
 	public function edit($id){
+		/*
 		$Project = Project::find($id);
 		return View::make('project.edit')->with('project',Project::find($id))
 																		 ->with('users', Project::find($id)->users)
                                      ->with('user',User::find(Auth::user()->id));
+	*/
+		return Redirect::to('/project');
 	}
 
 	/*
@@ -107,11 +110,15 @@ class ProjectController extends \BaseController {
 		This have a separate route witch is duck punched.
 	*/
 	public function update($id){
-		$Project = Project::find($id);
-		$Project->title = Input::get("project_title");
-		$Project->body = Input::get("project_body");
-		$Project->save();
-		return Redirect::to('/project');
+		if(Auth::check()){
+			$Project = Project::find($id);
+			$Project->title = Input::get("project_title");
+			$Project->body = Input::get("project_body");
+			$Project->save();
+			return Redirect::to('/project');
+		}else{
+			return Redirect::to('/project');
+		}
 	}
 
 	/*
