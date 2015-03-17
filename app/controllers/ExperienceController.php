@@ -10,15 +10,14 @@ class ExperienceController extends BaseController {
 	 */
 	public function index()
 	{
-		$experience = User::find(Auth::user()->id)->experience;
+	    if (Auth::check()){
+	   	$experience = User::find(Auth::user()->id)->experience;
 		$category = new Category;
 		$ids = [];
 		foreach($experience as $value) {
 			array_push($ids, $value -> city_id);
 		}
-
-	    if (Auth::check()){
-	  		return View::make("experience.index")->with('experiences', $experience)->with('cities', City::findMany($ids))->with('user',User::find(Auth::user()->id));
+	  		return View::make("experience.index")->with('experiences', $experience)->with('cities', City::findMany($ids))->with('user',User::find(Auth::user()->id))->with("states", State::all());;
 	    }
 	    else{
 	        return Redirect::to('/');
@@ -33,7 +32,7 @@ class ExperienceController extends BaseController {
 	 */
 	public function create()
 	{
-		return View::make('experience.create')->with("states", State::all());
+		return View::make('experience.index')->with("states", State::all());
 	}
 
 	/**
@@ -53,7 +52,6 @@ class ExperienceController extends BaseController {
 		//Rules for input fields
 		$validator =	Validator::make(
 		array(
-			'title' 				=> Input::get('title'),
 			'location'	 			=> Input::get('location'),
 			'description'	 		=> Input::get('description'),
 			'type'	 				=> Input::get('type'),
@@ -61,8 +59,7 @@ class ExperienceController extends BaseController {
 			'to'					=> Input::get('to'),
 			),
 		array(
-			'title' 					=> 'required|max:100',
-			'description' 				=> 'unique:experiences|required|max:255',
+			'description' 				=> 'required|max:255',
 			'type'	 					=> 'required',
 			'from' 						=> 'required|max:5',
 			'to'						=> 'max:5',
@@ -74,11 +71,10 @@ class ExperienceController extends BaseController {
 
 		//Validation
 		if ($validator->fails()) {
-          return Redirect::to('experience/create')
+          return Redirect::to('experience')
               ->withErrors($validator);
 		}else {
 			$experience = new Experience;
-			$experience->title = Input::get('title');
 			$experience->location = Input::get('location');
 			$experience->description = Input::get('description');
 			$experience->type = Input::get('type');
@@ -88,8 +84,6 @@ class ExperienceController extends BaseController {
 			$experience->category_id = Input::get('category');
 
 			$experience->save();
-
-			Experience::find($experience->id)->category()->attach(explode("-", Input::get('subcategory_id')));
 
 			return Redirect::to('experience');
 		}

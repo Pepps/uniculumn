@@ -3,81 +3,91 @@
 
 @include('layouts.nav')
 @yield('nav')
-      <div id="main_content">
-      
-  @foreach ($experiences as $experience)
-      <div id="add_new_experience">
-        
-         <h1>+ Lägg till en erfarenhet</h1>
+<div id="main_content">
+  <div id="add_new_experience">
+    <h1>+ Lägg till en erfarenhet</h1>
+
+        {{ Form::open(array('url' => 'experience', 'method'=>'post')) }}
 
          <div id="exp_types">
-           <div class="exp_education exp_square">  <input type="radio" name="exptype" value="education"> <label for="education"> <span><span></span></span>Utbildning </label></div>
-           <div class="exp_employment exp_square"> <input type="radio" name="exptype" value="employment"><label for="employment"><span><span></span></span>Anställning</label></div>
-           <div class="exp_merits exp_square">     <input type="radio" name="exptype" value="merits">    <label for="merits">    <span><span></span></span>Meriter    </label></div>
-           <div class="exp_other exp_square">      <input type="radio" name="exptype" value="other">     <label for="other">     <span><span></span></span>Övrigt     </label></div>
+
+           <div class="exp_education exp_square">  {{ Form::radio('type',1, false) }} <label for="education"> <span><span></span></span>Utbildning </label></div>
+           <div class="exp_employment exp_square"> {{ Form::radio('type',0, false) }}<label for="employment"><span><span></span></span>Anställning</label></div>
+           <div class="exp_merits exp_square">{{ Form::radio('type',2, false) }}<label for="merits">    <span><span></span></span>Meriter    </label></div>
+           <div class="exp_other exp_square"> {{ Form::radio('type',3, false) }}<label for="other">     <span><span></span></span>Övrigt     </label></div>
         </div>
 
 
-          <div class="things">          
+          <div class="things">        
                   <div class="upload_column">
                       <div class="dark_icon employer_icon" id="exp_employer"></div>
                           <h3 class="employerTitle">Arbetsgivare</h3>
-                              <input type="text" id="employer" value=""> </input>
+                             {{ Form::text('location', Input::old('name'), array('class' => 'form-control')) }}
                   </div>
 
                   <div class="upload_column">
                     <div class="dark_icon employment_icon" id="exp_description"></div>
                         <h3 class="employmentDescription">Arbetsbeskrivning</h3>
-                          <input type="text" id="employment" value=""> </input>
+                           {{ Form::text('description', Input::old('name'), array('class' => 'form-control')) }}
+                    </div>
+
+                  <div class="upload_column">
+                    <div class="dark_icon employment_icon" id="exp_description"></div>
+                        <h3 class="employmentDescription">Kategori</h3>
+                          {{ Form::select('category', array('0' => 'Kategori'), Input::old('category'), array('id' => 'project_category')) }}
                     </div>
 
                     <div class="upload_column">
                       <div class="dark_icon location_icon"></div>
                         <div class="time_separator"> 
                         <h3>Län</h3>
-                        <select>
-                          <option value="none">-----</option>
-                        </select>
+                          <select class="form-control" id="state-select">
+                            @foreach ($states as $state)
+                              <option value="{{ $state->id }}">{{$state->name}}</option>
+                            @endforeach
+                          </select>
                         </div>
                       <div class="time_separator" > 
                       <h3>Stad</h3>
-                      <select>
-                        <option value="none">-----</option>
-                      </select> 
-                      </input>
+                        {{ Form::select('cities', array('0' => 'Select a city'), Input::old('cities'), array('class' => 'form-control', 'id' => 'cities')) }}
                       </div>
                   </div>
 
                   <div class="upload_column">
                     <div class="dark_icon time_icon"></div>
                     <div class="time_separator"> <h3>Från</h3>
-                    <input type="text" id="employment" value=""> </input></div>
+                     {{ Form::text('from', Input::old('name'), array('class' => 'form-control')) }}</div>
                     <div class="time_separator"> <h3>Till</h3>
-                    <input type="text" id="employment" value=""> </input></div>
+                    {{ Form::text('to', Input::old('name'), array('class' => 'form-control')) }}</div>
                     
                   </div>    
                    
-                  <input type="submit" class="submit_project" value="Lägg till erfarenhet">
+      {{ Form::submit('Lägg till erfarenhet', array('class' => 'submit_project')) }}
+           {{ HTML::ul($errors->all()) }}  
+    {{ Form::close() }}
+
            </div>
 
       </div>
 
 
-      <div id="my_experience">
           <h1>Mina erfarenheter</h1>
-
+  @foreach ($experiences as $experience)
+      <div id="my_experience">
         <div class="ex_column">
             @if ($experience->type === '0')
-            <div class="ex ico_education">
-            @elseif ($experience->type === '1')
             <div class="ex ico_employment">
+            Anställning
+            @elseif ($experience->type === '1')
+            <div class="ex ico_education">
+            Utbildning
             @elseif ($experience->type === '2')
+            <div class="ex merits_icon">
             Merit
             @elseif ($experience->type === '3')
+            <div class="ex other_icon">
             Övrigt
             @endif
-            
-              Anställning
             </div>
                 <h2 class="edit_this edit_column">Redigera anställning</h2>
 
@@ -157,7 +167,7 @@
 
              <!-- <Lägg till ny referens>  -->
             <div class="references_choices">
-                
+                {{ Form::open(array('url' => 'experience/'.$experience->id)) }}
                 <div class="ref_column">
                   <h3> Förnamn</h3>
                   <input type="text" class="references_input" id="first_name"></input>
@@ -213,6 +223,8 @@
       </div>
 
   </div>
+</div>
+
 
 
 

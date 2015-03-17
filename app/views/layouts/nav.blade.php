@@ -13,7 +13,7 @@
 
             <div class="user_box">
 
-                <a href="/user">{{ HTML::image('img/snape.PNG','user picture', array('class' => 'user_picture')) }}</a>
+                <a href="/user">{{ HTML::image('img/avatar.PNG','user picture', array('class' => 'user_picture')) }}</a>
 
                 <div class="username_holder">
                     <span class="user_name">{{$user->firstname}}</span>
