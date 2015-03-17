@@ -76,7 +76,7 @@
           <div class="file_plane" style="background-color:#5DC8B9;">
           <div class="s_folder_dark">
             <div class="file_title">
-              s
+              <p>Filer</p>
             </div>
             </div>
             </div>

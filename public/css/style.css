@@ -621,6 +621,7 @@ input.uploadfile {
 .chosen_categories{
 	float: left;
 	margin-left: 12vw;
+	margin-top: 2vw;
 	color: white;
 	
 
@@ -672,14 +673,16 @@ input.uploadfile {
 }
 .file_title{
 	float: left;
-	margin-left:12vw;
+	margin-left:16vw;
+	margin-top:2vw;
 	color:white;
 
 }
 
 .file_order{
 	margin-left: 2vw;
-	margin-top: 2vw;
+	margin-top: 8vw;
+
 	color:white;
 }
  /* "Header" */
