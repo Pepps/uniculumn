@@ -30,12 +30,12 @@
     </div>
 
     <div class="form-group">
-        {{ Form::label('user_title', "Postnummer" ) }}
+        {{ Form::label('postnumber', "Postnummer" ) }}
         {{ Form::text('postnumber', $user->postnumber, array('class' => 'form-control')) }}
     </div>
 
     <div class="form-group">
-        {{ Form::label('user_title', "Telefonnummer" ) }}
+        {{ Form::label('phone', "Telefonnummer" ) }}
         {{ Form::text('phone', $user->phone, array('class' => 'form-control')) }}
     </div>
 
@@ -61,10 +61,15 @@
         {{ Form::select('city', array('0' => 'Välj din stad'), Input::old('state'), array('class' => 'form-control', 'id' => 'cities')) }}
     </div>
 
-    {{ Form::submit('Updatera din profil', array('class' => 'btn btn-primary')) }}
     @if(!$nocity)
       <span id="hidden_city" style="display:none;">{{$user->city_id}}</span>
     @endif
+
+    <div class="form-group">
+        {{ Form::label('description', "Beskrivning" ) }}
+        {{ Form::textarea('description', $user->description, array('class' => 'form-control')) }}
+    </div>
+    {{ Form::submit('Updatera din profil', array('class' => 'btn btn-primary')) }}
 {{ Form::close() }}
 </div>
 
