@@ -4,8 +4,8 @@
 @section('content')
 <div class="container">
 
-@include('project.projectnav')
-@yield('projectnav')
+@include('layouts.nav')
+@yield('nav')
 
 <h1>Updatera Din Profil</h1>
 

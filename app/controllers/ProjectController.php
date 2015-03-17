@@ -94,7 +94,7 @@ class ProjectController extends \BaseController {
 	public function edit($id){
 		$Project = Project::find($id);
 		return View::make('project.edit')->with('project',Project::find($id))
-																		 ->with('users', Project::find($id)->users)
+									 ->with('users', Project::find($id)->users)
                                      ->with('user',User::find(Auth::user()->id));
 	}
 

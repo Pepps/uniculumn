@@ -19,7 +19,7 @@
 
                     <div class="arrow-down" id="clickmetoo">
                       <div class="account_settings">
-                          Kontoinställningar<br/>
+                          <a href="/user/{{$user->id}}/edit"> Kontoinställningar<br/></a>
                           <a href="/logout">Logga ut</a>
                           <div class="arrow-up" id="hide_controlpanel"></div>
 
