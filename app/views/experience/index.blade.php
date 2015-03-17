@@ -16,6 +16,7 @@
       <td><b>Type</b></td>
       <td><b>City</b></td>
       <td><b>Description</b></td>
+      <td><b>Category</b></td>
       <td><b>Duration</b></td>
       <td></td>
       <td></td>
@@ -49,14 +50,21 @@
               @endif
             @endforeach</td>
             <td>{{str_limit($value->description, $limit = 200, $end = '...')}}</td>
+            <td>{{ $value->category_id }}</td>
             <td>{{$value->duration}}</td>
             <td><a class="btn btn-small btn-success" href="{{ URL::to('experience/' . $value->id) }}"><i class="fa fa-search"></i></a></td>
             <td><a class="btn btn-small btn-info" href="{{ URL::to('experience/' . $value->id . '/edit') }}"><i class="fa fa-pencil-square-o"></i></a></td>
             <td><a class="btn btn-warning" href="{{ URL::to('experience/' . $value->id . '/addref') }}"><i class="fa fa-plus"></i></a></td>
-            <td><button class="btn btn-small btn-danger" id="delmodal-btn"><i class="fa fa-trash"></i></button></td>
+            <td><button class="btn btn-small btn-danger"><i class="fa fa-trash"></i>
+                {{ Form::open(array('url' => 'delete/' . $value->id, 'class' => 'pull-right')) }}
+                    {{ Form::hidden('_method', 'DELETE') }}
+                {{ Form::close() }}
+          </button></td>
         </tr>
     @endforeach
     </tbody>
+
+
 </div>
 
 

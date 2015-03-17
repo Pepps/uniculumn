@@ -11,6 +11,7 @@ class ExperienceController extends BaseController {
 	public function index()
 	{
 		$experience = User::find(Auth::user()->id)->experience;
+		$category = new Category;
 		$ids = [];
 		foreach($experience as $value) {
 			array_push($ids, $value -> city_id);
@@ -43,36 +44,52 @@ class ExperienceController extends BaseController {
 	 */
 	public function store()
 	{
+		//dd(Input::all());
+			if (Input::has('to')) {
+				$duration = Input::get('from') . '-' . Input::get('to');
+			} else {
+				$duration = Input::get('from');
+			}
 		//Rules for input fields
-		$rules = array(
-			'title' 				=> 'required',
-			'description' 			=> 'required',
-			'type'	 				=> 'required',
-			'from' 					=> 'required',			);
+		$validator =	Validator::make(
+		array(
+			'title' 				=> Input::get('title'),
+			'location'	 			=> Input::get('location'),
+			'description'	 		=> Input::get('description'),
+			'type'	 				=> Input::get('type'),
+			'from' 					=> Input::get('from'),
+			'to'					=> Input::get('to'),
+			),
+		array(
+			'title' 					=> 'required|max:100',
+			'description' 				=> 'required|max:255',
+			'type'	 					=> 'required',
+			'from' 						=> 'required|max:5',
+			'to'						=> 'max:5',
+			//'subcategory_id'            => 'required'			
+			)
+		);
 
-		$validator = Validator::make(Input::all(), $rules);
+		//$validator = Validator::make(Input::all(), $rules);
 
 		//Validation
 		if ($validator->fails()) {
           return Redirect::to('experience/create')
               ->withErrors($validator);
 		}else {
-
-			if (Input::has('to')) {
-				$duration = Input::get('from') . '-' . Input::get('to');
-			} else {
-				$duration = Input::get('from');
-			}
-
 			$experience = new Experience;
 			$experience->title = Input::get('title');
+			$experience->location = Input::get('location');
 			$experience->description = Input::get('description');
 			$experience->type = Input::get('type');
 			$experience->duration = $duration;
 			$experience->city_id = Input::get('cities');
 			$experience->user_id = Auth::user()->id;
+			$experience->category_id = Input::get('category');
 
 			$experience->save();
+
+			Experience::find($experience->id)->category()->attach(explode("-", Input::get('subcategory_id')));
 
 			return Redirect::to('experience');
 		}

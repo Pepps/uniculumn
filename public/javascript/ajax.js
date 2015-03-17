@@ -182,6 +182,8 @@ $(document).on('change', '#project_category', function(e) {
 
 });
 
+<<<<<<< HEAD
+=======
 /*
 $(document).on('change', '#state', function(e) {
     e.preventDefault(e);
@@ -195,3 +197,4 @@ $(document).on('change', '#state', function(e) {
 });
 */
 
+>>>>>>> 79a9d4e18649bb17eb7049946e2d044c5515c86d
