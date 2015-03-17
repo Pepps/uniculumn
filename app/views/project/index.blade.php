@@ -1,11 +1,8 @@
 @extends('layouts.master')
 @section('content')
 
-<<<<<<< HEAD
 <div class="container">
 
-=======
->>>>>>> kevin
 @include('layouts.nav')
 @yield('nav')
 

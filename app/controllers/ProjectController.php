@@ -10,13 +10,7 @@ class ProjectController extends \BaseController {
 
 	public function index(){
 	    if (Auth::check()){
-<<<<<<< HEAD
-				return View::make("project.index")->with('projects',User::find(Auth::user()->id)->project)->with('user',User::find(Auth::user()->id));
-=======
-
-				return View::make("project.index")->with('projects',User::find(Auth::user()->id)->project)
-																					->with('user',User::find(Auth::user()->id));
->>>>>>> kevin
+				return View::make("project.index")->with('projects',User::find(Auth::user()->id)->project)																					->with('user',User::find(Auth::user()->id));
 	    }
 	    else{
 	        return Redirect::to('/');
