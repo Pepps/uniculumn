@@ -276,6 +276,8 @@ body {
 /* Bakgrundsbilderna till dessa ikoner ^ */
 .ico_education 	 { background-image: url(../img/education.PNG); background-size:6vw; }
 .ico_employment  { background-image: url(../img/employment.PNG); background-size:6vw;  }
+.ico_merits 	 { background-image: url(../img/merits_w.PNG); background-size:6vw; }
+.ico_other  	 { background-image: url(../img/other_w.PNG); background-size:6vw;  }
 .employer_icon 	 { background-image: url(../img/icons/blue/employer.PNG) ; background-size: 4vw; }
 .employment_icon { background-image: url(../img/icons/blue/employment.PNG) ; background-size: 4vw; }
 .merits_icon 	 { background-image: url(../img/icons/blue/merits.PNG) ; background-size: 4vw; }

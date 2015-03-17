@@ -82,7 +82,7 @@
             <div class="ex ico_education">
             Utbildning
             @elseif ($experience->type === '2')
-            <div class="ex merits_icon">
+            <div class="ex ico_merits">
             Merit
             @elseif ($experience->type === '3')
             <div class="ex other_icon">
