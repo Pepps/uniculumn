@@ -29,7 +29,7 @@
              <h2>{{ $user->firstname }}</h2> <!--username-->
 
                 <div id="description"> <!--user personal description-->
-
+                    {{ $user->description }}
 
                   </div>
 
