@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Uniculum - Mina projekt</title>
+          <link href="css/style.css" type="text/css" rel="stylesheet" />
+          <link rel="shortcut icon" href="img/favicon.ico" />
+          <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
+            <script src="javascript/jquery-1.8.3.js"></script>
+            <script src="javascript/jquery-ui-1.9.2.js"></script>
+            <script src="javascript/jquery.ui.touch-punch.js"></script>
+            <script src="javascript/user_jquery.js"></script>
+    </head>
+     <body>
+
+        <div id="ui_sidebar">
+            
+            <img src="img/logoleft.PNG" class="left_logo"/>
+            <h2><div class="arrow-right"></div><a href="search.html">Avancerad sökning</a></h2>
+            <h2><div class="arrow-right"></div><a href="user_profile.html">Min profil</a></h2>
+            <h2><div class="arrow-right"></div><a href="my_projects.html">Mina projekt</a></h2>
+            <h2><div class="arrow-right"></div><a href="erfarenheter.html">Mina erfarenheter</a></h2>
+
+        </div>
+
+        <div id="ui_header">
+
+            <div class="user_box"> 
+               <div class="user_picture"></div>
+                <div class="username_holder">
+                    <span class="user_name">Severus Snape</span>
+
+                        <div class="arrow-down" id="clickmetoo">
+                          <div class="account_settings">
+                              Kontoinställningar<br/>
+                              Logga ut 
+                                <div class="arrow-up" id="hide_controlpanel"></div>  
+                          </div>
+                        </div>
+                </div>
+            </div>
+
+          <div class="upload_shortcut">
+              <a href="upload_file.html"><h2 class="cursor">» Ladda upp ett nytt projekt</h2>
+              <img src="img/upload_button.PNG" id="upload_button" /></a>
+          </div>
+
+      </div>
+      
+      <div id="main_content">
+
+      
+      <h1><img src="img/cloud.PNG" class="cloud"/>Ladda upp nytt projekt</h1>
+      
+
+          <div class="upload_column">
+            <div class="dark_icon title_icon"><div class="check_title"></div></div>
+             <h3>Välj titel</h3>
+            <input class="uploadfile" id="project_title" value=""> </input>
+          </div>
+
+
+
+          <div class="upload_column">
+            <div class="dark_icon description_icon"><div class="check_description"></div> </div>
+             <h3>Beskriv ditt projekt</h3>
+            <textarea class="uploadfile" id="project_description" rows="4" cols="50"></textarea>
+          </div>
+
+          <div class="upload_column mediatype" style="display: none;">
+           <div class="dark_icon mediatype_icon"><div class="check_mediatype"></div></div>
+            <h3>Välj mediatyp</h3>
+            <div class="media_icon"><img src="img/icons/blue/game.PNG"/>Spel</div>
+            <div class="media_icon"><img src="img/icons/blue/music.PNG"/>Ljud</div>
+            <div class="media_icon"><img src="img/icons/blue/video.PNG"/>Video</div>
+            <div class="media_icon"><img src="img/icons/blue/essay.PNG"/>Text</div>
+          </div>
+
+
+          <div class="upload_column">
+            <div class="dark_icon categories_icon"><div class="check_category"></div></div>
+
+             <h3>Välj kategori</h3>
+           <select class="uploadfile" id="project_category">
+            <option value="none">-----</option>
+            <option value="volvo">Potatis</option>
+            <option value="saab">Fläsksallad</option>
+            <option value="mercedes">Grötrullar</option>
+            <option value="audi">Bananlåda</option>
+          </select>
+
+<div class="subcategories">
+<div class="check_subcategories"></div>
+<div class="subcheckbox"><input type="checkbox" name="dumbledore" value="lily"><label for="lily"><span><span></span></span>Pommes </label></div>
+<div class="subcheckbox"><input type="checkbox" name="dumbledore" value="lily"><label for="lily"><span><span></span></span>Chips</label></div>
+<div class="subcheckbox"><input type="checkbox" name="dumbledore" value="lily"><label for="lily"><span><span></span></span>Kokt</label></div>
+<div class="subcheckbox"><input type="checkbox" name="dumbledore" value="lily"><label for="lily"><span><span></span></span> Mos</label></div>
+</div>
+
+
+          </div>
+
+          <div class="upload_column">
+            <div class="dark_icon upload_icon"> </div>
+             <h3>Ladda upp fil</h3>
+            <input class="uploadfile"> </input>
+          </div>
+          <br/><br/><br/>
+          <input type="submit" class="submit_project" value="Skapa projekt">
+
+          <div style="clear: both;"></div>
+        </div>
+
+
+      </body>      
+</html>

@@ -7,12 +7,18 @@ class UserController extends BaseController {
     public function index() {
         $user   = User::find(Auth::user()->id);
         if($user->city_id == null){
-          return View::make('user.index')->with('user', $user)->with("nocity", true);
+          return View::make('user.index')->with('user', $user)->with("nocity", true)->with('projects', Project::find($user));
         }else{
           $city  = City::find($user->city_id);
           $state  = State::find($city->state_id);
 
+<<<<<<< HEAD
           return View::make('user.index')->with('user', $user)->with("nocity", false)->with('city', $city)->with('state', $state)->with('projects',User::find(Auth::user()->id)->project);
+=======
+          return View::make('user.index')->with('user', $user)->with("nocity", false)
+            ->with('city', $city)->with('state', $state)
+            ->with('projects',User::find(Auth::user()->id)->project);
+>>>>>>> kevin
         }
     }
 

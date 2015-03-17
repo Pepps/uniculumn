@@ -10,7 +10,13 @@ class ProjectController extends \BaseController {
 
 	public function index(){
 	    if (Auth::check()){
+<<<<<<< HEAD
 				return View::make("project.index")->with('projects',User::find(Auth::user()->id)->project)->with('user',User::find(Auth::user()->id));
+=======
+
+				return View::make("project.index")->with('projects',User::find(Auth::user()->id)->project)
+																					->with('user',User::find(Auth::user()->id));
+>>>>>>> kevin
 	    }
 	    else{
 	        return Redirect::to('/');
@@ -50,7 +56,9 @@ class ProjectController extends \BaseController {
         $project = new Project;
         $project->title = Input::get('project_title');
         $project->body = Input::get('project_body');
+
         $project->owner_id = Auth::user()->id;
+
 
         $project->save();
 
@@ -81,7 +89,9 @@ class ProjectController extends \BaseController {
       return View::make('project.show')
           ->with('project', $Project)
 					->with('categories', $Project->category)
+
 					->with('users', $Project->users);
+
 	}
 
 
@@ -90,9 +100,10 @@ class ProjectController extends \BaseController {
 		passes the selected prodject to the view.
 	*/
 	public function edit($id){
+		$Project = Project::find($id);
 		return View::make('project.edit')->with('project',Project::find($id))
 																		 ->with('users', Project::find($id)->users)
-                                                                         ->with('user',User::find(Auth::user()->id));
+                                     ->with('user',User::find(Auth::user()->id));
 	}
 
 	/*
@@ -144,6 +155,10 @@ class ProjectController extends \BaseController {
 		}else{
 			return Redirect::to('/project');
 		}
+	}
+
+	public function getcolabs($id){
+		return Project::find($id)->users->toJson();
 	}
 
 }

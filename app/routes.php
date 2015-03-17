@@ -8,7 +8,7 @@ Route::post("/register_action", "AuthController@store");
 Route::get("/logout", "AuthController@logout");
 
 Route::get("/doc", function(){
-	return View::make("doc");
+	return View::make("doc")->with('user', User::find(Auth::user()->id));
 });
 
 Route::get("/isa", function(){
@@ -30,8 +30,11 @@ Route::post('/user/update/{id}', "UserController@update");
 /* Duck punch for fixing update */
 Route::post('/project/update/{id}', "ProjectController@update");
 Route::get('/project/delete/{id}', "ProjectController@destroy");
+/*End duck punch*/
+
 Route::post('/project/addcolab/{id}', "ProjectController@addcolab");
 Route::get('/project/delcolab/{project_id}/{colab_id}', "ProjectController@deletecolab");
+Route::get('/project/getusers/{id}', "ProjectController@getcolabs");
 
 Route::get('/project/showfiles/{id}', "ProjectController@showfiles");
 Route::get('/project/getfiles/{id}', "ProjectController@getfiles");
@@ -39,8 +42,9 @@ Route::get('/project/readfile/{id}', "ProjectController@readfile");
 
 /* Routes for experiences */
 Route::resource('experience', "ExperienceController");
-Route::get('/experience/{id}/addref/', "ExperienceController@newref");
-Route::post('/experience/{id}/addref/', array('as' => 'addref', 'uses' => "ExperienceController@addref"));
+// Route::get('/experience/{id}/addref/', "ExperienceController@newref");
+// Route::post('/experience/{id}/addref/', array('as' => 'addref', 'uses' => "ExperienceController@addref"));
+Route::get('/experience/{id}/deleteExp/', "ExperienceController@deleteExp");
 
 Route::get('/state/{id}/', "ExperienceController@getcities");
 
@@ -48,5 +52,6 @@ Route::get('category/show/{id}', 'CategoryController@show');
 Route::get('state/show/{id}', 'StateController@show');
 Route::get('city/show/{id}', 'CityController@show');
 Route::get('/user/show', 'UserController@show');
+
 
 Route::get('/register', 'HomeController@index');

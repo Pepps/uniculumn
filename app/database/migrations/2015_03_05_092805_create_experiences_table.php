@@ -16,14 +16,13 @@ class CreateExperiencesTable extends Migration {
 		{
 			/* This is the experiences table. */
 			$table->increments('id');
-			//Title is the title of the job or type of education that the user has attended. 
-			$table->string('title', 100);
 			//Location is the actual place where the user has worked or studied. 
 			$table->string('location', 100);
-			// 1 is equal to Job ("Jobb"), 0 is equal to Education ("Utbildning") and 2 is equal to Skills ("merit"). 
+			// 0 is equal to .ico_audio, 1 is equal to .ico_game,  and 2 is equal to .ico_video, and 3 .ico_essay. 
 			$table->integer('type');
 
 			$table->timestamps();
+			//Title is the description of the job or type of education that the user has attended. 
 			$table->string('description', 255);
 			$table->integer('user_id')->unsigned();
 			$table->integer('city_id')->unsigned();

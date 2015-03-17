@@ -4,7 +4,7 @@
 @include('layouts.nav')
 @yield('nav')
 
-      <div id="main_content">
+<div id="main_content">
 
 
           <div class="columnLeft">
@@ -14,10 +14,11 @@
 
               <h2>Kontaktuppgifter <div class="edit_icon"></div></h2>
               <div id="contact_information">
-                <div class="contact_rows">Namn: {{$user->firstname.' '.$user->lastname}}</div>
-                <div class="contact_rows">Ort: {{$city->name.', '.$state->name}}</div>
-                <div class="contact_rows">Tel: {{$user->phonenumber}}</div>
-                <div class="contact_rows">Email: {{$user->email}} </div>
+                  <div class="contact_rows">Namn: {{ $user->firstname }}. </div>
+                  <div class="contact_rows">Ort: {{ $user->lastname }}.</div>
+                  <div class="contact_rows">Tel: {{ $user->phone }}.</div>
+                  <div class="contact_rows">Email: {{ $user->email }}.</div>
+                }
               </div>
 
           </div>
@@ -25,29 +26,23 @@
 
          <div class="columnMiddle">
 
-             <h2>{{$user->firstname}}</h2> <!--username-->
+             <h2>{{ $user->firstname }}</h2> <!--username-->
 
                 <div id="description"> <!--user personal description-->
+
 
                   </div>
 
 
                  <h2>Mina projekt <div class="edit_icon"></div></h2>
-                <span style="display: none;">{{$i = 1}}</span>
-                @foreach($projects as $value)
+                 @foreach($projects as $value)
                   <div class="project_description">
-                  <div class="icon audio"></div>
-                    <h2>{{$value->title}}</h2>
-                    {{str_limit($value->body, $limit = 50, $end = '...')}} <a href="{{ URL::to('project/' . $value->id) }}">Läs mer...</a>
-                    <a class="btn btn-small btn-info" href="{{ URL::to('project/' . $value->id . '/edit') }}"><i class="fa fa-pencil-square-o"></i></a>
-                    <button class="btn btn-small btn-danger" id="delmodal-btn"><i class="fa fa-trash"></i></button>
-                    {{$i++}}
+                    <div class="icon audio"></div>
+                    <h2> {{ $value->title }} </h2>
+                     <a href="">Läs mer...</a>
+                      {{ $value->body }}
                   </div>
-                  <div class="project_members">
-                    Test.
-                    {{ HTML::image('img/users.PNG', '', array('id' => 'upload_button')) }}
-                  </div>
-              @endforeach
+                  @endforeach
             </div>
 
 
@@ -84,14 +79,6 @@
 
 
         </div>
-
-
-
-
-
-
-
-
 
 
 

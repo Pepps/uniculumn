@@ -1,14 +1,181 @@
 $(document).ready(function() {
 
 
+// variabler!!!!!!!!!!
   controlPanel = true;
+  type = true;
+
+$(".edit_references").on('click', function(){
+     $(this).closest('.ex_column').find('.references_choices').slideDown();
+    $(' #first_name, #last_name, #phone_number, #email_address').attr("disabled", false);
+     $(this).closest('.ex_column').find('.show_references').css("display", "none");
+     $(this).closest('.ex_column').find('.allreferences').hide();
+      });
+
+$(".delete_member").on('click', function(){
+     var THIS = $(this);
+     if(confirm("är du säker på att du vill ta bort?")){
+       console.log($(THIS).parent().find(".member_projid").text());
+       $.ajax({
+           type    : 'GET',
+           url     : '/project/delcolab/'+$(THIS).parent().find(".member_projid").text()+'/'+$(THIS).parent().find(".member_id").text(),
+           success : function() {
+             $(THIS).parent().remove();
+           }
+       });
+     }
+});
+
+$(".delete_reference").on('click', function(){
+    $(this).parent().remove();
+});
+
+$(".edit_tags").on('click', function(){
+
+   if ( $(this).closest('.ex_column').find('.edit_tags_block').css("display") == "block") {
+     $(this).closest('.ex_column').find('.edit_tags_block').slideUp('slow');
+      }
+      else {
+     $(this).closest('.ex_column').find('.edit_tags_block').slideDown('slow');
+     }
+      });
+
+
+$(".clearreference, .addreference").click(function(){
+     $(this).closest('.ex_column').find('.show_references').css("display", "inline-block");
+      $(this).closest('.ex_column').find(".references_choices").slideUp('slow');
+        });
+
+    $(".clearreference").click(function(){
+    $('#first_name, #last_name, #phone_number, #email_address').val('');
+    $('#first_name, #last_name, #phone_number, #email_address').attr("disabled", true);
+        });
+
+
+
+$(".edit_experience").on('click', function(){
+     $(this).closest('.ex_column').find('.edit_wrapper').css({ "width": "16vw"});
+     $(this).closest('.ex_column').animate({ "height" : "10vw", "background-color" : "white", "margin-bottom": "2vw"}, 350 );
+     $(this).closest('.ex_column').find('.ex').animate({ "height" : "6vw"}, 450 );
+     $(this).closest('.ex_column').find('.show_references').css("display", "none");
+     $(this).closest('.ex_column').find('.edit_this').show();
+     $(this).closest('.ex_column').find('.ex_button, .allreferences, .references_choices, .hide_this').hide();
+});
+
+
+$(".add_ref_edit, .ignore_ref_edit").on('click', function(){
+     $(this).closest('.ex_column').find('.edit_wrapper').css({ "width": "10vw"});
+     $(this).closest('.ex_column').animate({"background-color" : "transparent", "margin-bottom": "0.5vw"}, 350 ).css({ "height": ""});
+     $(this).closest('.ex_column').find('.ex').animate({ "height" : "3vw"}, 450 );
+     $(this).closest('.ex_column').find('.show_references').css("display", "inline-block");
+     $(this).closest('.ex_column').find('.edit_this, .edit_tags_block').hide();
+     $(this).closest('.ex_column').find('.ex_button, .hide_this').show();
+     $('input:checkbox').removeAttr('checked');
+      });
+
+
+
+
+    $(".show_references").on('click', function(){
+      if ( $(this).find('.allreferences').css("display") == "block") {
+        $(this).find('.allreferences').slideUp('slow');
+      }
+      else {
+       var THIS = $(this);
+       $(THIS).find('.allreferences').slideDown('slow');
+       /*$(THIS).find(".project_members_square").remove();
+       console.log($(this).find('.projectid').text());
+       $.ajax({
+           type: 'GET',
+           dataType: 'json',
+           url: '/project/getusers/'+$(THIS).find('.projectid').text(),
+           success : function(data) {
+             console.log(data.length);
+             for(var i = 0; i< data.length; i++){
+               console.log(data[i].firstname);
+               //console.log($(THIS).find(".allreferences"));
+               $(THIS).find(".allreferences").append(
+                 "<div class='project_members_square'>"+
+                   "<div class='delete_member'><img src='http://localhost:8000/img/icons/edit/delete.PNG'></div>"+
+                   "<span class='label label-info'>"+data[i].email+"</span>"+
+                   "<img src='http://localhost:8000/img/avatar.PNG'>"+
+                 "</div>"
+              );
+             }
+           }
+       });*/
+      }
+    });
+
+    $(".allreferences, .show_tags, .alltags").on('click', function(e){
+       e.stopPropagation();
+    });
+
+     $(".show_tags").on('click', function(){
+
+      if ( $(this).closest('.ex_column').find('.alltags').css("display") == "none") {
+     $(this).closest('.ex_column').find('.alltags').slideDown('slow');
+      }
+      else {
+     $(this).closest('.ex_column').find('.alltags').slideUp('slow');
+     }
+
+
+    });
+// rensa inputs om man byter från anställning till utbildning etc
+$('input:radio[name="type"]').on('click', function(){
+    $('#employer, #employment').val('');
+    $('#first_name, #last_name, #phone_number, #email_address').val('');
+  if (type == true) {
+ $("#exp_types").children('.exp_square').removeClass('exp_education exp_merits exp_employment exp_other').animate({ "padding-top": "0vw", "height" : "2vw", "background-image" : "none", "color" : "white" }, "slow" );
+ $(".things").slideDown('slow');
+  type = false; }
+});
+
+  $("#add_references").click(function(){
+      $(".references_choices").slideDown('slow');
+      $("#add_references").slideUp('slow');
+    $(' #first_name, #last_name, #phone_number, #email_address').attr("disabled", false);
+        });
+
+// litte radiobuttonz hehe
+
+$('input:radio[value="1"]').on('click', function(){
+ $(".employerTitle").text("Skola");
+ $(".employmentDescription").text("Utbildning");
+ $("#exp_description").removeClass('other_icon education_icon employment_icon').addClass('education_icon');
+ $("#exp_employer").removeClass('other_icon merits_icon school_icon employer_icon').addClass('school_icon');
+});
+
+$('input:radio[value="0"]').on('click', function(){
+ $(".employerTitle").text("Arbetsgivare");
+ $(".employmentDescription").text("Arbetsbeskrivning");
+ $("#exp_description").removeClass('other_icon education_icon employment_icon').addClass('employment_icon');
+ $("#exp_employer").removeClass('other_icon merits_icon school_icon employer_icon').addClass('employer_icon');
+});
+
+
+$('input:radio[value="2"]').on('click', function(){
+ $(".employerTitle").text("Merit");
+ $(".employmentDescription").text("Beskrivning");
+ $("#exp_description").removeClass('other_icon education_icon employment_icon').addClass('other_icon');
+ $("#exp_employer").removeClass('other_icon merits_icon school_icon employer_icon').addClass('merits_icon');
+});
+
+
+$('input:radio[value="3"]').on('click', function(){
+ $(".employerTitle").text("Övrigt");
+ $(".employmentDescription").text("Beskrivning");
+ $("#exp_description").removeClass('other_icon education_icon employment_icon').addClass('other_icon');
+ $("#exp_employer").removeClass('merits_icon school_icon employer_icon').addClass('other_icon');
+});
 
 
 // ehhh funkar detta när det är så många olika kategorier??? tror inte det. :c HMMM dte ska gå att lösa iaf?! men har inte the skillz. <///3
 $('input[name="dumbledore"]').on('click', function(){
   if ( $('input[name="dumbledore"]').is(':checked') ) {
       $(".check_subcategories").css({ "background-image" : "url(img/checkmark.PNG)"}, "fast" );
-} 
+}
 else {
       $(".check_subcategories").css({ "background-image" : "url(img/delete_button.PNG)"}, "fast" );
 }
@@ -23,7 +190,6 @@ $("#project_title").on("input", function() {
     }
     else {
       $(".check_title").css({ "background-image" : "url(img/checkmark.PNG)"}, "fast" );
-
     }
 });
 
@@ -39,30 +205,28 @@ $("#project_description").on("input", function() {
 
 $("#project_category").change(function(){
   $(".check_category").show();
-  
-    if ( $(this).val() == "none" ) { 
+    if ( $(this).val() == "none" ) {
       $(".check_category").css({ "background-image" : "url(img/delete_button.PNG)"}, "fast" );
       $(".subcategories").slideUp();
         }
-        else { 
+        else {
       $(".check_category").css({ "background-image" : "url(img/checkmark.PNG)"}, "fast" );
       $(".subcategories").slideDown();
         }
-     
-    }); 
 
-$("#clickyes").click(function(){
+    });
+$('input:radio[name="fgg1"]').on('click', function(){
         $("#hide_me2").children('.dark_square').removeClass('s_users  s_projects s_experiences s_status s_categories').animate({ "padding-top": "0vw", "height" : "2vw", "background-image" : "none", "color" : "white" }, "slow" );
         $("#hide_me, #search_for").slideDown('slow');
         $("#search_in").hide().html("<div class='search_div'>Söker i...</div>").fadeIn('slow');
       });
 
   $("#clickmetoo").click(function(){
-    
+
       if (controlPanel == true) {
-            $(".settings").show();
-            $("#clickmetoo").css({ "background-color" : "#56c5cb"}, "fast" );
-            $("#clickmetoo").animate({ "border": "0vw", "height" : "3.6vw", "background-color" : "#2f4343", "width" : "11vw", "padding" : "0.5vw" }, 450 );
+            $(".account_settings").show();
+            $("#clickmetoo").css({ "background-color" : "#56c5cb", "cursor" : "text"}, "fast" );
+            $("#clickmetoo").animate({ "border": "0vw", "height" : "3.6vw", "background-color" : "#2f4343", "width" : "11vw", "padding" : "0.5vw"}, 450 );
             controlPanel = false;
         }
         });
@@ -71,8 +235,8 @@ $("#clickyes").click(function(){
 
     $("#hide_controlpanel").click(function(e){
             controlPanel = true;
-            $(".settings").hide();
-            $("#clickmetoo").css({ "border-top": "0.7vw solid #56c5cb", "border-left": "0.5vw solid transparent", "border-right": "0.5vw solid transparent", "height" : "0vw", "background-color" : "transparent", "width" : "0vw", "padding" : "0" }, "slow" );
+            $(".account_settings").hide();
+            $("#clickmetoo").css({ "border-top": "0.7vw solid #56c5cb", "border-left": "0.5vw solid transparent", "border-right": "0.5vw solid transparent", "height" : "0vw", "background-color" : "transparent", "width" : "0vw", "padding" : "0", "cursor" : "pointer" }, "slow" );
             e.stopPropagation();
           });
 
@@ -119,12 +283,12 @@ $(".edit_icon").mouseenter(function(){
       $(".trigger_registration").click(function(){
       $(".welcome_box").hide();
         $(".registration_box").slideDown(600);
-      }); 
+      });
 
       $(".back_to_welcome").click(function(){
       $(".registration_box").hide();
         $(".welcome_box").show('slide',{direction:'right'},700);
-      }); 
+      });
 
 
   });

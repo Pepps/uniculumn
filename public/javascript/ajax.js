@@ -105,7 +105,7 @@ function categoryShow(id) {
             if (id==0) {
                 $('#project_category').html("");
                 for (var i=0; i<data.length; i++) {
-                    $('<option value="'+data[i]['id']+'">'+data[i]['title']+'</option>').appendTo($('#project_category'));
+                        $('<option value="'+data[i]['id']+'">'+data[i]['title']+'</option>').appendTo($('#project_category'));
                     }
                 }
                 else {
@@ -130,6 +130,24 @@ function categoryShow(id) {
     }, "json");
 
     return false;
+}
+//Ajax script that gets cities from the DB depending on the state you select.
+window.onload = function() {
+  $("#state-select").on("change", function() {
+    $.ajax({
+      type: "GET",
+      dataType: "json",
+      url: "/state/"+$(this).val(),
+    }).done(function(data) {
+      $("#cities").empty();
+      for(var i = 0; i < data.length; i++) {
+       $("#cities").append("<option value='"+data[i].id+"'>"+data[i].name+"</option>");
+
+     }
+
+     // console.log(data[5].name);
+    });
+  });
 }
 /*
 function stateShow(id) {
@@ -182,8 +200,6 @@ $(document).on('change', '#project_category', function(e) {
 
 });
 
-<<<<<<< HEAD
-=======
 /*
 $(document).on('change', '#state', function(e) {
     e.preventDefault(e);
@@ -197,4 +213,13 @@ $(document).on('change', '#state', function(e) {
 });
 */
 
->>>>>>> 79a9d4e18649bb17eb7049946e2d044c5515c86d
+function deleteExp() {
+    var x;
+    if (confirm("Är du säker att du vill ta bort?") == true) {
+        x = "You pressed OK!";
+    } else {
+        x = "You pressed Cancel!";
+    }
+    document.getElementById("demo").innerHTML = x;
+}
+

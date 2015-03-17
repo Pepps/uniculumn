@@ -2,10 +2,10 @@
 @extends('layouts.master')
 
 @section('content')
-<div class="container">
-@include('project.projectnav')
-@yield('projectnav')
 
+@include('layouts.nav')
+@yield('nav')
+<div id="main_content">
 
 <h1>Lägg till erfarenheter</h1>
 

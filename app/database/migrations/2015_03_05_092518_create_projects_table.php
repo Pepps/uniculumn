@@ -19,6 +19,8 @@ class CreateProjectsTable extends Migration {
 			$table->string('title', 40)->unique();
 			$table->timestamps();
 			$table->text('body');
+			// 0 is equal to Job ("Jobb"), 1 is equal to Education ("Utbildning") and 2 is equal to Skills ("merit"), and 3 is övrigt. 
+			$table->integer('type');
 			$table->integer('owner_id')->unsigned();
 
 			$table->foreign('owner_id')->references('id')->on('users');
