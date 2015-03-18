@@ -1,4 +1,4 @@
-/* Custom font, free for commercial use */
+﻿/* Custom font, free for commercial use */
 
 @font-face {
     font-family: Kozuka;
@@ -1828,6 +1828,168 @@ input[type=radio]:not(old):checked + label > span > span{
 	margin-top: 2vw;
 	color:white;
 }
+
+
+#account_wrapper {
+	float: left;
+	width: 32vw;
+	height: 22vw;
+	padding-left: 1vw;
+	padding-bottom: 2vw;
+
+}
+
+#profile_wrapper {
+	float: right;
+	width: 38vw;
+	padding: 0vw 2vw 2vw 2vw;
+	text-align: center ;
+	margin-right: 1vw;
+}
+
+#profile_pic_wrapper {
+	background-color: #243333;
+	width: 40vw;
+	height: 15vw;
+	text-align: center ;
+	margin: 0vw 0vw 1vw -1vw;
+}
+
+#profile_pic_wrapper img {
+	width: 12vw;
+	height: 15vw;
+}
+
+#profile_wrapper h2 {
+	margin: 0vw 0vw 1vw 0vw;
+}
+
+#profile_wrapper textarea {
+	padding: 1vw;
+	width: 36vw;
+	margin: 0vw 0vw 1vw 0vw;
+	border: 0.1vw solid #56c5cc;
+	font-family: verdana;
+}
+
+.current_avatar {
+	float: left;
+	margin-right: 1.2vw;
+}
+
+.current_avatar img {
+	width: 4vw;
+	height: 4vw;
+	border: 0.2vw solid #fff;
+}
+
+.account_column {
+	width: 32vw;
+	clear: right;
+	margin-bottom: 0.2vw;
+	font-family: Kozuka;
+}
+
+.account_column select{
+	width: 13vw;
+	margin: -0.9vw 0vw 0vw 0.15vw;
+	clear: right;
+	font-family: verdana;
+	font-size: 0.8vw;
+	display: inline;
+	padding: 0.5vw;
+	border: 0.1vw solid #56c5cc;
+}
+
+
+/* Rubrikstylingen inuti dessa kolumnerna ^ */
+.account_column h3 {
+	padding: 0vw 0vw 0.4vw 5.5vw;
+}
+
+
+.dark_submit {
+	background-color: #253737;
+	font-family: Kozuka;
+	font-size: 1.1vw;
+	color: #fff;
+	border: 0;
+	padding: 0.6vw 1.3vw;
+	margin-top: 0vw;
+	display: inline-block;
+	float: right;
+	margin-bottom: 1vw;
+	cursor: pointer;}
+
+.blue_submit {
+	font-family: Kozuka;
+	background-color: #42b8bf;
+	font-size: 1.1vw;
+	color: #fff;
+	border: 0;
+	padding: 0.6vw 1.3vw;
+	margin-top: 0vw;
+	display: inline-block;
+	float: right;
+	margin-bottom: 1vw;
+	margin-left: 0.5vw;
+	cursor: pointer;
+}
+
+
+.user_email { background-image: url(../img/icons/user/email.PNG) ; background-size: 4vw; }
+.user_displayname { background-image: url(../img/icons/user/name.PNG) ; background-size: 4vw; }
+.user_fullname { background-image: url(../img/icons/user/fullname.PNG) ; background-size: 4vw; }
+.user_phone { background-image: url(../img/icons/user/phone.PNG) ; background-size: 4vw; }
+.user_location { background-image: url(../img/icons/user/location.PNG) ; background-size: 4vw; }
+.user_interests { background-image: url(../img/icons/user/interests.PNG) ; background-size: 4vw; }
+
+
+.change_password {
+	width: 30vw;
+	background-color: #253737;
+	margin-bottom: 1.2vw;
+	color: white;
+	height: 8vw;
+	padding: 1vw;
+	margin-top: 0.7vw;
+}
+
+.password_column {
+	width: 14vw;
+	margin-left: 0.5vw;
+	float: left;
+
+}
+
+.password_column input {
+	width: 12vw;
+	padding: 0.5vw;
+	margin: 0.2vw 0vw -3vw 0vw !important;
+	border: 0.1vw solid #56c5cc;
+
+}
+
+
+
+.upload_interests {
+padding-top: 1.2vw;
+text-align: center;
+width: 32vw;
+margin-left: 4vw;}
+
+upload_interests img {
+	margin-left: 0.3vw;
+	width: 0.7vw;
+	height: 0.7vw;
+}
+
+.alltags img {
+	margin-left: 0.3vw;
+	width: 0.7vw;
+	height: 0.7vw;
+}
+
 
 /***** Jesper/Joakim CSS END *****/
 

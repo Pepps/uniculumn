@@ -2,105 +2,141 @@
 @extends('layouts.master')
 
 @section('content')
-<div class="container">
 
 @include('layouts.nav')
 @yield('nav')
 
-<h1>Updatera Din Profil</h1>
+      <div id="main_content">
 
-<!-- if there are creation errors, they will show here -->
-{{ HTML::ul($errors->all()) }}
 
-{{ Form::open(array('url' => 'user/update/'.$user->id)) }}
+      <div id="account_wrapper">
+          <h2>Ändra kontoinställningar</h2>
+          <div class="account_column">
 
-    <div class="form-group">
-        {{ Form::label('firstname', "Användarnamn" ) }}
-        {{ Form::text('firstname', $user->firstname, array('class' => 'form-control')) }}
-    </div>
+          <div class="upload_column">
+          <div class="current_avatar">
+            <img src="img/snape.PNG"/>
+          </div>
+             <h3>Ladda upp en ny avatar</h3>
+            <input class="uploadfile"> </input>
+            <input type="submit" class="blue_submit" value="Ladda upp"></input>
+            <input type="submit" class="dark_submit" value="Bläddra"></input>
+            </div>
 
-    <div class="form-group">
-        {{ Form::label('lastname', "Efternamn" ) }}
-        {{ Form::text('lastname', $user->lastname, array('class' => 'form-control')) }}
-    </div>
+        {{ Form::open(array('url' => 'user/update/'.$user->id)) }}
 
-    <div class="form-group">
-        {{ Form::label('email', "Email" ) }}
-        {{ Form::text('email', $user->email, array('class' => 'form-control')) }}
-    </div>
+          <div class="account_column">
+            <div class="dark_icon user_fullname"> </div><h3>Namn</h3>
+              {{ Form::text('firstname', $user->firstname, array('class' => 'uploadfile')) }}
+            </div>
 
-    <div class="form-group">
-        {{ Form::label('postnumber', "Postnummer" ) }}
-        {{ Form::text('postnumber', $user->postnumber, array('class' => 'form-control')) }}
-    </div>
+          <div class="account_column">
+            <div class="dark_icon user_fullname"> </div><h3>Efternamn</h3>
+              {{ Form::text('lastname', $user->lastname, array('class' => 'uploadfile')) }}
+            </div>
 
-    <div class="form-group">
-        {{ Form::label('phone', "Telefonnummer" ) }}
-        {{ Form::text('phone', $user->phone, array('class' => 'form-control')) }}
-    </div>
+          <div class="account_column">
+            <div class="dark_icon user_location"> </div> <h3>Ort</h3>
+            <select id="state-select">
+                    @foreach ($states as $state)
+                      @if(!$nocity)
+                    @if ($state->id == $city->state_id)
+                      <option value="{{ $state->id }}" selected >{{$state->name}}</option>
+                    @endif
+                      @else
+                    <option value="{{ $state->id }}">{{$state->name}}</option>
+                    @endif
+                    @endforeach
+            </select>
+                {{ Form::select('city', array('0' => 'Välj din stad'), Input::old('state'), array('class' => 'form-control', 'id' => 'cities')) }}
 
-    <div class="form-group">
-        {{ Form::label('address', "Adress" ) }}
-        {{ Form::text('address', $user->address, array('class' => 'form-control')) }}
-    </div>
+                  @if(!$nocity)
+                    <span id="hidden_city" style="display:none;">{{$user->city_id}}</span>
+                  @endif
+          </div>
 
-    <select class="form-control" id="state-select">
-      @foreach ($states as $state)
-        @if(!$nocity)
-          @if ($state->id == $city->state_id)
-            <option value="{{ $state->id }}" selected >{{$state->name}}</option>
-          @endif
-        @else
-            <option value="{{ $state->id }}">{{$state->name}}</option>
-        @endif
-      @endforeach
-    </select>
+          <div class="account_column">
+             <div class="dark_icon user_phone"> </div><h3>Telefonnummer</h3>
+            {{ Form::text('phone', $user->phone, array('class' => 'uploadfile')) }}
+          </div>
 
-    <div class="form-group">
-        {{ Form::label('user_title', "Ort" ) }}
-        {{ Form::select('city', array('0' => 'Välj din stad'), Input::old('state'), array('class' => 'form-control', 'id' => 'cities')) }}
-    </div>
+          <div class="account_column">
+             <div class="dark_icon user_email"> </div><h3>Emailaddress</h3>
+            <input type="text" class="uploadfile" value="{{ $user->email }}"> </input>
+          </div>
 
-    @if(!$nocity)
-      <span id="hidden_city" style="display:none;">{{$user->city_id}}</span>
-    @endif
+            <input type="submit" class="blue_submit" value="Spara ändringar"></input>
+            <input type="submit" class="dark_submit" value="Avbryt"></input>
 
-    <div class="form-group">
-        {{ Form::label('description', "Beskrivning" ) }}
-        {{ Form::textarea('description', $user->description, array('class' => 'form-control')) }}
-    </div>
-    {{ Form::submit('Updatera din profil', array('class' => 'btn btn-primary')) }}
-{{ Form::close() }}
-</div>
+          {{ Form::close() }}
+         <div class="account_column ">
+            <h2>Ändra lösenord </h2>
 
-<script>
-//Ajax script that gets cities from the DB depending on the state you select.
+          <div class="change_password">
+            <div class="password_column">
+            Gammalt lösenord
+            <input type="text" value=" "> </input>
+            </div>
+              <div class="password_column">
+               Nytt lösenord
+              <input type="text" value=" "> </input>
+              <br/>
+              <br/>
+               Nytt lösenord igen
+              <input type="text" value=" "> </input>
 
-window.onload = function() {
-    get($('#state-select').val());
-    $("#state-select").on("change", function() {
-        value = $(this).val();
-        get(value);
-  });
-}
+              </div>
+            </div>
+           </div>
+            <input type="submit" class="blue_submit save_password_changes" value="Spara ändringar"></input>
+            <input type="submit" class="dark_submit save_password_changes" value="Avbryt"></input>
 
-function get(value) {
-    $.ajax({
-      type: "GET",
-      dataType: "json",
-      url: "/state/"+value,
-    }).done(function(data) {
-      $("#cities").empty();
-      for(var i = 0; i < data.length; i++) {
-        if (data[i].id == Number($('#hidden_city').text())) {
-           $("#cities").append("<option value='"+data[i].id+"'selected>"+data[i].name+"</option>");
-        }
-        else {
-           $("#cities").append("<option value='"+data[i].id+"''>"+data[i].name+"</option>");
-        }
-    }
-    });
-}
-</script>
+          </div>
+      </div>
+
+      <div id="profile_wrapper">
+        <div id="profile_pic_wrapper">
+          <img src="img/profile_picture.PNG"/>
+        </div>
+
+        <div class="upload_column" style=" height: 8vw; padding-left: 3vw;">
+          <div class="dark_icon upload_icon">
+          </div>
+             <h3>Ladda upp en ny presentationsbild</h3>
+            <input class="uploadfile"> </input>
+            <input type="submit" class="blue_submit" value="Ladda upp"></input>
+            <input type="submit" class="dark_submit" value="Bläddra"></input>
+        </div>
+
+      <h2>Ändra presentation</h2>
+          {{ Form::textarea('description', $user->description, array('class' => 'form-control')) }}
+            <input type="submit" class="blue_submit" value="Ladda upp"></input>
+            <input type="submit" class="dark_submit" value="Bläddra"></input>
+            <br/><br /><br /><br />
+
+
+      <div class="account_column"  style="padding-left: 3vw;">
+             <div class="dark_icon user_interests"> </div><h3>Lägg till intressen</h3>
+            <input type="text" class="uploadfile" value=""> </input>
+            <input type="submit" class="blue_submit" value="Lägg till"></input>
+            <br/><br /><br /><br />
+
+          </div>
+      <div class="upload_interests">
+
+       <span>#trolldrycker <img src="img/icons/edit/delete.PNG"/></span>
+       <span>#maktmissbruk <img src="img/icons/edit/delete.PNG"/></span>
+       <span>#lily potter <img src="img/icons/edit/delete.PNG"/></span>
+       <span>#svartkonster <img src="img/icons/edit/delete.PNG"/></span>
+       <span>#spionage <img src="img/icons/edit/delete.PNG"/></span>
+       <span>#hämnd <img src="img/icons/edit/delete.PNG"/></span>
+       <br /><br />
+            <input type="submit" class="blue_submit" value="Ladda upp"></input>
+            <input type="submit" class="dark_submit" value="Bläddra"></input>
+       </div>
+  </div>
+
+
+
 
 @stop

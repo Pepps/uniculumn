@@ -38,7 +38,7 @@ class UserController extends BaseController {
         $user->email        =   Input::get("email");
         $user->city_id      =   Input::get("city");
         $user->address      =   Input::get("address");
-        $user->zipcode      =   Input::get("postnumber");
+        //$user->zipcode      =   Input::get("postnumber");
         $user->phone        =   Input::get("phone");
         $user->description  =   Input::get("description");
         $user->save();
