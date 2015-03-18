@@ -10,7 +10,7 @@ class Reference extends Eloquent
 
 	// A reference has one experience.
 	public function experience() {
-		return $this->belongsToMany('Experience', 'experience_reference', 'experience_id', 'reference_id');
+		return $this->belongsTo('Experience');
 	}
 
 	// A reference has many states.

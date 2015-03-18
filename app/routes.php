@@ -47,8 +47,11 @@ Route::get('/project/readfile/{id}', "ProjectController@readfile");
 
 /* Routes for experiences */
 Route::resource('experience', "ExperienceController");
-// Route::get('/experience/{id}/addref/', "ExperienceController@newref");
-// Route::post('/experience/{id}/addref/', array('as' => 'addref', 'uses' => "ExperienceController@addref"));
+ Route::resource('reference', "ReferenceController");
+  Route::post('/reference/{id}', "ReferenceController@store");
+  Route::get('/reference/{id}', "ReferenceController@index");
+  Route::post('/experience/{id}/update', "ExperienceController@update");
+// Route::post('/experience/{id}', array('as' => 'addref', 'uses' => "ExperienceController@addref"));
 Route::get('/experience/{id}/deleteExp/', "ExperienceController@deleteExp");
 
 Route::get('/state/{id}/', "ExperienceController@getcities");
