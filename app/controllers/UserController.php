@@ -28,7 +28,7 @@ class UserController extends BaseController {
         $user = User::find(Auth::user()->id);
         if($user->city_id == null){$nocity = true;}else{$nocity = false;}
         return View::make('user.edit')->with('user', User::find($id))->with("nocity", $nocity)->with("states", State::all())
-                                    ->with("city", City::all());
+                                    ->with("city", City::find(Auth::user()->city_id));
     }
 
     public function update($id) {
