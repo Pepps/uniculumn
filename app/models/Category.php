@@ -15,4 +15,10 @@ class Category extends Eloquent
 		return $this->belongsToMany('Experience');
 	}
 
+	// A Category belongs to many Users
+	public function experience()
+	{
+		return $this->belongsToMany('Users', 'interests', 'user_id','category_id');
+	}
+
 }

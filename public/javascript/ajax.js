@@ -4,8 +4,9 @@ var names = [];
 var element = {};
 var userId = [];
 var inputId = [];
+
 categoryShow(0);
-//stateShow(0);
+ajax_city($("#state-select").val());
 
 $(function(){
     var bool = true;
@@ -132,7 +133,8 @@ function categoryShow(id) {
     return false;
 }
 //Ajax script that gets cities from the DB depending on the state you select.
-window.onload = function() {
+
+function ajax_city() {
   $("#state-select").on("change", function() {
     $.ajax({
       type: "GET",
@@ -142,52 +144,15 @@ window.onload = function() {
       $("#cities").empty();
       for(var i = 0; i < data.length; i++) {
        $("#cities").append("<option value='"+data[i].id+"'>"+data[i].name+"</option>");
-
      }
-
-     // console.log(data[5].name);
-    });
   });
-}
-/*
-function stateShow(id) {
-    $.ajax({
-        type    : "GET",
-        url     : "/state/show/"+id,
-        success : function(data) {
-            data = jQuery.parseJSON(data);
-            if (id==0) {
-                $('#state').html("");
-                for (var i=0; i<data.length; i++) {
-                    $('<option value="'+data[i]['id']+'">'+data[i]['name']+'</option>').appendTo($('#state'));
-                    }
-                }
-            }
-        },"json");
-
-    return false;
+ });
 }
 
-function cityShow(id) {
-    $.ajax({
-        type    : "GET",
-        url     : "/city/show/"+id,
-        success : function(data) {
-            data = jQuery.parseJSON(data);
-                $('#city').html("");
-                for (var i=0; i<data.length; i++) {
-                    $('<option value="'+data[i]['id']+'">'+data[i]['name']+'</option>').appendTo($('#city'));
-                }
-            }
-        },"json");
-
-    return false;
-}
-*/
-//------
-// on changes functions: category and state
-//------
-
+$(document).on('change', '#state-select', function(e) {
+    e.preventDefault(e);
+    ajax_city($("#state-select").val());
+});
 
 $(document).on('change', '#project_category', function(e) {
     e.preventDefault(e);

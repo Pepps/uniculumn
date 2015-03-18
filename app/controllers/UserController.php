@@ -27,8 +27,7 @@ class UserController extends BaseController {
     public function edit($id) {
         $user = User::find(Auth::user()->id);
         if($user->city_id == null){$nocity = true;}else{$nocity = false;}
-        return View::make('user.edit')->with('user', User::find($id))->with("nocity", $nocity)->with("states", State::all())
-                                    ->with("city", City::find(Auth::user()->city_id));
+        return View::make('user.edit')->with('user', User::find($id))->with("nocity", $nocity)->with("states", State::all());
     }
 
     public function update($id) {
@@ -46,7 +45,42 @@ class UserController extends BaseController {
         Session::flash('message', 'Successfully updated User!');
 
         return Redirect::to('/user');
+    }
 
+    public function update_password($id) {
+
+        $validator = Validator::make(
+          array(
+              'password' => Input::get('new_password'),
+              'Passwordconfirm' =>Input::get('new_password_confirm')
+          ),
+          array(
+              'password' => 'required|min:6|max:20',
+              'Passwordconfirm' => 'same:password'
+          )
+        );
+        if ($validator->fails()) {
+             return Redirect::to('/user')->withErrors($validator);
+        }
+        else {
+            $user = User::find($id);
+            $password = Input::get("old_password");
+
+                if (Auth::attempt(array('password' => $password))){
+                    $user->password    =   Hash::make(Input::get("new_password"));
+                    $user->save();
+                    Session::flash('message', 'Successfully updated User!');
+                    return Redirect::intended('user');
+                }
+        }
+    }
+
+    public function update_description($id) {
+        $user = User::find($id);
+        $user->description    =   Input::get("description");
+        $user->save();
+
+        return Redirect::to('/user');
     }
 
     // funtion show return Array to 'project.create' in Bloodhound div, also connected to ajax.js

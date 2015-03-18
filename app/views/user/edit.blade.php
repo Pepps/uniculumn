@@ -40,11 +40,12 @@
             <select id="state-select">
                     @foreach ($states as $state)
                       @if(!$nocity)
-                    @if ($state->id == $city->state_id)
-                      <option value="{{ $state->id }}" selected >{{$state->name}}</option>
-                    @endif
+                        @if($state->id == City::find($user->city_id)->state_id)
+                          <option value="{{ $state->id }}" selected >{{$state->name}}</option>
+                        @else
+                          <option value="{{ $state->id }}">{{$state->name}}</option>
+                        @endif
                       @else
-                    <option value="{{ $state->id }}">{{$state->name}}</option>
                     @endif
                     @endforeach
             </select>
@@ -69,22 +70,22 @@
             <input type="submit" class="dark_submit" value="Avbryt"></input>
 
           {{ Form::close() }}
+
+
+        {{ Form::open(array('url' => 'user/update_password/'.$user->id)) }}
          <div class="account_column ">
             <h2>Ändra lösenord </h2>
 
           <div class="change_password">
             <div class="password_column">
             Gammalt lösenord
-            <input type="text" value=" "> </input>
+            {{ Form::text('old_password','', array('class' => 'password_column')) }}
             </div>
               <div class="password_column">
-               Nytt lösenord
-              <input type="text" value=" "> </input>
+            {{ Form::text('new_password','', array('class' => 'password_column')) }}
               <br/>
               <br/>
-               Nytt lösenord igen
-              <input type="text" value=" "> </input>
-
+            {{ Form::text('new_password_confirm','', array('class' => 'password_column')) }}
               </div>
             </div>
            </div>
@@ -93,6 +94,7 @@
 
           </div>
       </div>
+      {{ Form::close() }}
 
       <div id="profile_wrapper">
         <div id="profile_pic_wrapper">
@@ -108,12 +110,14 @@
             <input type="submit" class="dark_submit" value="Bläddra"></input>
         </div>
 
-      <h2>Ändra presentation</h2>
+
+        {{ Form::open(array('url' => 'user/update_description/'.$user->id)) }}
+          <h2>Ändra presentation</h2>
           {{ Form::textarea('description', $user->description, array('class' => 'form-control')) }}
             <input type="submit" class="blue_submit" value="Ladda upp"></input>
             <input type="submit" class="dark_submit" value="Bläddra"></input>
             <br/><br /><br /><br />
-
+        {{ Form::close() }}
 
       <div class="account_column"  style="padding-left: 3vw;">
              <div class="dark_icon user_interests"> </div><h3>Lägg till intressen</h3>
