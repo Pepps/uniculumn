@@ -7,7 +7,9 @@
             <a href="/user" ><h2><div class="arrow-right"></div>Min profil</h2></a>
             <a href="/project" ><h2><div class="arrow-right"></div>Mina projekt</h2></a>
             <a href="/experience" ><h2><div class="arrow-right"></div>Mina erfarenheter</h2></a>
-        </div>
+            <a href="/user/{{$user->id}}/edit"><h2><div class="arrow-right"></div>Kontoinställningar</h2></a>
+            <a href="/logout"><h2><div class="arrow-right"></div>Logga ut</h2></a>
+</div>
 
         <div id="ui_header">
 
@@ -17,14 +19,6 @@
 
                 <div class="username_holder">
                     <span class="user_name">{{$user->firstname}}</span>
-
-                    <div class="arrow-down" id="clickmetoo">
-                      <div class="account_settings">
-                          <a href="/user/{{$user->id}}/edit"> Kontoinställningar<br/></a>
-                          <a href="/logout">Logga ut</a>
-                          <div class="arrow-up" id="hide_controlpanel"></div>
-
-                      </div>
                     </div>
                 </div>
 
