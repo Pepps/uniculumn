@@ -6,7 +6,7 @@
 <div id="main_content">
   <div id="add_new_experience">
     <h1>+ Lägg till en erfarenhet</h1>
-
+           {{ HTML::ul($errors->all()) }}
         {{ Form::open(array('url' => 'experience', 'method'=>'post')) }}
 
          <div id="exp_types">
@@ -78,7 +78,9 @@
           @foreach ($experiences as $experience)
           <div class="ex_column">
             @if ($experience->type === '0')
+               
             <div class="ex ico_employment">Anställning</div>
+ <h2 class="edit_this edit_column">Redigera anställning</h2>
             @elseif ($experience->type === '1')
             <div class="ex ico_education">Utbildning</div>
             @elseif ($experience->type === '2')
@@ -114,8 +116,11 @@
 
                     </div>
 
-                      <?php $years = explode("-", $experience->duration);?>
-                   <div class="ex_float edit_this">@foreach ($years as $year)<input value="{{ $year }}"></input>@endforeach <img src="../img/icons/edit/time.PNG"/></div>
+
+                   <div class="ex_float edit_this">
+                    {{ Form::text('from', $experience->duration, Input::old('name')) }}
+                      <img src="../img/icons/edit/time.PNG"/>
+                  </div>
 <!-- </Redigera plats/tid>  -->
 
                        <!-- <Kontrollknappar>  -->
@@ -126,7 +131,21 @@
                           
                         <div class="ex_button edit_experience"><img src="../img/icons/edit/edit.PNG"/></div>
                         <div class="ex_button edit_references"><img src="../img/icons/edit/add.PNG"/></div>
+                                                    <!-- <Spara ändringar>  -->
+                                            
+                    <button class="add_edit edit_this" style="border: none;">
+                        
+                          Spara ändringar
 
+                    </button>
+       <div class="ignore_edit edit_this">
+                        Ångra
+                    </div>
+              
+               
+
+                         <!-- </Spara ändringar>  -->
+            
 
                        <!-- </Kontrollknappar>  -->
 
@@ -146,19 +165,11 @@
                  <!-- </Beskrivning>  -->
 
                  <!-- <Redigera beskrivning>  -->
-                    <div class="edit_this">{{ Form::textarea('description', $experience->description, Input::old('name'), ['size' => '10x6']) }}</div>
+                    <div class="edit_this">{{ Form::textarea('description', $experience->description, Input::old('name'), array('class' => 'edit_this')) }}</div>
                  <!-- </Redigera beskrivning>  -->
 
                  </div> 
-                                                    <!-- <Spara ändringar>  -->
-                    <div class="add_edit edit_this">
-                          {{ Form::submit('Spara ändringar') }}
-                    </div>
-                    <div class="ignore_edit edit_this">
-                        Ångra
-                    </div>
-                         <!-- </Spara ändringar>  -->
-          
+
           {{ Form::close() }}
 
                              <!-- <Referenser>  -->                         
