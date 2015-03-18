@@ -9,6 +9,7 @@
 @extends('layouts.master')
 @section('content')
 @yield('nav')
+<body class="index">
 <center>
 <img src="img/header2.png" width="400" height="150" alt="logo" />
 <div id="body">
@@ -38,3 +39,4 @@
     </div>
 </div>
 </center>
+</body>
