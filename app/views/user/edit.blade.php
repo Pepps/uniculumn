@@ -119,21 +119,26 @@
             <br/><br /><br /><br />
         {{ Form::close() }}
 
+      {{ Form::open(array('url' => 'user/update_interest/'.$user->id)) }}
       <div class="account_column"  style="padding-left: 3vw;">
              <div class="dark_icon user_interests"> </div><h3>Lägg till intressen</h3>
-            <input type="text" class="uploadfile" value=""> </input>
+              <?php $categories = Category::all(); ?>
+              <select class="uploadfile" id="categories-select">
+                     @foreach($categories as $category)
+                      @if ($category->subcategory_id == 0)
+                        <option value="{{ $category->id }}" >{{ $category->title }}</option>
+                      @endif
+                    @endforeach
+              </select>
+              <br/>
+              <br/>
+              {{ Form::select('subcategories', array('0' => 'Välj din Kategori'), Input::old('subcategories_id'), array('class' => 'uploadfile', 'id' => 'subcategories')) }}
+              <br/>
             <input type="submit" class="blue_submit" value="Lägg till"></input>
             <br/><br /><br /><br />
-
+      {{ Form::close() }}
           </div>
       <div class="upload_interests">
-
-       <span>#trolldrycker <img src="img/icons/edit/delete.PNG"/></span>
-       <span>#maktmissbruk <img src="img/icons/edit/delete.PNG"/></span>
-       <span>#lily potter <img src="img/icons/edit/delete.PNG"/></span>
-       <span>#svartkonster <img src="img/icons/edit/delete.PNG"/></span>
-       <span>#spionage <img src="img/icons/edit/delete.PNG"/></span>
-       <span>#hämnd <img src="img/icons/edit/delete.PNG"/></span>
        <br /><br />
             <input type="submit" class="blue_submit" value="Ladda upp"></input>
             <input type="submit" class="dark_submit" value="Bläddra"></input>

@@ -21,10 +21,6 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		return $this->belongsToMany('Project', 'project_user');
 	}
 
-	public function category() {
-		return $this->hasMany('Category');
-	}
-
 	// A User has many experiences.
 	public function experience() {
 		return $this->hasMany('Experience');

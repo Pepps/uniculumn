@@ -42,6 +42,7 @@ $(function(){
         }
     });
 });
+
 $(document).on('click','.remove', function() {
     collaborators.splice($(this).data("id"),1);
     inputId.splice($(this).data("id"),1);
@@ -149,6 +150,24 @@ function ajax_city() {
  });
 }
 
+function ajax_subcategories(id) {
+    $.ajax({
+      type: "GET",
+      dataType: "json",
+      url: "/category/show/"+id,
+    }).done(function(data) {
+      $("#subcategories").empty();
+      for(var i = 0; i < data.length; i++) {
+       $("#subcategories").append("<option value='"+data[i].id+"'>"+data[i].title+"</option>");
+     }
+ });
+}
+
+$(document).on('change', '#categories-select', function(e) {
+    e.preventDefault(e);
+    ajax_subcategories($(this).val());
+});
+
 $(document).on('change', '#state-select', function(e) {
     e.preventDefault(e);
     ajax_city($("#state-select").val());
@@ -164,19 +183,6 @@ $(document).on('change', '#project_category', function(e) {
     categoryShow($("#project_category").val());
 
 });
-
-/*
-$(document).on('change', '#state', function(e) {
-    e.preventDefault(e);
-
-        //-----
-        // TODO comments here
-        //-----
-
-    cityShow($("#state").val());
-
-});
-*/
 
 function deleteExp() {
 return confirm('Är du säker på vill ta bort?');

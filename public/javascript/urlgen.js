@@ -144,11 +144,6 @@ function addToTable(category, serchword){
     }else if($(this).parent().parent().find(".category_search").text() == "status"){
       console.log("status");
     }
-
-    if (jQuery.inArray($(this).parent().parent().find(".word_search").text(),  == -1) {
-        console.log("its in the array!");
-    }
-
   });
 }
 

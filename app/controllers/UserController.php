@@ -38,7 +38,7 @@ class UserController extends BaseController {
         $user->email        =   Input::get("email");
         $user->city_id      =   Input::get("city");
         $user->address      =   Input::get("address");
-        $user->zipcode   =   Input::get("postnumber");
+        $user->zipcode      =   Input::get("postnumber");
         $user->phone        =   Input::get("phone");
         $user->save();
 
@@ -76,6 +76,14 @@ class UserController extends BaseController {
     }
 
     public function update_description($id) {
+        $user = User::find($id);
+        $user->description    =   Input::get("description");
+        $user->save();
+
+        return Redirect::to('/user');
+    }
+
+    public function update_interest($id) {
         $user = User::find($id);
         $user->description    =   Input::get("description");
         $user->save();
