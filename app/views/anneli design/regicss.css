@@ -1,7 +1,6 @@
  body {
-    width: 80%;
-    margin-left:auto;
-    margin-right:auto;
+    width:71%;
+    margin:0 auto;
     text-align: center;
 }
 
@@ -29,7 +28,7 @@ h1 {
    }
 
 #box {
-  	width: 1000px;
+  	width: 942px;
   	padding: 10px;
     border: 4px solid #3FB272;
     border-radius: 10px; 
