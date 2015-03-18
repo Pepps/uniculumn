@@ -1,9 +1,18 @@
 <?php
+/*
+* Author: Dennis Magnusson
+* Email: dennisMagnusson_4@hotmail.com
+* Git: Denaton
+*/
 
 class SearchController extends BaseController {
     // Code Reference
     //foo.com/search/project/users-email_project-category/foo@foo.com-admin@foo.com_spel+kod-game+code
-
+    // $option = main value of what you are filtering, example Projects
+    // $key = you do your filtering based on these keys, separate with _ and do table-column (combine with -)
+    // $val = values in those columns, for each $key you have you need a _ to separate and you may have more then one for each key, + = and - = or
+    // $extra = first2 get the first 2, last4 gets the last 4.
+    // $pretty = if you want the json output to look flashy as Rarity!
     public function index($option, $key, $val, $extra='', $pretty=false){
       // Split all the keys in to an arrays so we can use them in a loop
       $keys = explode('_', $key);
@@ -83,7 +92,7 @@ class SearchController extends BaseController {
           // Don't know how to reverse here!
       }
 
-      // How to display the return. if pretty, its is more readable firendly.
+      // How to display the return. if pretty, its is more readable.
       if($pretty){
         echo '<pre>' . json_encode($table->get(),JSON_PRETTY_PRINT) . '</pre>'; // Runs the query we have build up.
       }
