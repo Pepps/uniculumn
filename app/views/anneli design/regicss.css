@@ -2,6 +2,7 @@
     width: 80%;
     margin-left:auto;
     margin-right:auto;
+    text-align: center;
 }
 
 h1 {
@@ -30,7 +31,7 @@ h1 {
 #box {
   	width: 1000px;
   	padding: 10px;
-    border: 2px solid #3FB272;
+    border: 4px solid #3FB272;
     border-radius: 10px; 
     background: #43BF7E;
     text-align: center;
