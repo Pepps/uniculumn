@@ -1,34 +1,118 @@
 @extends('layouts.master')
 @section('content')
 
-<div class="container">
+@include('layouts.nav')
+@yield('nav')
 
-@include('project.projectnav')
-@yield('projectnav')
+      <div id="main_content">
 
-<h3>Profile</h3>
+
+          <div class="columnLeft">
+
+              <div class="profile_picture">
+              </div>
+
+              <h2>Kontaktuppgifter <div class="edit_icon"></div></h2>
+              <div id="contact_information">
+                <div class="contact_rows">Namn: {{$user->firstname.' '.$user->lastname}}</div>
+                <div class="contact_rows">Ort: {{$city->name.', '.$state->name}}</div>
+                <div class="contact_rows">Tel: {{$user->phonenumber}}</div>
+                <div class="contact_rows">Email: {{$user->email}} </div>
+              </div>
+
+          </div>
+
+
+         <div class="columnMiddle">
+
+             <h2>{{$user->firstname}}</h2> <!--username-->
+
+                <div id="description"> <!--user personal description-->
+
+                  </div>
+
+
+                 <h2>Mina projekt <div class="edit_icon"></div></h2>
+                <span style="display: none;">{{$i = 1}}</span>
+                @foreach($projects as $value)
+                  <div class="project_description">
+                  <div class="icon audio"></div>
+                    <h2>{{$value->title}}</h2>
+                    {{str_limit($value->body, $limit = 50, $end = '...')}} <a href="{{ URL::to('project/' . $value->id) }}">Läs mer...</a>
+                    <a class="btn btn-small btn-info" href="{{ URL::to('project/' . $value->id . '/edit') }}"><i class="fa fa-pencil-square-o"></i></a>
+                    <button class="btn btn-small btn-danger" id="delmodal-btn"><i class="fa fa-trash"></i></button>
+                    {{$i++}}
+                  </div>
+                  <div class="project_members">
+                    Test.
+                    {{ HTML::image('img/users.PNG', '', array('id' => 'upload_button')) }}
+                  </div>
+              @endforeach
+            </div>
+
+
+
+           <div class="columnRight">
+
+                   <div id="interests">
+
+                       <h2>Intresserad av <div class="edit_icon"></div></h2>
+
+                      <span id="hashtag">trolldrycker</span> <span id="hashtag">maktmissbruk</span> <span id="hashtag">lily potter</span>  <span id="hashtag">svartkonster</span>
+                      <span id="hashtag">spionage</span> <span id="hashtag">hämnd</span>
+
+                     </div>
+
+                    <div id="my_experiences">
+                        <h2>Utbildningar <div class="edit_icon"></div></h2>
+
+                        <h3>Trolldryckskonst 402</h3>
+                        <h4>Hogwarts Skola för Trollkonster & Trolldom</h4>
+
+                        <h2>Anställningar <div class="edit_icon"></div></h2>
+
+                        <h3>Trolldryckslärare</h3>
+                        <h4>Hogwarts Skola för Trollkonster & Trolldom</h4>
+
+                        <h3>Dubbelagent</h3>
+                        <h4>Albus Dumbledore & Lord Voldemort</h4>
+                    </div>
+
+          </div>
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
 
 <!-- will be used to show any messages -->
-@if (Session::has('message'))
-    <div class="alert alert-info">{{ Session::get('message') }}</div>
-@endif
-
+<!--
 <table class="table table-striped table-bordered">
-  <tr><td>{{ $user->firstname }}</td></tr>
   <tr><td>{{ $user->lastname }}</td></tr>
   <tr><td>{{ $user->email }}</td></tr>
   <tr><td>{{ $user->state }}</td></tr>
-  <tr><td>{{ $user->state }}</td></tr>
-  <tr><td>{{ $user->city }}</td></tr>
   <tr><td>{{ $user->address }}</td></tr>
   <tr><td>{{ $user->postnumber }}</td></tr>
   <tr><td>{{ $user->phone }}</td></tr>
+  @if(!$nocity)
+    <tr><td>{{ $state->name }}</td></tr>
+    <tr><td>{{ $city->name }}</td></tr>
+  @endif
 </table>
 
 <a class="btn btn-small btn-info" href="user/{{$user->id}}/edit">Redigera</a>
-
-</div>
-
+ -->
 <script>
 
   window.onload = function(){
@@ -43,8 +127,7 @@
   }
 
 </script>
-
-<!-- Modal -->
+<!--
 <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -58,5 +141,5 @@
     </div>
   </div>
 </div>
-
+ -->
 @stop

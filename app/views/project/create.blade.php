@@ -1,61 +1,69 @@
 <!-- app/views/projects/create.blade.php -->
 @extends('layouts.master')
 
+
 @section('content')
-<div class="container">
 
-@include('project.projectnav')
-@yield('projectnav')
+@include('layouts.nav')
+@yield('nav')
 
-<h1>Registrera Projekt</h1>
-
-<!-- if there are creation errors, they will show here -->
 {{ HTML::ul($errors->all()) }}
 
-{{ Form::open(array('url' => 'project', 'files'=>true, 'method'=>'post', 'class'=>'dropzone')) }}
+      <div id="main_content">
+
+      <h1>{{ HTML::image('img/cloud.PNG', 'a picture', array('class' => 'cloud')) }}Ladda upp nytt projekt</h1>
+      {{ Form::open(array('url' => 'project', 'files'=>true, 'method'=>'post')) }}
+
+          <div class="upload_column">
+            <div class="dark_icon title_icon"><div class="check_title"></div></div>
+             <h3>Välj titel</h3>
+            <input class="uploadfile" name="project_title" id="project_title" value=""> </input>
+          </div>
+
+          <div class="upload_column">
+            <div class="dark_icon description_icon"><div class="check_description"></div> </div>
+             <h3>Beskriv ditt projekt</h3>
+            <textarea class="uploadfile" name="project_body" id="project_description" rows="4" cols="50"></textarea>
+          </div>
+
+          <div class="upload_column mediatype" style="display: none;">
+           <div class="dark_icon mediatype_icon"><div class="check_mediatype"></div></div>
+            <h3>Välj mediatyp</h3>
+            <div class="media_icon">{{ HTML::image('img/icons/blue/game.PNG') }}Spel</div>
+            <div class="media_icon">{{ HTML::image('img/icons/blue/music.PNG') }}Ljud</div>
+            <div class="media_icon">{{ HTML::image('img/icons/blue/video.PNG') }}Video</div>
+            <div class="media_icon">{{ HTML::image('img/icons/blue/essay.PNG') }}Text</div>
+          </div>
 
 
-    <div class="form-group">
-        {{ Form::label('project_title', 'Titel') }}
-        {{ Form::text('project_title', Input::old('name'), array('class' => 'form-control')) }}
-    </div>
+          <div class="upload_column">
+            <div class="dark_icon categories_icon"><div class="check_category"></div></div>
+             <h3>Välj kategori</h3>
+           <select name="category" class="uploadfile" id="project_category">
+            <option value="none">-----</option>
+          </select>
 
-    <div class="form-group" id="bloodhound">
-        {{ Form::label('collaborators-form', 'Medarbetare') }}
-        {{ Form::text('collaborators-form', Input::old('name'), array('class' => 'typeahead form-control', 'id' => 'input-collaborators')) }}
-        <button class="button-collaborators btn btn-small btn-success"> Lägg till</button>
-    </div>
+            <div class="subcategories">
+            <div class="check_subcategories" id="subcategory-form"></div>
+            <div class="subcheckbox"><input type="checkbox" name="dumbledore" value="lily"><label for="lily"><span><span></span></span>>-----<</label></div>
+            </div>
+          </div>
 
-    <h3 id="bloodhound-names"></h3>
+          <div class="upload_column">
+            <div class="dark_icon upload_icon"> </div>
+             <h3>Ladda upp fil</h3>
+             {{ Form::file('files[]', array('multiple'=>true, "class" => 'uploadfile')) }}
+          </div>
+          <br/><br/><br/>
+          <input type="submit" class="submit_project" value="Skapa projekt">
+          <div style="clear: both;"></div>
+        </div>
 
-    <div class="form-group">
-        {{ Form::label('project_body', 'Beskrivning') }}
-        {{ Form::textarea('project_body', Input::old('project_body'), array('class' => 'form-control')) }}
-    </div>
+        {{ Form::text('subcategory_id', Input::old('category'), array('class' => 'hidden', 'id' => 'subcategory_id')) }}
 
-    <div class="form-group">
-        {{ Form::label('category', 'Kategori') }}
-        {{ Form::select('category', array('0' => 'Select a project Type'), Input::old('category'), array('class' => 'form-control')) }}
-    </div>
+    <div class="alert alert-info" role="alert" style="text-align: center;"><b>Om du vill lade upp ett störe arbete så rekomderar vi att du gör en Zip fil av det och laddar up den.</b></div>
 
-    <div class="form-group" id="subcategory-form">
-    </div>
+    <br>
+        {{ Form::close() }}
 
-    <!---
-    / HIDDEN FORMS
-    -->
-
-    {{ Form::text('subcategory_id', Input::old('category'), array('class' => 'hidden', 'id' => 'subcategory_id')) }}
-    {{ Form::text('collaborators_id', Input::old('collaborators'), array('class' => 'hidden', 'id' => 'collaborators_id')) }}
-
-
-    <div id="dropzone">
-        {{ Form::file('file') }}
-    </div>
-
-
-    {{ Form::submit('Create the project!', array('class' => 'btn btn-primary')) }}
-
-{{ Form::close() }}
-</div>
-@stop
+    @stop

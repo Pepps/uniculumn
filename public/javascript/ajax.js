@@ -4,7 +4,8 @@ var names = [];
 var element = {};
 var userId = [];
 var inputId = [];
-show(0);
+categoryShow(0);
+//stateShow(0);
 
 $(function(){
     var bool = true;
@@ -95,23 +96,23 @@ $('#bloodhound .typeahead').typeahead({
 });
 }
 
-function show(id) {
+function categoryShow(id) {
     $.ajax({
         type    : "GET",
         url     : "/category/show/"+id,
         success : function(data) {
             data = jQuery.parseJSON(data);
             if (id==0) {
-                $('#category').html("");
+                $('#project_category').html("");
                 for (var i=0; i<data.length; i++) {
-                    $('<option value="'+data[i]['id']+'">'+data[i]['title']+'</option>').appendTo($('#category'));
+                    $('<option value="'+data[i]['id']+'">'+data[i]['title']+'</option>').appendTo($('#project_category'));
                     }
                 }
                 else {
-                    $('#subcategory-form').html("");
+                    $('.subcategories').html("");
                     var x = 0;
                     for (var i=0; i<data.length; i++) {
-                            $('<div class="checkbox"><input type="checkbox" class="sub-checkbox" name="subcategory" value="'+data[i]['id']+'"/>'+data[i]['title']+"</div>").appendTo($(' #subcategory-form') );
+                            $('<div class="subcheckbox"><input class="sub-checkbox" type="checkbox" name="subcategory_id" value="'+data[i]['id']+'"/><label for="subcategory"><span><span></span></span>'+data[i]['title']+'</label></div>"').appendTo($(' .subcategories') );
                         }
                     }
 
@@ -130,22 +131,67 @@ function show(id) {
 
     return false;
 }
+/*
+function stateShow(id) {
+    $.ajax({
+        type    : "GET",
+        url     : "/state/show/"+id,
+        success : function(data) {
+            data = jQuery.parseJSON(data);
+            if (id==0) {
+                $('#state').html("");
+                for (var i=0; i<data.length; i++) {
+                    $('<option value="'+data[i]['id']+'">'+data[i]['name']+'</option>').appendTo($('#state'));
+                    }
+                }
+            }
+        },"json");
 
-$(document).on('change', '#category', function(e) {
+    return false;
+}
+
+function cityShow(id) {
+    $.ajax({
+        type    : "GET",
+        url     : "/city/show/"+id,
+        success : function(data) {
+            data = jQuery.parseJSON(data);
+                $('#city').html("");
+                for (var i=0; i<data.length; i++) {
+                    $('<option value="'+data[i]['id']+'">'+data[i]['name']+'</option>').appendTo($('#city'));
+                }
+            }
+        },"json");
+
+    return false;
+}
+*/
+//------
+// on changes functions: category and state
+//------
+
+
+$(document).on('change', '#project_category', function(e) {
     e.preventDefault(e);
 
         //-----
         // TODO comments here
         //-----
 
-    show($("#category").val());
-
+    categoryShow($("#project_category").val());
 
 });
 
+/*
+$(document).on('change', '#state', function(e) {
+    e.preventDefault(e);
 
+        //-----
+        // TODO comments here
+        //-----
 
-// ################  Dropzone  ##############
-$(document).ready(function() {
-    $("#dropzone").dropzone({ url: "/file/post" });
+    cityShow($("#state").val());
+
 });
+*/
+

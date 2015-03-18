@@ -17,11 +17,13 @@
       <div class="registration_box">
         {{ Form::open(array('url' => 'register_action','method' => 'post')) }}
       @if($errors->any())
-      <div class="alert alert-error">
-        <a href="#" class="close" data-dismiss="alert">&times;</a>
-        {{ implode('', $errors->all('<li class="error">:message</li>')) }}
-      </div>
+        <div class="alert alert-danger" role="alert">
+          @foreach($errors as $error)
+            <span>{{$error}}</span>
+          @endforeach
+        </div>
       @endif
+
      <!-- {{ Form::token('token')}}-->
       {{ Form::text('fname', '', array('placeholder' => 'Förnamn')) }} <br>
       {{ Form::text('lname', '', array('placeholder' => 'Efternamn')) }} <br>
@@ -57,19 +59,6 @@
       </div>
 
     </div>
-    <div class="column_right">
-      <?php
-        if(!empty(Session::get('key'))) {
-          echo "Inloggad på <span class='dark'><a href='/login'>".Session::get('key'). "</a></span><br/> genom Google Drive";
-        }
-        else {
-          echo "Logga in genom <span class='dark'><a href='/login'>Oauth</a></span><br/> här";
-          }
-
-          $data =Session::all();
-
-
-      ?></div>
   </div>
 
   <div id="footer">

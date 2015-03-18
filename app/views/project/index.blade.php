@@ -3,8 +3,8 @@
 
 <div class="container">
 
-@include('project.projectnav')
-@yield('projectnav')
+@include('project.nav')
+@yield('nav')
 
 <h3>Your projects</h3>
 
@@ -20,9 +20,9 @@
             <td><b>project title</b></td>
             <td><b>project body</b></td>
             <td><b>Created at</b></td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
+            <td></td>
+            <td></td>
+            <td></td>
         </tr>
     </thead>
     <tbody>
@@ -33,10 +33,16 @@
             <td class="pi" style="display: none;">{{$value->id}}</td>
             <td class="pt">{{$value->title}}</td>
             <td>{{str_limit($value->body, $limit = 200, $end = '...')}}</td>
-            <td>{{$value->created_at}}</td>
+            <td>{{str_limit($value->created_at, $limit = 10, $end = '')}}</td>
             <td><a class="btn btn-small btn-success" href="{{ URL::to('project/' . $value->id) }}"><i class="fa fa-search"></i></a></td>
-            <td><a class="btn btn-small btn-info" href="{{ URL::to('project/' . $value->id . '/edit') }}"><i class="fa fa-pencil-square-o"></i></a></td>
-            <td><button class="btn btn-small btn-danger" id="delmodal-btn"><i class="fa fa-trash"></i></button></td>
+
+            @if ($value->owner_id != Auth::user()->id)
+              <td><a class="btn btn-small btn-info" disabled="disabled" href="{{ URL::to('project/' . $value->id . '/edit') }}"><i class="fa fa-pencil-square-o"></i></a></td>
+              <td><button class="btn btn-small btn-danger" disabled="disabled"><i class="fa fa-trash"></i></button></td>
+            @else
+              <td><a class="btn btn-small btn-info" href="{{ URL::to('project/' . $value->id . '/edit') }}"><i class="fa fa-pencil-square-o"></i></a></td>
+              <td><button class="btn btn-small btn-danger delmodal-btn"><i class="fa fa-trash"></i></button></td>
+            @endif
         </tr>
     @endforeach
     </tbody>
@@ -49,7 +55,7 @@
 
   window.onload = function(){
 
-      $("#delmodal-btn").on("click", function(){
+      $(".delmodal-btn").on("click", function(){
         $('#delete').modal('show');
         $('.modal-backdrop').css( "zIndex", -1030 );
         $("#delete-pt").text($(this).parent().parent().find(".pt").text());

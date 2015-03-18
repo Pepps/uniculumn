@@ -1,227 +1,744 @@
 body {
-	background: url(../img/background_gradient.PNG);
-	/*margin: 0px;*/
+	background: url(../img/background_vertical.PNG) repeat-y;
+	background-position: left;
+	background-size: 18vw;
+	margin: 0px;
 	font-family: verdana;
+	font-size: 0.9vw;
 	color: #465b5c;
-	/*overflow-x:hidden;*/
+	overflow-x:hidden;
 	font-weight: 100;
 
 }
 
-
- /* user logged in */
-
-
-#ui_sidebar {
-	background-color: #2f4343;
-	width: 14vw;
-	height: 98vh;
-	float: left;
-	padding: 1vw;
-}
-
-#ui_sidebar h2 {
-	color: white;
-	width: 80%;
-	font-size: 1.3vw;
-}
-#main_content {
-	width: 85vw;
-	height: 83.5vh;
-	position: absolute;
-	top: 9vw;
-	left: 16vw;
-	z-index: -2;
-}
-
-#user_content {
-	width: 81vw;
-	height: 79.5vh;
-	padding: 2vh 2vw;
-}
-
-#user_upload {
-	width: 81vw;
-	height: 75.5vh;
-	padding: 4vh 2vw;
-	display: none;
-}
-
-
-
-.custom_list {
-	background: #1f2d2c;
-	width: 28vw;
-	height: 4.5vw;
-	margin-top: 2px;
+ .login_button, .register_button, .cursor {
 	cursor: pointer;
 }
 
-.custom_list p {
-	font-family: "Kozuka Gothic Pr6N";
-	font-weight: lighter;
-	font-size: 1.4vw;
-	color: #e1e3e3;
-	margin-top: 0vw;
-	padding-top: 0.7vw;
+h1.addemployment {
+	padding-left: 4.5vw;
+	background: url(../img/employment.PNG) no-repeat bottom left;
+	background-size: 4vw;
+	width: 28vw;
+	font-size: 1.7vw;
+	margin: 0vw 0vw 0vw 0vw;
+
 }
 
-.list_square {
-	background-color: #56c5cc;
-	width: 3.5vw;
-	height: 3.5vw;
-	padding: 0.5vw;
+h1.addeducation {
+	padding-left: 4.5vw;
+	background: url(../img/education.PNG) no-repeat bottom left;
+	background-size: 4vw;
+	width: 28vw;
+	font-size: 1.7vw;
+	margin: 4vw 0vw 0vw 0vw;
+}
+
+
+/* ----- custom font ---- */
+
+@font-face {
+    font-family: Kozuka;
+    src: url(../font/KozGoPr6N-ExtraLight.otf);
+}
+
+/*/////////// "Header" /////////////*/
+
+/* maincontent, lite bakgrundsfärg, lite fix, mmm */
+#main_content {
+	background: url(../img/background_gradient.PNG);
+	width: 85vw;
+	height: 84vh;
+	min-height: 84vh;
+	position: absolute;
+	top: 6vw;
+	left: 16vw;
+	z-index: -2;
+	padding-left: 2vw;
+	padding-top: 3vw;
+	padding-bottom: 6vw;
+}
+/* sidebar */
+#ui_sidebar {
+	width: 16vw;
 	float: left;
-	margin-right: 1vw;
-	cursor: default;
 }
 
-.list_square img {
-	width: 2.5vw;
-	height: 2.5vw;
-	margin: 0.5vw;
+
+/* uniculum-loggan, bildstyling*/
+.left_logo {
+	width: 15vw;
+	height: 6vw;
+	margin-top: 1.2vw;
 }
 
-/**
-* JESPERS INPUT!!!!! DEN ÄR SÅ SNYGG!
-**/
-
-#dropzone {
-	height:400px;
-	width: 100%;
-	border:1px solid #eee;
-	box-shadow: 1px 1px 10px 1px #bbb;
-}
-
-.input-sub {
-	float:left;
-}
-.tt-query, /* UPDATE: newer versions use tt-input instead of tt-query */
-.tt-hint {
-    width: 396px;
-    height: 30px;
-    padding: 8px 12px;
-    font-size: 24px;
-    line-height: 30px;
-    border: 2px solid #ccc;
-    border-radius: 8px;
-    outline: none;
-}
-
-.tt-query { /* UPDATE: newer versions use tt-input instead of tt-query */
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-}
-
-.tt-hint {
-    color: #999
-}
-
-.tt-dropdown-menu {
-    width: 422px;
-    margin-top: 12px;
-    padding: 8px 0;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-    box-shadow: 0 5px 10px rgba(0,0,0,.2);
-}
-
-.tt-suggestion {
-    padding: 3px 20px;
-    font-size: 18px;
-    line-height: 24px;
-}
-
-.tt-suggestion.tt-is-under-cursor { /* UPDATE: newer versions use .tt-suggestion.tt-cursor */
-    color: #fff;
-    background-color: #0097cf;
-
-}
-
-.tt-suggestion p {
-    margin: 0;
-}
-
-/**
-* SLUT PÅ JESPERS INPUT!!!!! VISST VAR DEN SNYGG?!
-**/
-
+/* headern */
 #ui_header {
 	background: #192626 url(../img/ui_header.PNG);
-	height:9.1vw;
-	width: 83vw;
-	color: #fff;
-	font-family: "Kozuka Gothic Pr6N";
-	float: right;
-	max-width: 100%;
+	background-position: right;
+	background-size: 100vw;
 	position: absolute;
 	top: 0vw;
 	right: 0vw;
+	height:6.1vw;
+	width: 82vw;
+	padding-left: 18vw;
+	color: #fff;
+	font-family: Kozuka;
 	z-index: -1;
 }
 
+/* Avatar-styling */
+.user_picture {
+	width: 6vw;
+	height: 6vw;
+	/*background: url(../img/snape.PNG) #f7fafa;*/
+	/*background-size: 6vw;*/
+	float: left;
+	border: 0.2vw solid #f7fafa;
+	margin-right: 1vw;
+	margin-top: 0.5vw;
+
+}
+
+/* Användarnamn & bild-box*/
+.user_box {
+	height: 8.5vw;
+	width: 39vw;
+	padding: 0.1vw;
+	margin-left: 1vw;
+}
+
+/* Namn-styling */
+.user_box h2 {
+	margin-bottom: 0.3vw;
+	margin-top: 2.6vw;
+}
+
+/* Användarnamn och dropdown-knapp*/
+.username_holder {
+	display: inline-block;
+	font-family: Kozuka;
+	font-weight: 100;
+	font-size: 1.5vw;
+	margin-top: 2vw;
+}
+
+
+
+/* styling för username*/
+.user_name {
+	float: left;
+}
+
+/* dropdown för inställningar */
+.settings {
+	display: none;
+	color: white;
+	font-family: Kozuka;
+	font-size: 0.9vw;
+}
+
+
+/* neråt-pil */
+.arrow-down {
+	width: 0;
+	height: 0;
+	border-left: 0.5vw solid transparent;
+	border-right: 0.5vw solid transparent;
+	border-top: 0.7vw solid #56c5cb;
+	float: right;
+	margin-top: 1.3vw;
+	margin-left: 0.6vw;
+}
+
+/* uppåt-pil */
+.arrow-up {
+	width: 0;
+	height: 0;
+	border-left: 0.5vw solid transparent;
+	border-right: 0.5vw solid transparent;
+	border-bottom: 0.7vw solid #56c5cb;
+	float: right;
+	margin-top: 1vw;
+}
+
+/* höger-pil */
+.arrow-right {
+	width: 0;
+	height: 0;
+	border-left: 0.6vw solid #56c5cb;
+	border-top: 0.4vw solid transparent;
+	border-bottom: 0.4vw solid transparent;
+	float: left;
+	margin-right: 0.5vw;
+	margin-top: 0.7vw;
+}
+
+
+
+/* Ladda upp nytt projekt-boxen */
 .upload_shortcut {
-	float:right;
-	width: 30vw;
-	height:5.1vw;
-	padding-top: 5.5vw;
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 27vw;
+	height: 5.1vw;
+	padding-top: 3.1vw;
 	cursor: default;
 	z-index: 2;
 }
-.school_icon {
-	background: url(../img/hogwarts.PNG)  no-repeat center;
-	background-size: 3vw;
-	width: 3vw;
-	height: 3vw;
-	margin-left: -1.2vw;
-	margin-top: 4.5vw;
 
-}
-
+/* Ladda upp-knappen */
 .upload_shortcut img {
 	width: 6vw;
+	height: 6vw;
 	float: right;
 	margin-right: 2vw;
 	margin-top: -4.5vw;
 	cursor: pointer;
 }
 
-.user_picture {
+#ui_sidebar h2 {
+	color: #e7efef;
+	font-family: Kozuka;
+	font-size: 1.1vw;
+	list-style: none;
+	padding-left: 1.4vw;
+	margin-top: 1.3vw;
+}
+
+#clickmetoo {
+	cursor: pointer;
+}
+
+.experiences_icon {
+	width: 4vw;
+	height: 3.5vw;
+	margin-right: 0.2vw;
+	margin-bottom: -0.9vw;
+	margin-top: 0.7vw;
+	float: left;
+}
+
+
+/*/////////// Ladda upp ett nytt projekt /////////////*/
+
+/* bildstyling för molnet*/
+.cloud {
+	width: 6vw;
+	height: 4vw;
+	margin-right: 0.6vw;
+	margin-bottom: -0.9vw;
+}
+
+/* ikonerna till höger, ladda upp, etc*/
+.dark_icon {
+	background-color: #253737;
+	width: 3vw;
+	height: 3vw;
+	padding: 0.5vw;
+	float: left;
+	text-align: center;
+	margin-right: 1.3vw;
+	margin-top: 0.7vw;
+}
+
+.title_icon { background-image: url(../img/icons/blue/title.PNG) ; background-size: 4vw; }
+.description_icon { background-image: url(../img/icons/blue/description.PNG) ; background-size: 4vw; }
+.mediatype_icon { background-image: url(../img/icons/blue/mediatype.PNG) ; background-size: 4vw; }
+.categories_icon { background-image: url(../img/icons/blue/categories.PNG) ; background-size: 4vw; }
+.upload_icon { background-image: url(../img/icons/blue/upload.PNG) ; background-size: 4vw; }
+.employer_icon { background-image: url(../img/icons/blue/employer.PNG) ; background-size: 4vw; }
+
+
+
+/* välj mediatyp-ikonerna */
+.media_icon {
+	background-color: #253737;
+	width: 3vw;
+	height: 3vw;
+	padding: 0.5vw;
+	float: right;
+	text-align: center;
+	margin-left: 0.5vw;
+	margin-top: -0.8vw;
+}
+
+.mediatype img {
+	width: 3vw;
+	height: 3vw;
+	margin-bottom: 0.1vw;
+}
+
+
+/* wrappers för varje steg */
+.upload_column {
+	width: 32vw;
+	margin-bottom: 0.2vw;
+	clear: right;
+	font-family: Kozuka;
+}
+
+/* h2-styling inuti kolumnerna */
+.upload_column h2 {
+	padding: 0vw 0vw 0.4vw 0vw;
+}
+
+
+/* upload_column select, denna behövde en egen styling */
+.upload_column select {
+	width: 26.6vw;
+	height: 2.4vw;
+	padding: 0.6vw;
+}
+
+
+/* styling för submit-knapp */
+.submit_project {
+	background-color: #253737;
+	font-family: Kozuka;
+	font-size: 1vw;
+	color: white;
+	border: 0;
+	padding: 0.2vw 1.8vw;
+}
+
+/* lite special-styling för välj mediatyp */
+.mediatype {
+	margin-bottom: 6vw;
+}
+
+/* styling för input, textarea */
+.uploadfile {
+	padding: 0.7vw;
+	width: 24.9vw;
+	margin-bottom: 1vw;
+	border: 0.1vw solid #56c5cc;
+	margin-top: -1vw;
+	float: right;
+}
+
+input.uploadfile {
+	height: 0.7vw;
+}
+
+/*sub-kategorier*/
+.subcategories {
+	width: 26vw;
+	padding: 0.2vw;
+	margin-top: -0.2vw;
+	margin-bottom: 0.9vw;
+	float: right;
+	padding-right: 0.3vw;
+    line-height: 0;
+    display: none;
+}
+
+.subcheckbox {
+	float: right;
+    display:inline-block;
+	padding-left: 0.8vw;
+	min-width: 4vw;
+}
+
+
+.check_title, .check_description, .check_category, .check_upload {
+	width: 1.5vw;
+	height: 1.5vw;
+	background: url(../img/delete_button.PNG) NO-REPEAT;
+	background-size: 1.5vw;
+	margin-bottom: -3.5vw;
+	margin-top: 2vw;
+	margin-left: 2.3vw;
+}
+
+.check_subcategories {
+	width: 1.5vw;
+	height: 1.5vw;
+	background: url(../img/delete_button.PNG) NO-REPEAT;
+	background-size: 1.5vw;
+	margin-bottom: -3.5vw;
+	margin-right: -2.3vw;
+	float: right;
+}
+
+
+
+
+/*/////////// sök-sidan /////////////*/
+
+
+/* lite jquery magic */
+#hide_me, #search_for {
+	display: none;
+}
+
+.search_div {
+	margin: 0vw auto;
+	width: 15vw;
+	font-family: Kozuka;
+	font-size: 1.7vw;
+	color: #56c5cb;
+	padding-left: 8vw;
+
+}
+/* Styling för det lilla förstoringsglaset */
+.thumbnail {
+	width: 0.7vw; height: 0.7vw; margin-right: 0.5vw;
+}
+
+/* TD-styling för "Dina sökningar" */
+.td_category	{width: 6vw; padding-bottom: 0.5vw;}
+.td_words 		{width: 9vw; padding-bottom: 0.5vw;}
+.td_delete 		{width: 4vw; padding-bottom: 0.5vw; text-align: center;}
+
+/* gör ta bort-knappen liten */
+.td_delete img {
+	width: 1vw;
+	height: 1vw;
+}
+
+/* styling */
+.category_search {
+	display: inline-block;
+	padding: 0.3vw;
+	background-color: #56c5cb;
+	color: white;
+	border-radius: 0.2vw;
+	font-size: 0.75vw;
+}
+
+/* styling */
+.word_search { font-size: 0.75vw;  }
+
+/* Hästens hus */
+.searchbox {
+	width: 35vw;
+	margin: 0vw auto;
+}
+
+/* Fyrkanternas hus */
+.choicebox {
+	width: 50vw;
+	margin: 0vw auto;
+	text-align: center;
+}
+
+/* allt det där till vänster så det ligger fint */
+.search_wrapper {
+	width: 55vw;
+	float: left;
+}
+
+/* Allt det där till höger så det ligger fint */
+.url_wrapper {
+	float: right;
+	width: 22vw;
+	margin-right: 7vw;
+	padding: 0.5vw;
+	margin-top: 2vw;
+
+}
+
+/* Ponnyjävel */
+.search_logo {
 	width: 7vw;
 	height: 7vw;
-	background: url(../img/snape.PNG);
 	background-size: 7vw;
-	border: 0.3vw solid white;
+	background-image: url(../img/big_logo.PNG);
+	background-repeat: no-repeat;
 	float: left;
+}
+
+
+/* Hästens pratbubbla haha*/
+.search_bubble {
+	font-family: Kozuka;
+	width: 20vw;
+	padding: 0.5vw;
+	border: 0.1vw solid #56c5cb;
+	background-color: #56c5cb;
+	border-radius: 0.5vw;
+	color: white;
+	margin-left: 1vw;
+	margin-top: 1vw;
+	float: left;
+	font-size: 1.3vw;
+}
+
+/* Hmmmm ska göra denna som box kanske*/
+.bubble_tip {
+	background: url(../img/bubble_tip_blue.PNG)  no-repeat;
+	background-size: 0.8vw;
+	float: left;
+	width: 2vw;
+	height: 1.2vw;
+	margin-left: -1.1vw;
+	margin-top: 0.6vw;
+}
+
+/* Fyrkanterna */
+.dark_square {
+	background: #2f4343 center no-repeat;
+	background-size: 6vw;
+	width: 8vw;
+	height: 0vw;
+	padding-top: 8vw;
+	margin: 1vw 2vw 2vw 0vw;
+	float: left;
+	line-height: 2vw;
+	text-align: center;
+	font-family: Kozuka;
+	border-radius: 0.5vw;
+}
+
+/* bakgrundsbilderna till fyrkanterna, much jquery-magic */
+.s_users 		{ background-image: url(../img/users.PNG); }
+.s_projects 	{ background-image: url(../img/projects.PNG); }
+.s_experiences 	{ background-image: url(../img/experiences.PNG); }
+.s_categories 	{ background-image: url(../img/categories.PNG); }
+.s_status 		{ background-image: url(../img/status.PNG); }
+
+/*/////////// Min profil-CSS /////////////*/
+
+/* Kolumner för att separera allt ordentligt på profilen */
+
+.columnLeft 	{ width: 24vw; float: left; }
+.columnMiddle 	{ width: 30vw; float: left; }
+.columnRight 	{ width: 26vw; float: left;}
+
+/* Styling för profilbilden */
+.profile_picture {
+	width: 21vw;
+	height: 26vw;
+	background-image: url(../img/profile_picture.PNG);
+	background-size: 21vw;
+	margin-bottom: 1.5vw;
+}
+
+/* De små penn-ikonerna */
+.edit_icon {
+	height: 1vw;
+	width: 1vw;
+	cursor: pointer;
+	background-image: url(../img/edit.PNG);
+	background-size: 1vw;
+	display: inline-block;
+}
+
+
+
+
+
+
+
+.search_log {
+	width:20vw;
+	padding: 1vw;
+	margin: -0.2vw 0vw;
+	background: white;
+}
+
+
+
+.input_thing {
+	font-family: Kozuka;
+	padding: 0.1vw 0.7vw;
+	width: 20vw;
+	border: 0.1vw solid #56c5cb;
+	background-color: white;
+	border-radius: 0.5vw;
+	color: white;
+	margin: 2vw 1vw;
+	display: inline-block;
+	font-size: 1.3vw;
+	color: #56c5cb;
+	text-align: left;
+	height: 3vw;
+
+}
+
+
+
+
+.project_choices {
+	background-color: #56c5cc;
+	float: left;
+	height: 9vw;
+	width: 11vw;
 	margin-right: 1vw;
-	margin-top: 0.5vw;
+		text-align: center;}
+
+	.project_choices img {
+		width: 8vw;
+		height: 5vw;
+		margin-top: 1vw;
+		margin-bottom: 1vw;
+	}
+
+.box_description {
+	background-color: #2f4343;
+	width: 10.8vw;
+	padding: 0.1vw;
+	color: white;
+	font-family: Kozuka;
 }
 
-.user_box {
+
+
+ /* "Header" */
+
+
+
+
+
+
+#description {
+	width: 27vw;
+	min-height: 16vw;
+	line-height: 1.3vw;
+}
+#interests {
+	float: right;
+	width: 24vw;
+	margin: 3vw 0vw;
+}
+
+#hashtag {
 	float: left;
-	height:8.5vw;
-	width: 39vw;
-	padding: 0.3vw;
-	margin-left: 3vw;
-
-}
-
-.user_box h2 {
+	background-color: #56c5cc;
+	color: white;
+	padding: 0.5vw;
+	border-radius: 0.5vw;
+	margin-right: 0.3vw;
 	margin-bottom: 0.3vw;
-	margin-top: 1.6vw;
+}
+
+#contact_information {
+	width: 21vw;
+	font-family: Kozuka;
+	color: white;
+}
+.contact_rows {
+	min-width: 20vw;
+	background-color: #1f2d2c;
+	padding: 0.2vw 0.5vw;
+	border-bottom: 0.1vw solid #385856;
+}
+
+#projects_experiences {
+	width: 55vw;
+}
+
+#my_experiences {
+	float: right;
+	width: 24vw;
+}
+
+.project_members {
+	width: 28.6vw;
+	background-color: #2f4343;
+	margin-top: -0.2vw;
+	margin-bottom: 0.2vw;
+	font-size: 0.7vw;
+	color: #d6d6d6;
+	padding: 0.3vw 0.2vw;
+	display: none;
+}
+
+#my_experiences h3 {
+	border-bottom: 0.1vw dotted #1f2d2c;
+    display:inline;
+    padding-bottom: 0.2vw;
+}
+
+h3 {font-family: Kozuka;}
+h4 {font-family: Kozuka;
+padding: 0vw;
+margin: 0vw 0vw 0.5vw 0vw;}
+
+.project_members img {
+	height: 0.8vw;
+	width: 1vw;
+	float: right;
+	margin-right: 0.2vw;
+	margin-top: 0vw;
+	cursor: pointer;
+}
+
+
+.icon {
+	border: 0.4vw solid #56c5cc;
+	width: 3vw;
+	height: 3.25vw;
+	margin-top: -0.5vw;
+	float: left;
+	margin-right: 0.5vw;
 
 }
 
-.user_box p {
-	margin: -0.6vw;
-	padding: 0vw;
-	font-size: 1vw;
+/* mediatyp-ikoner */
+.game 	{ background: #56c5cc url(../img/icons/game.PNG) no-repeat center; background-size: 2.5vw;}
+.essay 	{ background: #56c5cc url(../img/icons/essay.PNG) no-repeat center; background-size: 2.5vw;}
+.video 	{ background: #56c5cc url(../img/icons/video.PNG) no-repeat center; background-size: 2.5vw;}
+.audio 	{ background: #56c5cc url(../img/icons/music.PNG) no-repeat center;	background-size: 2.5vw;}
 
+.project_description {
+	height: 3vw;
+	padding: 0.5vw 0vw;
+	width: 27vw;
+	background-color: #1f2d2c;
+	color: white;
+	font-size: 0.7vw;
+	font-weight: lighter;
+	font-family: Kozuka;
+	margin-bottom: 0.2vw;
 }
+
+
+.project_description h2 {
+	font-size: 1.2vw;
+	margin-bottom: -0.6vw;
+	margin-top: -0.2vw;
+}
+
+
+a {color: #56c5cc;
+text-decoration: none;}
+
+.hidden {
+	display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   /* index page css */
+
+  body.index {
+	background: url(../img/background_stripe.PNG) repeat-x;
+	background-size: 18vw;
+	margin: 0px;
+	font-family: verdana;
+	font-size: 0.9vw;
+	color: #465b5c;
+	overflow-x:hidden;
+	font-weight: 100;
+
+}
 
 #header {
 	background: url(../img/header_1.PNG);
@@ -230,7 +747,7 @@ body {
 	width: 100vw;
 	text-align: center;
 	padding-top: 2.8vw;
-	max-width: 100%;
+	max-width: 100%.
 }
 
 #header img {
@@ -256,7 +773,7 @@ body {
 	height: 10vw;
 	float: left;
 	margin-right: 2.3vw;
-	font-family: "Kozuka Gothic Pr6N";
+	font-family: Kozuka;
 	color: #fff;
 	font-size: 0.9vw;
 	line-height: 1.4vw;
@@ -279,53 +796,59 @@ body {
 
 .blue_box input {
 	padding: 0.5vw;
-	margin-bottom: 1vw;
-	width: 13vw;
-	/**height: 0.8vw;**/
+	width: 13.9vw;
+	border: 0.1vw solid #56c5cc;
+	display: inline;
+	margin-bottom: 0.8vw;
 }
 
 .login_box
 {
 	text-align: right;
-	font-family: "Kozuka Gothic Pr6N";
+	font-family: Kozuka;
 	font-weight: 100;
 	font-size: 1.1vw;
 	line-height: 2vw;
 	color: #2c3333;
-	margin-top: 1vw;
-	height:9vw;
-	padding: 1vw;
+	padding: 1.8vw 0vw;
 	margin-right: 2vw;
 }
 
 .login_button {
 	background-color: #243333;
 	margin-right: 0.3vw;
-	padding: 0.2vw 1.2vw;
+	padding: 0.1vw 1.2vw;
 	color: white;
 	float: right;
 	font-size: 1vw;
 }
 
 
+h1 {
+	font-family: Kozuka;
+	font-weight: 100;
+	font-size: 2.3vw;
+	margin-bottom:  0.6vw;
+	margin-top: -1vw;
+}
 
 h2 {
-	font-family: "Kozuka Gothic Pr6N";
+	font-family: Kozuka;
 	font-weight: 100;
-	font-size: 1.7vw;
-	margin-bottom: 0vw;
+	font-size: 1.5vw;
+	margin-bottom:  -0.2vw;
 	margin-top: 0vw;
 }
 
 #welcome
 {
-	background: url(../img/big_logo.png) center no-repeat;
+	background: url(../img/big_logo.PNG) center no-repeat;
 	background-size: 14vw;
 	width: 90vw;
 	height: 20vw;
 	margin: 1vw auto;
 	text-align: center;
-	font-family: "Kozuka Gothic Pr6N";
+	font-family: Kozuka;
 	font-weight: 100;
 	font-size: 2.4vw;
 	color: #56c5cc;
@@ -352,7 +875,7 @@ h2 {
  .registration_box
  {
 	text-align: left;
-	font-family: "Kozuka Gothic Pr6N";
+	font-family: Kozuka;
 	font-weight: 100;
 	font-size: 1.1vw;
 	color: #56c5cc;
@@ -365,6 +888,11 @@ h2 {
 }
 
  .registration_box input {
+	padding: 0.5vw;
+	width: 13.9vw;
+	border: 0.1vw solid #56c5cc;
+	display: inline;
+	margin-bottom: 0.8vw;
 	margin-left: 1vw;
 }
 
@@ -379,14 +907,6 @@ h2 {
 
 }
 
-
-input {
-	padding: 0.5vw;
-	margin-bottom: 1vw;
-	width: 16vw;
-	/**height: 1vw;**/
-	border: 0.1vw solid #56c5cc;
-}
 
 .register_button {
 	background-color: #243333;
@@ -408,5 +928,85 @@ input {
 .trigger_registration {cursor: pointer;
 padding: 0.4vw;}
 
- .login_button, .register_button{cursor: pointer;
+
+
+/* radio buttonz stylin', holy shit btw hur funkar ens detta */
+
+
+input[type=checkbox]:not(old),
+input[type=radio   ]:not(old){
+  width     : 2em;
+  margin    : 0;
+  padding   : 0;
+  font-size : 1em;
+  opacity   : 0;
+}
+
+input[type=checkbox]:not(old) + label,
+input[type=radio   ]:not(old) + label{
+  display      : inline-block;
+  margin-left  : -2em;
+  line-height  : 1.5em;
+}
+
+
+input[type=checkbox]:not(old) + label > span,
+input[type=radio   ]:not(old) + label > span{
+  display          : inline-block;
+  width            : 0.8vw;
+  height           : 0.8vw;
+  background 	: white;
+  border: 0.1vw solid #98a4a4;
+  margin-right: 0.5vw;
+  border-radius: 0.7vw;
+}
+
+input[type=radio   ]:not(old) + label > span{
+  display          : inline-block;
+  width            : 0.8vw;
+  height           : 0.8vw;
+  background 	: white;
+  border: 0.1vw solid #98a4a4;
+  margin-right: 0.5vw;
+  border-radius: 0.7vw;
+}
+
+input[type=checkbox]:not(old) + label > span{
+  display          : inline-block;
+  width            : 0.8vw;
+  height           : 0.8vw;
+  background 	: white;
+  border: 0.1vw solid #98a4a4;
+  margin-right: 0.5vw;
+  border-radius: 0.3vw;
+}
+
+
+input[type=checkbox]:not(old):checked + label > span,
+input[type=radio   ]:not(old):checked + label > span{
+  background 	: white;
+}
+
+input[type=checkbox]:not(old):checked + label > span:before{
+  content     : '✓';
+  display     : block;
+  width       : 0.6vw;
+  height      : 0.6vw;
+  color       : #56c5cb;
+  font-size   : 0.9vw;
+  line-height : 1em;
+  text-align  : center;
+  text-shadow : #bccfd0;
+  font-weight : bold;
+  margin-top: 0.1vw;
+}
+
+input[type=radio]:not(old):checked + label > span > span{
+  display          : block;
+  width            : 0.6vw;
+  height           : 0.6vw;
+  margin           : 0.1vw;
+  border           : 0.05vw solid #4ee9f1;
+  border-radius: 0.6vw;
+  background       : #56c5cb;
 }
