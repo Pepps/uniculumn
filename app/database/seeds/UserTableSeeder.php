@@ -14,8 +14,6 @@ class UserTableSeeder extends Seeder {
                       'email' => $faker->email,
                       'password' => Hash::make('secret'),
                       'token' => $faker->numberBetween($min = 1000, $max = 9000),
-                      'FBtoken' => $faker->numberBetween($min = 1000, $max = 9000),
-                      'googletoken' => $faker->numberBetween($min = 1000, $max = 9000),
                       'pdir' => Hash::make('secret')
                       ]);
         }
