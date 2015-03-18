@@ -11,7 +11,7 @@
               <div class="profile_picture">
               </div>
 
-              <h2>Kontaktuppgifter <div class="edit_icon"></div></h2>
+              <h2>Kontaktuppgifter <a href="/user/{{$user->id}}/edit"><div class="edit_icon"></div></a></h2>
               <div id="contact_information">
                   <div class="contact_rows">Namn: {{ $user->firstname }}. </div>
                   <div class="contact_rows">Ort: {{ $user->lastname }}.</div>
