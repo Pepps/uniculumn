@@ -15,4 +15,7 @@ class Category extends Eloquent
 		return $this->belongsToMany('Experience');
 	}
 
+	public function interests() {
+		return $this->belongsToMany('Interest', 'interests', 'category_id', 'user_id');
+	}
 }

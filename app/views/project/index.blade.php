@@ -1,6 +1,8 @@
 @extends('layouts.master')
 @section('content')
 
+<div class="container">
+
 @include('layouts.nav')
 @yield('nav')
 
@@ -49,7 +51,7 @@
 
               <!-- </Beskrivning>  -->
 
-              {{ Form::open(array('url' => '/project/update/'.$value->id)) }}
+              {{ Form::open(array('url' => 'update'.$value->id)) }}
                 {{ Form::text('project_title', $value->title, Array('class'=>'edit_this')) }}
                 {{ Form::textarea('project_body', $value->body, Array('class'=>'edit_this')) }}
                 {{ Form::submit('Spara', Array('class'=>'edit_this')) }}
