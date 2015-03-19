@@ -6,39 +6,28 @@
     background: #fff;
   }
 </style>
-
 <div id="a-wrapper">
   <div id="aheader">
-    <div id="headerpic">
-             {{ HTML::image('img/header.png') }}
-    </div>
+    {{ HTML::image('img/header.png', 'Header image',Array('id' => 'headerimg')) }}
   </div>
 
-  <div id="roligbox">
-        {{ HTML::image('img/penna.png') }}{{ HTML::image('img/ladda.png') }}{{ HTML::image('img/gubbe.png') }}
-  			<h1>Ladda upp projekt och n&auml;tverka med arbetsgivare</h1>
-  </div>
 
-  <div id="loginbox">
-    <div style="margin-top:-25px;">
-      {{ Form::open(array('url' => '/home', 'id'=>'form')) }}
-        @if($errors->has())
-          <p>Email eller lösenordet är inkorrekt, försök igen!</p>
-        @endif
-        E-Mail<br>{{ Form::text('email',"", Array('id'=>'username')) }}<br>
-        L&ouml;senord<br>{{ Form::password('password',Array('id'=>'password')) }}<br><br>
-        {{ Form::submit('Logga in', Array('class'=>'skicka')) }}
-        <a href="#" class="skicka">Registrera dig</a>
-      {{ Form::close() }}
-    </div>
-  </div>
   <br>
-
+  <div id="roligbox">
+  			<img src="img/penna.png"><img src="img/ladda.png"><img src="img/gubbe.png">
+  			<h1>Ladda upp projekt och n&auml;tverka med arbetsgivare</h1></div>
+  <div id="loginbox">
+  		<form id="form" name="form" method="post" action=" ">
+  			E-Mail<br><input type="text" name="username" id="username"/><br>
+  			L&ouml;senord<br><input type="password" name="password" id="password"/><br><br>
+        {{ HTML::image('img/loggain.png', 'loggin btn',Array('id' => 'loggin-btn', 'class' => 'a-btn' )) }}
+  		</form>
+  </div>
 
   <div id="finbox">
   		<p>Med en portfolio online g&ouml;r du det enkelt f&ouml;r f&ouml;retag att skicka jobberbjudande<br> som matchar just dina kompentenser.</p>
-  		<h1>Registrera dig idag, det &auml;r enkelt och gratis!</h1>
-  		<img src="img/big_logo.png" width="160" height="160" alt="logo">
+  		<a href="/register">{{ HTML::image('img/regi.png', 'register btn',Array('class' => 'a-btn' )) }}</a><br><br>
+      {{ HTML::image('img/big_logo.png', 'Big logo', Array('id' => 'abigloggo')) }}
   </div>
 </div>
 @stop
