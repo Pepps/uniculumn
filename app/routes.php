@@ -27,9 +27,16 @@ Route::resource('user', "UserController");
 Route::post('apply/upload', 'ProjectController@store');
 Route::post('/user/update/{id}', "UserController@update");
 
+Route::post('/user/update_password/{id}', "UserController@update_password");
+Route::post('/user/update_description/{id}', "UserController@update_description");
+Route::post('/user/update_interest/{id}', "UserController@update_interest");
+
+Route::get('/user/delete_interest/{category_id}', "UserController@delete_interest");
+
 /* Duck punch for fixing update */
 Route::post('/project/update/{id}', "ProjectController@update");
 Route::get('/project/delete/{id}', "ProjectController@destroy");
+Route::get('/project/show/{id}', "ProjectController@show");
 /*End duck punch*/
 
 Route::post('/project/addcolab/{id}', "ProjectController@addcolab");

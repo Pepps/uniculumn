@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Uniculum - Mina projekt</title>
+          <link href="css/style.css" type="text/css" rel="stylesheet" />
+          <link rel="shortcut icon" href="img/favicon.ico" />
+          <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
+            <script src="javascript/jquery-1.8.3.js"></script>
+            <script src="javascript/jquery-ui-1.9.2.js"></script>
+            <script src="javascript/jquery.ui.touch-punch.js"></script>
+            <script src="javascript/user_jquery.js"></script>
+    </head>
+     <body>
+
+        <div id="ui_sidebar">
+            
+            <img src="img/logoleft.PNG" class="left_logo"/>
+            <h2><div class="arrow-right"></div><a href="search.html">Avancerad sökning</a></h2>
+            <h2><div class="arrow-right"></div><a href="user_profile.html">Min profil</a></h2>
+            <h2><div class="arrow-right"></div><a href="my_projects.html">Mina projekt</a></h2>
+            <h2><div class="arrow-right"></div><a href="erfarenheter.html">Mina erfarenheter</a></h2>
+
+        </div>
+
+        <div id="ui_header">
+
+            <div class="user_box"> 
+               <div class="user_picture"></div>
+                <div class="username_holder">
+                    <span class="user_name">Severus</span>
+
+                        <div class="arrow-down" id="clickmetoo">
+                          <div class="account_settings">
+                              Kontoinställningar<br/>
+                              Logga ut 
+                                <div class="arrow-up" id="hide_controlpanel"></div>  
+                          </div>
+                        </div>
+                </div>
+            </div>
+
+          <div class="upload_shortcut">
+              <a href="upload_file.html"><h2 class="cursor">» Ladda upp ett nytt projekt</h2>
+              <img src="img/upload_button.PNG" id="upload_button" /></a>
+          </div>
+
+      </div>
+      
+      <div id="main_content">
+
+
+      <div id="account_wrapper">
+<h1 class="cv">Sök efter CV:n</h1>
+<br/><br/>
+          <div class="searchbox" style="display: inline-block;">
+            <div class="search_logo"></div>
+              <div class="search_bubble"><div class="bubble_tip"></div> Sök med hjälp av användarens förnamn, efternamn eller email!</div>
+              </div>
+    <div class="upload_column">
+            <div class="dark_icon cv_icon"> </div>
+             <h3>&nbsp;Namn/email</h3>
+            <input class="uploadfile"> 
+            <input type="submit" class="dark_submit" value="Få resultat"></input></input>
+          </div>
+      </div>
+
+
+      <div id="profile_wrapper">
+<h2>Sökresultat</h2>
+
+<table class="cv_src_results">
+<tr>
+<td class="cv_src_face"><img src="img/albus.PNG"/></td>
+  <td class="cv_src_name"><span>Albus-Brian-Wulfric Dumbledore</span></td>
+  <td class="cv_src_profile"><span>Profil »</span></td>
+  <td class="cv_src_cv"><span>CV »</span></td>
+</tr>
+<tr>
+<td class="cv_src_face"><img src="img/ron.PNG"/></td>
+  <td class="cv_src_name"><span>Ronald Weasley</span></td>
+  <td class="cv_src_profile"><span>Profil »</span></td>
+  <td class="cv_src_cv"><span>CV »</span></td>
+</tr>
+<tr>
+<td class="cv_src_face"><img src="img/harry.PNG"/></td>
+  <td class="cv_src_name"><span>Harry Potter</span></td>
+  <td class="cv_src_profile"><span>Profil »</span></td>
+  <td class="cv_src_cv"><span>CV »</span></td>
+</tr>
+</table>
+
+      </div>
+
+        </div>
+
+
+
+      </body>      
+</html>

@@ -4,8 +4,9 @@ var names = [];
 var element = {};
 var userId = [];
 var inputId = [];
+
 categoryShow(0);
-//stateShow(0);
+ajax_city($("#state-select").val());
 
 $(function(){
     var bool = true;
@@ -41,6 +42,7 @@ $(function(){
         }
     });
 });
+
 $(document).on('click','.remove', function() {
     collaborators.splice($(this).data("id"),1);
     inputId.splice($(this).data("id"),1);
@@ -131,7 +133,13 @@ function categoryShow(id) {
 
     return false;
 }
+//Ajax script that gets cities from the DB depending on the state you select.
 
+function ajax_city() {
+  $("#state-select").on("change", function() {
+
+    });
+}
 function get_cities(stateselect, cities) {
   $(stateselect).on("change", function() {
     $.ajax({
@@ -144,17 +152,14 @@ function get_cities(stateselect, cities) {
        $(cities).append("<option value='"+data[i].id+"'>"+data[i].name+"</option>");
 
      }
-
-     // console.log(data[5].name);
-    });
   });
+ });
 }
 //Ajax script that gets cities from the DB depending on the state you select.
 window.onload = function() {
     get_cities( '#state-select', '#cities');
     get_cities('#change-state-select', '#change-cities');
 }
-/*
 function stateShow(id) {
     $.ajax({
         type    : "GET",
@@ -173,26 +178,29 @@ function stateShow(id) {
     return false;
 }
 
-function cityShow(id) {
+function ajax_subcategories(id) {
     $.ajax({
-        type    : "GET",
-        url     : "/city/show/"+id,
-        success : function(data) {
-            data = jQuery.parseJSON(data);
-                $('#city').html("");
-                for (var i=0; i<data.length; i++) {
-                    $('<option value="'+data[i]['id']+'">'+data[i]['name']+'</option>').appendTo($('#city'));
-                }
-            }
-        },"json");
-
-    return false;
+      type: "GET",
+      dataType: "json",
+      url: "/category/show/"+id,
+    }).done(function(data) {
+      $("#subcategories").empty();
+      for(var i = 0; i < data.length; i++) {
+       $("#subcategories").append("<option value='"+data[i].id+"'>"+data[i].title+"</option>");
+     }
+ });
 }
-*/
-//------
-// on changes functions: category and state
-//------
 
+$(document).on('change', '#categories-select', function(e) {
+    e.preventDefault(e);
+    ajax_subcategories($(this).val());
+});
+
+/*
+$(document).on('change', '#state-select', function(e) {
+    e.preventDefault(e);
+    ajax_city($("#state-select").val());
+});
 
 $(document).on('change', '#project_category', function(e) {
     e.preventDefault(e);
@@ -205,16 +213,4 @@ $(document).on('change', '#project_category', function(e) {
 
 });
 
-/*
-$(document).on('change', '#state', function(e) {
-    e.preventDefault(e);
-
-        //-----
-        // TODO comments here
-        //-----
-
-    cityShow($("#state").val());
-
-});
 */
-

@@ -143,7 +143,7 @@ function addToTable(category, serchword){
       console.log("categories");
     }else if($(this).parent().parent().find(".category_search").text() == "status"){
       console.log("status");
-    } 
+    }
   });
 }
 
