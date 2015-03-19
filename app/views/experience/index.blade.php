@@ -32,8 +32,8 @@
                     </div>
 
                   <div class="upload_column">
-                    <div class="dark_icon employment_icon" id="exp_description"></div>
-                        <h3 class="employmentDescription">Kategori</h3>
+                    <div class="dark_icon categories_icon" id="exp_description"></div>
+                        <h3>Kategori</h3>
                           {{ Form::select('category', array('0' => 'Kategori'), Input::old('category'), array('id' => 'project_category')) }}
                     </div>
 
@@ -132,7 +132,7 @@
 
 
 
-                      <a onclick="return confirm('Är du säker på att du vill ta bort?')" href="{{ URL::to('experience/' . $experience->id . '/deleteExp') }}"><div class="ex_button" style="background-color: #d70808;"><img src="../img/icons/edit/delete.PNG"/></div></a>
+                      <a onclick="return confirm('Är du säker på att du vill ta bort?')" href="{{ URL::to('reference/' . $experience->id . '/deleteExp') }}"><div class="ex_button" style="background-color: #d70808;"><img src="../img/icons/edit/delete.PNG"/></div></a>
                           
                         <div class="ex_button edit_experience"><img src="../img/icons/edit/edit.PNG"/></div>
                         <div class="ex_button edit_references"><img src="../img/icons/edit/add.PNG"/></div>
@@ -179,24 +179,28 @@
 
                              <!-- <Referenser>  -->                         
                       <div class="show_references">
-                      <img src="img/small_menu.PNG"/> Visa referenser <br/>
+                      <img src="../img/small_menu.PNG"/> Visa referenser <br/>
 
                         <div class="allreferences">
 
                           @foreach ($experience->reference as $ref)
                             <div class="ref_square">
 
-                                <div class="delete_reference"><img src="img/icons/edit/delete.PNG"/></div>
-                                <img src="img/references.PNG"/> {{ $ref->firstname }}  {{ $ref->lastname }}<br/><img src="img/phonenumber.PNG"/>{{ $ref->phone }}  <br/> <img src="img/email.PNG"/>  {{ $ref->email }}
+                                <div class="delete_reference">                     
+                                 <a onclick="return confirm('Är du säker på att du vill ta bort?')" href="{{ URL::to('reference/' . $ref->id . '/deleteRef') }}"><img src="../img/icons/edit/delete.PNG"/></a>
+                                  </div>
+                                <img src="../img/references.PNG"/> {{ $ref->firstname }}  {{ $ref->lastname }}<br/>
+                                <img src="../img/phonenumber.PNG"/>{{ $ref->phone }}  <br/>
+                                 <img src="../img/email.PNG"/>  {{ $ref->email }}
 
-
+                              </div>
                             </div>
                           @endforeach
 
                         </div>
 
                       </div>
-
+ 
 
 
                        <!-- </Referenser>  -->

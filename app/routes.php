@@ -48,6 +48,7 @@ Route::resource('experience', "ExperienceController");
   Route::post('/experience/{id}/update', "ExperienceController@update");
 // Route::post('/experience/{id}', array('as' => 'addref', 'uses' => "ExperienceController@addref"));
 Route::get('/experience/{id}/deleteExp/', "ExperienceController@deleteExp");
+Route::get('/reference/{id}/deleteRef/', "ReferenceController@destroy");
 
 Route::get('/state/{id}/', "ExperienceController@getcities");
 
