@@ -147,7 +147,7 @@ class ExperienceController extends \BaseController {
 			$experience->description = Input::get('description');
 			$experience->type = Input::get('type');
 			$experience->duration = $duration;
-			$experience->city_id = Input::get('cities');
+			$experience->city_id = Input::get('change-cities');
 			$experience->user_id = Auth::user()->id;
 			//$experience->category_id = Input::get('category');
 

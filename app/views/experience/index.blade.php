@@ -94,9 +94,9 @@
 
                        <!-- <Plats/tid>  -->
                         <div class="ex_float hide_this exp_location">
-                          @foreach ($cities as $city)
-                          {{ $city->name }}
-                          @endforeach
+
+                          {{ City::find($experience->city_id)->name }}
+
                          <img src="../img/icons/edit/location.PNG"/>
 
                        </div>
@@ -106,9 +106,9 @@
                          <div class="ex_float edit_this">
 
                  <img src="img/icons/edit/location.PNG" style="float: right;"/>
-                                    {{ Form::select('cities', array($experience->city_id => 'Select a city'), Input::old('cities'), array('class' => 'form-control', 'id' => 'cities')) }}
+                 {{ Form::select('change-cities', array($experience->city_id => 'Select a city'), Input::old('cities'), array('class' => 'form-control', 'id' => 'change-cities')) }}
 
-                 <select id="state-select">
+                 <select id="change-state-select">
                   @foreach ($states as $state)
                         <option value="{{ $state->id }}">{{$state->name}}</option>
                       @endforeach
@@ -116,9 +116,14 @@
 
                     </div>
 
+                    <?php
+                      $durations = explode("-", $experience->duration);
+                    ?>
 
                    <div class="ex_float edit_this">
-                    {{ Form::text('from', $experience->duration, Input::old('name')) }}
+                    {{ Form::text('from', $durations[0], Input::old('name')) }}
+                    {{ Form::text('to', $durations[1], Input::old('name')) }}
+
                       <img src="../img/icons/edit/time.PNG"/>
                   </div>
 <!-- </Redigera plats/tid>  -->
