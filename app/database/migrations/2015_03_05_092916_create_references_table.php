@@ -26,7 +26,7 @@ class CreateReferencesTable extends Migration {
 			$table->timestamps();
 
 			$table->foreign('user_id')->references('id')->on('users');
-			$table->foreign('experience_id')->references('id')->on('experiences');
+			$table->foreign('experience_id')->references('id')->on('experiences')->onDelete('cascade');
 		});
 	}
 

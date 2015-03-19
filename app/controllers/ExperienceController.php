@@ -120,40 +120,41 @@ class ExperienceController extends \BaseController {
 				$duration = Input::get('from');
 			}
 		//Rules for input fields
-		$validator =	Validator::make(
-		array(
-			'location'	 			=> Input::get('location'),
-			'description'	 		=> Input::get('description'),
-			'type'	 				=> Input::get('type'),
-			'from' 					=> Input::get('from'),
-			'to'					=> Input::get('to'),
-			),
-		array(
-			'description' 				=> 'required|max:255',
-			'type'	 					=> 'required',
-			'from' 						=> 'required|max:5',
-			'to'						=> 'max:5',
-			//'subcategory_id'            => 'required'			
-			)
-		);
+		// $validator =	Validator::make(
+		// array(
+		// 	'location'	 			=> Input::get('location'),
+		// 	'description'	 		=> Input::get('description'),
+		// 	'type'	 				=> Input::get('type'),
+		// 	'from' 					=> Input::get('from'),
+		// 	'to'					=> Input::get('to'),
+		// 	),
+		// array(
+		// 	'description' 				=> 'required|max:255',
+		// 	'type'	 					=> 'required',
+		// 	'from' 						=> 'required|max:5',
+		// 	'to'						=> 'max:5',
+		// 	//'subcategory_id'            => 'required'			
+		// 	)
+		// );
 		//Validation
-		if ($validator->fails()) {
-          return Redirect::to('experience')
-              ->withErrors($validator);
-		}else {
-			$experience = new Experience;
+		// if ($validator->fails()) {
+  //         return Redirect::to('experience')
+  //             ->withErrors($validator);
+		// }else {
 			$experience = Experience::find($id);
+			// dd($experience);
 			$experience->location = Input::get('location');
 			$experience->description = Input::get('description');
 			$experience->type = Input::get('type');
 			$experience->duration = $duration;
-			$experience->city_id = Input::get('cities');
+			$experience->city_id = Input::get('change-cities');
 			$experience->user_id = Auth::user()->id;
-			$experience->category_id = Input::get('category');
+			//$experience->category_id = Input::get('category');
 
 			$experience->save();
+
 			return Redirect::to('experience');
-		}
+		//}
 
 	}
 

@@ -56,15 +56,15 @@ $(".clearreference, .addreference").click(function(){
 $(".edit_experience").on('click', function(){
     console.log($(this).parent().parent());
      $(this).closest('.ex_column').find('.edit_wrapper').css({ "width": "16vw"});
-     $(this).closest('.ex_column').animate({ "height" : "10vw", "background-color" : "white", "margin-bottom": "2vw"}, 350 );
-     $(this).closest('.ex_column').find('.ex').animate({ "height" : "6vw"}, 450 );
+     $(this).closest('.ex_column').animate({ "height" : "16vw", "background-color" : "white", "margin-bottom": "2vw"}, 350 );
+     $(this).closest('.ex_column').find('.ex').animate({ "height" : "11.2vw"}, 450 );
      $(this).closest('.ex_column').find('.show_references').css("display", "none");
      $(this).closest('.ex_column').find('.edit_this').show();
      $(this).closest('.ex_column').find('.ex_button, .allreferences, .references_choices, .hide_this').hide();
 });
 
 
-$(".add_ref_edit, .ignore_ref_edit").on('click', function(){
+$(".add_edit, .ignore_edit").on('click', function(){
      $(this).closest('.ex_column').find('.edit_wrapper').css({ "width": "10vw"});
      $(this).closest('.ex_column').animate({"background-color" : "transparent", "margin-bottom": "0.5vw"}, 350 ).css({ "height": ""});
      $(this).closest('.ex_column').find('.ex').animate({ "height" : "3vw"}, 450 );

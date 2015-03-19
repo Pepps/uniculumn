@@ -137,17 +137,45 @@ function categoryShow(id) {
 
 function ajax_city() {
   $("#state-select").on("change", function() {
+
+    });
+}
+function get_cities(stateselect, cities) {
+  $(stateselect).on("change", function() {
     $.ajax({
       type: "GET",
       dataType: "json",
       url: "/state/"+$(this).val(),
     }).done(function(data) {
-      $("#cities").empty();
+      $(cities).empty();
       for(var i = 0; i < data.length; i++) {
-       $("#cities").append("<option value='"+data[i].id+"'>"+data[i].name+"</option>");
+       $(cities).append("<option value='"+data[i].id+"'>"+data[i].name+"</option>");
+
      }
   });
  });
+}
+//Ajax script that gets cities from the DB depending on the state you select.
+window.onload = function() {
+    get_cities( '#state-select', '#cities');
+    get_cities('#change-state-select', '#change-cities');
+}
+function stateShow(id) {
+    $.ajax({
+        type    : "GET",
+        url     : "/state/show/"+id,
+        success : function(data) {
+            data = jQuery.parseJSON(data);
+            if (id==0) {
+                $('#state').html("");
+                for (var i=0; i<data.length; i++) {
+                    $('<option value="'+data[i]['id']+'">'+data[i]['name']+'</option>').appendTo($('#state'));
+                    }
+                }
+            }
+        },"json");
+
+    return false;
 }
 
 function ajax_subcategories(id) {
@@ -168,6 +196,7 @@ $(document).on('change', '#categories-select', function(e) {
     ajax_subcategories($(this).val());
 });
 
+/*
 $(document).on('change', '#state-select', function(e) {
     e.preventDefault(e);
     ajax_city($("#state-select").val());
@@ -184,3 +213,4 @@ $(document).on('change', '#project_category', function(e) {
 
 });
 
+*/

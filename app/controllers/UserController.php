@@ -11,7 +11,7 @@ class UserController extends BaseController {
         if($user->city_id == null){
           return View::make('user.index')->with('user', $user)->with("nocity", true)->with('projects', User::find(Auth::user())->project)
                             ->with('usedcategories', $user->categories)
-            -                >with('experience', $user->experiences);
+                            ->with('experience', $user->experiences);
         }else{
           $city  = City::find($user->city_id);
           $state  = State::find($city->state_id);

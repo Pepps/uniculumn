@@ -7,5 +7,9 @@ class City extends Eloquent
 		return $this->belongsTo('State');
 	}
 
+	public function experience() {
+		return $this->belongsToMany('Experience');
+	}
+
 
 }
