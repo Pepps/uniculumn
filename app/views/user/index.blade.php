@@ -50,10 +50,9 @@
                    <div id="interests">
 
                        <h2>Intresserad av <div class="edit_icon"></div></h2>
-
-                      <span id="hashtag">trolldrycker</span> <span id="hashtag">maktmissbruk</span> <span id="hashtag">lily potter</span>  <span id="hashtag">svartkonster</span>
-                      <span id="hashtag">spionage</span> <span id="hashtag">hämnd</span>
-
+                        @foreach($usedcategories as $category)
+                          <span class="hashtag">{{ $category->title }}</span>
+                        @endforeach
                      </div>
 
                     <div id="my_experiences">

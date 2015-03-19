@@ -9,14 +9,18 @@ class UserController extends BaseController {
         $user   = User::find(Auth::user()->id);
 
         if($user->city_id == null){
-          return View::make('user.index')->with('user', $user)->with("nocity", true)->with('projects', User::find(Auth::user())->project);
+          return View::make('user.index')->with('user', $user)->with("nocity", true)->with('projects', User::find(Auth::user())->project)
+                            ->with('usedcategories', $user->categories)
+            -                >with('experience', $user->experiences);
         }else{
           $city  = City::find($user->city_id);
           $state  = State::find($city->state_id);
 
           return View::make('user.index')->with('user', $user)->with("nocity", false)
             ->with('city', $city)->with('state', $state)
-            ->with('projects', User::find(Auth::user()->id)->project);
+            ->with('projects', User::find(Auth::user()->id)->project)
+            ->with('usedcategories', $user->categories)
+            ->with('experience', $user->experiences);
         }
     }
 
@@ -93,7 +97,17 @@ class UserController extends BaseController {
 
         $user = Auth::user()->id;
         User::find($user)->categories()->attach(Input::get('subcategories'));
+        return Redirect::to("/user/".Auth::user()->id."/edit");
 
+    }
+
+    public function delete_interest($category_id){
+        if(Auth::check()){
+            DB::table('interests')->where('user_id', '=', Auth::user()->id)->where('category_id', '=', $category_id)->delete();
+            return Redirect::to("/user/".Auth::user()->id."/edit");
+        }else{
+            return Redirect::to('/user');
+        }
     }
 
     // funtion show return Array to 'project.create' in Bloodhound div, also connected to ajax.js

@@ -136,7 +136,7 @@
               <br/>
               <br/>
               @foreach($usedcategories as $category)
-                <span class="hashtag">{{ $category->title }}<a href="/user/deluser/{{$user->id}}/{{$category->id}}" style="color: #fff;"><i class="fa fa-times"></i></a></span>
+                <span class="hashtag">{{ $category->title }}<a href="/user/delete_interest/{{$category->id}}" style="color: #fff;"><i class="fa fa-times"></i></a></span>
               @endforeach
             <input type="submit" class="blue_submit" value="Lägg till"></input>
             <br/><br /><br /><br />
