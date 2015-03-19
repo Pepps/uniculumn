@@ -9,15 +9,14 @@ class UserController extends BaseController {
         $user   = User::find(Auth::user()->id);
 
         if($user->city_id == null){
-          return View::make('user.index')->with('user', $user)->with("nocity", true)->with('projects', User::find(Auth::user())->project)->with('usedcategories', $user->category);
+          return View::make('user.index')->with('user', $user)->with("nocity", true)->with('projects', User::find(Auth::user())->project);
         }else{
           $city  = City::find($user->city_id);
           $state  = State::find($city->state_id);
 
           return View::make('user.index')->with('user', $user)->with("nocity", false)
             ->with('city', $city)->with('state', $state)
-            ->with('projects', User::find(Auth::user()->id)->project)
-            ->with('usedcategories', $user->category);
+            ->with('projects', User::find(Auth::user()->id)->project);
         }
     }
 
@@ -31,7 +30,8 @@ class UserController extends BaseController {
         $user = User::find(Auth::user()->id);
         if($user->city_id == null){$nocity = true;}else{$nocity = false;}
 
-        return View::make('user.edit')->with('user', User::find($id))->with("nocity", $nocity)->with("states", State::all());
+        return View::make('user.edit')->with('user', User::find($id))->with("nocity", $nocity)->with("states", State::all())
+                            ->with('usedcategories', $user->categories);
     }
 
     public function update($id) {

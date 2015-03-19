@@ -124,7 +124,7 @@
              <div class="dark_icon user_interests"> </div><h3>Lägg till intressen</h3>
               <?php $categories = Category::all(); ?>
               <select class="uploadfile" id="categories-select">
-                     @foreach($usedcategories as $category)
+                     @foreach($categories as $category)
                       @if ($category->subcategory_id == 0)
                         <option value="{{ $category->id }}" >{{ $category->title }}</option>
                       @endif
@@ -134,7 +134,7 @@
               <br/>
               {{ Form::select('subcategories', array('0' => 'Välj din Kategori'), Input::old('subcategories_id'), array('class' => 'uploadfile', 'id' => 'subcategories')) }}
               <br/>
-              @foreach($categories as $category)
+              @foreach($usedcategories as $category)
                 <span class="hashtag">{{ $category->title }}</span>
               @endforeach
             <input type="submit" class="blue_submit" value="Lägg till"></input>
