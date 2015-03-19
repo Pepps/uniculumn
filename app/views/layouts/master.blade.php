@@ -5,7 +5,13 @@
     <title>uniculum.se</title>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     {{ HTML::style('css/style.css') }}
+    
+    {{ HTML::script('javascript/jspdf/jspdf.js') }}
+    {{ HTML::script('javascript/jspdf/jspdf.plugin.from_html.js') }}
+    {{ HTML::script('javascript/jspdf/jspdf.plugin.split_text_to_size.js') }}
+    {{ HTML::script('javascript/jspdf/jspdf.plugin.standard_fonts_metrics.js') }}
 
+    {{ HTML::script('javascript/list.min.js') }}
  </head>
 <body>
     @yield('content')
@@ -15,13 +21,6 @@
     {{ HTML::script('javascript/jquery.ui.touch-punch.js') }}
 
     {{ HTML::script('javascript/typeahead.bundle.js') }}
-
-    {{ HTML::script('javascript/list.min.js') }}
-
-    {{ HTML::script('javascript/jspdf/jspdf.js') }}
-    {{ HTML::script('javascript/jspdf/jspdf.plugin.from_html.js') }}
-    {{ HTML::script('javascript/jspdf/jspdf.plugin.split_text_to_size.js') }}
-    {{ HTML::script('javascript/jspdf/jspdf.plugin.standard_fonts_metrics.js') }}
 
     {{ HTML::script('javascript/main.js') }}
     {{ HTML::script('javascript/user_jquery.js') }}
