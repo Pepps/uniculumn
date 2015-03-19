@@ -1739,18 +1739,18 @@ input[type=radio]:not(old):checked + label > span > span{
 
 /* anneli design */
 
-/*  http://pxtoem.com/ <-- conveter 12 px base size */
+/*  duse not work with devices smaller then 14" screen resulution */
 
 #a-wrapper {
-    width:71%;
+    width: 70vw;
     margin:0 auto;
     text-align: center;
     font-family: "calibri light";
 }
 
 #roligbox{
-    width: 42vw;
-    height: 15vw;
+    width: 44vw;
+    height: 14,2vw;
     padding: 10px;
     position: relative;
     float:left;
@@ -1782,7 +1782,7 @@ input[type=radio]:not(old):checked + label > span > span{
     border: 4px solid #3FB272;
    	border-radius: 5px;
     margin:0 auto;
-    margin-top: 0.4%;
+    margin-top: 0.5%;
     padding-bottom: 10px;
     float:left;
     background: #43BF7E;
