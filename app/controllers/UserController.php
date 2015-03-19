@@ -5,16 +5,19 @@ class UserController extends BaseController {
     */
 
     public function index() {
+
         $user   = User::find(Auth::user()->id);
+
         if($user->city_id == null){
-          return View::make('user.index')->with('user', $user)->with("nocity", true)->with('projects', User::find(Auth::user())->project);
+          return View::make('user.index')->with('user', $user)->with("nocity", true)->with('projects', User::find(Auth::user())->project)->with('usedcategories', $user->category);
         }else{
           $city  = City::find($user->city_id);
           $state  = State::find($city->state_id);
 
           return View::make('user.index')->with('user', $user)->with("nocity", false)
             ->with('city', $city)->with('state', $state)
-            ->with('projects', User::find(Auth::user()->id)->project);
+            ->with('projects', User::find(Auth::user()->id)->project)
+            ->with('usedcategories', $user->category);
         }
     }
 
@@ -89,8 +92,7 @@ class UserController extends BaseController {
     public function update_interest() {
 
         $user = Auth::user()->id;
-        User::find($user)->categories()->attach(Input::get('subcategories'))
-                                        ->with('categories', $user->category);
+        User::find($user)->categories()->attach(Input::get('subcategories'));
 
     }
 
