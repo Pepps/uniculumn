@@ -2075,6 +2075,7 @@ upload_interests img {
   }
 
 #skicka {
+	border: 0.2vw solid white;
    background: #43BF7E;
    border-radius: 0.8vw;
    color: white;
