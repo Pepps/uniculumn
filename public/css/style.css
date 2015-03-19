@@ -1749,9 +1749,8 @@ input[type=radio]:not(old):checked + label > span > span{
 }
 
 #roligbox{
-    width: 42.500em;
-    /* 200 px */
-    height: 16.667em;
+    width: 42vw;
+    height: 15vw;
     padding: 10px;
     position: relative;
     float:left;
@@ -1765,8 +1764,8 @@ input[type=radio]:not(old):checked + label > span > span{
 }
 
 #loginbox {
-    width: 20.833em;
-    height: 14.167em;
+    width: 21vw;
+    height: 12.6vw;
     padding: 25px;
     float:right;
     border: 4px solid #3FB272;
@@ -1778,12 +1777,12 @@ input[type=radio]:not(old):checked + label > span > span{
 }
 
 #finbox {
-    width: 43.333em;
-    height: 19.5em;
+    width: 69.7vw;
+    height: 30vw;
     border: 4px solid #3FB272;
    	border-radius: 5px;
     margin:0 auto;
-    margin-top: 0.1%;
+    margin-top: 0.4%;
     padding-bottom: 10px;
     float:left;
     background: #43BF7E;
