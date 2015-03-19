@@ -8,7 +8,7 @@ Route::post("/register_action", "AuthController@store");
 Route::get("/logout", "AuthController@logout");
 
 Route::get("/doc", function(){
-	return View::make("doc")->with('user', User::find(Auth::user()->id));
+	return View::make("doc");
 });
 
 Route::get("/isa", function(){

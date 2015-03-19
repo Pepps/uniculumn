@@ -4,7 +4,6 @@
 
 @section('content')
 
-<<<<<<< HEAD
 @include('layouts.nav')
 @yield('nav')
 
