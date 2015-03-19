@@ -90,7 +90,6 @@ class ExperienceController extends \BaseController {
 	}
 
 
-
 	public function getcities($id) {
 		$input = Input::get('option');
 		$cities = DB::table('cities')->where("state_id",  "=", $id, $input )->get();

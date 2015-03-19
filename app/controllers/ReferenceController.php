@@ -115,7 +115,11 @@ class ReferenceController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$reference = Reference::find($id);
+		$reference->delete();
+
+		Session::flash('message', 'Successfully deleted Reference');
+		return Redirect::to('experience');
 	}
 
 }
