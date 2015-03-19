@@ -89,12 +89,9 @@ class UserController extends BaseController {
     public function update_interest() {
 
         $user = Auth::user()->id;
-        User::find($user)->categories()->attach(Input::get('subcategories'));
+        User::find($user)->categories()->attach(Input::get('subcategories'))
+                                        ->with('categories', $user->category);
 
-        //$interest = new Interest;
-        //$interest->category_id = Input::get('subcategories');
-        //$interest->user_id = Auth::user()->id;
-        //$interest->save();
     }
 
     // funtion show return Array to 'project.create' in Bloodhound div, also connected to ajax.js
