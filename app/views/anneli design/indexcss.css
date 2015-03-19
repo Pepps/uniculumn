@@ -4,7 +4,6 @@
     text-align: center;
     font-family: "calibri light";
 }
-
 #roligbox{
     width: 600px;
     height: 200px;
@@ -60,6 +59,7 @@
 
   #skicka {
    background: #43BF7E;
+   border: 3px solid white;
    border-radius: 13px;
    color: white;
    font-size: 30px;
