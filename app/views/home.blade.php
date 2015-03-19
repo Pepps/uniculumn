@@ -18,10 +18,10 @@
   			<h1>Ladda upp projekt och n&auml;tverka med arbetsgivare</h1></div>
   <div id="loginbox">
 
-  		<form id="form" name="form" method="post" action=" ">
-  			E-Mail<br><input type="text" name="username" id="username"/><br>
+  		<form id="form" name="form" method="post" action="/home">
+  			E-Mail<br><input type="text" name="email" id="username"/><br>
   			L&ouml;senord<br><input type="password" name="password" id="password"/><br><br>
-        {{ HTML::image('img/loggain.png', 'loggin btn',Array('id' => 'loggin-btn', 'class' => 'a-btn' )) }}
+        <input type="submit" name="skicka" id="skicka" value="Logga in">
   		</form>
   </div>
 
