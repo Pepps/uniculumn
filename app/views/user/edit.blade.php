@@ -134,6 +134,7 @@
               <br/>
               {{ Form::select('subcategories', array('0' => 'Välj din Kategori'), Input::old('subcategories_id'), array('class' => 'uploadfile', 'id' => 'subcategories')) }}
               <br/>
+              <br/>
               @foreach($usedcategories as $category)
                 <span class="hashtag">{{ $category->title }}</span>
               @endforeach
