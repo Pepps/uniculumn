@@ -45,9 +45,9 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
      public static function saveFormData($data) {
             DB::table('users')->insert($data);
      }
- 
-     public function interests() {
-     	return $this->belongsToMany('Interest', 'interests', 'category_id', 'user_id');
+
+     public function categories() {
+     	return $this->belongsToMany('Category', 'interests', 'user_id', 'category_id');
      }
 
 }

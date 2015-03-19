@@ -5,7 +5,6 @@ class UserController extends BaseController {
     */
 
     public function index() {
-        dd(User::find(Auth::user()->id)->interests);
         $user   = User::find(Auth::user()->id);
         if($user->city_id == null){
           return View::make('user.index')->with('user', $user)->with("nocity", true)->with('projects', User::find(Auth::user())->project);
@@ -28,6 +27,7 @@ class UserController extends BaseController {
     public function edit($id) {
         $user = User::find(Auth::user()->id);
         if($user->city_id == null){$nocity = true;}else{$nocity = false;}
+
         return View::make('user.edit')->with('user', User::find($id))->with("nocity", $nocity)->with("states", State::all());
     }
 
@@ -88,10 +88,13 @@ class UserController extends BaseController {
 
     public function update_interest() {
 
-        $interest = new Interest;
-        $interest->category_id = Input::get('subcategories');
-        $interest->user_id = Auth::user()->id;
-        $interest->save();
+        $user = Auth::user()->id;
+        User::find($user)->categories()->attach(Input::get('subcategories'));
+
+        //$interest = new Interest;
+        //$interest->category_id = Input::get('subcategories');
+        //$interest->user_id = Auth::user()->id;
+        //$interest->save();
     }
 
     // funtion show return Array to 'project.create' in Bloodhound div, also connected to ajax.js
