@@ -134,6 +134,9 @@
               <br/>
               {{ Form::select('subcategories', array('0' => 'Välj din Kategori'), Input::old('subcategories_id'), array('class' => 'uploadfile', 'id' => 'subcategories')) }}
               <br/>
+              @foreach(Interest::where('user_id','=', Auth::user()->id) as $interest)
+                <span class="hashtag">{{ Category::find($interest->category_id) }}</span>
+              @endforeach
             <input type="submit" class="blue_submit" value="Lägg till"></input>
             <br/><br /><br /><br />
       {{ Form::close() }}
