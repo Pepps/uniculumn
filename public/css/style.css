@@ -1,4 +1,4 @@
-/* Custom font, free for commercial use */
+﻿/* Custom font, free for commercial use */
 
 @font-face {
     font-family: Kozuka;
@@ -286,6 +286,7 @@ body {
 .location_icon   { background-image: url(../img/icons/blue/location.PNG) ; background-size: 4vw; }
 .other_icon 	 { background-image: url(../img/icons/blue/description.PNG) ; background-size: 4vw; }
 .time_icon 	     { background-image: url(../img/icons/blue/time.PNG) ; background-size: 4vw; }
+.categories_icon 	 { background-image: url(../img/icons/blue/categories.PNG) ; background-size: 4vw; }
 
 
 
@@ -562,9 +563,14 @@ ortnamn ska få plats */
 	padding: 0.4vw;
 	width: 6.6vw;
 	margin-right: 0.2vw;
+	margin-left: 0.25vw;
 	border: 0.1vw solid #56c5cc;
 	float: right;
 	font-size: 0.8vw;
+}
+
+#change-state-select {
+	width: 6.61vw;
 }
 
 /* Styling för inputs i erfarenhets-redigering */
@@ -1737,6 +1743,262 @@ input[type=radio]:not(old):checked + label > span > span{
   border-radius: 0.6vw;
 }
 
+
+/***** Jesper/Joakim CSS START *****/
+
+.s_categories_dark{
+	background-image: url(../img/categories_dark.png);
+	width:10vw;
+	height:9vw;
+	background-size: 10vw;
+}
+.s_file{
+	background-image: url(../img/icons/blue/folder.png);
+	width:10vw;
+	height:9vw;
+	background-size: 10vw;
+}
+
+/* View project*/
+
+.projet_plane{
+	float: left;
+	width:40vw;
+	/*height:75vh;*/
+	margin-left:5vw;
+
+}
+.category_plane{
+	width:40vw;
+	max-width:40vw;
+	/*height:10vw;*/
+	float: left;
+	overflow:hidden;
+}
+.chosen_categories{
+	float: left;
+	margin-left: 12vw;
+	color: white;
+}
+
+
+.file_plane {
+	width:25vw;
+	max-width:25vw;
+	height:8vw;
+	float: left;
+}
+
+.title {
+	margin-left: 45%;
+	margin-right: 45%;
+	font-size:24px;
+	color:white;
+	overflow:hidden;
+}
+
+.text_description{
+	margin-left: 2vw;
+	margin-right: 2vw;
+	color:white;
+}
+
+.time_stamp{
+	margin-left: 45%;
+	margin-right: 40%;
+	margin-bottom: 2px;
+	color:white;
+}
+.file_folder{
+	margin-right: 5vw;
+	float: right;
+	width:25vw;
+	height:30vh;
+	margin-left:5vw;
+
+}
+.s_folder_dark{
+	background-image: url(../img/folder_dark.png);
+	width:10vw;
+	height:8vw;
+	background-size: 10vw;
+}
+.file_title{
+	float: left;
+	margin-left:5vw;
+	color:white;
+}
+
+.file_order{
+	margin-left: 2vw;
+	margin-top: 2vw;
+	color:white;
+}
+
+
+#account_wrapper {
+	float: left;
+	width: 32vw;
+	height: 22vw;
+	padding-left: 1vw;
+	padding-bottom: 2vw;
+
+}
+
+#profile_wrapper {
+	float: right;
+	width: 38vw;
+	padding: 0vw 2vw 2vw 2vw;
+	text-align: center ;
+	margin-right: 1vw;
+}
+
+#profile_pic_wrapper {
+	background-color: #243333;
+	width: 40vw;
+	height: 15vw;
+	text-align: center ;
+	margin: 0vw 0vw 1vw -1vw;
+}
+
+#profile_pic_wrapper img {
+	width: 12vw;
+	height: 15vw;
+}
+
+#profile_wrapper h2 {
+	margin: 0vw 0vw 1vw 0vw;
+}
+
+#profile_wrapper textarea {
+	padding: 1vw;
+	width: 36vw;
+	margin: 0vw 0vw 1vw 0vw;
+	border: 0.1vw solid #56c5cc;
+	font-family: verdana;
+}
+
+.current_avatar {
+	float: left;
+	margin-right: 1.2vw;
+}
+
+.current_avatar img {
+	width: 4vw;
+	height: 4vw;
+	border: 0.2vw solid #fff;
+}
+
+.account_column {
+	width: 32vw;
+	clear: right;
+	margin-bottom: 0.2vw;
+	font-family: Kozuka;
+}
+
+.account_column select{
+	width: 13vw;
+	margin: -0.9vw 0vw 0vw 0.15vw;
+	clear: right;
+	font-family: verdana;
+	font-size: 0.8vw;
+	display: inline;
+	padding: 0.5vw;
+	border: 0.1vw solid #56c5cc;
+}
+
+
+/* Rubrikstylingen inuti dessa kolumnerna ^ */
+.account_column h3 {
+	padding: 0vw 0vw 0.4vw 5.5vw;
+}
+
+
+.dark_submit {
+	background-color: #253737;
+	font-family: Kozuka;
+	font-size: 1.1vw;
+	color: #fff;
+	border: 0;
+	padding: 0.6vw 1.3vw;
+	margin-top: 0vw;
+	display: inline-block;
+	float: right;
+	margin-bottom: 1vw;
+	cursor: pointer;}
+
+.blue_submit {
+	font-family: Kozuka;
+	background-color: #42b8bf;
+	font-size: 1.1vw;
+	color: #fff;
+	border: 0;
+	padding: 0.6vw 1.3vw;
+	margin-top: 0vw;
+	display: inline-block;
+	float: right;
+	margin-bottom: 1vw;
+	margin-left: 0.5vw;
+	cursor: pointer;
+}
+
+
+.user_email { background-image: url(../img/icons/user/email.PNG) ; background-size: 4vw; }
+.user_displayname { background-image: url(../img/icons/user/name.PNG) ; background-size: 4vw; }
+.user_fullname { background-image: url(../img/icons/user/fullname.PNG) ; background-size: 4vw; }
+.user_phone { background-image: url(../img/icons/user/phone.PNG) ; background-size: 4vw; }
+.user_location { background-image: url(../img/icons/user/location.PNG) ; background-size: 4vw; }
+.user_interests { background-image: url(../img/icons/user/interests.PNG) ; background-size: 4vw; }
+
+
+.change_password {
+	width: 30vw;
+	background-color: #253737;
+	margin-bottom: 1.2vw;
+	color: white;
+	height: 8vw;
+	padding: 1vw;
+	margin-top: 0.7vw;
+}
+
+.password_column {
+	width: 14vw;
+	margin-left: 0.5vw;
+	float: left;
+
+}
+
+.password_column input {
+	width: 12vw;
+	padding: 0.5vw;
+	margin: 0.2vw 0vw -3vw 0vw !important;
+	border: 0.1vw solid #56c5cc;
+
+}
+
+
+
+.upload_interests {
+padding-top: 1.2vw;
+text-align: center;
+width: 32vw;
+margin-left: 4vw;}
+
+upload_interests img {
+	margin-left: 0.3vw;
+	width: 0.7vw;
+	height: 0.7vw;
+}
+
+.alltags img {
+	margin-left: 0.3vw;
+	width: 0.7vw;
+	height: 0.7vw;
+}
+
+
+/***** Jesper/Joakim CSS END *****/
+
 /* anneli design */
 
 /*  duse not work with devices smaller then 14" screen resulution */
@@ -1749,27 +2011,32 @@ input[type=radio]:not(old):checked + label > span > span{
 }
 
 #roligbox{
-    width: 44vw;
-    height: 14,2vw;
-    padding: 10px;
+    width: 42vw;
+    height: 15vw;
+    padding: 1vw;
     position: relative;
     float:left;
     margin:0 auto;
-    border: 4px solid #3FB272;
-    border-radius: 5px;
+    border: 0.3vw solid #3FB272;
+    border-radius: 0.3vw;
     background: #43BF7E;
     text-align: center;
    	color: white;
    	font-family: "calibri light";
 }
 
+#roligbox img {
+	width:4.6vw;
+	height: 4.6vw;
+}
+
 #loginbox {
-    width: 21vw;
-    height: 12.6vw;
-    padding: 25px;
+    width: 20vw;
+    height: 13.1vw;
+    padding: 2vw;
     float:right;
-    border: 4px solid #3FB272;
-    border-radius: 5px;
+    border: 0.25vw solid #3FB272;
+    border-radius: 0.3vw;
     background: #43BF7E;
    	color: white;
    	font-family: "calibri light";
@@ -1779,47 +2046,53 @@ input[type=radio]:not(old):checked + label > span > span{
 #finbox {
     width: 69.7vw;
     height: 30vw;
-    border: 4px solid #3FB272;
-   	border-radius: 5px;
+    border: 0.3vw solid #3FB272;
+   	border-radius: 0.3vw;
     margin:0 auto;
-    margin-top: 0.5%;
-    padding-bottom: 10px;
+    margin-top: 1%;
+    padding-bottom: 1vw;
     float:left;
     background: #43BF7E;
     color: white;
    	font-family: "calibri";
-    font-size: 20px;
+    font-size: 1.3vw;
     text-align: center;
 }
 
+#finbox img {
+	width: 15vw;
+	height:5.5vw;
+}
+
 #username, #password {
-    width: 200px;
-    height: 35px;
-    border: 2px solid #3FB272;
-    border-radius: 10px;
+    width: 12vw;
+    height: 2vw;
+    border: 0.2vw solid #3FB272;
+    border-radius: 0.6vw;
     background: white;
     text-align: center;
+    font-size: 0.8vw;
   }
 
 #skicka {
    background: #43BF7E;
-   border: 3px solid white;
+   border: 0.25vw solid white;
    cursor: pointer;
-   border-radius: 13px;
+   border-radius: 0.8vw;
    color: white;
-   font-size: 30px;
+   font-size: 1.7vw;
    font-family: "calibri light";
 }
 
 #headerimg{
   margin-top: 2%;
-  width: 300px;
-  height: 100px;
+  width: 17vw;
+  height: 6vw;
 }
 
 #abigloggo{
-  width: 160px;
-  height: 160px;
+  width: 10vw !important;
+  height: 10vw !important;
 }
 
 /* CV  */
@@ -1865,7 +2138,7 @@ input[type=radio]:not(old):checked + label > span > span{
 	width: 700px;
 	height: auto;
 	margin-left:auto;
-    margin-right:auto;
+  margin-right:auto;
 	padding: 10px;
 	font-family: "calibri";
 	font-size: 13px;
@@ -1874,4 +2147,45 @@ input[type=radio]:not(old):checked + label > span > span{
 #inputs{
   padding:10px;
   border-bottom: 2px solid #ccc;
+}
+
+/* Register */
+#fname, #lname, #email, #passw {
+width: 450px;
+height: 35px;
+border: 2px solid #3FB272;
+border-radius: 10px;
+background: white;
+text-align: center;
+}
+
+#box {
+  width: 40vw;
+  margin-top: 1.5vw;
+  padding: 1.5vw;
+  border: 4px solid #3FB272;
+  border-radius: 1vw;
+  background: #43BF7E;
+  text-align: center;
+}
+
+#box h1{
+  color: #fff;
+}
+
+#form {
+font-family: "calibri light";
+font-size: 20px;
+color: white;
+text-align: center;
+}
+
+.reg-btn {
+   background: #43BF7E;
+   border: 0.25vw solid white;
+   cursor: pointer;
+   border-radius: 0.8vw;
+   color: white;
+   font-size: 1.7vw;
+   font-family: "calibri light";
 }

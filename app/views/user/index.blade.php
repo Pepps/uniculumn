@@ -11,7 +11,7 @@
               <div class="profile_picture">
               </div>
 
-              <h2>Kontaktuppgifter <div class="edit_icon"></div></h2>
+              <h2>Kontaktuppgifter <a href="/user/{{$user->id}}/edit"><div class="edit_icon"></div></a></h2>
               <div id="contact_information">
                   <div class="contact_rows">Namn: {{ $user->firstname }}. </div>
                   <div class="contact_rows">Ort: {{ $user->lastname }}.</div>
@@ -28,8 +28,7 @@
              <h2>{{ $user->firstname }}</h2> <!--username-->
 
                 <div id="description"> <!--user personal description-->
-
-
+                    {{ $user->description }}
                   </div>
 
 
@@ -51,10 +50,9 @@
                    <div id="interests">
 
                        <h2>Intresserad av <div class="edit_icon"></div></h2>
-
-                      <span id="hashtag">trolldrycker</span> <span id="hashtag">maktmissbruk</span> <span id="hashtag">lily potter</span>  <span id="hashtag">svartkonster</span>
-                      <span id="hashtag">spionage</span> <span id="hashtag">hämnd</span>
-
+                        @foreach($usedcategories as $category)
+                          <span class="hashtag">{{ $category->title }}</span>
+                        @endforeach
                      </div>
 
                     <div id="my_experiences">

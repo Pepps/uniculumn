@@ -60,7 +60,7 @@
           <div style="clear: both;"></div>
         </div>
 
-        {{ Form::text('category', Input::old('category'), array('id' => 'subcategory_id', 'style'=>'display:none;')) }}
+        {{ Form::text('category', Input::old('category'), array('id' => 'subcategory_id')) }}
 
     <br>
         {{ Form::close() }}

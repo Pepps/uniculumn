@@ -21,11 +21,12 @@ class CreateReferencesTable extends Migration {
 			$table->string('firstname', 50);
 			$table->string('lastname', 50);
 			$table->string('email', 100);
-			$table->integer('phone');
+			//phone is a string due to that integer did not print out the first 0 in a number
+			$table->string('phone', 10);
 			$table->timestamps();
 
 			$table->foreign('user_id')->references('id')->on('users');
-			$table->foreign('experience_id')->references('id')->on('experiences');
+			$table->foreign('experience_id')->references('id')->on('experiences')->onDelete('cascade');
 		});
 	}
 

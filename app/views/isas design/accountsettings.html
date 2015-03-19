@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Uniculum - Mina projekt</title>
+          <link href="css/style.css" type="text/css" rel="stylesheet" />
+          <link rel="shortcut icon" href="img/favicon.ico" />
+          <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
+            <script src="javascript/jquery-1.8.3.js"></script>
+            <script src="javascript/jquery-ui-1.9.2.js"></script>
+            <script src="javascript/jquery.ui.touch-punch.js"></script>
+            <script src="javascript/user_jquery.js"></script>
+    </head>
+     <body>
+
+        <div id="ui_sidebar">
+            
+            <img src="img/logoleft.PNG" class="left_logo"/>
+            <h2><div class="arrow-right"></div><a href="search.html">Avancerad sökning</a></h2>
+            <h2><div class="arrow-right"></div><a href="user_profile.html">Min profil</a></h2>
+            <h2><div class="arrow-right"></div><a href="my_projects.html">Mina projekt</a></h2>
+            <h2><div class="arrow-right"></div><a href="erfarenheter.html">Mina erfarenheter</a></h2>
+
+        </div>
+
+        <div id="ui_header">
+
+            <div class="user_box"> 
+               <div class="user_picture"></div>
+                <div class="username_holder">
+                    <span class="user_name">Severus Snape</span>
+
+                        <div class="arrow-down" id="clickmetoo">
+                          <div class="account_settings">
+                              Kontoinställningar<br/>
+                              Logga ut 
+                                <div class="arrow-up" id="hide_controlpanel"></div>  
+                          </div>
+                        </div>
+                </div>
+            </div>
+
+          <div class="upload_shortcut">
+              <a href="upload_file.html"><h2 class="cursor">» Ladda upp ett nytt projekt</h2>
+              <img src="img/upload_button.PNG" id="upload_button" /></a>
+          </div>
+
+      </div>
+      
+      <div id="main_content">
+
+
+      <div id="account_wrapper">
+          <h2>Ändra kontoinställningar</h2>
+          <div class="account_column">
+
+
+
+          <div class="upload_column">
+          <div class="current_avatar">
+            <img src="img/snape.PNG"/>
+          </div>
+             <h3>Ladda upp en ny avatar</h3>
+            <input class="uploadfile"> </input>
+            <input type="submit" class="blue_submit" value="Ladda upp"></input>
+            <input type="submit" class="dark_submit" value="Bläddra"></input>
+            </div>
+
+          <div class="account_column">
+             <div class="dark_icon user_displayname"> </div><h3>Visningsnamn</h3>
+            <input type="text" class="uploadfile" value="Severus"> </input>
+
+          </div>
+
+          <div class="account_column">
+             <div class="dark_icon user_fullname"> </div><h3>Fullständigt namn</h3>
+            <input type="text" class="uploadfile" value="Severus Halvblodsprinsen Snape"> </input>
+
+          </div>
+
+          <div class="account_column">
+            <div class="dark_icon user_location"> </div> <h3>Ort</h3>
+            <select><option value="none">London</option>
+                              <option value="volvo">Potatis</option>
+                              <option value="saab">Fläsksallad</option>
+                              <option value="mercedes">Grötrullar</option>
+                              <option value="audi">Bananlåda</option>
+                            </select>
+                            <select>
+                              <option value="none">Cokeworth</option>
+                              <option value="volvo">Potatis</option>
+                              <option value="saab">Fläsksallad</option>
+                              <option value="mercedes">Grötrullar</option>
+                              <option value="audi">Bananlåda</option>
+                            </select>
+
+          </div>
+
+          <div class="account_column">
+             <div class="dark_icon user_phone"> </div><h3>Telefonnummer</h3>
+            <input type="text" class="uploadfile" value="073-M4G1C-2N4P3"> </input>
+
+          </div>
+
+
+          <div class="account_column">
+             <div class="dark_icon user_email"> </div><h3>Emailaddress</h3>
+            <input type="text" class="uploadfile" value=" i_killed_dumbledore@hogwarts.net"> </input>
+
+          </div>
+
+
+            <input type="submit" class="blue_submit" value="Spara ändringar"></input>
+            <input type="submit" class="dark_submit" value="Avbryt"></input>
+
+         <div class="account_column ">
+            <h2>Ändra lösenord </h2>
+
+          <div class="change_password">
+            <div class="password_column">
+            Gammalt lösenord
+            <input type="text" value=" "> </input>
+            </div>
+              <div class="password_column">
+               Nytt lösenord 
+              <input type="text" value=" "> </input>
+              <br/>
+              <br/>
+               Nytt lösenord igen 
+              <input type="text" value=" "> </input>
+              
+              </div>
+            </div>
+           </div>
+            <input type="submit" class="blue_submit save_password_changes" value="Spara ändringar"></input>
+            <input type="submit" class="dark_submit save_password_changes" value="Avbryt"></input>
+
+          </div>
+      </div>
+
+      <div id="profile_wrapper">
+        <div id="profile_pic_wrapper">
+          <img src="img/profile_picture.PNG"/>
+        </div>
+                
+        <div class="upload_column" style=" height: 8vw; padding-left: 3vw;">
+          <div class="dark_icon upload_icon">
+          </div>
+             <h3>Ladda upp en ny presentationsbild</h3>
+            <input class="uploadfile"> </input>
+            <input type="submit" class="blue_submit" value="Ladda upp"></input>
+            <input type="submit" class="dark_submit" value="Bläddra"></input>
+        </div>
+
+      <h2>Ändra presentation</h2>
+      <textarea rows="7">My biggest passion is life is making shit bubble in cauldrons and hating that Potter kid with the burning fire of a thousand dying suns. My life is more or less dedicated to making his school years a living hell, and the rest is made up of pawning over dead chicks and chilling with the Dark Lord. I have some experience as a double agent, but also as being a general shit head and bullying little kids in my role as a teacher. Hope to hear from you soon!</textarea>
+            <input type="submit" class="blue_submit" value="Ladda upp"></input>
+            <input type="submit" class="dark_submit" value="Bläddra"></input>
+            <br/><br /><br /><br />
+
+
+      <div class="account_column"  style="padding-left: 3vw;">
+             <div class="dark_icon user_interests"> </div><h3>Lägg till intressen</h3>
+            <input type="text" class="uploadfile" value=""> </input>
+            <input type="submit" class="blue_submit" value="Lägg till"></input>
+            <br/><br /><br /><br />
+
+          </div>
+      <div class="upload_interests">
+
+       <span>#trolldrycker <img src="img/icons/edit/delete.PNG"/></span> 
+       <span>#maktmissbruk <img src="img/icons/edit/delete.PNG"/></span> 
+       <span>#lily potter <img src="img/icons/edit/delete.PNG"/></span> 
+       <span>#svartkonster <img src="img/icons/edit/delete.PNG"/></span> 
+       <span>#spionage <img src="img/icons/edit/delete.PNG"/></span> 
+       <span>#hämnd <img src="img/icons/edit/delete.PNG"/></span> 
+       <br /><br />
+            <input type="submit" class="blue_submit" value="Ladda upp"></input>
+            <input type="submit" class="dark_submit" value="Bläddra"></input>
+       </div>
+  </div>
+
+
+
+      </body>      
+</html>

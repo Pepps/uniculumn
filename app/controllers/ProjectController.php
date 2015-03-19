@@ -10,7 +10,7 @@ class ProjectController extends \BaseController {
 
 	public function index(){
 	    if (Auth::check()){
-				return View::make("project.index")->with('projects',User::find(Auth::user()->id)->project)																					->with('user',User::find(Auth::user()->id));
+			return View::make("project.index")->with('projects',User::find(Auth::user()->id)->project);
 	    }
 	    else{
 	        return Redirect::to('/');
@@ -36,6 +36,8 @@ class ProjectController extends \BaseController {
 				 TODO Check if there is files if not do not try to upload files
 			*/
 
+			//dd(Input::get('category'));
+
       $rules = array(
           'project_title'           => 'required|unique:projects,title',
           'project_body'            => 'required',
@@ -56,7 +58,7 @@ class ProjectController extends \BaseController {
 
         $project->save();
 
-        Project::find($project->id)->category()->attach(explode("-", Input::get('subcategory_id')));
+        Project::find($project->id)->category()->attach(explode("-", Input::get('category')));
 
 				Project::find($project->id)->users()->attach(Auth::user()->id);
 
@@ -80,12 +82,10 @@ class ProjectController extends \BaseController {
 	*/
 	public function show($project_id){
 			$Project = Project::find($project_id);
-      return View::make('project.show')
-          ->with('project', $Project)
-					->with('categories', $Project->category)
-
-					->with('users', $Project->users);
-
+      return View::make('project.show')->with('project', $Project)
+  				->with('categories', $Project->category)
+  				->with('users', $Project->users)
+  				->with('user', User::find(Auth::user()->id));
 	}
 
 
@@ -97,7 +97,7 @@ class ProjectController extends \BaseController {
 		/*
 		$Project = Project::find($id);
 		return View::make('project.edit')->with('project',Project::find($id))
-																		 ->with('users', Project::find($id)->users)
+									 ->with('users', Project::find($id)->users)
                                      ->with('user',User::find(Auth::user()->id));
 	*/
 		return Redirect::to('/project');

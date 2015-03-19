@@ -6,7 +6,7 @@
 <div id="main_content">
   <div id="add_new_experience">
     <h1>+ Lägg till en erfarenhet</h1>
-
+           {{ HTML::ul($errors->all()) }}
         {{ Form::open(array('url' => 'experience', 'method'=>'post')) }}
 
          <div id="exp_types">
@@ -32,8 +32,8 @@
                     </div>
 
                   <div class="upload_column">
-                    <div class="dark_icon employment_icon" id="exp_description"></div>
-                        <h3 class="employmentDescription">Kategori</h3>
+                    <div class="dark_icon categories_icon" id="exp_description"></div>
+                        <h3>Kategori</h3>
                           {{ Form::select('category', array('0' => 'Kategori'), Input::old('category'), array('id' => 'project_category')) }}
                     </div>
 
@@ -78,7 +78,9 @@
           @foreach ($experiences as $experience)
           <div class="ex_column">
             @if ($experience->type === '0')
+               
             <div class="ex ico_employment">Anställning</div>
+ <h2 class="edit_this edit_column">Redigera anställning</h2>
             @elseif ($experience->type === '1')
             <div class="ex ico_education">Utbildning</div>
             @elseif ($experience->type === '2')
@@ -86,110 +88,155 @@
             @elseif ($experience->type === '3')
             <div class="ex ico_other">Övrigt</div>
             @endif
-                        <div class="edit_wrapper">
+              {{ Form::open(array('url' => array('/experience/' . $experience->id . '/update'), 'method' => 'post')) }}
 
-                             <!-- <Plats/tid>  -->
-                              <div class="ex_float hide_this exp_location">
-                                @foreach ($cities as $city)
-                                {{ $city->name }}
-                                @endforeach
-                               <img src="../img/icons/edit/location.PNG"/>
+                  <div class="edit_wrapper">
 
-                             </div>
-                              <div class="ex_float hide_this">{{ $experience->duration }} <img src="../img/icons/edit/time.PNG"/></div>
-                             <!-- </Plats/tid>  -->
+                       <!-- <Plats/tid>  -->
+                        <div class="ex_float hide_this exp_location">
 
-                             <!-- <Redigera plats/tid>  -->
-                             
-                <?php $years = explode("-", $experience->duration);?>
-           <div class="ex_float edit_this">@foreach ($years as $year)<input value="{{ $year }}"></input>@endforeach <img src="../img/icons/edit/time.PNG"/></div>
-      <!-- </Redigera plats/tid>  -->
+                          {{ City::find($experience->city_id)->name }}
 
-                             <!-- <Kontrollknappar>  -->
-                              <a onclick="return confirm('Är du säker på att du vill ta bort?')" href="{{ URL::to('experience/' . $experience->id . '/deleteExp') }}"><div class="ex_button" style="background-color: #d70808;"><img src="../img/icons/edit/delete.PNG"/></div></a>
-                              <div class="ex_button edit_experience"><img src="../img/icons/edit/edit.PNG"/></div>
-                              <div class="ex_button edit_references"><img src="../img/icons/edit/add.PNG"/></div>
-                                   <!-- <Spara ändringar>  -->
-                                  <div class="add_ref_edit edit_this">
-                                  Spara ändringar
-                                  </div>
-                                  <div class="ignore_ref_edit edit_this">
-                                  Ångra
-                                  </div>
-                               <!-- </Spara ändringar>  -->
+                         <img src="../img/icons/edit/location.PNG"/>
 
-
-                             <!-- </Kontrollknappar>  -->
-
-                        </div>
-
-
-                       <!-- <Titel>  -->
-                          <h2 class="hide_this">{{ $experience->location }}</h2>
-                       <!-- </Titel>  -->
-
-                       <!-- <Redigera titel>  -->
-                          <input type="text" value="{{ $experience->location }}" class="edit_this"></input>
-                       <!-- </Redigera titel>  -->
-
-                       <div class="ex_description">
-                       <!-- <Beskrivning>  -->
-                         <span class="hide_this">{{ $experience->description }}</span>
-                       <!-- </Beskrivning>  -->
-
-                       <!-- <Redigera beskrivning>  -->
-                          <textarea class="edit_this" rows="6">{{ $experience->description }}</textarea>
-                       <!-- </Redigera beskrivning>  -->
                        </div>
+                        <div class="ex_float hide_this">{{ $experience->duration }} <img src="../img/icons/edit/time.PNG"/></div>
+                       <!-- </Plats/tid>  -->
+                       <!-- <Redigera plats/tid>  -->
+                         <div class="ex_float edit_this">
+
+                 <img src="img/icons/edit/location.PNG" style="float: right;"/>
+                 {{ Form::select('change-cities', array($experience->city_id => 'Select a city'), Input::old('cities'), array('class' => 'form-control', 'id' => 'change-cities')) }}
+
+                 <select id="change-state-select">
+                  @foreach ($states as $state)
+                        <option value="{{ $state->id }}">{{$state->name}}</option>
+                      @endforeach
+                    </select>
+
+                    </div>
+
+                    <?php
+                      $durations = explode("-", $experience->duration);
+                    ?>
+
+                   <div class="ex_float edit_this">
+                    {{ Form::text('from', $durations[0], Input::old('name')) }}
+                    {{ Form::text('to', $durations[1], Input::old('name')) }}
+
+                      <img src="../img/icons/edit/time.PNG"/>
+                  </div>
+<!-- </Redigera plats/tid>  -->
+
+                       <!-- <Kontrollknappar>  -->
 
 
-                       <!-- <Referenser>  -->
+
+                      <a onclick="return confirm('Är du säker på att du vill ta bort?')" href="{{ URL::to('reference/' . $experience->id . '/deleteExp') }}"><div class="ex_button" style="background-color: #d70808;"><img src="../img/icons/edit/delete.PNG"/></div></a>
+                          
+                        <div class="ex_button edit_experience"><img src="../img/icons/edit/edit.PNG"/></div>
+                        <div class="ex_button edit_references"><img src="../img/icons/edit/add.PNG"/></div>
+                                                    <!-- <Spara ändringar>  -->
+                                            
+                    <button class="add_edit edit_this" style="border: none;">
+                        
+                          Spara ändringar
+
+                    </button>
+       <div class="ignore_edit edit_this">
+                        Ångra
+                    </div>
+              
+               
+
+                         <!-- </Spara ändringar>  -->
+            
+
+                       <!-- </Kontrollknappar>  -->
+
+                  </div>
+
+                 <!-- <Titel>  -->
+                    <h2 class="hide_this">{{ $experience->location }}</h2>
+                 <!-- </Titel>  -->
+
+                 <!-- <Redigera titel>  -->
+                    <div class="edit_this">{{ Form::text('location', $experience->location, Input::old('name')) }}</div>
+                 <!-- </Redigera titel>  -->
+
+                 <div class="ex_description">
+                 <!-- <Beskrivning>  -->
+                   <span class="hide_this">{{ $experience->description }}</span>
+                 <!-- </Beskrivning>  -->
+
+                 <!-- <Redigera beskrivning>  -->
+                    <div class="edit_this">{{ Form::textarea('description', $experience->description, Input::old('name'), array('class' => 'edit_this')) }}</div>
+                 <!-- </Redigera beskrivning>  -->
+
+                 </div> 
+
+          {{ Form::close() }}
+
+                             <!-- <Referenser>  -->                         
                       <div class="show_references">
-                      <img src="img/small_menu.PNG"/> Visa referenser <br/>
+                      <img src="../img/small_menu.PNG"/> Visa referenser <br/>
 
                         <div class="allreferences">
 
-                          <div class="ref_square">
-                                  <div class="delete_reference"><img src="img/icons/edit/delete.PNG"/></div>
-                              <img src="img/references.PNG"/> Lord Voldemort<br/> <img src="img/phonenumber.PNG"/>  073-4V4D4-K3D4VR4  <br/> <img src="img/email.PNG"/> lord.voldemort@deatheaterslondon.net
-                          </div>
+                          @foreach ($experience->reference as $ref)
+                            <div class="ref_square">
 
-                          <div class="ref_square">
-                                  <div class="delete_reference"><img src="img/icons/edit/delete.PNG"/></div>
-                            <img src="img/references.PNG"/> Albus Dumbledore<br/> <img src="img/phonenumber.PNG"/>  073-M4G1C-D00MBL3  <br/> <img src="img/email.PNG"/> albus.dumbledore@hogwarts.net
-                          </div>
+                                <div class="delete_reference">                     
+                                 <a onclick="return confirm('Är du säker på att du vill ta bort?')" href="{{ URL::to('reference/' . $ref->id . '/deleteRef') }}"><img src="../img/icons/edit/delete.PNG"/></a>
+                                  </div>
+                                <img src="../img/references.PNG"/> {{ $ref->firstname }}  {{ $ref->lastname }}<br/>
+                                <img src="../img/phonenumber.PNG"/>{{ $ref->phone }}  <br/>
+                                 <img src="../img/email.PNG"/>  {{ $ref->email }}
+
+                              </div>
+                            </div>
+                          @endforeach
 
                         </div>
+
                       </div>
+ 
+
+
                        <!-- </Referenser>  -->
 
 
                        <!-- </Referenser>  -->
 
                        <!-- <Lägg till ny referens>  -->
+  
                       <div class="references_choices">
 
                           <div class="ref_column">
 
+{{ Form::open(array('url' => '/reference/' . $experience->id, 'method'=>'post')) }}
+{{ Form::text('expid',$experience->id, Array('style' => 'display:none;') ) }}
+
                             <h3> Förnamn</h3>
-                            <input class="references_input" id="first_name"></input>
+                             {{ Form::text('firstname', Input::old('name'), array('class' => 'references_input')) }}
 
                             <h3>Efternamn</h3>
-                            <input class="references_input" id="last_name"></input>
+        {{ Form::text('lastname', Input::old('name'), array('class' => 'references_input')) }}
 
                           </div>
 
                            <div class="ref_column">
 
                               <h3>Email </h3>
-                              <input class="references_input" id="email_address"></input>
+          {{ Form::text('email', Input::old('name'), array('class' => 'references_input')) }}
 
                               <h3>Telefon </h3>
-                              <input class="references_input" id="phone_number"></input>
+        {{ Form::text('phone', Input::old('name'), array('class' => 'references_input')) }}
                               <br/>
 
                             <div class="addreference">
-                               Klar
+    {{ Form::submit('Lägg till') }}
+{{ Form::close() }}
                             </div>
                             <div class="clearreference">
                                 Ta bort
@@ -199,7 +246,9 @@
 
                        <!-- </Lägg till ny referens>  -->
                     </div>
+
 @endforeach
+
 </div>
 </div>
 

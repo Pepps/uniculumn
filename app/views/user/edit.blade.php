@@ -2,100 +2,154 @@
 @extends('layouts.master')
 
 @section('content')
-<div class="container">
 
-@include('project.projectnav')
-@yield('projectnav')
+@include('layouts.nav')
+@yield('nav')
 
-<h1>Updatera Din Profil</h1>
+      <div id="main_content">
 
-<!-- if there are creation errors, they will show here -->
-{{ HTML::ul($errors->all()) }}
 
-{{ Form::open(array('url' => 'user/update/'.$user->id)) }}
+      <div id="account_wrapper">
+          <h2>Ändra kontoinställningar</h2>
+          <div class="account_column">
 
-    <div class="form-group">
-        {{ Form::label('firstname', "Användarnamn" ) }}
-        {{ Form::text('firstname', $user->firstname, array('class' => 'form-control')) }}
-    </div>
+          <div class="upload_column">
+          <div class="current_avatar">
+            {{ HTML::image('img/avatar.PNG') }}
+          </div>
+             <h3>Ladda upp en ny avatar</h3>
+            <input class="uploadfile"> </input>
+            <input type="submit" class="blue_submit" value="Ladda upp"></input>
+            <input type="submit" class="dark_submit" value="Bläddra"></input>
+            </div>
 
-    <div class="form-group">
-        {{ Form::label('lastname', "Efternamn" ) }}
-        {{ Form::text('lastname', $user->lastname, array('class' => 'form-control')) }}
-    </div>
+        {{ Form::open(array('url' => 'user/update/'.$user->id)) }}
 
-    <div class="form-group">
-        {{ Form::label('email', "Email" ) }}
-        {{ Form::text('email', $user->email, array('class' => 'form-control')) }}
-    </div>
+          <div class="account_column">
+            <div class="dark_icon user_fullname"> </div><h3>Namn</h3>
+              {{ Form::text('firstname', $user->firstname, array('class' => 'uploadfile')) }}
+            </div>
 
-    <div class="form-group">
-        {{ Form::label('user_title', "Postnummer" ) }}
-        {{ Form::text('postnumber', $user->postnumber, array('class' => 'form-control')) }}
-    </div>
+          <div class="account_column">
+            <div class="dark_icon user_fullname"> </div><h3>Efternamn</h3>
+              {{ Form::text('lastname', $user->lastname, array('class' => 'uploadfile')) }}
+            </div>
 
-    <div class="form-group">
-        {{ Form::label('user_title', "Telefonnummer" ) }}
-        {{ Form::text('phone', $user->phone, array('class' => 'form-control')) }}
-    </div>
+          <div class="account_column">
+            <div class="dark_icon user_location"> </div> <h3>Ort</h3>
+            <select id="state-select">
+                    @foreach ($states as $state)
+                      @if(!$nocity)
+                        @if($state->id == City::find($user->city_id)->state_id)
+                          <option value="{{ $state->id }}" selected >{{$state->name}}</option>
+                        @else
+                          <option value="{{ $state->id }}">{{$state->name}}</option>
+                        @endif
+                      @else
+                    @endif
+                    @endforeach
+            </select>
+                {{ Form::select('city', array('0' => 'Välj din stad'), Input::old('state'), array('class' => 'form-control', 'id' => 'cities')) }}
 
-    <div class="form-group">
-        {{ Form::label('address', "Adress" ) }}
-        {{ Form::text('address', $user->address, array('class' => 'form-control')) }}
-    </div>
+                  @if(!$nocity)
+                    <span id="hidden_city" style="display:none;">{{$user->city_id}}</span>
+                  @endif
+          </div>
 
-    <select class="form-control" id="state-select">
-      @foreach ($states as $state)
-        @if(!$nocity)
-          @if ($state->id == $city->state_id)
-            <option value="{{ $state->id }}" selected >{{$state->name}}</option>
-          @endif
-        @else
-            <option value="{{ $state->id }}">{{$state->name}}</option>
-        @endif
-      @endforeach
-    </select>
+          <div class="account_column">
+             <div class="dark_icon user_phone"> </div><h3>Telefonnummer</h3>
+            {{ Form::text('phone', $user->phone, array('class' => 'uploadfile')) }}
+          </div>
 
-    <div class="form-group">
-        {{ Form::label('user_title', "Ort" ) }}
-        {{ Form::select('city', array('0' => 'Välj din stad'), Input::old('state'), array('class' => 'form-control', 'id' => 'cities')) }}
-    </div>
+          <div class="account_column">
+             <div class="dark_icon user_email"> </div><h3>Emailaddress</h3>
+            <input type="text" class="uploadfile" value="{{ $user->email }}"> </input>
+          </div>
 
-    {{ Form::submit('Updatera din profil', array('class' => 'btn btn-primary')) }}
-    @if(!$nocity)
-      <span id="hidden_city" style="display:none;">{{$user->city_id}}</span>
-    @endif
-{{ Form::close() }}
-</div>
+            <input type="submit" class="blue_submit" value="Spara ändringar"></input>
+            <input type="submit" class="dark_submit" value="Avbryt"></input>
 
-<script>
-//Ajax script that gets cities from the DB depending on the state you select.
+          {{ Form::close() }}
 
-window.onload = function() {
-    get($('#state-select').val());
-    $("#state-select").on("change", function() {
-        value = $(this).val();
-        get(value);
-  });
-}
 
-function get(value) {
-    $.ajax({
-      type: "GET",
-      dataType: "json",
-      url: "/state/"+value,
-    }).done(function(data) {
-      $("#cities").empty();
-      for(var i = 0; i < data.length; i++) {
-        if (data[i].id == Number($('#hidden_city').text())) {
-           $("#cities").append("<option value='"+data[i].id+"'selected>"+data[i].name+"</option>");
-        }
-        else {
-           $("#cities").append("<option value='"+data[i].id+"''>"+data[i].name+"</option>");
-        }
-    }
-    });
-}
-</script>
+        {{ Form::open(array('url' => 'user/update_password/'.$user->id)) }}
+         <div class="account_column ">
+            <h2>Ändra lösenord </h2>
+
+          <div class="change_password">
+            <div class="password_column">
+            Gammalt lösenord
+            {{ Form::text('old_password','', array('class' => 'password_column')) }}
+            </div>
+              <div class="password_column">
+            {{ Form::text('new_password','', array('class' => 'password_column')) }}
+              <br/>
+              <br/>
+            {{ Form::text('new_password_confirm','', array('class' => 'password_column')) }}
+              </div>
+            </div>
+           </div>
+            <input type="submit" class="blue_submit save_password_changes" value="Spara ändringar"></input>
+            <input type="submit" class="dark_submit save_password_changes" value="Avbryt"></input>
+
+          </div>
+      </div>
+      {{ Form::close() }}
+
+      <div id="profile_wrapper">
+        <div id="profile_pic_wrapper">
+          {{ HTML::image('img/default_profile_picture.PNG') }}
+        </div>
+
+        <div class="upload_column" style=" height: 8vw; padding-left: 3vw;">
+          <div class="dark_icon upload_icon">
+          </div>
+             <h3>Ladda upp en ny presentationsbild</h3>
+            <input class="uploadfile"> </input>
+            <input type="submit" class="blue_submit" value="Ladda upp"></input>
+            <input type="submit" class="dark_submit" value="Bläddra"></input>
+        </div>
+
+
+        {{ Form::open(array('url' => 'user/update_description/'.$user->id)) }}
+          <h2>Ändra presentation</h2>
+          {{ Form::textarea('description', $user->description, array('class' => 'form-control')) }}
+            <input type="submit" class="blue_submit" value="Ladda upp"></input>
+            <input type="submit" class="dark_submit" value="Bläddra"></input>
+            <br/><br /><br /><br />
+        {{ Form::close() }}
+
+      {{ Form::open(array('url' => 'user/update_interest/'.$user->id)) }}
+      <div class="account_column"  style="padding-left: 3vw;">
+             <div class="dark_icon user_interests"> </div><h3>Lägg till intressen</h3>
+              {{$categories = Category::all()}}
+              <select class="uploadfile" id="categories-select">
+                     @foreach($categories as $category)
+                      @if ($category->subcategory_id == 0)
+                        <option value="{{ $category->id }}" >{{ $category->title }}</option>
+                      @endif
+                    @endforeach
+              </select>
+              <br/>
+              <br/>
+              {{ Form::select('subcategories', array('0' => 'Välj din Kategori'), Input::old('subcategories_id'), array('class' => 'uploadfile', 'id' => 'subcategories')) }}
+              <br/>
+              <br/>
+              @foreach($usedcategories as $category)
+                <span class="hashtag">{{ $category->title }}<a href="/user/delete_interest/{{$category->id}}" style="color: #fff;"><i class="fa fa-times"></i></a></span>
+              @endforeach
+            <input type="submit" class="blue_submit" value="Lägg till"></input>
+            <br/><br /><br /><br />
+      {{ Form::close() }}
+          </div>
+      <div class="upload_interests">
+       <br /><br />
+            <input type="submit" class="blue_submit" value="Ladda upp"></input>
+            <input type="submit" class="dark_submit" value="Bläddra"></input>
+       </div>
+  </div>
+
+
+
 
 @stop

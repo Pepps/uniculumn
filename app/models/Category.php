@@ -14,5 +14,9 @@ class Category extends Eloquent
 	{
 		return $this->belongsToMany('Experience');
 	}
+	// A Category belongs to many Users
 
+	public function users() {
+		return $this->belongsToMany('User', 'interests', 'category_id', 'user_id');
+	}
 }

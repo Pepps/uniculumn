@@ -8,7 +8,7 @@
 </style>
 <div id="a-wrapper">
   <div id="aheader">
-    {{ HTML::image('img/header.png', 'Header image',Array('id' => 'headerimg')) }}
+    <a href="/">{{ HTML::image('img/header.png', 'Header image',Array('id' => 'headerimg')) }}</a>
   </div>
 
 
@@ -17,7 +17,9 @@
   			<img src="img/penna.png"><img src="img/ladda.png"><img src="img/gubbe.png">
   			<h1>Ladda upp projekt och n&auml;tverka med arbetsgivare</h1></div>
   <div id="loginbox">
-
+      @if($errors->all())
+        <p style="margin-top: -5px;">Email eller lösnordet stämmer inte överns, Försök igen!</p>
+      @endif
   		<form id="form" name="form" method="post" action="/home">
   			E-Mail<br><input type="text" name="email" id="username"/><br>
   			L&ouml;senord<br><input type="password" name="password" id="password"/><br><br>
