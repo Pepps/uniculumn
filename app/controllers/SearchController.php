@@ -94,10 +94,10 @@ class SearchController extends BaseController {
 
       // How to display the return. if pretty, its is more readable.
       if($pretty){
-        echo '<pre>' . json_encode($table->get(),JSON_PRETTY_PRINT) . '</pre>'; // Runs the query we have build up.
+        echo '<pre>'.json_encode($table->get(),JSON_PRETTY_PRINT).'</pre>'; // Runs the query we have build up.
       }
       else{
-        echo '<pre>' . json_encode($table->get()) . '</pre>'; // Runs the query we have build up.
+        echo json_encode($table->get()); // Runs the query we have build up.
       }
 
       // Debug helps you to find what went wrong. Print all the query's.

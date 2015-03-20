@@ -59,20 +59,63 @@ $(function(){
     });
 
     $("#userserachbtn").on("click", function(){
-      console.log("test");
-      $.ajax({
-          type    : 'GET',
-          url     : '/users/search/'+$("#userserachval").val(),
-          dataType: 'json',
-          success : function(data) {
-            for(var i = 0; i < data.length; i++){
-              console.log(data['firstname']);
+      $(".cv_src_results").find("tr").remove();
+      if(checkEmail($("#userserachval").val())){
+        $.ajax({
+            type    : 'GET',
+            url     : '/search/user/user-email/'+$("#userserachval").val(),
+            dataType: 'json',
+            success : function(data) {
+              for(var i = 0; i< data.length; i++){
+                createSearchDom(data[i]["id"],data[i]["firstname"],data[i]["lastname"]);
+              }
+            },
+            error : function(data) {
+              console.error("somethang went wrong!");
             }
-          }
-      });
+        });
+      }else{
+        ajaxFirstLastName("firstname");
+      }
     });
 
 });
+
+function ajaxFirstLastName(type){
+  $.ajax({
+      type    : 'GET',
+      url     : '/search/user/user-'+type+'/'+$("#userserachval").val(),
+      dataType: 'json',
+      success : function(data) {
+        if(data.length == 0){
+          ajaxFirstLastName("lastname");
+        }else{
+          for(var i = 0; i< data.length; i++){
+            createSearchDom(data[i]["id"],data[i]["firstname"],data[i]["lastname"]);
+          }
+        }
+      },
+      error : function(data) {
+        console.error("somethang went wrong!");
+      }
+  });
+}
+
+function createSearchDom(id,firstname,lastname){
+  $(".cv_src_results").append(
+    '<tr>'+
+      '<td class="cv_src_face"><img src="/img/avatar.PNG"></td>'+
+      '<td class="cv_src_name"><span>'+firstname+' '+lastname+'</span></td>'+
+      '<td class="cv_src_profile"><span><a href="/user">Profil »</a></span></td>'+
+      '<td class="cv_src_cv"><span><a href="/cv/'+id+'">CV »</a></span></td>'+
+    '</tr>'
+  );
+}
+
+function checkEmail(str){
+  var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+  return regex.test(str);
+}
 
 $(document).on('click','.remove', function() {
     collaborators.splice($(this).data("id"),1);
