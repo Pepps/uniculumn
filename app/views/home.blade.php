@@ -17,11 +17,16 @@
   			<img src="img/penna.png"><img src="img/ladda.png"><img src="img/gubbe.png">
   			<h1>Ladda upp projekt och n&auml;tverka med arbetsgivare</h1></div>
   <div id="loginbox">
-  		<form id="form" name="form" method="post" action=" ">
-  			E-Mail<br><input type="text" name="username" id="username"/><br>
-  			L&ouml;senord<br><input type="password" name="password" id="password"/><br><br>
-        <input type="submit" name="skicka" id="skicka" value="Logga in">
-  		</form>
+      {{ Form::open(array('url' => '/home', 'id'=>'form')) }}
+        @if($errors->has())
+          <p>Email eller lösenordet är inkorrekt, försök igen!</p>
+        @endif
+        E-Mail<br>{{ Form::text('email',"", Array('id'=>'username')) }}<br>
+        L&ouml;senord<br>{{ Form::password('password',Array('id'=>'password')) }}<br><br>
+        {{ Form::submit('Logga in', Array('class'=>'skicka')) }}
+        <a href="#" class="skicka">Registrera dig</a>
+      {{ Form::close() }}
+
   </div>
 
   <div id="finbox">
