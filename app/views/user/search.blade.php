@@ -17,8 +17,8 @@
             <div class="upload_column">
                     <div class="dark_icon cv_icon"></div>
                      <h3>&nbsp;Namn/email</h3>
-                    <input class="uploadfile">
-                    <input type="submit" class="dark_submit" value="Få resultat"></input></input>
+                    <input class="uploadfile" id="userserachval">
+                    <input type="button" id="userserachbtn" class="dark_submit" value="Sök användare">
                   </div>
               </div>
 
@@ -50,7 +50,4 @@
       </div>
 
     </div>
-
-
-
 @stop

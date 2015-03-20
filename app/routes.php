@@ -66,6 +66,8 @@ Route::get('/users/search', function(){
 	return View::make("user.search");
 });
 
+Route::get('/users/search/{searchkey}', "UserController@search");
+
 Route::get('/register', function(){
 	return View::make("user.register");
 });

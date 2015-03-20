@@ -116,4 +116,19 @@ class UserController extends BaseController {
         return User::all()->toJson();
 
     }
+
+    /* Filip made this for searching after users */
+    public function search($searchkey) {
+
+      $emailvalidator = Validator::make(array('email' => $searchkey),array('email' => 'required|email|unique:users'));
+      //$firstvalidator = Validator::make(array('firstname' => $searchkey),array('firstname' => 'required|unique:users'));
+      //$lastvalidator = Validator::make(array('lastname' => $searchkey),array('lastname' => 'required|unique:users'));
+
+      if($emailvalidator->fails()){
+        return User::where("email", "=", $searchkey)->first()->toJson();
+      }else{
+        return "No value in the Database";
+      }
+
+    }
 }

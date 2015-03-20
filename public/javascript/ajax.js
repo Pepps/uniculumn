@@ -57,7 +57,21 @@ $(function(){
         });
       }
     });
-    
+
+    $("#userserachbtn").on("click", function(){
+      console.log("test");
+      $.ajax({
+          type    : 'GET',
+          url     : '/users/search/'+$("#userserachval").val(),
+          dataType: 'json',
+          success : function(data) {
+            for(var i = 0; i < data.length; i++){
+              console.log(data['firstname']);
+            }
+          }
+      });
+    });
+
 });
 
 $(document).on('click','.remove', function() {
