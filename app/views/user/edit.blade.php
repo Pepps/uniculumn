@@ -49,8 +49,13 @@
                     @endif
                     @endforeach
             </select>
-                {{ Form::select('city', array('0' => 'Välj din stad'), Input::old('state'), array('class' => 'form-control', 'id' => 'cities')) }}
-
+            <select name="city" class="form-control" id="cities">
+              @if(!$nocity)
+                <option value="{{ City::find(Auth::user()->city_id)->id }}" selected >{{ City::find(Auth::user()->city_id)->name  }}</option>
+              @else
+                <option value="0" selected >Välj Din Ort</option>
+              @endif
+            </select>
                   @if(!$nocity)
                     <span id="hidden_city" style="display:none;">{{$user->city_id}}</span>
                   @endif

@@ -7,8 +7,6 @@ var inputId = [];
 
 categoryShow(0);
 
-ajax_city($("#state-select").val());
-
 $(function(){
     var bool = true;
 
@@ -126,7 +124,7 @@ function categoryShow(id) {
                 else {
                     subcategories.splice(jQuery.inArray($(this).val(), subcategories),1);
                 }
-              
+
                 $('#subcategory_id').val("");
                 $('#subcategory_id').val(subcategories.toString().replace(new RegExp(",","g"), "-"));
                 console.log($('#subcategory_id').val());
@@ -138,11 +136,19 @@ function categoryShow(id) {
 }
 //Ajax script that gets cities from the DB depending on the state you select.
 
-function ajax_city() {
-  $("#state-select").on("change", function() {
-
+function ajax_city(id) {
+    $.ajax({
+      type: "GET",
+      dataType: "json",
+      url: "/state/"+id,
+    }).done(function(data) {
+      $('#cities').empty();
+      for(var i = 0; i < data.length; i++) {
+       $('#cities').append("<option value='"+data[i].id+"'>"+data[i].name+"</option>");
+        }
     });
 }
+/*
 function get_cities(stateselect, cities) {
   $(stateselect).on("change", function() {
     $.ajax({
@@ -158,11 +164,13 @@ function get_cities(stateselect, cities) {
   });
  });
 }
+
 //Ajax script that gets cities from the DB depending on the state you select.
 window.onload = function() {
     get_cities( '#state-select', '#cities');
     get_cities('#change-state-select', '#change-cities');
 }
+*/
 function stateShow(id) {
     $.ajax({
         type    : "GET",
@@ -199,12 +207,11 @@ $(document).on('change', '#categories-select', function(e) {
     ajax_subcategories($(this).val());
 });
 
-/*
 $(document).on('change', '#state-select', function(e) {
     e.preventDefault(e);
     ajax_city($("#state-select").val());
 });
-*/
+
 $(document).on('change', '#project_category', function(e) {
     e.preventDefault(e);
     categoryShow($("#project_category").val());
