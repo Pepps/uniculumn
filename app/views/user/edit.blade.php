@@ -82,9 +82,12 @@
             {{ Form::text('old_password','', array('class' => 'password_column')) }}
             </div>
               <div class="password_column">
+              Nytt Lösenord
             {{ Form::text('new_password','', array('class' => 'password_column')) }}
               <br/>
               <br/>
+              <br/>
+              Upprepa Nytt Lösenord
             {{ Form::text('new_password_confirm','', array('class' => 'password_column')) }}
               </div>
             </div>
@@ -106,7 +109,7 @@
           </div>
              <h3>Ladda upp en ny presentationsbild</h3>
             <input class="uploadfile"> </input>
-            <input type="submit" class="blue_submit" value="Ladda upp"></input>
+            <input type="submit" class="blue_submit" value="Spara ändringar"></input>
             <input type="submit" class="dark_submit" value="Bläddra"></input>
         </div>
 
@@ -114,7 +117,7 @@
         {{ Form::open(array('url' => 'user/update_description/'.$user->id)) }}
           <h2>Ändra presentation</h2>
           {{ Form::textarea('description', $user->description, array('class' => 'form-control')) }}
-            <input type="submit" class="blue_submit" value="Ladda upp"></input>
+            <input type="submit" class="blue_submit" value="Spara ändringar"></input>
             <input type="submit" class="dark_submit" value="Bläddra"></input>
             <br/><br /><br /><br />
         {{ Form::close() }}
@@ -141,11 +144,6 @@
             <br/><br /><br /><br />
       {{ Form::close() }}
           </div>
-      <div class="upload_interests">
-       <br /><br />
-            <input type="submit" class="blue_submit" value="Ladda upp"></input>
-            <input type="submit" class="dark_submit" value="Bläddra"></input>
-       </div>
   </div>
 
 
