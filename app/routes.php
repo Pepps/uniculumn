@@ -8,7 +8,11 @@ Route::post("/register_action", "AuthController@store");
 Route::get("/logout", "AuthController@logout");
 
 Route::get("/doc", function(){
-	return View::make("doc")->with('user', User::find(Auth::user()->id));
+	return View::make("doc");
+});
+
+Route::get("/register", function(){
+    return View::make("user.register");
 });
 
 Route::get("/isa", function(){
@@ -27,9 +31,17 @@ Route::resource('user', "UserController");
 Route::post('apply/upload', 'ProjectController@store');
 Route::post('/user/update/{id}', "UserController@update");
 
+
+Route::post('/user/update_password/{id}', "UserController@update_password");
+Route::post('/user/update_description/{id}', "UserController@update_description");
+Route::post('/user/update_interest/{id}', "UserController@update_interest");
+
+Route::get('/user/delete_interest/{category_id}', "UserController@delete_interest");
+
 /* Duck punch for fixing update */
 Route::post('/project/update/{id}', "ProjectController@update");
 Route::get('/project/delete/{id}', "ProjectController@destroy");
+Route::get('/project/show/{id}', "ProjectController@show");
 /*End duck punch*/
 
 Route::post('/project/addcolab/{id}', "ProjectController@addcolab");
@@ -41,14 +53,16 @@ Route::get('/project/show/{id}', "ProjectController@show");
 Route::get('/project/getfiles/{id}', "ProjectController@getfiles");
 Route::get('/project/readfile/{id}', "ProjectController@readfile");
 
+
 /* Routes for experiences */
 Route::resource('experience', "ExperienceController");
- Route::resource('reference', "ReferenceController");
-  Route::post('/reference/{id}', "ReferenceController@store");
-  Route::get('/reference/{id}', "ReferenceController@index");
-  Route::post('/experience/{id}/update', "ExperienceController@update");
-// Route::post('/experience/{id}', array('as' => 'addref', 'uses' => "ExperienceController@addref"));
-Route::get('/experience/{id}/deleteExp/', "ExperienceController@destroy");
+
+Route::resource('reference', "ReferenceController");
+Route::post('/reference/{id}', "ReferenceController@store");
+Route::get('/reference/{id}', "ReferenceController@index");
+Route::post('/experience/{id}/update', "ExperienceController@update");
+Route::get('/experience/{id}/deleteExp/', "ExperienceController@deleteExp");
+
 Route::get('/reference/{id}/deleteRef/', "ReferenceController@destroy");
 
 Route::get('/state/{id}/', "ExperienceController@getcities");
@@ -58,5 +72,12 @@ Route::get('state/show/{id}', 'StateController@show');
 Route::get('city/show/{id}', 'CityController@show');
 Route::get('/user/show', 'UserController@show');
 
+Route::get('/users/search', function(){
+	return View::make("user.search");
+});
 
-Route::get('/register', 'HomeController@index');
+Route::get('/users/search/{searchkey}', "UserController@search");
+
+Route::get('/register', function(){
+	return View::make("user.register");
+});

@@ -12,6 +12,7 @@ class ProjectController extends \BaseController {
 	    if (Auth::check()){
 				return View::make("project.index")
 				->with('projects',User::find(Auth::user()->id)->project);
+
 	    }
 	    else{
 	        return Redirect::to('/');
@@ -37,6 +38,8 @@ class ProjectController extends \BaseController {
 				 TODO Check if there is files if not do not try to upload files
 			*/
 
+			//dd(Input::get('category'));
+
       $rules = array(
           'project_title'           => 'required|unique:projects,title',
           'project_body'            => 'required',
@@ -57,7 +60,7 @@ class ProjectController extends \BaseController {
 
         $project->save();
 
-        Project::find($project->id)->category()->attach(explode("-", Input::get('subcategory_id')));
+        Project::find($project->id)->category()->attach(explode("-", Input::get('category')));
 
 				Project::find($project->id)->users()->attach(Auth::user()->id);
 
@@ -81,14 +84,25 @@ class ProjectController extends \BaseController {
 	*/
 	public function show($project_id){
 			$Project = Project::find($project_id);
+			$filename = 
+			$pdir = app_path() . "/projects/" . Auth::user()->pdir . Input::get('title') . File::get($filename);
+			$files = File::allFiles($pdir);
+
       return View::make('project.show')
           ->with('project', $Project)
 					->with('categories', $Project->category)
 					->with('users', $Project->user)
-					->with('projects',User::find(Auth::user()->id)->project);
+					->with('projects',User::find(Auth::user()->id)->project)
+					->with('pdirs', $files)
+					->with('download', Response::download($pdir, $files));
+
 
 	}
 
+	/* 
+		This method is responsible for enabling downloading the 
+		files/projects that are shown in the show projects page.
+	 */
 
 	/*
 		The method responsible for redering the view for the project/{id}/edit and
@@ -98,7 +112,7 @@ class ProjectController extends \BaseController {
 		/*
 		$Project = Project::find($id);
 		return View::make('project.edit')->with('project',Project::find($id))
-																		 ->with('users', Project::find($id)->users)
+									 ->with('users', Project::find($id)->users)
                                      ->with('user',User::find(Auth::user()->id));
 	*/
 		return Redirect::to('/project');
@@ -162,5 +176,7 @@ class ProjectController extends \BaseController {
 	public function getcolabs($id){
 		return Project::find($id)->users->toJson();
 	}
+
+
 
 }

@@ -28,7 +28,7 @@
                 <span class="proj_id" style="display:none;">{{$value->id}}</span>
            <!-- <Kontrollknappar>  -->
                 @if(Auth::user()->id == $value->owner_id)
-                  <div class="ex_button delete_btn" style="background-color: #d70808;">{{ HTML::image('img/icons/edit/delete.PNG') }}</div>
+                  <a class="ex_button delete_btn" style="background-color: #d70808;">{{ HTML::image('img/icons/edit/delete.PNG') }}</a>
                   <div class="ex_button edit_experience">{{ HTML::image('img/icons/edit/edit.PNG') }}</div>
                   <div class="ex_button edit_references">{{ HTML::image('img/icons/edit/add.PNG') }}</div>
                 @endif
@@ -51,7 +51,7 @@
 
               <!-- </Beskrivning>  -->
 
-              {{ Form::open(array('url' => 'update'.$value->id)) }}
+              {{ Form::open(array('url' => '/project/update/'.$value->id)) }}
                 {{ Form::text('project_title', $value->title, Array('class'=>'edit_this')) }}
                 {{ Form::textarea('project_body', $value->body, Array('class'=>'edit_this')) }}
                 {{ Form::submit('Spara', Array('class'=>'edit_this')) }}
@@ -116,4 +116,16 @@
             </div>
           </div>
         @endforeach
+
+        <script>
+          window.onload = function(){
+            console.log("t");
+            console.log($(".delete_btn"));
+
+            document.getElementsByClassName("delete_btn").addEventListener("click", function(){
+              console.log("test");
+            });
+
+          }
+        </script>
 @stop

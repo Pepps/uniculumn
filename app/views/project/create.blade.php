@@ -7,12 +7,12 @@
 @include('layouts.nav')
 @yield('nav')
 
-{{ HTML::ul($errors->all()) }}
-
       <div id="main_content">
 
       <h1>{{ HTML::image('img/cloud.PNG', 'a picture', array('class' => 'cloud')) }}Ladda upp nytt projekt</h1>
       {{ Form::open(array('url' => 'project', 'files'=>true, 'method'=>'post')) }}
+
+      {{ HTML::ul($errors->all()) }}
 
           <div class="upload_column">
             <div class="dark_icon title_icon"><div class="check_title"></div></div>
@@ -54,14 +54,13 @@
              <h3>Ladda upp fil</h3>
              {{ Form::file('files[]', array('multiple'=>true, "class" => 'uploadfile')) }}
           </div>
+          <span><b>Om du vill lade upp ett störe arbete så rekomderar vi att du gör en Zip fil av det och laddar up den.</b></span>
           <br/><br/><br/>
           <input type="submit" class="submit_project" value="Skapa projekt">
           <div style="clear: both;"></div>
         </div>
 
-        {{ Form::text('subcategory_id', Input::old('category'), array('class' => 'hidden', 'id' => 'subcategory_id')) }}
-
-    <div class="alert alert-info" role="alert" style="text-align: center;"><b>Om du vill lade upp ett störe arbete så rekomderar vi att du gör en Zip fil av det och laddar up den.</b></div>
+        {{ Form::text('category', Input::old('category'), array('id' => 'subcategory_id')) }}
 
     <br>
         {{ Form::close() }}

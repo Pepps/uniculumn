@@ -34,7 +34,7 @@ $(function(){
     var keyboxes = $(".key");
     keys = [];
 
-    $(".valinput").remove();
+    $(".input_field").remove();
     //console.log(keyboxes);
     for(var i = 0; i < keyboxes.length; i++){
       if($(keyboxes[i]).is(":checked")){
@@ -54,63 +54,96 @@ $(function(){
 /* creates a input area dom for the selected key value (just check the DOM) allso ands the DOM
    to the body tag and adds click event to the .add class button */
 function createInputArea(keyval){
+  var dom = "<div class='input_field'>Sök... <input class='input_thing "+keyval+"' placeholder='"+keyval+"'></div>"
 
-  /*if(keyval === "status"){
-    var dom = "<div>"+
-                  "<input class='inputtype' style='display:none;' value='"+keyval+"'>"+
-                  "<input class='status' type='radio' name='status' value='less'><lable>Minde än</lable>"+
-                  "<input class='status' type='radio' name='status' value='more'><lable>Mer än</lable>"+
-                  "<input class='input'>"+
-                  "<button class='add'>Lägg till "+keyval+"</button>"+
-              "</div>"
-  }else if(!keyval === "status"){*/
-    var dom = "<div class='"+keyval+" valinput'>"+
-                "<h3>"+keyval+"</h3>"+
-                "<input class='inputtype' style='display:none;' value='"+keyval+"'>"+
-                "<input class='input' placeholder='"+keyval+"'><button class='add'>Lägg till "+keyval+"</button>"+
-                "<ul class='vallist'>"+
-                "</ul>"+
-              "</div>"
-  //}
-
-  $("body").append(dom);
+  $("#input_fields").append(dom);
 
   /* gets the value from the selected input and trims off accses whitespaces. Then checkes if the
      string is not empty. If its empty it loggs a error. if no errors the functions checks what value
      the DOM element off .inputtype have and push it to a switch case witch pushes the right value to the
      right array and runs the create string function. */
-  $(".add").on("click", function(){
-      var inputval = $.trim($(this).parent().find(".input").val());
-      if(!inputval == ""){
-        $(this).parent().find("ul").append("<li>"+$(this).parent().find(".input").val()+"</li>");
-        switch($(this).parent().find(".inputtype").val()) {
-            case "user":
-                console.log("users");
-                users.push(encodeURI($(this).parent().find(".input").val()));
-                break;
-            case "project":
-                console.log("projects");
-                projects.push(encodeURI($(this).parent().find(".input").val()));
-                break;
-            case "experince":
-                console.log("experinces");
-                experinces.push(encodeURI($(this).parent().find(".input").val()));
-                break;
-            case "category":
-                console.log("categorys");
-                categorys.push(encodeURI($(this).parent().find(".input").val()));
-                break;
-            case "status":
-                status = encodeURI($(this).parent().find(".input").val());
-                break;
-            default:
-                console.error("A error has happend!");
+  $(".input_thing").on("keydown", function(e){
+      if(e.keyCode == 13){
+        var inputval = $.trim($(this).val());
+        if(!inputval == ""){
+          if($(this).hasClass("user")){
+            console.log("user");
+            users.push(encodeURI($(this).val()));
+            addToTable("user", $(this).val());
+          }else if($(this).hasClass("projects")){
+            console.log("projects");
+            projects.push(encodeURI($(this).val()));
+            addToTable("projects", $(this).val());
+          }else if($(this).hasClass("experiences")){
+            console.log("experiences");
+            experinces.push(encodeURI($(this).val()));
+            addToTable("experiences", $(this).val());
+          }else if($(this).hasClass("categories")){
+            console.log("categories");
+            categorys.push(encodeURI($(this).val()));
+            addToTable("categories", $(this).val());
+          }else if($(this).hasClass("status")){
+            console.log("status");
+            status = encodeURI($(this).val());
+            addToTable("status", $(this).val());
+          }else{
+            console.error("A error haz happend!");
+          }
+          /*
+          switch($(this).parent().find(".inputtype").val()) {
+              case "user":
+                  console.log("users");
+                  users.push(encodeURI($(this).parent().find(".input").val()));
+                  break;
+              case "project":
+                  console.log("projects");
+                  projects.push(encodeURI($(this).parent().find(".input").val()));
+                  break;
+              case "experince":
+                  console.log("experinces");
+                  experinces.push(encodeURI($(this).parent().find(".input").val()));
+                  break;
+              case "category":
+                  console.log("categorys");
+                  categorys.push(encodeURI($(this).parent().find(".input").val()));
+                  break;
+              case "status":
+                  status = encodeURI($(this).parent().find(".input").val());
+                  break;
+              default:
+                  console.error("A error has happend!");
+          }*/
+          //var str = users + "_" + projects + "_" + experinces + "_"+ categorys + "_" + status;
+          //console.log(str.replace(new RegExp(",", 'g'), "-"));
+          createString();
+          $(this).val("");
         }
-        //var str = users + "_" + projects + "_" + experinces + "_"+ categorys + "_" + status;
-        //console.log(str.replace(new RegExp(",", 'g'), "-"));
-        createString();
-        $(this).parent().find(".input").val("");
       }
+  });
+}
+
+function addToTable(category, serchword){
+  var dom = "<tr>"+
+    "<td class='td_category'><div class='category_search'>"+category+"</div></td>"+
+    "<td class='td_words'><div class='word_search'>"+serchword+"</div></td>"+
+    "<td class='td_delete'><img class='remove-search' src='img/delete_button.PNG'/></td>"+
+  "</tr>"
+  $("#table").append(dom);
+
+  $(".remove-search").on("click", function (){
+    //$(this).parent().parent().remove();
+
+    if($(this).parent().parent().find(".category_search").text() == "user"){
+      console.log("user");
+    }else if($(this).parent().parent().find(".category_search").text() == "projects"){
+      console.log("projects");
+    }else if($(this).parent().parent().find(".category_search").text() == "experiences"){
+      console.log("experiences");
+    }else if($(this).parent().parent().find(".category_search").text() == "categories"){
+      console.log("categories");
+    }else if($(this).parent().parent().find(".category_search").text() == "status"){
+      console.log("status");
+    }
   });
 }
 
