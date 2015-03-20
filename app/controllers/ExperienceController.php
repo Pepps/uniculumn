@@ -17,6 +17,7 @@ class ExperienceController extends \BaseController {
 		foreach($experience as $value) {
 			array_push($ids, $value -> city_id);
 		}
+
 	  		return View::make("experience.index")
 	  		->with('experiences', $experience)
 	  		->with('cities', City::findMany($ids))

@@ -94,7 +94,7 @@
 
                        <!-- <Plats/tid>  -->
                         <div class="ex_float hide_this exp_location">
-
+                          
                           {{ City::find($experience->city_id)->name }}
 
                          <img src="../img/icons/edit/location.PNG"/>
@@ -177,77 +177,59 @@
 
           {{ Form::close() }}
 
-                             <!-- <Referenser>  -->                         
-                      <div class="show_references">
-                      <img src="../img/small_menu.PNG"/> Visa referenser <br/>
+  <!-- <Referenser>  -->                         
+    <div class="show_references">
+      <img src="../img/small_menu.PNG"/> Visa referenser <br/>
+    <div class="allreferences">
 
-                        <div class="allreferences">
-
-                          @foreach ($experience->reference as $ref)
-                            <div class="ref_square">
-
-                                <div class="delete_reference">                     
-                                 <a onclick="return confirm('Är du säker på att du vill ta bort?')" href="{{ URL::to('reference/' . $ref->id . '/deleteRef') }}"><img src="../img/icons/edit/delete.PNG"/></a>
-                                  </div>
-                                <img src="../img/references.PNG"/> {{ $ref->firstname }}  {{ $ref->lastname }}<br/>
-                                <img src="../img/phonenumber.PNG"/>{{ $ref->phone }}  <br/>
-                                 <img src="../img/email.PNG"/>  {{ $ref->email }}
-
-                              </div>
-                            </div>
-                          @endforeach
-
-                        </div>
-
-                      </div>
- 
+      @foreach ($experience->reference as $ref)
+    <div class="ref_square">
+      <a onclick="return confirm('Är du säker på att du vill ta bort?')" href="{{ URL::to('reference/' . $ref->id . '/deleteRef') }}">
+    <div class="delete_reference">                     
+      <img src="../img/icons/edit/delete.PNG"/>
+    </div></a>
+      <img src="../img/references.PNG"/> {{ $ref->firstname }}  {{ $ref->lastname }}<br/>
+      <img src="../img/phonenumber.PNG"/>{{ $ref->phone }}  <br/>
+      <img src="../img/email.PNG"/>  {{ $ref->email }}
+        </div>
+      </div>
+      @endforeach
+    </div>
+   <!-- </Referenser>  -->
 
 
-                       <!-- </Referenser>  -->
+  <!-- <Lägg till ny referens>  -->  
+    <div class="references_choices">
 
+      <div class="ref_column">
+        {{ Form::open(array('url' => '/reference/' . $experience->id, 'method'=>'post')) }}
+          {{ Form::text('expid',$experience->id, Array('style' => 'display:none;') ) }}
 
-                       <!-- </Referenser>  -->
-
-                       <!-- <Lägg till ny referens>  -->
+           <h3> Förnamn</h3>
+           {{ Form::text('firstname', Input::old('name'), array('class' => 'references_input')) }}
+            <h3>Efternamn</h3>
+            {{ Form::text('lastname', Input::old('name'), array('class' => 'references_input')) }}
+            </div>
+             <div class="ref_column">
+              <h3>Email </h3>
+              {{ Form::text('email', Input::old('name'), array('class' => 'references_input')) }}
+              <h3>Telefon </h3>
+              {{ Form::text('phone', Input::old('name'), array('class' => 'references_input')) }}
+              <br/>
+              <div class="addreference">
+                {{ Form::submit('Lägg till') }}
+                {{ Form::close() }}
+              </div>
+              <div class="clearreference">
+                Ta bort
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  <!-- </Lägg till ny referens>  -->
   
-                      <div class="references_choices">
-
-                          <div class="ref_column">
-
-{{ Form::open(array('url' => '/reference/' . $experience->id, 'method'=>'post')) }}
-{{ Form::text('expid',$experience->id, Array('style' => 'display:none;') ) }}
-
-                            <h3> Förnamn</h3>
-                             {{ Form::text('firstname', Input::old('name'), array('class' => 'references_input')) }}
-
-                            <h3>Efternamn</h3>
-        {{ Form::text('lastname', Input::old('name'), array('class' => 'references_input')) }}
-
-                          </div>
-
-                           <div class="ref_column">
-
-                              <h3>Email </h3>
-          {{ Form::text('email', Input::old('name'), array('class' => 'references_input')) }}
-
-                              <h3>Telefon </h3>
-        {{ Form::text('phone', Input::old('name'), array('class' => 'references_input')) }}
-                              <br/>
-
-                            <div class="addreference">
-    {{ Form::submit('Lägg till') }}
-{{ Form::close() }}
-                            </div>
-                            <div class="clearreference">
-                                Ta bort
-                            </div>
-                          </div>
-                        </div>
-
-                       <!-- </Lägg till ny referens>  -->
-                    </div>
-
-@endforeach
+    @endforeach
 
 </div>
 </div>
