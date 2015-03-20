@@ -26,7 +26,7 @@
          <div class="columnMiddle">
 
              <h2>{{ $user->firstname }}</h2> <!--username-->
-
+                <a href="/cv/{{Auth::user()->id }}">Mitt CV</a>
                 <div id="description"> <!--user personal description-->
                     {{ $user->description }}
                   </div>
