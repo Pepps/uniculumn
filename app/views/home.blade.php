@@ -19,12 +19,11 @@
   <div id="loginbox">
       {{ Form::open(array('url' => '/home', 'id'=>'form')) }}
         @if($errors->has())
-          <p>Email eller lösenordet är inkorrekt, försök igen!</p>
+          <p style="margin-top: -1.2vw; margin-bottom: -0.15vw;">Email eller lösenordet är inkorrekt, försök igen!</p>
         @endif
         E-Mail<br>{{ Form::text('email',"", Array('id'=>'username')) }}<br>
         L&ouml;senord<br>{{ Form::password('password',Array('id'=>'password')) }}<br><br>
         {{ Form::submit('Logga in', Array('class'=>'skicka')) }}
-        <a href="#" class="skicka">Registrera dig</a>
       {{ Form::close() }}
 </div>
 

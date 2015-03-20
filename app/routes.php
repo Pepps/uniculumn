@@ -49,11 +49,10 @@ Route::get('/project/readfile/{id}', "ProjectController@readfile");
 
 /* Routes for experiences */
 Route::resource('experience', "ExperienceController");
- Route::resource('reference', "ReferenceController");
-  Route::post('/reference/{id}', "ReferenceController@store");
-  Route::get('/reference/{id}', "ReferenceController@index");
-  Route::post('/experience/{id}/update', "ExperienceController@update");
-// Route::post('/experience/{id}', array('as' => 'addref', 'uses' => "ExperienceController@addref"));
+Route::resource('reference', "ReferenceController");
+Route::post('/reference/{id}', "ReferenceController@store");
+Route::get('/reference/{id}', "ReferenceController@index");
+Route::post('/experience/{id}/update', "ExperienceController@update");
 Route::get('/experience/{id}/deleteExp/', "ExperienceController@deleteExp");
 Route::get('/reference/{id}/deleteRef/', "ReferenceController@destroy");
 
@@ -63,7 +62,9 @@ Route::get('category/show/{id}', 'CategoryController@show');
 Route::get('state/show/{id}', 'StateController@show');
 Route::get('city/show/{id}', 'CityController@show');
 Route::get('/user/show', 'UserController@show');
-
+Route::get('/users/search', function(){
+	return View::make("user.search");
+});
 
 Route::get('/register', function(){
 	return View::make("user.register");

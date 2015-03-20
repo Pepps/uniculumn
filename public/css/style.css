@@ -1996,6 +1996,58 @@ upload_interests img {
 	height: 0.7vw;
 }
 
+.cv {
+	padding-left: 6vw;
+	background-image: url(../img/icons/blue/cv.png);
+	background-repeat: no-repeat;
+	background-position: top left;
+	background-size: 5vw;
+	height: 3.2vw;
+	font-size: 2.3vw;
+	margin-bottom: -0.5vw;
+	margin-top: 0.5vw;
+}
+
+.cv_icon { background-image: url(../img/icons/blue/cv.png) ; background-size: 4vw; }
+
+.cv_src_results {
+	width: 100%;
+	font-size: 1.1vw;
+	font-family: Kozuka;
+}
+.cv_src_results img {
+	width: 2vw;
+	height: 2vw;
+	border-radius: 0.3vw;
+}
+
+
+.cv_src_results span {
+	background-color: #253737;
+	padding: 0.4vw 0.5vw;
+	border-radius: 0.3vw;
+	color: #cad9da;
+}
+
+
+.cv_src_name {
+	width: 65%;
+	text-align: left;
+}
+.cv_src_profile {
+	width: 15%;
+	padding: 0.5vw;
+	cursor: pointer;
+}
+.cv_src_cv {
+	width:15%;
+	cursor: pointer;
+}
+
+.cv_src_face {
+	width:10%;
+}
+
 
 /***** Jesper/Joakim CSS END *****/
 
@@ -2074,7 +2126,7 @@ upload_interests img {
     font-size: 0.8vw;
   }
 
-#skicka {
+.skicka {
    background: #43BF7E;
    border: 0.25vw solid white;
    cursor: pointer;
