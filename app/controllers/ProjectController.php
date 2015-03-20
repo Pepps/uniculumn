@@ -10,7 +10,8 @@ class ProjectController extends \BaseController {
 
 	public function index(){
 	    if (Auth::check()){
-				return View::make("project.index")->with('projects',User::find(Auth::user()->id)->project)																					->with('user',User::find(Auth::user()->id));
+				return View::make("project.index")
+				->with('projects',User::find(Auth::user()->id)->project);
 	    }
 	    else{
 	        return Redirect::to('/');
@@ -83,8 +84,8 @@ class ProjectController extends \BaseController {
       return View::make('project.show')
           ->with('project', $Project)
 					->with('categories', $Project->category)
-
-					->with('users', $Project->users);
+					->with('users', $Project->user)
+					->with('projects',User::find(Auth::user()->id)->project);
 
 	}
 

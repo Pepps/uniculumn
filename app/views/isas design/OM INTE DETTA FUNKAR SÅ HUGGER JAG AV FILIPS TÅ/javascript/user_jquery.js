@@ -276,5 +276,17 @@ $(".edit_icon").mouseenter(function(){
         $(".welcome_box").show('slide',{direction:'right'},700);
       }); 
 
+$(".hide_these_members").on('click', function(){
+
+   if ( $('.project_members_square').css("display") == "none") {
+     		$('.project_members_square').fadeIn(500);
+     		$('.hide_these_members').html('Dölj projektmedlemmar');
+      	      }
+     	 else {
+     		$('.project_members_square').fadeOut(800);
+     		$('.hide_these_members').html('Visa projektmedlemmar');
+     	      }
+ 	});
+
 
   });

@@ -199,7 +199,10 @@
    <!-- </Referenser>  -->
 
 
-  <!-- <Lägg till ny referens>  -->  
+
+        
+ </div>
+   <!-- <Lägg till ny referens>  -->  
     <div class="references_choices">
 
       <div class="ref_column">
@@ -218,7 +221,10 @@
               {{ Form::text('phone', Input::old('name'), array('class' => 'references_input')) }}
               <br/>
               <div class="addreference">
-                {{ Form::submit('Lägg till') }}
+
+              {{ Form::submit('', array('class' => 'blue_submit', 'style')) }}
+            </button>
+       
                 {{ Form::close() }}
               </div>
               <div class="clearreference">
@@ -226,10 +232,9 @@
               </div>
             </div>
           </div>
-        </div>
- 
   <!-- </Lägg till ny referens>  -->
-  
+  </div>
+
     @endforeach
 
 </div>
