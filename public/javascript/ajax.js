@@ -6,6 +6,7 @@ var userId = [];
 var inputId = [];
 
 categoryShow(0);
+
 ajax_city($("#state-select").val());
 
 $(function(){
@@ -125,8 +126,10 @@ function categoryShow(id) {
                 else {
                     subcategories.splice(jQuery.inArray($(this).val(), subcategories),1);
                 }
+              
                 $('#subcategory_id').val("");
                 $('#subcategory_id').val(subcategories.toString().replace(new RegExp(",","g"), "-"));
+                console.log($('#subcategory_id').val());
             });
         }
     }, "json");
@@ -201,16 +204,8 @@ $(document).on('change', '#state-select', function(e) {
     e.preventDefault(e);
     ajax_city($("#state-select").val());
 });
-
+*/
 $(document).on('change', '#project_category', function(e) {
     e.preventDefault(e);
-
-        //-----
-        // TODO comments here
-        //-----
-
     categoryShow($("#project_category").val());
-
 });
-
-*/

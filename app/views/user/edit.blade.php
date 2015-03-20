@@ -15,7 +15,7 @@
 
           <div class="upload_column">
           <div class="current_avatar">
-            <img src="img/snape.PNG"/>
+            {{ HTML::image('img/avatar.PNG') }}
           </div>
              <h3>Ladda upp en ny avatar</h3>
             <input class="uploadfile"> </input>
@@ -98,7 +98,7 @@
 
       <div id="profile_wrapper">
         <div id="profile_pic_wrapper">
-          <img src="img/profile_picture.PNG"/>
+          {{ HTML::image('img/default_profile_picture.PNG') }}
         </div>
 
         <div class="upload_column" style=" height: 8vw; padding-left: 3vw;">
@@ -122,7 +122,7 @@
       {{ Form::open(array('url' => 'user/update_interest/'.$user->id)) }}
       <div class="account_column"  style="padding-left: 3vw;">
              <div class="dark_icon user_interests"> </div><h3>Lägg till intressen</h3>
-              <?php $categories = Category::all(); ?>
+              {{$categories = Category::all()}}
               <select class="uploadfile" id="categories-select">
                      @foreach($categories as $category)
                       @if ($category->subcategory_id == 0)

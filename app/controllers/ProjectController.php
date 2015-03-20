@@ -36,6 +36,8 @@ class ProjectController extends \BaseController {
 				 TODO Check if there is files if not do not try to upload files
 			*/
 
+			//dd(Input::get('category'));
+
       $rules = array(
           'project_title'           => 'required|unique:projects,title',
           'project_body'            => 'required',
@@ -56,7 +58,7 @@ class ProjectController extends \BaseController {
 
         $project->save();
 
-        Project::find($project->id)->category()->attach(explode("-", Input::get('subcategory_id')));
+        Project::find($project->id)->category()->attach(explode("-", Input::get('category')));
 
 				Project::find($project->id)->users()->attach(Auth::user()->id);
 

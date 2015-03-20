@@ -65,4 +65,6 @@ Route::get('city/show/{id}', 'CityController@show');
 Route::get('/user/show', 'UserController@show');
 
 
-Route::get('/register', 'HomeController@index');
+Route::get('/register', function(){
+	return View::make("user.register");
+});

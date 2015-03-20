@@ -8,7 +8,7 @@
 </style>
 <div id="a-wrapper">
   <div id="aheader">
-    {{ HTML::image('img/header.png', 'Header image',Array('id' => 'headerimg')) }}
+    <a href="/">{{ HTML::image('img/header.png', 'Header image',Array('id' => 'headerimg')) }}</a>
   </div>
 
 
@@ -26,8 +26,7 @@
         {{ Form::submit('Logga in', Array('class'=>'skicka')) }}
         <a href="#" class="skicka">Registrera dig</a>
       {{ Form::close() }}
-
-  </div>
+</div>
 
   <div id="finbox">
   		<p>Med en portfolio online g&ouml;r du det enkelt f&ouml;r f&ouml;retag att skicka jobberbjudande<br> som matchar just dina kompentenser.</p>
@@ -35,4 +34,20 @@
       {{ HTML::image('img/big_logo.png', 'Big logo', Array('id' => 'abigloggo')) }}
   </div>
 </div>
+
+<script>
+  window.onload =  function(){
+    $("#loggin-btn").on("click", function(){
+      $.ajax({
+        method: "POST",
+        url: "/home",
+        data: { email: $("#username").val(), password: $("#password").val() }
+      }).done(function(data) {
+        window.location.replace("/")
+        }).fail(function() {
+          console.error("Something went wrong!");
+        });
+    });
+  }
+</script>
 @stop
