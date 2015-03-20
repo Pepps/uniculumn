@@ -63,7 +63,7 @@
 
           <div class="account_column">
              <div class="dark_icon user_email"> </div><h3>Emailaddress</h3>
-            <input type="text" class="uploadfile" value="{{ $user->email }}"> </input>
+            {{ Form::text('email', $user->email, array('class' => 'uploadfile')) }}
           </div>
 
             <input type="submit" class="blue_submit" value="Spara ändringar"></input>
