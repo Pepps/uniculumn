@@ -83,11 +83,7 @@ class ExperienceController extends \BaseController {
 
 	//Delete the experiences
 	public function deleteExp($id) {
-		$experience = Experience::find($id);
-		$experience->delete();
 
-		Session::flash('message', 'Successfully deleted Experience');
-		return Redirect::to('experience');
 	}
 
 
@@ -167,7 +163,11 @@ class ExperienceController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$experience = Experience::find($id);
+		$experience->delete();
+
+		Session::flash('message', 'Successfully deleted Experience');
+		return Redirect::to('experience');
 	}
 
 
