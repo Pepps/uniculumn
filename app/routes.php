@@ -11,6 +11,10 @@ Route::get("/doc", function(){
 	return View::make("doc");
 });
 
+Route::get("/register", function(){
+    return View::make("user.register");
+});
+
 Route::get("/isa", function(){
 	return View::make("project.upload");
 });
@@ -62,6 +66,7 @@ Route::get('category/show/{id}', 'CategoryController@show');
 Route::get('state/show/{id}', 'StateController@show');
 Route::get('city/show/{id}', 'CityController@show');
 Route::get('/user/show', 'UserController@show');
+
 Route::get('/users/search', function(){
 	return View::make("user.search");
 });
