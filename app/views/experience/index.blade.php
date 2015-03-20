@@ -117,12 +117,13 @@
                     </div>
 
                     <?php
-                      $durations = explode("-", $experience->duration);
+                     $duration = array_pad(explode('-', $experience->duration, 2), 2, $experience->duration);
+
                     ?>
 
                    <div class="ex_float edit_this">
-                    {{ Form::text('from', $durations[0], Input::old('name')) }}
-                    {{ Form::text('to', $durations[1], Input::old('name')) }}
+                    {{ Form::text('from', $duration[0], Input::old('name')) }}
+                    {{ Form::text('to', $duration[1], Input::old('name')) }}
 
                       <img src="../img/icons/edit/time.PNG"/>
                   </div>
@@ -226,7 +227,7 @@
             </div>
           </div>
         </div>
-      </div>
+ 
   <!-- </Lägg till ny referens>  -->
   
     @endforeach

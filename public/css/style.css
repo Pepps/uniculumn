@@ -563,14 +563,14 @@ ortnamn ska få plats */
 	padding: 0.4vw;
 	width: 6.6vw;
 	margin-right: 0.2vw;
-	margin-left: 0.25vw;
+	margin-left: 0.24vw;
 	border: 0.1vw solid #56c5cc;
 	float: right;
 	font-size: 0.8vw;
 }
 
 #change-state-select {
-	width: 6.61vw;
+	width: 6.53vw;
 }
 
 /* Styling för inputs i erfarenhets-redigering */
