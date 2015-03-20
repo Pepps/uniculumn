@@ -5,7 +5,7 @@
     <title>uniculum.se</title>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     {{ HTML::style('css/style.css') }}
-    
+
     {{ HTML::script('javascript/jspdf/jspdf.js') }}
     {{ HTML::script('javascript/jspdf/jspdf.plugin.from_html.js') }}
     {{ HTML::script('javascript/jspdf/jspdf.plugin.split_text_to_size.js') }}
@@ -26,8 +26,5 @@
     {{ HTML::script('javascript/user_jquery.js') }}
     {{ HTML::script('javascript/urlgen.js') }}
     {{ HTML::script('javascript/ajax.js') }}
-    <script src="https://apis.google.com/js/client:platform.js" async defer></script>
-
-
 </body>
 </html>

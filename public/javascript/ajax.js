@@ -42,6 +42,22 @@ $(function(){
             $('#input-collaborators').val("");
         }
     });
+
+    $(".delete_btn").on("click", function(){
+      var THIS = $(this);
+      //console.log($(this).parent().parent());
+      if(confirm("är du säker på att du vill ta bort?")){
+        console.log($(THIS).parent().find(".proj_id").text());
+        $.ajax({
+            type    : 'GET',
+            url     : '/project/delete/'+$(THIS).parent().find(".proj_id").text(),
+            success : function() {
+              $(THIS).parent().parent().remove();
+            }
+        });
+      }
+    });
+    
 });
 
 $(document).on('click','.remove', function() {
@@ -126,7 +142,7 @@ function categoryShow(id) {
                 else {
                     subcategories.splice(jQuery.inArray($(this).val(), subcategories),1);
                 }
-              
+
                 $('#subcategory_id').val("");
                 $('#subcategory_id').val(subcategories.toString().replace(new RegExp(",","g"), "-"));
                 console.log($('#subcategory_id').val());

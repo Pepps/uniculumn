@@ -42,11 +42,10 @@
                       @if(!$nocity)
                         @if($state->id == City::find($user->city_id)->state_id)
                           <option value="{{ $state->id }}" selected >{{$state->name}}</option>
-                        @else
-                          <option value="{{ $state->id }}">{{$state->name}}</option>
                         @endif
                       @else
-                    @endif
+                        <option value="{{ $state->id }}">{{$state->name}}</option>
+                      @endif
                     @endforeach
             </select>
                 {{ Form::select('city', array('0' => 'Välj din stad'), Input::old('state'), array('class' => 'form-control', 'id' => 'cities')) }}
