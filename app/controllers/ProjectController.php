@@ -85,23 +85,28 @@ class ProjectController extends \BaseController {
 	public function show($project_id){
 			$Project = Project::find($project_id);
 			$pdir = app_path() . "/projects/" . Auth::user()->pdir;
-			$files = File::allFiles($pdir);
+
 
       return View::make('project.show')
           ->with('project', $Project)
 					->with('categories', $Project->category)
 					->with('users', $Project->user)
-					->with('projects',User::find(Auth::user()->id)->project)
-					->with('pdirs', $files)
-					->with('download', Response::download($pdir, $files));
-
-
+					->with('projects',User::find(Auth::user()->id)->project);
 	}
 
 	/* 
 		This method is responsible for enabling downloading the 
 		files/projects that are shown in the show projects page.
 	 */
+
+		public function getFiles() {
+				$pdir = app_path() . "/projects/" . Auth::user()->pdir;
+				$files = File::allFiles($pdir);
+
+			foreach($files as $file) {
+				return Response::download($pdir, $file);
+			}
+		}
 
 	/*
 		The method responsible for redering the view for the project/{id}/edit and
