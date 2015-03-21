@@ -32,6 +32,7 @@ Route::get('/profile/{id}', "UserController@index");
 Route::post('apply/upload', 'ProjectController@store');
 Route::post('/user/update/{id}', "UserController@update");
 
+
 Route::post('/user/update_password/{id}', "UserController@update_password");
 Route::post('/user/update_description/{id}', "UserController@update_description");
 Route::post('/user/update_interest/{id}', "UserController@update_interest");
@@ -49,16 +50,20 @@ Route::get('/project/delcolab/{project_id}/{colab_id}', "ProjectController@delet
 Route::get('/project/getusers/{id}', "ProjectController@getcolabs");
 
 Route::get('/project/showfiles/{id}', "ProjectController@showfiles");
-Route::get('/project/getfiles/{id}', "ProjectController@getfiles");
+Route::get('/project/show/{id}', "ProjectController@show");
+Route::get('/project/getfiles/{id}', "ProjectController@getFiles");
 Route::get('/project/readfile/{id}', "ProjectController@readfile");
+
 
 /* Routes for experiences */
 Route::resource('experience', "ExperienceController");
+
 Route::resource('reference', "ReferenceController");
 Route::post('/reference/{id}', "ReferenceController@store");
 Route::get('/reference/{id}', "ReferenceController@index");
 Route::post('/experience/{id}/update', "ExperienceController@update");
 Route::get('/experience/{id}/deleteExp/', "ExperienceController@deleteExp");
+
 Route::get('/reference/{id}/deleteRef/', "ReferenceController@destroy");
 
 Route::get('/state/{id}/', "ExperienceController@getcities");

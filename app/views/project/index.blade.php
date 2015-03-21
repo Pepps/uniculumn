@@ -32,7 +32,7 @@
                   <div class="ex_button edit_experience">{{ HTML::image('img/icons/edit/edit.PNG') }}</div>
                   <div class="ex_button edit_references">{{ HTML::image('img/icons/edit/add.PNG') }}</div>
                 @endif
-                <div class="ex_button">{{ HTML::image('img/icons/edit/search.PNG') }}</div>
+                <a href="{{ URL::to('/project/' . 'show/' . $value->id ) }}"><div class="ex_button">{{ HTML::image('img/icons/edit/search.PNG') }}</div></a>
 
                 <!-- <Spara ändringar>  -->
                 <div class="ignore_ref_edit edit_this">Stäng</div>

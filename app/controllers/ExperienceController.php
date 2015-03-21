@@ -17,6 +17,7 @@ class ExperienceController extends \BaseController {
 		foreach($experience as $value) {
 			array_push($ids, $value -> city_id);
 		}
+
 	  		return View::make("experience.index")
 	  		->with('experiences', $experience)
 	  		->with('cities', City::findMany($ids))
@@ -82,11 +83,7 @@ class ExperienceController extends \BaseController {
 
 	//Delete the experiences
 	public function deleteExp($id) {
-		$experience = Experience::find($id);
-		$experience->delete();
 
-		Session::flash('message', 'Successfully deleted Experience');
-		return Redirect::to('experience');
 	}
 
 
@@ -166,7 +163,11 @@ class ExperienceController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$experience = Experience::find($id);
+		$experience->delete();
+
+		Session::flash('message', 'Successfully deleted Experience');
+		return Redirect::to('experience');
 	}
 
 

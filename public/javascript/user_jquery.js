@@ -10,7 +10,7 @@ $(".edit_references").on('click', function(){
     $(' #first_name, #last_name, #phone_number, #email_address').attr("disabled", false);
      $(this).closest('.ex_column').find('.show_references').css("display", "none");
      $(this).closest('.ex_column').find('.allreferences').hide();
-      });
+});
 
 $(".delete_member").on('click', function(){
      var THIS = $(this);
@@ -27,7 +27,7 @@ $(".delete_member").on('click', function(){
 });
 
 $(".delete_reference").on('click', function(){
-    $(this).parent().remove();
+    $(this).parent().show();
 });
 
 $(".edit_tags").on('click', function(){
@@ -290,6 +290,18 @@ $(".edit_icon").mouseenter(function(){
       $(".registration_box").hide();
         $(".welcome_box").show('slide',{direction:'right'},700);
       });
+
+$(".hide_these_members").on('click', function(){
+
+   if ( $('.project_members_square').css("display") == "none") {
+        $('.project_members_square').fadeIn(500);
+        $('.hide_these_members').html('Dölj projektmedlemmar');
+              }
+       else {
+        $('.project_members_square').fadeOut(800);
+        $('.hide_these_members').html('Visa projektmedlemmar');
+            }
+  });
 
 
   });

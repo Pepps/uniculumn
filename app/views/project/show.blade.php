@@ -1,57 +1,60 @@
 @extends('layouts.master')
 
+@section('content')
+
 @include('layouts.nav')
 @yield('nav')
 
-@section('content')
+   <div id="main_content">
+    @foreach ($projects as $value)
+          <div class="view_this_project_wrapper">
+                  <h1>{{ $project->title }}</h1>
 
-        <div id="main_content">
-          <div class="projet_plane" style="background-color:#2F4342;">
-            <div class"category_plane" style="background-color:#5DC8B9;">
-              <div class="s_categories_dark">
+<div class="view_this_project_files">
 
-            <div class="chosen_categories">
-                  @foreach ($categories as $value)
-                    <span class="label label-default">{{ $value->title }}</span>
-                  @endforeach<!--
-              <table>
-                <tr>
-                  <td class="td_category"><div class="category_view">Kategori_1</div></td>
-                  <td class="td_category"><div class="category_view">Kategori_2</div></td>
-                  <td class="td_category"><div class="category_view">Kategori_3</div></td>
-               </tr>
-              </table>
- -->
-            </div>
+    
+  <div class="view_these_files"> <h3>Filer</h3></div>
+  <a href="{{ URL::to('/project/getfiles/' . $value->id ) }}" class="file_list file_image">momo</a>
+  <div class="file_list file_code">snape_website.php</div>
+  <div class="file_list file_audio">snapesnape.mp3</div>
+  <div class="file_list file_video">musicvideo.mov</div>
+  <div class="file_list file_text">snapesdiary.txt</div>
+  <div class="file_list file_file">broken_file.csv</div>
+</div>
+  
 
-            </div>
+                <div class="view_this_project_members">
+          <div class="hide_these_members">Dölj projektmedlemmar</div>
+          <div class="view_this_date">Skapad: {{str_limit($project->created_at, $limit = 10, $end = '')}} </div>
+                  <div class="project_members_square">
+                    <img src="img/avatar.PNG"/><br/>
+                     <span style="color: #D6AB00;">{{ User::find($value->owner_id)->firstname }}</span>
+                      </div>
 
-            </div>
-            <div class="title">
-            </div>
+                    @foreach($value->users as $user)
+                    @if($user->id != $value->owner_id)
+                   <div class="project_members_square">
+                              <img src="img/avatar.PNG"/><br/>
+                                  {{ $user->firstname }} 
+                          </div>
+                            @endif
+                           @endforeach 
+                          <!--  dont remove -->
+                          <div style="clear: both;"></div>
 
-            <div class="time_stamp">2015-03-13</div>
-            <div class="text_description">{{ Markdown::parse($project->body) }}
-            </div>
-
-
-        </div>
-
-          <div class="file_folder" style="background-color:#2F4342;">
-          <div class="file_plane" style="background-color:#5DC8B9;">
-          <div class="s_folder_dark">
-            <div class="file_title">
-              Test
-            </div>
-            </div>
-            </div>
-            <div class="file_order">
-              TEst
-            </div>
-
-
-
+                </div>
+<div class="view_this_project_tags">
+                @foreach($value->category as $category)
+                  <span>#{{$category->title}}</span>
+                @endforeach
+</div>
+<div class="this_project_description"></div>
+<div class="view_this_project_description">
+{{ Markdown::parse($project->body) }}
+    </div>
+                </div>
+            @endforeach
       </div>
-      </div>
+
 
 @stop
