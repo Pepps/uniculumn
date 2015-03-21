@@ -91,7 +91,8 @@ class ProjectController extends \BaseController {
           ->with('project', $Project)
 					->with('categories', $Project->category)
 					->with('users', $Project->user)
-					->with('projects',User::find(Auth::user()->id)->project);
+					->with('projects',User::find(Auth::user()->id)->project)
+					->with('');
 	}
 
 	/* 

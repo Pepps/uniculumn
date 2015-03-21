@@ -11,10 +11,10 @@
                   <h1>{{ $project->title }}</h1>
 
 <div class="view_this_project_files">
-
+  
     
   <div class="view_these_files"> <h3>Filer</h3></div>
-  <a href="{{ URL::to('/project/getfiles/' . $value->id ) }}" class="file_list file_image">momo</a>
+  <a href="{{ URL::to('/project/getfiles/' . $value->id ) }}" class="file_list file_image"></a>
   <div class="file_list file_code">snape_website.php</div>
   <div class="file_list file_audio">snapesnape.mp3</div>
   <div class="file_list file_video">musicvideo.mov</div>
