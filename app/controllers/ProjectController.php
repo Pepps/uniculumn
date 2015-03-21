@@ -84,8 +84,7 @@ class ProjectController extends \BaseController {
 	*/
 	public function show($project_id){
 			$Project = Project::find($project_id);
-			$filename = 
-			$pdir = app_path() . "/projects/" . Auth::user()->pdir . Input::get('title') . File::get($filename);
+			$pdir = app_path() . "/projects/" . Auth::user()->pdir;
 			$files = File::allFiles($pdir);
 
       return View::make('project.show')
