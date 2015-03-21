@@ -36,7 +36,6 @@
                 </div><hr>
 
                  <h2>Mina projekt</h2>
-                 @if(sizeOf($projects) != 0)
                    @foreach($projects as $project)
                     <div class="project_description">
                       <div class="icon audio"></div>
@@ -45,7 +44,6 @@
                        <a href="">Läs mer...</a>
                     </div>
                     @endforeach
-                  @endif
             </div>
 
 
@@ -55,69 +53,30 @@
                    <div id="interests">
 
                        <h2>Intresserad av</div></h2>
-                        @if(sizeOf($usedcategories) != 0)
                           @foreach($usedcategories as $category)
                             <span class="hashtag">{{ $category->title }}</span>
                           @endforeach
-                        @endif
                      </div>
 
                     <div id="my_experiences">
                         <h2>Utbildningar</h2>
-                        @if(sizeOf($experience) != 0)
                           @foreach($experience as $xp)
                             @if ($xp->type == 1)
-                              {{ $xp->location }}
-                              {{ $xp->descripton }}
+                              <h3>{{ $xp->location }}</h3>
+                              <h4>{{ $xp->description }}</h4>
                             @endif
                           @endforeach
-                        @endif
 
-                        <h2>Anställningar</div></h2>
-                        @if(sizeOf($experience) != 0)
+
+                        <h2>Anställningar</h2>
                           @foreach($experience as $xp)
                             @if ($xp->type == 0)
-                              {{ $xp->location }}
-                              {{ $xp->descripton }}
+                              <h3>{{ $xp->location }}</h3>
+                              <h4>{{ $xp->description }}</h4>
                             @endif
                           @endforeach
-                        @endif
                     </div>
 
           </div>
-
-
-
-
         </div>
-
-<script>
-
-  window.onload = function(){
-
-      $("#delmodal-btn").on("click", function(){
-        $('#delete').modal('show');
-        $('.modal-backdrop').css( "zIndex", -1030 );
-        $("#delete-pt").text($(this).parent().parent().find(".pt").text());
-        $('#del-btn').attr('href','/project/delete/'+$(this).parent().parent().find(".pi").text());
-      });
-
-  }
-
-</script>
-<!--
-<div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-body">
-        <h4 style="text-align:center;">Är du säker på att du vill ta bort <b><span id="delete-pt"></span></b>?</h4>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Stäng</button>
-        <a class="btn btn-danger" id="del-btn">Ta bort!</a>
-      </div>
-    </div>
-  </div>
-</div>
- -->
 @stop
