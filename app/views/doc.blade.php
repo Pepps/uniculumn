@@ -1,10 +1,10 @@
 @extends('layouts.master')
 @section('content')
 
-      <div id="main_content">
+@include('layouts.nav')
+@yield('nav')
 
-        <!-- Filip vet vad han ska göra med den här, den ska bort och så ska funktionen flyttas till radioknapparna //isa noob -->
-        <div style="width: 1vw; height: 1vw; background: red; float: left;" id="clickyes"></div>
+      <div id="main_content">
 
         <div class="url_wrapper">
           <img src="img/search.PNG" style="width: 0.7vw; height: 0.7vw; margin-right: 0.5vw;"/><span id="url"></span><br/><br/>

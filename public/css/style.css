@@ -2165,14 +2165,17 @@ upload_interests img {
 	color:white;
 }
 #search{
-	width: 242px;
-	height: 30px;
-	padding: 2px;
-  text-align: center;
-	border: 2px solid #B8B8B8;
-	border-radius: 10px;
-	background: #D8D8D8;
+	margin: 0;
+  margin-top: 0.5vw;
+
 }
+
+#cv-wrapper{
+  margin-top: 1vw;
+  margin-left: 10vw;
+  width: 60vw;
+}
+
 #submit{
 	width: 50px;
 	height: 30px;
@@ -2187,7 +2190,6 @@ upload_interests img {
 
 
 #body {
-	border:2px solid gray;
 	width: 700px;
 	height: auto;
 	margin-left:auto;
@@ -2248,7 +2250,7 @@ text-align: center;
 	width: 15vw;
 	color: #c0d4d5;
 	font-size: 0.8vw;
-	padding: 0.5vw 0.5vw 0.5vw 2vw; 
+	padding: 0.5vw 0.5vw 0.5vw 2vw;
 	height: 1vw;
 	background-position: top left;
 	background-repeat: no-repeat;
@@ -2404,19 +2406,22 @@ text-align: center;
 .cv_src_name {
 	width: 65%;
 	text-align: left;
-} 
+}
 .cv_src_profile {
 	width: 15%;
 	padding: 0.5vw;
 	cursor: pointer;
-} 
+}
 .cv_src_cv {
 	width:15%;
 	cursor: pointer;
-} 
+}
 
 .cv_src_face {
 	width:10%;
-} 
+}
 
 
+#my_experiences{
+  margin-right: 3.5vw;
+}

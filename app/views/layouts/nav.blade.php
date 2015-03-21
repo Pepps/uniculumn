@@ -19,17 +19,7 @@
                 <a href="/user">{{ HTML::image('img/avatar.PNG','user picture', array('class' => 'user_picture')) }}</a>
 
                 <div class="username_holder">
-
                     <a href="/profile/{{Auth::user()->id}}"><span class="user_name">{{Auth::user()->firstname}} {{Auth::user()->lastname}}</span></a>
-                    <div class="arrow-down" id="clickmetoo">
-                      <div class="account_settings">
-                          Kontoinställningar<br/>
-                          <a href="/logout">Logga ut</a>
-                          <div class="arrow-up" id="hide_controlpanel"></div>
-
-                      </div>
-
-                    </div>
                 </div>
 
             </div>
