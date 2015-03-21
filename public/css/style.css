@@ -1003,7 +1003,7 @@ text-align: center;}
 .profile_picture {
 	width: 21vw;
 	height: 26vw;
-	background-image: url(../img/profile_picture.PNG);
+	background-image: url(../img/default_profile_picture.PNG);
 	background-size: 21vw;
 	margin-bottom: 1.5vw;
 }

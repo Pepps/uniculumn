@@ -11,10 +11,14 @@
               <div class="profile_picture">
               </div>
 
-              <h2>Kontaktuppgifter <a href="/user/{{$user->id}}/edit"><div class="edit_icon"></div></a></h2>
+              <h2>Kontaktuppgifter</h2>
               <div id="contact_information">
-                  <div class="contact_rows">Namn: {{ $user->firstname }}. </div>
-                  <div class="contact_rows">Ort: {{ $city->name }}.</div>
+                  <div class="contact_rows">Namn: {{ $user->firstname }} {{ $user->lastname }}. </div>
+                  <div class="contact_rows">Ort:
+                    @if($city != null)
+                      {{ $city->name }}.
+                    @endif
+                    </div>
                   <div class="contact_rows">Tel: {{ $user->phone }}.</div>
                   <div class="contact_rows">Email: {{ $user->email }}.</div>
                 }
@@ -25,22 +29,23 @@
 
          <div class="columnMiddle">
 
-             <h2>{{ $user->firstname }}</h2> <!--username-->
-                <a href="/cv/{{Auth::user()->id }}">Mitt CV</a>
+             <h2>{{ $user->firstname }} {{ $user->lastname }}</h2> <!--username-->
+                <a href="/cv/{{ $user->id }}">Mitt CV</a>
                 <div id="description"> <!--user personal description-->
                     {{ $user->description }}
-                  </div>
+                </div><hr>
 
-
-                 <h2>Mina projekt <div class="edit_icon"></div></h2>
-                 @foreach($projects as $project)
-                  <div class="project_description">
-                    <div class="icon audio"></div>
-                    <h2> {{ $project->title }} </h2>
-                      {{ $project->body }}
-                     <a href="">Läs mer...</a>
-                  </div>
-                  @endforeach
+                 <h2>Mina projekt</h2>
+                 @if(sizeOf($projects) != 0)
+                   @foreach($projects as $project)
+                    <div class="project_description">
+                      <div class="icon audio"></div>
+                      <h2> {{ $project->title }} </h2>
+                        {{ $project->body }}
+                       <a href="">Läs mer...</a>
+                    </div>
+                    @endforeach
+                  @endif
             </div>
 
 
@@ -49,28 +54,34 @@
 
                    <div id="interests">
 
-                       <h2>Intresserad av <div class="edit_icon"></div></h2>
-                        @foreach($usedcategories as $category)
-                          <span class="hashtag">{{ $category->title }}</span>
-                        @endforeach
+                       <h2>Intresserad av</div></h2>
+                        @if(sizeOf($usedcategories) != 0)
+                          @foreach($usedcategories as $category)
+                            <span class="hashtag">{{ $category->title }}</span>
+                          @endforeach
+                        @endif
                      </div>
 
                     <div id="my_experiences">
-                        <h2>Utbildningar <div class="edit_icon"></div></h2>
-                        @foreach($experience as $xp)
-                          @if ($xp->type == 1)
-                            {{ $xp->location }}
-                            {{ $xp->descripton }}
-                          @endif
-                        @endforeach
+                        <h2>Utbildningar</h2>
+                        @if(sizeOf($experience) != 0)
+                          @foreach($experience as $xp)
+                            @if ($xp->type == 1)
+                              {{ $xp->location }}
+                              {{ $xp->descripton }}
+                            @endif
+                          @endforeach
+                        @endif
 
-                        <h2>Anställningar <div class="edit_icon"></div></h2>
-                        @foreach($experience as $xp)
-                          @if ($xp->type == 0)
-                            {{ $xp->location }}
-                            {{ $xp->descripton }}
-                          @endif
-                        @endforeach
+                        <h2>Anställningar</div></h2>
+                        @if(sizeOf($experience) != 0)
+                          @foreach($experience as $xp)
+                            @if ($xp->type == 0)
+                              {{ $xp->location }}
+                              {{ $xp->descripton }}
+                            @endif
+                          @endforeach
+                        @endif
                     </div>
 
           </div>
@@ -80,26 +91,6 @@
 
         </div>
 
-
-
-
-<!-- will be used to show any messages -->
-<!--
-<table class="table table-striped table-bordered">
-  <tr><td>{{ $user->lastname }}</td></tr>
-  <tr><td>{{ $user->email }}</td></tr>
-  <tr><td>{{ $user->state }}</td></tr>
-  <tr><td>{{ $user->address }}</td></tr>
-  <tr><td>{{ $user->postnumber }}</td></tr>
-  <tr><td>{{ $user->phone }}</td></tr>
-  @if(!$nocity)
-    <tr><td>{{ $state->name }}</td></tr>
-    <tr><td>{{ $city->name }}</td></tr>
-  @endif
-</table>
-
-<a class="btn btn-small btn-info" href="user/{{$user->id}}/edit">Redigera</a>
- -->
 <script>
 
   window.onload = function(){

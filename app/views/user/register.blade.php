@@ -11,8 +11,9 @@
     <div>
       <div id = "box">
         <h1>Skapa ett konto</h1>
+        {{ HTML::ul($errors->all()) }}
         <div id="form">
-          {{ Form::open(array('url' => 'register_action','action' => 'AuthController@store', 'method' => 'post')) }}
+          {{ Form::open(array('url' => '/register_action','action' => 'AuthController@store', 'method' => 'post')) }}
           {{Form::label('fname', 'Förnamn')}}<br>
           {{Form::text('fname')}}<br/>
           {{Form::label('lname', 'Efternamn')}}<br>
@@ -34,4 +35,3 @@
   </center>
 </div>
 @stop
-

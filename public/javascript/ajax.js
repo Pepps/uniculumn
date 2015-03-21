@@ -104,7 +104,7 @@ function createSearchDom(id,firstname,lastname){
     '<tr>'+
       '<td class="cv_src_face"><img src="/img/avatar.PNG"></td>'+
       '<td class="cv_src_name"><span>'+firstname+' '+lastname+'</span></td>'+
-      '<td class="cv_src_profile"><span><a href="/user">Profil »</a></span></td>'+
+      '<td class="cv_src_profile"><span><a href="/profile/'+id+'">Profil »</a></span></td>'+
       '<td class="cv_src_cv"><span><a href="/cv/'+id+'">CV »</a></span></td>'+
     '</tr>'
   );

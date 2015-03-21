@@ -49,7 +49,7 @@ class AuthController extends BaseController {
     );
 
     if ($validator->fails()){
-      return Redirect::to('/')->withErrors($validator);
+      return Redirect::to('/register')->withErrors($validator);
     }else{
       $pdir = Hash::make(Input::get('fname') . Input::get('lname') . date('Y/m/d'));
 

@@ -16,7 +16,7 @@ Route::get("/register", function(){
 });
 
 Route::get("/isa", function(){
-	return View::make("project.upload");
+	return "Snape Snape Snape... Dumbeldor!";
 });
 
 Route::get("/cv/{userid}", "CvController@index");
@@ -28,6 +28,7 @@ Route::get("/search/{option}/{key}/{val}/{extra}/{pretty}", "SearchController@in
 
 Route::resource('project', "ProjectController");
 Route::resource('user', "UserController");
+Route::get('/profile/{id}', "UserController@index");
 Route::post('apply/upload', 'ProjectController@store');
 Route::post('/user/update/{id}', "UserController@update");
 

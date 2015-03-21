@@ -4,23 +4,24 @@ class UserController extends BaseController {
         Author : Jesper
     */
 
-    public function index() {
+    public function index($id) {
 
-        $user   = User::find(Auth::user()->id);
+        $user = User::find($id);
+        //dd($user->project);
 
         if($user->city_id == null){
-          return View::make('user.index')->with('user', $user)->with("nocity", true)->with('projects', User::find(Auth::user())->project)
+          return View::make('user.index')->with('user', $user)->with("city", null)->with('projects', $user->project)
                             ->with('usedcategories', $user->categories)
-                            ->with('experience', $user->experience);
+                            ->with('experience', $user->experiences);
         }else{
           $city  = City::find($user->city_id);
           $state  = State::find($city->state_id);
 
           return View::make('user.index')->with('user', $user)->with("nocity", false)
             ->with('city', $city)->with('state', $state)
-            ->with('projects', User::find(Auth::user()->id)->project)
+            ->with('projects', $user->project)
             ->with('usedcategories', $user->categories)
-            ->with('experience', $user->experience);
+            ->with('experience', $user->experiences);
         }
     }
 
