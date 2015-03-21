@@ -84,7 +84,8 @@ class ProjectController extends \BaseController {
 	*/
 	public function show($project_id){
 			$Project = Project::find($project_id);
-			$pdir = app_path() . "/projects/" . Auth::user()->pdir;
+			$pdir = app_path() . "/projects/" . Auth::user()->pdir . "/" . $Project->title;
+			$files = File::allFiles($pdir);
 
 
       return View::make('project.show')
@@ -92,7 +93,7 @@ class ProjectController extends \BaseController {
 					->with('categories', $Project->category)
 					->with('users', $Project->user)
 					->with('projects',User::find(Auth::user()->id)->project)
-					->with('');
+					->with('file', $files);
 	}
 
 	/* 
@@ -100,14 +101,19 @@ class ProjectController extends \BaseController {
 		files/projects that are shown in the show projects page.
 	 */
 
-		public function getFiles() {
-				$pdir = app_path() . "/projects/" . Auth::user()->pdir;
+		public function getFiles($id, $filename) {
+				$project = Project::find($id);
+				$pdir = app_path() . "/projects/" . User::find($project->owner_id)->pdir . "/" . $project->title;
 				$files = File::allFiles($pdir);
 
-			foreach($files as $file) {
-				return Response::download($pdir, $file);
+
+				foreach ($files as $file) {
+					if(basename($file) == $filename) $download = $file; 
+
+				}
+				return Response::download($download);
 			}
-		}
+		
 
 	/*
 		The method responsible for redering the view for the project/{id}/edit and

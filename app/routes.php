@@ -51,7 +51,7 @@ Route::get('/project/getusers/{id}', "ProjectController@getcolabs");
 
 Route::get('/project/showfiles/{id}', "ProjectController@showfiles");
 Route::get('/project/show/{id}', "ProjectController@show");
-Route::get('/project/getfiles/{id}', "ProjectController@getFiles");
+Route::get('/project/getfiles/{id}/{filename}', "ProjectController@getFiles");
 Route::get('/project/readfile/{id}', "ProjectController@readfile");
 
 
