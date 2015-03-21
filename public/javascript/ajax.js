@@ -7,8 +7,6 @@ var inputId = [];
 
 categoryShow(0);
 
-ajax_city($("#state-select").val());
-
 $(function(){
     var bool = true;
 
@@ -59,20 +57,63 @@ $(function(){
     });
 
     $("#userserachbtn").on("click", function(){
-      console.log("test");
-      $.ajax({
-          type    : 'GET',
-          url     : '/users/search/'+$("#userserachval").val(),
-          dataType: 'json',
-          success : function(data) {
-            for(var i = 0; i < data.length; i++){
-              console.log(data['firstname']);
+      $(".cv_src_results").find("tr").remove();
+      if(checkEmail($("#userserachval").val())){
+        $.ajax({
+            type    : 'GET',
+            url     : '/search/user/user-email/'+$("#userserachval").val(),
+            dataType: 'json',
+            success : function(data) {
+              for(var i = 0; i< data.length; i++){
+                createSearchDom(data[i]["id"],data[i]["firstname"],data[i]["lastname"]);
+              }
+            },
+            error : function(data) {
+              console.error("somethang went wrong!");
             }
-          }
-      });
+        });
+      }else{
+        ajaxFirstLastName("firstname");
+      }
     });
 
 });
+
+function ajaxFirstLastName(type){
+  $.ajax({
+      type    : 'GET',
+      url     : '/search/user/user-'+type+'/'+$("#userserachval").val(),
+      dataType: 'json',
+      success : function(data) {
+        if(data.length == 0){
+          ajaxFirstLastName("lastname");
+        }else{
+          for(var i = 0; i< data.length; i++){
+            createSearchDom(data[i]["id"],data[i]["firstname"],data[i]["lastname"]);
+          }
+        }
+      },
+      error : function(data) {
+        console.error("somethang went wrong!");
+      }
+  });
+}
+
+function createSearchDom(id,firstname,lastname){
+  $(".cv_src_results").append(
+    '<tr>'+
+      '<td class="cv_src_face"><img src="/img/avatar.PNG"></td>'+
+      '<td class="cv_src_name"><span>'+firstname+' '+lastname+'</span></td>'+
+      '<td class="cv_src_profile"><span><a href="/user">Profil »</a></span></td>'+
+      '<td class="cv_src_cv"><span><a href="/cv/'+id+'">CV »</a></span></td>'+
+    '</tr>'
+  );
+}
+
+function checkEmail(str){
+  var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+  return regex.test(str);
+}
 
 $(document).on('click','.remove', function() {
     collaborators.splice($(this).data("id"),1);
@@ -168,11 +209,19 @@ function categoryShow(id) {
 }
 //Ajax script that gets cities from the DB depending on the state you select.
 
-function ajax_city() {
-  $("#state-select").on("change", function() {
-
+function ajax_city(id) {
+    $.ajax({
+      type: "GET",
+      dataType: "json",
+      url: "/state/"+id,
+    }).done(function(data) {
+      $('#cities').empty();
+      for(var i = 0; i < data.length; i++) {
+       $('#cities').append("<option value='"+data[i].id+"'>"+data[i].name+"</option>");
+        }
     });
 }
+/*
 function get_cities(stateselect, cities) {
   $(stateselect).on("change", function() {
     $.ajax({
@@ -188,11 +237,13 @@ function get_cities(stateselect, cities) {
   });
  });
 }
+
 //Ajax script that gets cities from the DB depending on the state you select.
 window.onload = function() {
     get_cities( '#state-select', '#cities');
     get_cities('#change-state-select', '#change-cities');
 }
+*/
 function stateShow(id) {
     $.ajax({
         type    : "GET",
@@ -229,12 +280,11 @@ $(document).on('change', '#categories-select', function(e) {
     ajax_subcategories($(this).val());
 });
 
-/*
 $(document).on('change', '#state-select', function(e) {
     e.preventDefault(e);
     ajax_city($("#state-select").val());
 });
-*/
+
 $(document).on('change', '#project_category', function(e) {
     e.preventDefault(e);
     categoryShow($("#project_category").val());

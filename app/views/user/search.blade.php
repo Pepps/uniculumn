@@ -26,26 +26,7 @@
               <div id="profile_wrapper">
         <h2>Sökresultat</h2>
 
-        <table class="cv_src_results">
-        <tr>
-        <td class="cv_src_face">{{ HTML::image('img/avatar.PNG') }}</td>
-          <td class="cv_src_name"><span>Albus-Brian-Wulfric Dumbledore</span></td>
-          <td class="cv_src_profile"><span>Profil »</span></td>
-          <td class="cv_src_cv"><span>CV »</span></td>
-        </tr>
-        <tr>
-        <td class="cv_src_face">{{ HTML::image('img/avatar.PNG') }}</td>
-          <td class="cv_src_name"><span>Ronald Weasley</span></td>
-          <td class="cv_src_profile"><span>Profil »</span></td>
-          <td class="cv_src_cv"><span>CV »</span></td>
-        </tr>
-        <tr>
-        <td class="cv_src_face">{{ HTML::image('img/avatar.PNG') }}</td>
-          <td class="cv_src_name"><span>Harry Potter</span></td>
-          <td class="cv_src_profile"><span>Profil »</span></td>
-          <td class="cv_src_cv"><span>CV »</span></td>
-        </tr>
-        </table>
+        <table class="cv_src_results"></table>
 
       </div>
 
