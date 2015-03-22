@@ -9,6 +9,7 @@
             <a href="/users/search" ><h2><div class="arrow-right"></div>Sök efter användare</h2></a>
             <a href="/doc" ><h2><div class="arrow-right"></div>Avancerad sökning</h2></a>
             <a href="/user/{{ Auth::user()->id }}/edit"><h2><div class="arrow-right"></div>Kontoinställningar</h2></a>
+            <a href="/api"><h2><div class="arrow-right"></div>API Dokumentation</h2></a>
             <a href="/logout"><h2><div class="arrow-right"></div>Logga ut</h2></a>
 </div>
 

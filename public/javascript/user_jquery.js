@@ -143,14 +143,14 @@ $('input:radio[name="type"]').on('click', function(){
 
 $('input:radio[value="1"]').on('click', function(){
  $(".employerTitle").text("Skola");
- $(".employmentDescription").text("Utbildning");
+ $(".employmentDescription").text("Beskrivning");
  $("#exp_description").removeClass('other_icon education_icon employment_icon').addClass('education_icon');
  $("#exp_employer").removeClass('other_icon merits_icon school_icon employer_icon').addClass('school_icon');
 });
 
 $('input:radio[value="0"]').on('click', function(){
  $(".employerTitle").text("Arbetsgivare");
- $(".employmentDescription").text("Arbetsbeskrivning");
+ $(".employmentDescription").text("Beskrivning");
  $("#exp_description").removeClass('other_icon education_icon employment_icon').addClass('employment_icon');
  $("#exp_employer").removeClass('other_icon merits_icon school_icon employer_icon').addClass('employer_icon');
 });
@@ -302,6 +302,5 @@ $(".hide_these_members").on('click', function(){
         $('.hide_these_members').html('Visa projektmedlemmar');
             }
   });
-
 
   });

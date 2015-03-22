@@ -1,4 +1,4 @@
-<?php
+w<?php
 
 class ReferenceController extends \BaseController {
 

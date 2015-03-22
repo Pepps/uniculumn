@@ -3,10 +3,12 @@
 
 @include('layouts.nav')
 @yield('nav')
+
 <div id="main_content">
+
   <div id="add_new_experience">
     <h1>+ Lägg till en erfarenhet</h1>
-           {{ HTML::ul($errors->all()) }}
+
         {{ Form::open(array('url' => 'experience', 'method'=>'post')) }}
 
          <div id="exp_types">
@@ -19,14 +21,27 @@
 
 
           <div class="things">
+                    @foreach ($experiences as $experience)
+                    <?php 
+                     $titles = array_pad(explode('-', $experience->location, 2), 2, $experience->location);
+
+                    ?>
+                    @endforeach
                   <div class="upload_column">
                       <div class="dark_icon employer_icon" id="exp_employer"></div>
                           <h3 class="employerTitle">Arbetsgivare</h3>
-                             {{ Form::text('location', Input::old('name'), array('class' => 'form-control')) }}
+                             {{ Form::text('location', $titles[0], Input::old('name'), array('class' => 'form-control')) }}
                   </div>
 
                   <div class="upload_column">
                     <div class="dark_icon employment_icon" id="exp_description"></div>
+
+                          <h3>Titel</h3>
+                             {{ Form::text('title', $titles[1], Input::old('name'), array('class' => 'form-control')) }}
+                  </div>
+
+                  <div class="upload_column">
+                      <div class="dark_icon employer_icon" id="exp_employer"></div>
                         <h3 class="employmentDescription">Arbetsbeskrivning</h3>
                            {{ Form::text('description', Input::old('name'), array('class' => 'form-control')) }}
                     </div>
@@ -49,7 +64,7 @@
                         </div>
                       <div class="time_separator" >
                       <h3>Stad</h3>
-                        {{ Form::select('cities', array('0' => 'Select a city'), Input::old('cities'), array('class' => 'form-control', 'id' => 'cities')) }}
+                        {{ Form::select('cities',array('0' => 'Select a city'), Input::old('cities'), array('class' => 'form-control', 'id' => 'cities')) }}
                       </div>
                   </div>
 
@@ -63,19 +78,19 @@
                   </div>
 
       {{ Form::submit('Lägg till erfarenhet', array('class' => 'submit_project')) }}
-           {{ HTML::ul($errors->all()) }}
-    {{ Form::close() }}
 
+    {{ Form::close() }}
+           {{ HTML::ul($errors->all()) }}
            </div>
 
       </div>
-
+ 
 
           <h1>Mina erfarenheter</h1>
-
+         @foreach ($experiences as $experience)
       <div id="my_experience">
 
-          @foreach ($experiences as $experience)
+
           <div class="ex_column">
             @if ($experience->type === '0')
                
@@ -207,6 +222,7 @@
 
       <div class="ref_column">
         {{ Form::open(array('url' => '/reference/' . $experience->id, 'method'=>'post')) }}
+
           {{ Form::text('expid',$experience->id, Array('style' => 'display:none;') ) }}
 
            <h3> Förnamn</h3>
@@ -220,13 +236,14 @@
               <h3>Telefon </h3>
               {{ Form::text('phone', Input::old('name'), array('class' => 'references_input')) }}
               <br/>
-              <div class="addreference">
 
-              {{ Form::submit('', array('class' => 'blue_submit', 'style')) }}
-            </button>
-       
+
+                <button class="addreference blue_submit">
+                Lägg till
+                
                 {{ Form::close() }}
-              </div>
+              </button>
+
               <div class="clearreference">
                 Ta bort
               </div>

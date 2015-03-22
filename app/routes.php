@@ -77,6 +77,10 @@ Route::get('/users/search', function(){
 	return View::make("user.search");
 });
 
+Route::get('/api', function() {
+	return View::make("api");
+});
+
 Route::get('/users/search/{searchkey}', "UserController@search");
 
 Route::get('/register', function(){
