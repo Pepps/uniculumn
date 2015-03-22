@@ -10,6 +10,32 @@ categoryShow(0);
 $(function(){
     var bool = true;
 
+    /* classes for witch list.js is doing sorting after */
+    var options = {
+      valueNames: [ 'exptitle', 'year', 'expdesc' ]
+    };
+
+    /*
+      creates a new instance of list.js and passes it the element we whant to sort in
+      and the options declared abave.
+    */
+    var userList = new List('cv-wrapper', options);
+
+    var doc = new jsPDF();
+    var elementHandler = {
+      '#inputs': function (element, renderer) {
+        return true;
+      }
+    };
+
+    document.getElementById("pdf").addEventListener("click",function(e){
+      e.preventDefault();
+
+      var source = document.getElementById("cv-wrapper");
+      doc.fromHTML(source,15,15,{'width': 180, 'elementHandlers': elementHandler});
+      doc.output("dataurlnewwindow");
+    });
+
     $.ajax({
         type    : 'GET',
         url     : '/user/show',

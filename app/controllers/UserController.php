@@ -7,7 +7,6 @@ class UserController extends BaseController {
     public function index($id) {
 
         $user = User::find($id);
-        //dd($user->experience);
 
         if($user->city_id == null){
           return View::make('user.index')->with('user', $user)->with("city", null)->with('projects', $user->project)
@@ -35,8 +34,11 @@ class UserController extends BaseController {
         $user = User::find(Auth::user()->id);
         if($user->city_id == null){$nocity = true;}else{$nocity = false;}
 
-        return View::make('user.edit')->with('user', User::find($id))->with("nocity", $nocity)->with("states", State::all())
-                            ->with('usedcategories', $user->categories);
+        return View::make('user.edit')->with('user', User::find($id))
+                                      ->with("nocity", $nocity)
+                                      ->with("states", State::all())
+                                      ->with("cities", City::all())
+                                      ->with('usedcategories', $user->categories);
     }
 
     public function update($id) {
@@ -53,7 +55,7 @@ class UserController extends BaseController {
 
         Session::flash('message', 'Successfully updated User!');
 
-        return Redirect::to('/user');
+        return Redirect::to('/user/'. $id .'/edit');
     }
 
     public function update_password($id) {
