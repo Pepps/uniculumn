@@ -2,6 +2,7 @@
     width:71%;
     margin:0 auto;
     text-align: center;
+    background: url(img/background_gradient.PNG) transparent top repeat-x;
 }
 
 h1 {

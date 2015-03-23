@@ -3,6 +3,7 @@
     margin:0 auto;
     text-align: center;
     font-family: "calibri light";
+    background: url(img/background_gradient.PNG) transparent top repeat-x;
 }
 #roligbox{
     width: 600px;
