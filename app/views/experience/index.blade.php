@@ -21,14 +21,26 @@
 
 
           <div class="things">
+                    @if (!$experiences)
+
                     @foreach ($experiences as $experience)
+
                     <?php 
+
                      $titles = array_pad(explode('-', $experience->location, 2), 2, $experience->location);
 
                     ?>
                     @endforeach
+                    @else
+                    <?php
+                    $titles = ["", ""];
+                    ?>
+
+                    
+                    @endif
                   <div class="upload_column">
                       <div class="dark_icon employer_icon" id="exp_employer"></div>
+
                           <h3 class="employerTitle">Arbetsgivare</h3>
                              {{ Form::text('location', $titles[0], Input::old('name'), array('class' => 'form-control')) }}
                   </div>
@@ -130,7 +142,7 @@
                     </select>
 
                     </div>
-
+                    
                     <?php
                      $duration = array_pad(explode('-', $experience->duration, 2), 2, $experience->duration);
 
