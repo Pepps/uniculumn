@@ -2,7 +2,7 @@
 @section('content')
 <style>
   body {
-    background: #fff;
+    background: url(img/background_gradient.PNG) transparent top repeat-x;
   }
 </style>
 <div class="index">

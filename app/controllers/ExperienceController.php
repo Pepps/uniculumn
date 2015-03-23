@@ -4,8 +4,9 @@ class ExperienceController extends \BaseController {
 
 	/*
 		This method is responsible for defining the different variables in the /experience/index.blade.php view.
-		That are then looped out in the view in order to get specific data from the database. 
+		That are then looped out in the view in order to get specific data from the database.
 		variables are experiences, cities, user and states.
+
 	*/
 	public function index()
 	{
@@ -31,9 +32,9 @@ class ExperienceController extends \BaseController {
 
 
 	/*
-		This method is responsible for adding the input field data into the database. 
-		Whenever an experience is created, it will go through this method, first the validator 
-		and then "store" the inputs if the validation goes through. 
+		This method is responsible for adding the input field data into the database.
+		Whenever an experience is created, it will go through this method, first the validator
+		and then "store" the inputs if the validation goes through.
 	*/
 	public function store()
 	{
@@ -123,8 +124,6 @@ class ExperienceController extends \BaseController {
 				$duration = Input::get('from');
 			}
 
-	
-
 			$experience = Experience::find($id);
 			$experience->location = Input::get('location');
 			$experience->description = Input::get('description');
@@ -140,6 +139,5 @@ class ExperienceController extends \BaseController {
 
 
 	}
-
 
 }
