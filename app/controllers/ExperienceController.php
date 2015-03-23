@@ -2,17 +2,10 @@
 
 class ExperienceController extends \BaseController {
 
-	/**
-	 * Display a listing of the resource.
-	 * GET /experience
-	 *
-	 * @return Response
-	 */
 	/*
 		This method is responsible for defining the different variables in the /experience/index.blade.php view.
 		That are then looped out in the view in order to get specific data from the database. 
-		variables:
-
+		variables are experiences, cities, user and states.
 	*/
 	public function index()
 	{
@@ -37,12 +30,11 @@ class ExperienceController extends \BaseController {
 
 
 
-	/**
-	 * Store a newly created resource in storage.
-	 * POST /experience
-	 *
-	 * @return Response
-	 */
+	/*
+		This method is responsible for adding the input field data into the database. 
+		Whenever an experience is created, it will go through this method, first the validator 
+		and then "store" the inputs if the validation goes through. 
+	*/
 	public function store()
 	{
 			if (Input::has('to')) {
@@ -109,6 +101,9 @@ class ExperienceController extends \BaseController {
 	}
 
 
+	/*
+		This method is responsible for getting all the cities via the states.
+	*/
 	public function getcities($id) {
 		$input = Input::get('option');
 		$cities = DB::table('cities')->where("state_id",  "=", $id, $input )->get();
@@ -116,20 +111,10 @@ class ExperienceController extends \BaseController {
 		return json_encode($cities);
 	}
 
-	public function edit($id)
-	{
-		// $experience = Experience::find($id);
+	/*
+		This method is responsible for editing of the experiences
+	*/
 
-		// return View::make('experience.index')->with('edit', $experience);
-	}
-
-	/**
-	 * Update the specified resource in storage.
-	 * PUT /experience/{id}
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
 	public function update($id)
 	{
 			if (Input::has('to')) {
@@ -137,37 +122,15 @@ class ExperienceController extends \BaseController {
 			} else {							
 				$duration = Input::get('from');
 			}
-		//Rules for input fields
-		// $validator =	Validator::make(
-		// array(
-		// 	'location'	 			=> Input::get('location'),
-		// 	'description'	 		=> Input::get('description'),
-		// 	'type'	 				=> Input::get('type'),
-		// 	'from' 					=> Input::get('from'),
-		// 	'to'					=> Input::get('to'),
-		// 	),
-		// array(
-		// 	'description' 				=> 'required|max:255',
-		// 	'type'	 					=> 'required',
-		// 	'from' 						=> 'required|max:5',
-		// 	'to'						=> 'max:5',
-		// 	//'subcategory_id'            => 'required'			
-		// 	)
-		// );
-		//Validation
-		// if ($validator->fails()) {
-  //         return Redirect::to('experience')
-  //             ->withErrors($validator);
-		// }else {
+	
 			$experience = Experience::find($id);
-			// dd($experience);
 			$experience->location = Input::get('location');
 			$experience->description = Input::get('description');
 			$experience->type = Input::get('type');
 			$experience->duration = $duration;
 			$experience->city_id = Input::get('change-cities');
 			$experience->user_id = Auth::user()->id;
-			//$experience->category_id = Input::get('category');
+
 
 			$experience->save();
 

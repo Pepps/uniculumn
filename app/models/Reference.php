@@ -8,7 +8,7 @@ class Reference extends Eloquent
 		return $this->belongsToMany('User');
 	}
 
-	// A reference has one experience.
+	// A reference belongs to experience.
 	public function experience() {
 		return $this->belongsTo('Experience');
 	}
@@ -18,7 +18,7 @@ class Reference extends Eloquent
 		return $this->hasMany('State');
 	}
 
-	// A reference has many cities.
+	// A reference belongs to cities.
 	public function cities() {
 		return $this->belongsTo('City');
 	}

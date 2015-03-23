@@ -16,7 +16,7 @@ class CreateExperiencesTable extends Migration {
 		{
 			/* This is the experiences table. */
 			$table->increments('id');
-			//Location is the actual place where the user has worked or studied. 
+			//Location is the actual place where the user has worked or studied and the title of the "eduation", "job", "merit", or "etc/övrigt" 
 			$table->string('location', 100);
 			// 0 is equal to job, 1 is equal to education,  and 2 is equal to merits, and 3 "övrigt". 
 			$table->integer('type');
