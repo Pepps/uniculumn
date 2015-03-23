@@ -6,6 +6,7 @@ class ExperienceController extends \BaseController {
 		This method is responsible for defining the different variables in the /experience/index.blade.php view.
 		That are then looped out in the view in order to get specific data from the database.
 		variables are experiences, cities, user and states.
+
 	*/
 	public function index()
 	{
