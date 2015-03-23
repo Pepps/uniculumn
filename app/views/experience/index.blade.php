@@ -25,7 +25,7 @@
 
                     @foreach ($experiences as $experience)
 
-                    <?php 
+                    <?php
 
                      $titles = array_pad(explode('-', $experience->location, 2), 2, $experience->location);
 
@@ -36,7 +36,7 @@
                     $titles = ["", ""];
                     ?>
 
-                    
+
                     @endif
                   <div class="upload_column">
                       <div class="dark_icon employer_icon" id="exp_employer"></div>
@@ -96,7 +96,7 @@
            </div>
 
       </div>
- 
+
 
           <h1>Mina erfarenheter</h1>
          @foreach ($experiences as $experience)
@@ -105,7 +105,7 @@
 
           <div class="ex_column">
             @if ($experience->type === '0')
-               
+
             <div class="ex ico_employment">Anställning</div>
  <h2 class="edit_this edit_column">Redigera anställning</h2>
             @elseif ($experience->type === '1')
@@ -121,7 +121,7 @@
 
                        <!-- <Plats/tid>  -->
                         <div class="ex_float hide_this exp_location">
-                          
+
                           {{ City::find($experience->city_id)->name }}
 
                          <img src="../img/icons/edit/location.PNG"/>
@@ -142,7 +142,7 @@
                     </select>
 
                     </div>
-                    
+
                     <?php
                      $duration = array_pad(explode('-', $experience->duration, 2), 2, $experience->duration);
 
@@ -161,24 +161,24 @@
 
 
                       <a onclick="return confirm('Är du säker på att du vill ta bort?')" href="{{ URL::to('/experience/' . $experience->id . '/deleteExp') }}"><div class="ex_button" style="background-color: #d70808;"><img src="../img/icons/edit/delete.PNG"/></div></a>
-                          
+
                         <div class="ex_button edit_experience"><img src="../img/icons/edit/edit.PNG"/></div>
                         <div class="ex_button edit_references"><img src="../img/icons/edit/add.PNG"/></div>
                                                     <!-- <Spara ändringar>  -->
-                                            
+
                     <button class="add_edit edit_this" style="border: none;">
-                        
+
                           Spara ändringar
 
                     </button>
        <div class="ignore_edit edit_this">
                         Ångra
                     </div>
-              
-               
+
+
 
                          <!-- </Spara ändringar>  -->
-            
+
 
                        <!-- </Kontrollknappar>  -->
 
@@ -201,11 +201,11 @@
                     <div class="edit_this">{{ Form::textarea('description', $experience->description, Input::old('name'), array('class' => 'edit_this')) }}</div>
                  <!-- </Redigera beskrivning>  -->
 
-                 </div> 
+                 </div>
 
           {{ Form::close() }}
 
-  <!-- <Referenser>  -->                         
+  <!-- <Referenser>  -->
     <div class="show_references">
       <img src="../img/small_menu.PNG"/> Visa referenser <br/>
     <div class="allreferences">
@@ -213,7 +213,7 @@
       @foreach ($experience->reference as $ref)
     <div class="ref_square">
       <a onclick="return confirm('Är du säker på att du vill ta bort?')" href="{{ URL::to('/reference/' . $ref->id . '/deleteRef') }}">
-    <div class="delete_reference">                     
+    <div class="delete_reference">
       <img src="../img/icons/edit/delete.PNG"/>
     </div></a>
       <img src="../img/references.PNG"/> {{ $ref->firstname }}  {{ $ref->lastname }}<br/>
@@ -227,9 +227,9 @@
 
 
 
-        
+
  </div>
-   <!-- <Lägg till ny referens>  -->  
+   <!-- <Lägg till ny referens>  -->
     <div class="references_choices">
 
       <div class="ref_column">
@@ -252,7 +252,7 @@
 
                 <button class="addreference blue_submit">
                 Lägg till
-                
+
                 {{ Form::close() }}
               </button>
 

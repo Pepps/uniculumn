@@ -67,8 +67,8 @@ class ExperienceController extends \BaseController {
 			'title'	 					=> 'required',
 			'description' 				=> 'required|max:255',
 			'type'	 					=> 'required',
-			'from' 						=> 'numeric|required|max:5',
-			'to'						=> 'numeric|max:5',
+			'from' 						=> 'required|max:5',
+			'to'						=> 'max:5',
 			'cities'					=> 'required',
 			//'subcategory_id'            => 'required'
 			)
