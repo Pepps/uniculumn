@@ -41,7 +41,7 @@
                       <div class="icon audio"></div>
                       <h2> {{ $project->title }} </h2>
                         {{ $project->body }}
-                       <a href="">Läs mer...</a>
+                       <a href="/project/show/{{ $project->owner_id }}">Läs mer...</a>
                     </div>
                     @endforeach
             </div>

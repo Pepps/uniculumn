@@ -28,8 +28,7 @@ $(function(){
       }
     };
 
-    document.getElementById("pdf").addEventListener("click",function(e){
-      e.preventDefault();
+    $("#pdf").on("click", function(){
 
       var source = document.getElementById("cv-wrapper");
       doc.fromHTML(source,15,15,{'width': 180, 'elementHandlers': elementHandler});
