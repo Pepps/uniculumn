@@ -9,12 +9,12 @@ class Experience extends Eloquent
 		return $this->belongsTo('User');
 	}
 
-	// An Experience has many different Categories.
+	// An Experience belongs to many different Categories.
 	public function category() {
 		return $this->belongsToMany('Category');
 	}
 
-	//Experience belongs to a city
+	//Experience has a city
 	public function city() {
 		return $this->hasOne('City');
 	}
