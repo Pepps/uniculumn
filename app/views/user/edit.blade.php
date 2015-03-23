@@ -96,16 +96,15 @@
           <div class="change_password">
             <div class="password_column">
             Gammalt lösenord
-            {{ Form::text('old_password','', array('class' => 'password_column')) }}
+            {{ Form::password('old_password','', array('class' => 'password_column')) }}
             </div>
               <div class="password_column">
               Nytt Lösenord
-            {{ Form::text('new_password','', array('class' => 'password_column')) }}
-              <br/>
+            {{ Form::password('new_password','', array('class' => 'password_column')) }}
               <br/>
               <br/>
               Upprepa Nytt Lösenord
-            {{ Form::text('new_password_confirm','', array('class' => 'password_column')) }}
+            {{ Form::password('new_password_confirm','', array('class' => 'password_column')) }}
               </div>
             </div>
            </div>

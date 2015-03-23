@@ -15,13 +15,16 @@
 
   <div class="view_these_files"> <h3>Filer</h3></div>
 
+  @if ($file != "null")
       @foreach($file as $files)
   <a href="/project/getfiles/{{ $project->id }}/{{ basename($files) }}" class="file_list file_image">{{ basename($files) }} <br></a>
 
     @endforeach
-
+  @else
+    <p> Det finns inga filer här </p>
+  @endif
 </div>
-  
+
 
                 <div class="view_this_project_members">
           <div class="hide_these_members">Dölj projektmedlemmar</div>
@@ -35,10 +38,10 @@
                     @if($user->id != $project->owner_id)
                    <div class="project_members_square">
                               {{ HTML::image('img/avatar.PNG') }}<br/>
-                                  {{ $user->firstname }} 
+                                  {{ $user->firstname }}
                           </div>
                             @endif
-                           @endforeach 
+                           @endforeach
                           <!--  dont remove -->
                           <div style="clear: both;"></div>
 

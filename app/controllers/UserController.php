@@ -71,7 +71,7 @@ class UserController extends BaseController {
           )
         );
         if ($validator->fails()) {
-             return Redirect::to('/user')->withErrors($validator);
+            return Redirect::to('/user/'. $id .'/edit')->withErrors($validator);
         }
         else {
             $user = User::find($id);
@@ -81,7 +81,7 @@ class UserController extends BaseController {
                     $user->password    =   Hash::make(Input::get("new_password"));
                     $user->save();
                     Session::flash('message', 'Successfully updated User!');
-                    return Redirect::intended('user');
+                    return Redirect::to('/user/'. $id .'/edit');
                 }
         }
     }
@@ -100,8 +100,7 @@ class UserController extends BaseController {
 
         $user = Auth::user()->id;
         User::find($user)->categories()->attach(Input::get('subcategories'));
-        return Redirect::to("/user/".Auth::user()->id."/edit");
-
+        return Redirect::to('/user/'. $id .'/edit');
     }
 
     public function delete_interest($category_id){
@@ -109,7 +108,7 @@ class UserController extends BaseController {
             DB::table('interests')->where('user_id', '=', Auth::user()->id)->where('category_id', '=', $category_id)->delete();
             return Redirect::to("/user/".Auth::user()->id."/edit");
         }else{
-            return Redirect::to('/user');
+            return Redirect::to('/user/'. $id .'/edit');
         }
     }
 
