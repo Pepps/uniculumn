@@ -105,7 +105,7 @@
 
           <div class="ex_column">
             @if ($experience->type === '0')
-               
+            
             <div class="ex ico_employment">Anställning</div>
  <h2 class="edit_this edit_column">Redigera anställning</h2>
             @elseif ($experience->type === '1')
