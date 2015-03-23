@@ -41,7 +41,7 @@
                       <div class="icon audio"></div>
                       <h2> {{ $project->title }} </h2>
                         {{ str_limit($project->body, $limit = 30, $end = '...') }}
-                       <a href="/project/show/{{ $project->owner_id }}">Läs mer...</a>
+                       <a href="/project/show/{{ $project->id }}" style="float:right; margin-right: 1vw;">Läs mer</a>
                     </div>
                     @endforeach
             </div>
