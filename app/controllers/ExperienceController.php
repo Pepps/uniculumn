@@ -10,7 +10,7 @@ class ExperienceController extends \BaseController {
 	 */
 	/*
 		This method is responsible for defining the different variables in the /experience/index.blade.php view.
-		That are then looped out in the view in order to get specific data from the database. 
+		That are then looped out in the view in order to get specific data from the database.
 		variables:
 
 	*/
@@ -73,8 +73,8 @@ class ExperienceController extends \BaseController {
 			'title'	 					=> 'required',
 			'description' 				=> 'required|max:255',
 			'type'	 					=> 'required',
-			'from' 						=> 'numeric|required|max:5',
-			'to'						=> 'numeric|max:5',
+			'from' 						=> 'required|max:5',
+			'to'						=> 'max:5',
 			'cities'					=> 'required',
 			//'subcategory_id'            => 'required'
 			)

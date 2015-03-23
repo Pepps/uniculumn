@@ -6,21 +6,26 @@ class UserController extends BaseController {
 
     public function index($id) {
 
+        if (Auth::check()){
         $user = User::find($id);
 
-        if($user->city_id == null){
-          return View::make('user.index')->with('user', $user)->with("city", null)->with('projects', $user->project)
-                            ->with('usedcategories', $user->categories)
-                            ->with('experience', $user->experience);
-        }else{
-          $city  = City::find($user->city_id);
-          $state  = State::find($city->state_id);
+            if($user->city_id == null){
+              return View::make('user.index')->with('user', $user)->with("city", null)->with('projects', $user->project)
+                                ->with('usedcategories', $user->categories)
+                                ->with('experience', $user->experience);
+            }else{
+              $city  = City::find($user->city_id);
+              $state  = State::find($city->state_id);
 
-          return View::make('user.index')->with('user', $user)->with("nocity", false)
-            ->with('city', $city)->with('state', $state)
-            ->with('projects', $user->project)
-            ->with('usedcategories', $user->categories)
-            ->with('experience', $user->experience);
+                  return View::make('user.index')->with('user', $user)->with("nocity", false)
+                    ->with('city', $city)->with('state', $state)
+                    ->with('projects', $user->project)
+                    ->with('usedcategories', $user->categories)
+                    ->with('experience', $user->experience);
+            }
+        }
+        else{
+            return Redirect::to('/');
         }
     }
 
@@ -31,6 +36,8 @@ class UserController extends BaseController {
     }
 
     public function edit($id) {
+
+        if (Auth::check()) {
         $user = User::find(Auth::user()->id);
         if($user->city_id == null){$nocity = true;}else{$nocity = false;}
 
@@ -39,6 +46,10 @@ class UserController extends BaseController {
                                       ->with("states", State::all())
                                       ->with("cities", City::all())
                                       ->with('usedcategories', $user->categories);
+        }
+        else {
+            return Redirect::to('/');
+        }
     }
 
     public function update($id) {

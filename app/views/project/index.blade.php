@@ -47,7 +47,7 @@
 
              <div class="ex_description">
              <!-- <Beskrivning>  -->
-               <span class="hide_this">{{$value->body}}</span>
+               <span class="hide_this">{{str_limit($value->body, $limit = 150, $end = '...')}}</span>
 
               <!-- </Beskrivning>  -->
 
