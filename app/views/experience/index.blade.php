@@ -5,7 +5,7 @@
 @yield('nav')
 
 <div id="main_content">
-
+           {{ HTML::ul($errors->all()) }}
   <div id="add_new_experience">
     <h1>+ Lägg till en erfarenhet</h1>
 
@@ -92,7 +92,7 @@
       {{ Form::submit('Lägg till erfarenhet', array('class' => 'submit_project')) }}
 
     {{ Form::close() }}
-           {{ HTML::ul($errors->all()) }}
+
            </div>
 
       </div>

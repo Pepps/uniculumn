@@ -4,10 +4,11 @@
 @include('layouts.nav')
 @yield('nav')
 <div id="main_content">
+    <div style="padding: 0vw 20vw;">
     <h1>Dokumentation</h1>
-
     <p>Vi kommer referera till en och samma URI under alla exempel. Vi kommer gå igenom grunderna hur man skriver egna URI’s och vad varje del gör.
-foo.com/search/project/users-firstname_users-lastname_project-title/Dennis-Isak+Emelie_Magnusson_~Hello/first-5
+    	<br>
+	<b>foo.com/search/project/users-firstname_users-lastname_project-title/Dennis-Isak+Emelie_Magnusson_~Hello/first-5</b>
 
 <p>
   URI’n är uppdelad i 4 delar
@@ -39,6 +40,6 @@ Då får vi alla project som Dennis och Isak har jobbat ihop och alla project d�
 Vi filtrera även efter alla titlar som innerhåller ordet Hello. Så om ett project innehåller Hello World eller World Hello så får vi båda dem två. Hade vi inte haft ~ tecknet så hade det bara hetat Hello. 
 ~ tecknet fungar på alla variabler så vill du söka på body i project eller emails som innehåller @gmail.com för att få fram alla andvändare med G Mail konton så funkar det.
 </p>
-
+</div>
 
 @stop
