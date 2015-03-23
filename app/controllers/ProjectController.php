@@ -84,7 +84,7 @@ class ProjectController extends \BaseController {
 	*/
 	public function show($project_id){
 			$Project = Project::find($project_id);
-			$pdir = app_path() . "/projects/" . Auth::user()->pdir . "/" . $Project->title;
+			$pdir = app_path() . "/projects/" . User::find($Project->owner_id)->pdir . "/" . $Project->title;
 			$files = File::allFiles($pdir);
 
 
@@ -92,7 +92,6 @@ class ProjectController extends \BaseController {
           ->with('project', $Project)
 					->with('categories', $Project->category)
 					->with('users', $Project->user)
-					->with('projects',User::find(Auth::user()->id)->project)
 					->with('file', $files);
 	}
 
