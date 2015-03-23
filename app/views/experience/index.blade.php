@@ -5,7 +5,7 @@
 @yield('nav')
 
 <div id="main_content">
-
+           {{ HTML::ul($errors->all()) }}
   <div id="add_new_experience">
     <h1>+ Lägg till en erfarenhet</h1>
 
@@ -92,7 +92,7 @@
       {{ Form::submit('Lägg till erfarenhet', array('class' => 'submit_project')) }}
 
     {{ Form::close() }}
-           {{ HTML::ul($errors->all()) }}
+
            </div>
 
       </div>
@@ -105,7 +105,6 @@
 
           <div class="ex_column">
             @if ($experience->type === '0')
-
             <div class="ex ico_employment">Anställning</div>
  <h2 class="edit_this edit_column">Redigera anställning</h2>
             @elseif ($experience->type === '1')

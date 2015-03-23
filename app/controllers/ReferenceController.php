@@ -1,13 +1,12 @@
-w<?php
+<?php
 
 class ReferenceController extends \BaseController {
 
-	/**
-	 * Display a listing of the resource.
-	 * GET /reference
-	 *
-	 * @return Response
-	 */
+	/*
+		This method is responsible for defining the different variables in the /experience/index.blade.php view.
+		That are then looped out in the view in order to get specific data from the database. 
+		variables are references.
+	*/
 	public function index()
 	{
  		if (Auth::check()){
@@ -20,23 +19,12 @@ class ReferenceController extends \BaseController {
 
 	}
 
-	/**
-	 * Show the form for creating a new resource.
-	 * GET /reference/create
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-		//
-	}
 
-	/**
-	 * Store a newly created resource in storage.
-	 * POST /reference
-	 *
-	 * @return Response
-	 */
+	/*
+		This method is responsible for adding the input field data into the database. 
+		Whenever an referene is created, it will go through this method, first the validator 
+		and then "store" the inputs if the validation goes through. 
+	*/
 	public function store($id)
 	{
 //Rules for input fields
@@ -69,50 +57,7 @@ class ReferenceController extends \BaseController {
 
 
 	}
-
-	/**
-	 * Display the specified resource.
-	 * GET /reference/{id}
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-		//
-	}
-
-	/**
-	 * Show the form for editing the specified resource.
-	 * GET /reference/{id}/edit
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-		//
-	}
-
-	/**
-	 * Update the specified resource in storage.
-	 * PUT /reference/{id}
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
-	{
-		//
-	}
-
-	/**
-	 * Remove the specified resource from storage.
-	 * DELETE /reference/{id}
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
+	// Delete the reference
 	public function destroy($id)
 	{
 		$reference = Reference::find($id);

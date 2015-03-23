@@ -35,7 +35,7 @@
                 <a href="{{ URL::to('/project/' . 'show/' . $value->id ) }}"><div class="ex_button">{{ HTML::image('img/icons/edit/search.PNG') }}</div></a>
 
                 <!-- <Spara ändringar>  -->
-                <div class="ignore_ref_edit edit_this">Stäng</div>
+                <div class="ignore_edit edit_this">Stäng</div>
                 <!-- </Spara ändringar>  -->
                 <!-- </Kontrollknappar>  -->
               </div>

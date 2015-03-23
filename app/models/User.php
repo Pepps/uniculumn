@@ -33,12 +33,9 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 
 	/* A User has one Stat.
 	Once a User is created a Stat will be created. */
+	//We do not have any stats implemented.
 	public function stat() {
 		return $this->hasOne('Stat');
-	}
-
-	public function getAuthPassword() {
-		return $this->password;
 	}
 
         // model function to store form data to database
@@ -46,6 +43,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
             DB::table('users')->insert($data);
      }
 
+     // A user belongs to many categories, or belongs to many "interests"
      public function categories() {
      	return $this->belongsToMany('Category', 'interests', 'user_id', 'category_id');
      }

@@ -10,6 +10,7 @@ class Stat extends Eloquent
 		return $this->belongsToMany('User');
 	}
 
+	// A stat belongs to many projects
 	public function project() {
 		return $this->belongsToMany('Project');
 	}
