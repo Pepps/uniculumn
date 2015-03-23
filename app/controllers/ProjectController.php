@@ -85,7 +85,11 @@ class ProjectController extends \BaseController {
 	public function show($project_id){
 			$Project = Project::find($project_id);
 			$pdir = app_path() . "/projects/" . User::find($Project->owner_id)->pdir . "/" . $Project->title;
-			$files = File::allFiles($pdir);
+			if(file_exists($pdir)) {
+				$files = File::allFiles($pdir);
+			} else {
+				$files = 'null';
+			}
 
 
       return View::make('project.show')
@@ -95,8 +99,8 @@ class ProjectController extends \BaseController {
 					->with('file', $files);
 	}
 
-	/* 
-		This method is responsible for enabling downloading the 
+	/*
+		This method is responsible for enabling downloading the
 		files/projects that are shown in the show projects page.
 	 */
 
@@ -107,12 +111,12 @@ class ProjectController extends \BaseController {
 
 
 				foreach ($files as $file) {
-					if(basename($file) == $filename) $download = $file; 
+					if(basename($file) == $filename) $download = $file;
 
 				}
 				return Response::download($download);
 			}
-		
+
 
 	/*
 		The method responsible for redering the view for the project/{id}/edit and

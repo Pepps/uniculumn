@@ -30,23 +30,8 @@
   <div id="finbox">
   		<p>Med en portfolio online g&ouml;r du det enkelt f&ouml;r f&ouml;retag att skicka jobberbjudande<br> som matchar just dina kompentenser.</p>
   		<a href="/register">{{ HTML::image('img/regi.png', 'register btn',Array('class' => 'a-btn' )) }}</a><br><br>
-      {{ HTML::image('img/big_logo.png', 'Big logo', Array('id' => 'abigloggo')) }}
+      {{ HTML::image('img/big_logo.PNG', 'Big logo', Array('id' => 'abigloggo')) }}
   </div>
 </div>
 
-<script>
-  window.onload =  function(){
-    $("#loggin-btn").on("click", function(){
-      $.ajax({
-        method: "POST",
-        url: "/home",
-        data: { email: $("#username").val(), password: $("#password").val() }
-      }).done(function(data) {
-        window.location.replace("/")
-        }).fail(function() {
-          console.error("Something went wrong!");
-        });
-    });
-  }
-</script>
 @stop

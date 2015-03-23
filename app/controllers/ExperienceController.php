@@ -62,13 +62,13 @@ class ExperienceController extends \BaseController {
 			),
 		array(
 			'location' 					=> 'required',
-			'title'	 					=> 'required',			
+			'title'	 					=> 'required',
 			'description' 				=> 'required|max:255',
 			'type'	 					=> 'required',
 			'from' 						=> 'required|max:5',
 			'to'						=> 'max:5',
 			'cities'					=> 'required',
-			//'subcategory_id'            => 'required'			
+			//'subcategory_id'            => 'required'
 			)
 		);
 		//Validation
@@ -119,10 +119,12 @@ class ExperienceController extends \BaseController {
 	{
 			if (Input::has('to')) {
 				$duration = Input::get('from') . '-' . Input::get('to');
-			} else {							
+			} else {
 				$duration = Input::get('from');
 			}
+
 	
+
 			$experience = Experience::find($id);
 			$experience->location = Input::get('location');
 			$experience->description = Input::get('description');
@@ -135,7 +137,7 @@ class ExperienceController extends \BaseController {
 			$experience->save();
 
 			return Redirect::to('experience');
-		//}
+
 
 	}
 

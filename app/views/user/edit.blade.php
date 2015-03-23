@@ -28,36 +28,50 @@
           <div class="account_column">
             <div class="dark_icon user_fullname"> </div><h3>Namn</h3>
               {{ Form::text('firstname', $user->firstname, array('class' => 'uploadfile')) }}
-            </div>
+          </div>
 
           <div class="account_column">
             <div class="dark_icon user_fullname"> </div><h3>Efternamn</h3>
               {{ Form::text('lastname', $user->lastname, array('class' => 'uploadfile')) }}
-            </div>
+          </div>
+
+          <div class="account_column">
+            <div class="dark_icon user_fullname"> </div><h3>Adress</h3>
+              {{ Form::text('address', $user->address, array('class' => 'uploadfile')) }}
+          </div>
+
+          <div class="account_column">
+            <div class="dark_icon user_fullname"> </div><h3>Postnummer</h3>
+              {{ Form::text('postnumber', $user->zipcode, array('class' => 'uploadfile')) }}
+          </div>
 
           <div class="account_column">
             <div class="dark_icon user_location"> </div> <h3>Ort</h3>
             <select id="state-select">
-                    @foreach ($states as $state)
-                      @if(!$nocity)
-                        @if($state->id == City::find($user->city_id)->state_id)
-                          <option value="{{ $state->id }}" selected >{{$state->name}}</option>
-                        @endif
-                      @else
-                        <option value="{{ $state->id }}">{{$state->name}}</option>
-                      @endif
-                    @endforeach
-            </select>
-            <select name="city" class="form-control" id="cities">
-              @if(!$nocity)
-                <option value="{{ City::find(Auth::user()->city_id)->id }}" selected >{{ City::find(Auth::user()->city_id)->name  }}</option>
-              @else
-                <option value="0" selected >Välj Din Ort</option>
-              @endif
-            </select>
-                  @if(!$nocity)
-                    <span id="hidden_city" style="display:none;">{{$user->city_id}}</span>
+              @foreach ($states as $state)
+                @if(!$nocity)
+                  @if($state->id == City::find($user->city_id)->state_id)
+                    <option value="{{ $state->id }}" selected >{{$state->name}}</option>
+                  @else
+                    <option value="{{ $state->id }}">{{$state->name}}</option>
                   @endif
+                @endif
+              @endforeach
+            </select>
+
+            <select name="city" class="form-control" id="cities">
+              @foreach($cities as $city)
+                @if(!$nocity && $city->id == Auth::user()->city_id)
+                  <option value="{{ $city->id }}" selected >{{ $city->name }}</option>
+                @else
+                  <option value="{{$city->id}}">{{$city->name}}</option>
+                @endif
+              @endforeach
+            </select>
+
+            @if(!$nocity)
+              <span id="hidden_city" style="display:none;">{{$user->city_id}}</span>
+            @endif
           </div>
 
           <div class="account_column">
@@ -71,7 +85,6 @@
           </div>
 
             <input type="submit" class="blue_submit" value="Spara ändringar"></input>
-            <input type="submit" class="dark_submit" value="Avbryt"></input>
 
           {{ Form::close() }}
 
@@ -83,16 +96,15 @@
           <div class="change_password">
             <div class="password_column">
             Gammalt lösenord
-            {{ Form::text('old_password','', array('class' => 'password_column')) }}
+            {{ Form::password('old_password','', array('class' => 'password_column')) }}
             </div>
               <div class="password_column">
               Nytt Lösenord
-            {{ Form::text('new_password','', array('class' => 'password_column')) }}
-              <br/>
+            {{ Form::password('new_password','', array('class' => 'password_column')) }}
               <br/>
               <br/>
               Upprepa Nytt Lösenord
-            {{ Form::text('new_password_confirm','', array('class' => 'password_column')) }}
+            {{ Form::password('new_password_confirm','', array('class' => 'password_column')) }}
               </div>
             </div>
            </div>

@@ -1,4 +1,3 @@
-
 @section('nav')
 
 <div id="ui_sidebar">
@@ -30,5 +29,10 @@
               <a href="/project/create">{{ HTML::image('img/upload_button.PNG', '', array('id' => 'upload_button')) }}</a>
           </div>
       </div>
-
+    <div class="upload_shortcut">
+      <a href="/project/create"><h2 class="cursor" style="color:#fff;">» Ladda upp ett nytt projekt</h2></a>
+      <a href="/project/create">{{ HTML::image('img/upload_button.PNG', '', array('id' => 'upload_button')) }}</a>
+    </div>
+</div>
+</div>
 @stop

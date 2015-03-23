@@ -1,29 +1,22 @@
 <?php
 class CvController extends BaseController {
+
+    /*
+       This controller duse just make the view for CVs and retrives the nessesary
+       data for rendering a CV.
+    */
     public function index($userid) {
+      if(Auth::check()){
 
         return View::make("cv")
                ->with("user", User::find($userid))
                ->with("city", City::find(User::find($userid)->city_id))
                ->with("exps", User::find($userid)->experience)
-               ->with("projects", User::find($userid)->project);
-
-    }
-
-    public function test($id,$useremail) {
-
-        $emails = explode("-",$useremail);
-        $users = Project::find($id)->users;
-        //echo $useremail;
-        foreach($users as $user){
-          foreach($emails as $email){
-            if($email == $user->email){
-              //var_dump($user);
-              echo "<pre>" . $user->toJson() . "</pre><br>";
-            }
-          }
-          //echo "<span>" . $user->email ."</span><br>";
-        }
+               ->with("projects", User::find($userid)->project)
+               ->with("reffs", User::find($userid)->reference);
+      }else{
+        return Redirect::to('/');
+      }
 
     }
 
