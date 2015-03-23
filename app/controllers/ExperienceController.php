@@ -44,21 +44,33 @@ class ExperienceController extends \BaseController {
 			} else {
 				$duration = Input::get('from');
 			}
+
+			if (Input::has('location')) {
+				$location = Input::get('location') . '-' . Input::get('title');
+			} else {
+				$location = Input::get('location');
+			}
 		//Rules for input fields
 		$validator =	Validator::make(
 		array(
 			'location'	 			=> Input::get('location'),
+			'title'					=> Input::get('title'),
 			'description'	 		=> Input::get('description'),
 			'type'	 				=> Input::get('type'),
 			'from' 					=> Input::get('from'),
 			'to'					=> Input::get('to'),
+			'cities'					=> Input::get('cities')
+
 			),
 		array(
+			'location' 					=> 'required',
+			'title'	 					=> 'required',
 			'description' 				=> 'required|max:255',
 			'type'	 					=> 'required',
-			'from' 						=> 'required|max:5',
-			'to'						=> 'max:5',
-			//'subcategory_id'            => 'required'			
+			'from' 						=> 'numeric|required|max:5',
+			'to'						=> 'numeric|max:5',
+			'cities'					=> 'required',
+			//'subcategory_id'            => 'required'
 			)
 		);
 		//Validation
@@ -67,7 +79,7 @@ class ExperienceController extends \BaseController {
               ->withErrors($validator);
 		}else {
 			$experience = new Experience;
-			$experience->location = Input::get('location');
+			$experience->location = $location;
 			$experience->description = Input::get('description');
 			$experience->type = Input::get('type');
 			$experience->duration = $duration;
@@ -83,7 +95,11 @@ class ExperienceController extends \BaseController {
 
 	//Delete the experiences
 	public function deleteExp($id) {
+		$experience = Experience::find($id);
+		$experience->delete();
 
+		Session::flash('message', 'Successfully deleted Experience');
+		return Redirect::to('experience');
 	}
 
 
@@ -112,7 +128,7 @@ class ExperienceController extends \BaseController {
 	{
 			if (Input::has('to')) {
 				$duration = Input::get('from') . '-' . Input::get('to');
-			} else {							
+			} else {
 				$duration = Input::get('from');
 			}
 		//Rules for input fields
@@ -129,7 +145,7 @@ class ExperienceController extends \BaseController {
 		// 	'type'	 					=> 'required',
 		// 	'from' 						=> 'required|max:5',
 		// 	'to'						=> 'max:5',
-		// 	//'subcategory_id'            => 'required'			
+		// 	//'subcategory_id'            => 'required'
 		// 	)
 		// );
 		//Validation
@@ -152,22 +168,6 @@ class ExperienceController extends \BaseController {
 			return Redirect::to('experience');
 		//}
 
-	}
-
-	/**
-	 * Remove the specified resource from storage.
-	 * DELETE /experience/{id}
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
-	{
-		$experience = Experience::find($id);
-		$experience->delete();
-
-		Session::flash('message', 'Successfully deleted Experience');
-		return Redirect::to('experience');
 	}
 
 
