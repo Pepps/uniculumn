@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Uniculum - Mina projekt</title>
+          <link href="css/style.css" type="text/css" rel="stylesheet" />
+          <link rel="shortcut icon" href="img/favicon.ico" />
+          <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
+            <script src="javascript/jquery-1.8.3.js"></script>
+            <script src="javascript/jquery-ui-1.9.2.js"></script>
+            <script src="javascript/jquery.ui.touch-punch.js"></script>
+            <script src="javascript/user_jquery.js"></script>
+    </head>
+     <body>
+
+        <div id="ui_sidebar">
+            
+            <img src="img/logoleft.PNG" class="left_logo"/>
+            <h2><div class="arrow-right"></div><a href="search.html">Avancerad sökning</a></h2>
+            <h2><div class="arrow-right"></div><a href="user_profile.html">Min profil</a></h2>
+            <h2><div class="arrow-right"></div><a href="my_projects.html">Mina projekt</a></h2>
+            <h2><div class="arrow-right"></div><a href="erfarenheter.html">Mina erfarenheter</a></h2>
+
+        </div>
+
+        <div id="ui_header">
+
+            <div class="user_box"> 
+               <div class="user_picture"></div>
+                <div class="username_holder">
+                    <span class="user_name">Severus Snape</span>
+
+                        <div class="arrow-down" id="clickmetoo">
+                          <div class="account_settings">
+                              Kontoinställningar<br/>
+                              Logga ut 
+                                <div class="arrow-up" id="hide_controlpanel"></div>  
+                          </div>
+                        </div>
+                </div>
+            </div>
+
+          <div class="upload_shortcut">
+              <a href="upload_file.html"><h2 class="cursor">» Ladda upp ett nytt projekt</h2>
+              <img src="img/upload_button.PNG" id="upload_button" /></a>
+          </div>
+
+      </div>
+      
+      <div id="main_content">
+
+      <div id="help_projects">
+      <div class="help_logo">
+      </div>
+        <h2>Mina projekt</h2>
+        <p>
+        <img src="img/icons/help/show.PNG"/>Visa, <img src="img/icons/help/edit.PNG"/>redigera eller <img src="img/icons/help/delete.PNG"/>ta bort projekt. <br/>
+        <img src="img/icons/help/show_mm.PNG"/>Visa, <img src="img/icons/help/members.PNG"/>lägg till projektmedlemmar eller  <img src="img/icons/help/delete.PNG"/>ta bort. <br/>
+        <img src="img/icons/help/hashtag.PNG"/>Visa, lägg till eller <img src="img/icons/help/delete.PNG"/>ta bort taggar. <br/>
+        </p>
+      </div>
+
+
+
+          <div id="my_projects">
+              <h1>Mina projekt</h1>
+
+      <div class="ex_column">
+          
+          <div class="edit_tags_block_wrapper" >
+            <div class="arrow-left"></div>
+              <div class="edit_tags_block">
+                  <div class="tag_boxes"><input type="checkbox" name="dumbledore" value="lily"><label for="lily"><span><span></span></span>Pommsssssssssssssssssssssssssses </label></div>
+                  <div class="tag_boxes"><input type="checkbox" name="dumbledore" value="lily"><label for="lily"><span><span></span></span>Kokt</label></div>
+                  <div class="tag_boxes"><input type="checkbox" name="dumbledore" value="lily"><label for="lily"><span><span></span></span>Chips</label></div>
+                  <div class="tag_boxes"><input type="checkbox" name="dumbledore" value="lily"><label for="lily"><span><span></span></span>Pommes </label></div>
+                  <div class="tag_boxes"><input type="checkbox" name="dumbledore" value="lily"><label for="lily"><span><span></span></span>Kokt</label></div>
+                  <div class="tag_boxes"><input type="checkbox" name="dumbledore" value="lily"><label for="lily"><span><span></span></span>Chips</label></div>
+                  <div class="tag_boxes"><input type="checkbox" name="dumbledore" value="lily"><label for="lily"><span><span></span></span>Pommes </label></div>
+                  <div class="tag_boxes"><input type="checkbox" name="dumbledore" value="lily"><label for="lily"><span><span></span></span>Kokt</label></div>
+                  <div class="tag_boxes"><input type="checkbox" name="dumbledore" value="lily"><label for="lily"><span><span></span></span>Chips</label></div>
+                  <div class="tag_boxes"><input type="checkbox" name="dumbledore" value="lily"><label for="lily"><span><span></span></span>Pommes </label></div>
+                  <div class="tag_boxes"><input type="checkbox" name="dumbledore" value="lily"><label for="lily"><span><span></span></span>Kokt</label></div>
+                  <div class="tag_boxes"><input type="checkbox" name="dumbledore" value="lily"><label for="lily"><span><span></span></span>Chips</label></div>
+                  <div class="tag_boxes"><input type="checkbox" name="dumbledore" value="lily"><label for="lily"><span><span></span></span>Pommes </label></div>
+                  <div class="tag_boxes"><input type="checkbox" name="dumbledore" value="lily"><label for="lily"><span><span></span></span>Kokt</label></div>
+               </div>
+           </div>
+
+            <div class="ex ico_video">
+              Video
+            </div>
+
+              <h2 class="edit_this edit_column">Redigera projekt</h2>
+
+              <div class="edit_wrapper">
+
+                   <!-- <Kategori/created at>  -->
+                      <div class="ex_float hide_this exp_location">Potatis<img src="img/icons/edit/categories.PNG"/></div>
+                      <div class="ex_float hide_this">2007/03/23 <img src="img/icons/edit/clock.PNG"/></div>
+                   <!-- </Plats/tid>  -->
+                   
+                   <!-- <Redigera kategori>  -->
+                       <div class="ex_float edit_this">
+                        <select>
+                              <option value="none">Kategori</option>
+                              <option value="volvo">Potatis</option>
+                              <option value="saab">Fläsksallad</option>
+                              <option value="mercedes">Grötrullar</option>
+                              <option value="audi">Bananlåda</option>
+                            </select><br/><br/>
+
+                       <div class="edit_tags edit_this">
+                         <img src="img/hashtag.PNG"/> Ändra taggar  
+
+                       </div>
+                       </div>
+
+                  <!-- </Redigera plats/tid>  -->
+
+                   <!-- <Kontrollknappar>  -->
+                        <div class="ex_button" style="background-color: #d70808;"><img src="img/icons/edit/delete.PNG"/></div>
+                        <div class="ex_button edit_experience"><img src="img/icons/edit/edit.PNG"/></div>
+                        <div class="ex_button edit_references"><img src="img/icons/edit/members.PNG"/></div>
+                        <div class="ex_button delete_project"><img src="img/icons/edit/search.PNG"/></div>
+
+                         <!-- <Spara ändringar>  -->
+                            <div class="add_edit edit_this">
+                              Spara ändringar
+                            </div>
+                            <div class="ignore_edit edit_this">
+                                Ångra
+                            </div>
+                        <!-- </Spara ändringar>  -->
+                   <!-- </Kontrollknappar>  -->
+
+              </div>
+
+
+             <!-- <Titel>  -->
+                <h2 class="hide_this"><a href="">Snape, Snape!</a></h2>
+             <!-- </Titel>  -->
+
+             <!-- <Redigera titel>  -->
+                <input type="text" value="Snape, Snape!" class="edit_this"></input>
+             <!-- </Redigera titel>  -->
+
+             <div class="ex_description">
+             <!-- <Beskrivning>  -->
+               <span class="hide_this">Snape, Snape, Severus Snape, Snape, Snape, Severus Snape... Dumbledore!</span>
+             <!-- </Beskrivning>  -->
+
+             <!-- <Redigera beskrivning>  -->
+                <textarea class="edit_this" rows="7">Snape, Snape, Severus Snape, Snape, Snape, Severus Snape... Dumbledore!</textarea>
+             <!-- </Redigera beskrivning>  -->
+             </div> 
+
+          <!-- <Lägg till projektmedlemmar>  -->
+            <div class="references_choices">
+                
+                <div class="ref_column">
+                  
+                  <h2> Lägg till projektmedlemmar</h2>
+
+                  
+                  <h3>Sök</h3><input class="references_input" id="last_name"></input>
+
+                  <div class="add_selected_member">Lägg till</div>
+                </div>
+
+                 <div class="ref_column">
+                <div class="added_members">
+                <span>etafemtioj@gmail.com <img class="delete_added_member" src="img/delete_button.PNG"/></span>
+                <span>etttvåtretusenhundrafemtioj@gmail.com <img class="delete_added_member" src="img/delete_button.PNG"/></span>
+                <span>ettj@gmail.com <img class="delete_added_member" src="img/delete_button.PNG"/></span>
+                </div>
+                    
+
+                  <div class="addreference">
+                     Klar
+                  </div>
+                  <div class="clearreference">
+                      Ångra
+                  </div>
+                </div>
+              </div> 
+
+             <!-- </Lägg till projektmedlemmar>  -->
+                
+           
+
+             <!-- <Referenser>  -->
+            <div class="show_references">
+            <img src="img/small_menu.PNG"/> Visa projektmedlemmar  <div class="show_tags"><img src="img/hashtag.PNG"/> Visa taggar</div><br/>
+            
+              <div class="allreferences">
+
+                <div class="project_members_square">
+                        <div class="delete_member"><img src="img/icons/edit/delete.PNG"/></div>
+                    <img src="img/albus.PNG"/><br/>
+                    Albus
+                </div>
+
+                <div class="project_members_square">
+                        <div class="delete_member"><img src="img/icons/edit/delete.PNG"/></div>
+                    <img src="img/ron.PNG"/><br/>
+                    Ron
+                </div>
+                <div class="project_members_square">
+                        <div class="delete_member"><img src="img/icons/edit/delete.PNG"/></div>
+                    <img src="img/harry.PNG"/><br/>
+                    Harry
+                </div>
+
+                <div class="project_members_square">
+                        <div class="delete_member"><img src="img/icons/edit/delete.PNG"/></div>
+                    <img src="img/voldy.PNG"/><br/>
+                    Voldemort
+                </div>
+
+                <div class="project_members_square">
+                        <div class="delete_member"><img src="img/icons/edit/delete.PNG"/></div>
+                    <img src="img/hermione.PNG"/><br/>
+                    Hermione
+                </div>
+                <div class="project_members_square">
+                        <div class="delete_member"><img src="img/icons/edit/delete.PNG"/></div>
+                    <img src="img/snape.PNG"/><br/>
+                    Severus
+                </div>
+
+              </div>
+
+              <div class="alltags">
+
+                 <span class="tag">#musik <img src="img/icons/edit/delete.PNG" class="delete_tag"/></span> 
+                 <span>#beat <img src="img/icons/edit/delete.PNG" class="delete_tag"/></span> 
+                 <span>#acapella <img src="img/icons/edit/delete.PNG" class="delete_tag"/></span>  
+                 <span>#teamwork <img src="img/icons/edit/delete.PNG" class="delete_tag"/></span>
+                 <span>#magi <img src="img/icons/edit/delete.PNG" class="delete_tag"/></span> 
+                 <span>#chips <img src="img/icons/edit/delete.PNG" class="delete_tag"/></span> 
+                <div class="confirm_changes">
+                        <div class="add_edit save_tagedits">
+                              Spara ändringar
+                            </div>
+                            <div class="ignore_edit ignore_tagedits">
+                                Ångra
+                            </div>
+                </div>
+              </div>
+              
+
+            </div>
+          </div>
+            </div>
+          </div>
+
+
+
+
+
+
+      </div>
+
+      </body>      
+</html>
