@@ -83,9 +83,9 @@
                   <div class="upload_column">
                     <div class="dark_icon time_icon"></div>
                     <div class="time_separator"> <h3>Från</h3>
-                     {{ Form::text('from', Input::old('name'), array('class' => 'form-control')) }}</div>
+                     {{ Form::text('from', Input::old('name'), array('class' => 'form-control', 'placeholder' => 'År')) }}</div>
                     <div class="time_separator"> <h3>Till</h3>
-                    {{ Form::text('to', Input::old('name'), array('class' => 'form-control')) }}</div>
+                    {{ Form::text('to', Input::old('name'), array('class' => 'form-control', 'placeholder' => 'År')) }}</div>
 
                   </div>
 
@@ -261,12 +261,12 @@
             </div>
           </div>
   <!-- </Lägg till ny referens>  -->
-  </div>
+ 
 
     @endforeach
+ </div>
+</div>
 
-</div>
-</div>
 
 
 @stop
