@@ -54,7 +54,7 @@
              <h3>Ladda upp fil</h3>
              {{ Form::file('files[]', array('multiple'=>true, "class" => 'uploadfile')) }}
           </div>
-          <span><b>Om du vill lade upp ett störe arbete så rekomderar vi att du gör en Zip fil av det och laddar up den.</b></span>
+          <span><b>Om du vill ladda upp ett större projekt, rekommenderar vi att du laddar upp som zip format.</b></span>
           <br/><br/><br/>
           <input type="submit" class="submit_project" value="Skapa projekt">
           <div style="clear: both;"></div>

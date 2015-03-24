@@ -40,7 +40,7 @@
           @endif
         @endforeach
 
-        <h3><br>Anstälningar</br></h3><hr>
+        <h3><br>Anställningar</br></h3><hr>
         @foreach($exps as $exp)
           @if($exp->type == 0)
             <div>

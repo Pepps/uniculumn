@@ -1524,7 +1524,7 @@ margin-left: 4vw;}
 #my_experience, #my_projects {
 	float: left;
 	width: 40vw;
-	margin-left: 1vw;
+
 }
 
 .delete_member {
@@ -2124,6 +2124,10 @@ input[type=radio]:not(old):checked + label > span > span{
 	height: 4.6vw;
 }
 
+#roligbox ul {
+	padding: 0;
+}
+
 #loginbox {
     width: 20vw;
     height: 13.1vw;
@@ -2133,13 +2137,17 @@ input[type=radio]:not(old):checked + label > span > span{
     border-radius: 0.3vw;
     background: #43BF7E;
    	color: white;
-   	font-family: "calibri light";
+   	font-family: "Kozuka";
     text-align: center;
+}
+
+#loginbox form {
+   	font-family: "Kozuka";
 }
 
 #finbox {
     width: 69.7vw;
-    height: 30vw;
+    height: auto;
     border: 0.3vw solid #3FB272;
    	border-radius: 0.3vw;
     margin:0 auto;
@@ -2270,10 +2278,14 @@ text-align: center;
 }
 
 #form {
-font-family: "calibri light";
-font-size: 20px;
+font-family: "Kozuka";
+font-size: 1.5vw;
 color: white;
 text-align: center;
+}
+
+#form input{
+font-family: "Kozuka";
 }
 
 .reg-btn {
@@ -2465,4 +2477,13 @@ text-align: center;
 
 #my_experiences{
   margin-right: 3.5vw;
+}
+
+#regerror ul {
+	list-style: none;
+	padding: 0;
+	color: #fff;
+	font-family: "Kozuka";
+	font-size: 1.3vw;
+	margin-top: -0.8vw;
 }
