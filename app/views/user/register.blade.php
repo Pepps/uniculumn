@@ -11,7 +11,9 @@
     <div>
       <div id = "box">
         <h1>Skapa ett konto</h1>
+        <div id="regerror">
         {{ HTML::ul($errors->all()) }}
+      </div>
         <div id="form">
           {{ Form::open(array('url' => '/register_action','action' => 'AuthController@store', 'method' => 'post')) }}
           {{Form::label('fname', 'Förnamn')}}<br>

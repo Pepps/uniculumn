@@ -123,6 +123,7 @@ class ExperienceController extends \BaseController {
 			} else {
 				$duration = Input::get('from');
 			}
+
 			$experience = Experience::find($id);
 			$experience->location = Input::get('location');
 			$experience->description = Input::get('description');
@@ -135,7 +136,7 @@ class ExperienceController extends \BaseController {
 			$experience->save();
 
 			return Redirect::to('experience');
-		//}
+
 
 	}
 

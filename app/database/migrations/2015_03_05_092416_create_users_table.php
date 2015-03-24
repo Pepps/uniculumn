@@ -26,8 +26,8 @@ class CreateUsersTable extends Migration {
 			$table->text('description')->nullable();
 			$table->integer('city_id')->unsigned()->nullable();
 			$table->string('address', 120)->nullable();
-			$table->integer('zipcode')->nullable();
-			$table->integer('phone')->nullable();
+			$table->string('zipcode')->nullable();
+			$table->string('phone')->nullable();
 
 
 			$table->string('token', 100);

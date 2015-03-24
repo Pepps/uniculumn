@@ -13,8 +13,7 @@
       @foreach ($projects as $value)
       <div class="ex_column">
 
-    <div class="ex ico_audio">
-      Ljud
+    <div class="ex ico_project">
     </div>
 
       <div class="edit_wrapper project_list">

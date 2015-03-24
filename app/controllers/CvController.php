@@ -6,6 +6,7 @@ class CvController extends BaseController {
        data for rendering a CV.
     */
     public function index($userid) {
+      if(Auth::check()){
 
         return View::make("cv")
                ->with("user", User::find($userid))
@@ -13,6 +14,9 @@ class CvController extends BaseController {
                ->with("exps", User::find($userid)->experience)
                ->with("projects", User::find($userid)->project)
                ->with("reffs", User::find($userid)->reference);
+      }else{
+        return Redirect::to('/');
+      }
 
     }
 
