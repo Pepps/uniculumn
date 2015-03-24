@@ -99,8 +99,9 @@
 
 
           <h1>Mina erfarenheter</h1>
+          <div id="my_experience">
          @foreach ($experiences as $experience)
-      <div id="my_experience">
+
 
 
           <div class="ex_column">
@@ -219,15 +220,16 @@
       <img src="../img/phonenumber.PNG"/>{{ $ref->phone }}  <br/>
       <img src="../img/email.PNG"/>  {{ $ref->email }}
         </div>
+              @endforeach
       </div>
-      @endforeach
+
     </div>
    <!-- </Referenser>  -->
 
 
 
 
- </div>
+
    <!-- <Lägg till ny referens>  -->
     <div class="references_choices">
 
@@ -262,7 +264,8 @@
           </div>
   <!-- </Lägg till ny referens>  -->
  
-
+ </div>
+ 
     @endforeach
  </div>
 </div>
