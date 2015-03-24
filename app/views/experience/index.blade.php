@@ -220,8 +220,9 @@
       <img src="../img/phonenumber.PNG"/>{{ $ref->phone }}  <br/>
       <img src="../img/email.PNG"/>  {{ $ref->email }}
         </div>
+              @endforeach
       </div>
-      @endforeach
+
     </div>
    <!-- </Referenser>  -->
 
