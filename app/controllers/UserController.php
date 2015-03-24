@@ -103,14 +103,14 @@ class UserController extends BaseController {
         $user->description    =   Input::get("description");
         $user->save();
 
-        return Redirect::to('/user');
+        return Redirect::to('/user/' . $id . '/edit');
 
     }
 
-    public function update_interest() {
+    public function update_interest($id) {
 
         $user = Auth::user()->id;
-        User::find($user)->categories()->attach(Input::get('subcategories'));
+        User::find($id)->categories()->attach(Input::get('subcategories'));
         return Redirect::to('/user/'. $id .'/edit');
     }
 

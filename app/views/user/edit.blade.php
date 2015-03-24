@@ -53,8 +53,10 @@
                   @if($state->id == City::find($user->city_id)->state_id)
                     <option value="{{ $state->id }}" selected >{{$state->name}}</option>
                   @else
-                    <option value="{{ $state->id }}">{{$state->name}}</option>
+                   <option value="{{ $state->id }}">{{$state->name}}</option>
                   @endif
+                @else
+                 <option value="{{ $state->id }}">{{$state->name}}</option>
                 @endif
               @endforeach
             </select>
@@ -134,7 +136,6 @@
           <h2>Ändra presentation</h2>
           {{ Form::textarea('description', $user->description, array('class' => 'form-control')) }}
             <input type="submit" class="blue_submit" value="Spara ändringar"></input>
-            <input type="submit" class="dark_submit" value="Bläddra"></input>
             <br/><br /><br /><br />
         {{ Form::close() }}
 
