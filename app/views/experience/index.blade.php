@@ -258,7 +258,7 @@
               </button>
 
               <div class="clearreference">
-                Ta bort
+                Ångra
               </div>
             </div>
           </div>
