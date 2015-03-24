@@ -1132,6 +1132,7 @@ ortnamn ska få plats */
 
 /* bakgrunderna för mediatyp */
 .ico_audio {background-image: url(../img/audio.PNG); background-size:6vw;  }
+.ico_project {background-image: url(../img/projects.PNG); background-size:6vw;  }
 .ico_game {background-image: url(../img/game.PNG); background-size:6vw;  }
 .ico_video {background-image: url(../img/video.PNG); background-size:6vw;  }
 .ico_essay {background-image: url(../img/essay.PNG); background-size:6vw;  }
