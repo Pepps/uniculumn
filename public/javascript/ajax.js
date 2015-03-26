@@ -246,7 +246,7 @@ function ajax_city(id) {
         }
     });
 }
-/*
+
 function get_cities(stateselect, cities) {
   $(stateselect).on("change", function() {
     $.ajax({
@@ -268,7 +268,7 @@ window.onload = function() {
     get_cities( '#state-select', '#cities');
     get_cities('#change-state-select', '#change-cities');
 }
-*/
+
 function stateShow(id) {
     $.ajax({
         type    : "GET",

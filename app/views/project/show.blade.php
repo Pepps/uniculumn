@@ -36,10 +36,11 @@
 
                     @foreach($project->users as $user)
                     @if($user->id != $project->owner_id)
-                   <div class="project_members_square">
+                   <a href="/profile/{{$user->id}}">
+                    <div class="project_members_square">
                               {{ HTML::image('img/avatar.PNG') }}<br/>
                                   {{ $user->firstname }}
-                          </div>
+                          </div></a>
                             @endif
                            @endforeach
                           <!--  dont remove -->

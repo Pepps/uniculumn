@@ -1,6 +1,9 @@
 <?php
 
 class ReferenceController extends \BaseController {
+    /*
+        Author : Kevin
+    */
 
 	/*
 		This method is responsible for defining the different variables in the /experience/index.blade.php view.
@@ -32,8 +35,8 @@ class ReferenceController extends \BaseController {
 		$rules = array(
 			'firstname' 			=> 'required',
 			'lastname' 				=> 'required',
-			'email' 				=> 'required',
-			'phone' 				=> 'required',
+			'email' 				=> 'required|email',
+			'phone' 				=> 'required|digits_between:10,10',
 			);
 
 		$validator = Validator::make(Input::all(), $rules);
@@ -43,6 +46,7 @@ class ReferenceController extends \BaseController {
           return Redirect::to('experience')
               ->withErrors($validator);
 		}else {
+			//Else if validation does not fail input goes into database
 			$reference = new Reference;
 			$reference->firstname = Input::get('firstname');
 			$reference->lastname = Input::get('lastname');

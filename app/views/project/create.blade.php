@@ -9,7 +9,7 @@
 
       <div id="main_content">
 
-      <h1>{{ HTML::image('img/cloud.PNG', 'a picture', array('class' => 'cloud')) }}Ladda upp nytt projekt</h1>
+      <h1><div class="cloud">Ladda upp nytt projekt</div></h1>
       {{ Form::open(array('url' => 'project', 'files'=>true, 'method'=>'post')) }}
 
       {{ HTML::ul($errors->all()) }}

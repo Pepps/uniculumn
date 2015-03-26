@@ -137,7 +137,7 @@
 
                  <select id="change-state-select">
                   @foreach ($states as $state)
-                        <option value="{{ $state->id }}">{{$state->name}}</option>
+                        <option value="{{$state->id}}" selected>{{$state->name}}</option>
                       @endforeach
                     </select>
 
